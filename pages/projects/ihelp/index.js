@@ -65,18 +65,18 @@ const Page = () => {
             <p>At the core, while we can never be fully prepared for calamities, this will create an opportunity for us to respond more efficiently. As Ateneans, we continue to find ways and innovate on how we can better respond to the call of those who need us most. <b>iHelpSAMAHAN is only the beginning</b>.</p>
           </Grid>
           <Grid item sm>
-          <Typography variant="h4" component="h2" className={classes.contentHeader} style={{ marginBottom: 10 }}>Key Personnels</Typography>
+            <Typography variant="h4" component="h2" className={classes.contentHeader} style={{ marginBottom: 10 }}>Key Personnels</Typography>
             <Grid container direction="row">
-              <Grid item sm={6} style={{ display: 'flex', alignItems: 'center' }}>
+              <Grid item sm={6} style={{ display: 'flex', alignItems: 'center', minWidth: 150 }}>
                 <PhoneIcon /> <Typography style={{ marginLeft: 10 }}>09982310294</Typography>
               </Grid>
-              <Grid item sm={6} style={{ display: 'flex', alignItems: 'center' }}>
+              <Grid item sm={6} style={{ display: 'flex', alignItems: 'center', minWidth: 150 }}>
                 <PhoneIcon /> <Typography style={{ marginLeft: 10 }}>09167111802</Typography>
               </Grid>
-              <Grid item sm={6} style={{ display: 'flex', alignItems: 'center' }}>
+              <Grid item sm={6} style={{ display: 'flex', alignItems: 'center', minWidth: 150 }}>
                 <PhoneIcon /> <Typography style={{ marginLeft: 10 }}>09271301256</Typography>
               </Grid>
-              <Grid item sm={6} style={{ display: 'flex', alignItems: 'center' }}>
+              <Grid item sm={6} style={{ display: 'flex', alignItems: 'center', minWidth: 150 }}>
                 <PhoneIcon /> <Typography style={{ marginLeft: 10 }}>09157242683</Typography>
               </Grid>
             </Grid>

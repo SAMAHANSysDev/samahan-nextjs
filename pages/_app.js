@@ -3,10 +3,28 @@ import PropTypes from 'prop-types';
 import Head from 'next/head';
 import { ThemeProvider } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
+import Router from 'next/router';
+import NProgress from 'nprogress';
 import theme from '../components/theme';
 import Header from '../components/header';
 import Footer from '../components/footer';
 import 'react-calendar/dist/Calendar.css';
+
+NProgress.configure({
+  showSpinner: false
+})
+
+Router.onRouteChangeStart = () => {
+  NProgress.start();
+};
+
+Router.onRouteChangeComplete = () => {
+  NProgress.done();
+};
+
+Router.onRouteChangeError = () => {
+  NProgress.done();
+};
 
 export default function SamahanFrontend(props) {
   const { Component, pageProps } = props;

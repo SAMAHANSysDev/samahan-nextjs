@@ -32,9 +32,6 @@ const Page = () => {
 
       <Grid container direction="row" spacing={3} alignItems="center" className={classes.contentContainer}>
         <Grid item sm>
-          <Typography variant="h1" component="h2" className={classes.contentHeader} style={{ lineHeight: '0.8em', fontSize: 'calc(30px + 4vw)' }}>
-            SAMAHAN
-          </Typography>
           <Typography variant="h1" component="h2" className={classes.contentHeader} style={{ lineHeight: '0.8em', fontSize: 'calc(30px + 3vw)' }}>
             #ConstiNatinTo
           </Typography><br />
@@ -54,14 +51,37 @@ const Page = () => {
 
       <div style={{ margin: 'auto', width: '90%' }}>
         <Grid container direction="row" spacing={6} className={classes.contentContainer}>
-
-          {/*<Grid item sm>
-            <TwitterTimelineEmbed
-              sourceType="profile"
-              screenName="addusamahan"
-              options={{height: 800, width: '100vw'}}
-            />
-          </Grid>*/}
+          <Grid item sm={8}>
+            <Typography variant="h4" component="h2" className={classes.contentHeader}>What is the Constitution?</Typography>
+            <p>In general, the constitution is considered as the highest law of the land. The constitution describes the basic principles of the state which revolves around the separation of powers, checks and balances, people’s participation, political disposition, etc. The constitution also includes the structures and processes of the government wherein it identifies the rudimentary national positions, branches of government, hierarchy of power, etc. It also states and identifies the processes of budget dissemination, law-making, bureaucracy, etc. Lastly, the constitution expresses the fundamental rights of the constituents which cannot be changed by a simple legislative act.</p>
+            <p>In the context of SAMAHAN, the SAMAHAN constitution is the foundation of the rights and welfare of the students. It states the basic principles of the student government in representing the student body of Ateneo de Davao University. It also includes the scope of SAMAHAN itself, from its systems and processes, student government structure, and limitation of powers. The SAMAHAN Constitution protects the autonomy of students through emphasizing its capability of self-governance.</p>
+            <div style={{ height: 50 }}></div>
+            <Typography variant="h4" component="h2" className={classes.contentHeader}>Functions of the Constitution</Typography>
+            <ul>
+              <li>The SAMAHAN constitution legitimizes the student government of the university. It enables the SAMAHAN to function as a student government.</li>
+              <li>The SAMAHAN constitution serves as the embodiment of democracy within the institution, which enables the student government to recognize the power of the student population in decision making.</li>
+              <li>It serves as a guide in administering the Ateneo students, through defining the limitation of powers of the students in position, and by stating the detailed system and processes of the student government. Which identifies the constitutionality of each and every action that has been or will be committed.</li>
+              <li>It states and protects the fundamental rights of students as a constituent of the university and SAMAHAN.</li>
+              <li>It declares the capacity of students for self-governance and decision making.</li>
+              <li>It resolves conflict in terms of issues concerning, impeachment, elections, autonomy, and misuse of powers.</li>
+              <li>The SAMAHAN Constitution is the basis for obtaining accountability.</li>
+            </ul>
+          </Grid>
+          <Grid item sm>
+            <Typography variant="h4" component="h2" className={classes.contentHeader} style={{ marginBottom: 10 }}>Contact Personnels</Typography>
+            <Grid container direction="row">
+              <Grid item sm={6}>
+                <Typography variant="h6">Jyp Phyllis Galan</Typography>
+                <Typography variant="caption">jpcgalan@addu.edu.ph</Typography><br/>
+                <Typography variant="caption">09178710948</Typography>
+              </Grid>
+              <Grid item sm={6}>
+                <Typography variant="h6">Brian Joseph Unabia</Typography>
+                <Typography variant="caption">bjmunabia@addu.edu.ph</Typography><br/>
+                <Typography variant="caption">09084056623</Typography>
+              </Grid>
+            </Grid>
+          </Grid>
         </Grid>
       </div>
     </div>
