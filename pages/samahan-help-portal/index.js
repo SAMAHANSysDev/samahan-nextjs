@@ -63,11 +63,11 @@ const Page = () => {
         <Grid container direction="row" spacing={6} className={classes.contentContainer}>
           <FAQs />
           <Grid item sm>
-            {/*<TwitterTimelineEmbed
+            <TwitterTimelineEmbed
               sourceType="profile"
               screenName="addusamahan"
               options={{height: 800, width: '100vw'}}
-            />*/}
+            />
           </Grid>
         </Grid>
       </div>
