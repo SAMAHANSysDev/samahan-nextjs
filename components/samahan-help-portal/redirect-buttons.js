@@ -19,6 +19,11 @@ const useStyles = makeStyles((theme) => ({
     margin: 'auto',
     width: '95%'
   },
+  faqCard: {
+    minWidth: 200,
+    backgroundColor: theme.palette.primary.main,
+    color: theme.palette.secondary.main
+  },
   cardRoot: {
     minWidth: 200,
     color: theme.palette.primary.main,

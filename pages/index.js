@@ -53,8 +53,17 @@ const List = ({ posts }) => {
 };
 
 List.getInitialProps = async (ctx) => {
-  const res = await WP.posts();
-  return { posts: res }
+  try {
+    const res = await WP.posts();
+    if (res) { 
+      return { posts: res };
+    } else {
+      return { posts: [] };
+    }
+  } catch (err) {
+    console.log(err);
+    return { posts: [] };
+  }
 }
 
 export default List;
