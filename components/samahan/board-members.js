@@ -9,6 +9,8 @@ import CardActionArea from '@material-ui/core/CardActionArea';
 import CardMedia from '@material-ui/core/CardMedia';
 import CardContent from '@material-ui/core/CardContent';
 
+import boardMembers from '../../data/samahan/board-members';
+
 const useStyles = makeStyles((theme) => ({
   contentHeader: {
     fontFamily: 'Montserrat',
@@ -40,63 +42,6 @@ const Page = () => {
   
   const classes = useStyles();
 
-  const boardMembers = [
-    {
-      name: 'Samantha Claire Cayona',
-      position: 'SECRETARY-GENERAL',
-      email: 'scgcayona@addu.edu.ph',
-      img: 'https://samahan-cdn.snry.xyz/2.png'
-    },
-    {
-      name: 'Rona Marie De Castro',
-      position: 'TREASURER',
-      email: 'rmcdecastro@addu.edu.ph',
-      img: 'https://samahan-cdn.snry.xyz/3.png'
-    },
-    {
-      name: 'Elijah James Banuelos',
-      position: 'ADMINSTRATIVE UNDERSECRETARY',
-      email: 'ejcbanuelos@addu.edu.ph',
-      img: 'https://samahan-cdn.snry.xyz/8.png'
-    },
-    {
-      name: 'Riza Claire Pardillo',
-      position: 'FINANCE SECRETARY',
-      email: 'rizcapardillo@addu.edu.ph',
-      img: 'https://samahan-cdn.snry.xyz/2.png'
-    },
-    {
-      name: 'Marion James Tarnate',
-      position: 'FINANCE UNDERSECRETARY',
-      email: 'mjttarnate@addu.edu.ph',
-      img: 'https://samahan-cdn.snry.xyz/9.png'
-    },
-    {
-      name: 'Aldriena Thehani Angas',
-      position: 'CHIEF-OF-STAFF',
-      email: 'attangas@addu.edu.ph',
-      img: 'https://samahan-cdn.snry.xyz/5.png'
-    },
-    {
-      name: 'Mary Angelie M. Ocon',
-      position: 'EXECUTIVE SECRETARY',
-      email: 'mamocon@addu.edu.ph',
-      img: 'https://samahan-cdn.snry.xyz/6.png'
-    },
-    {
-      name: 'Michael John Vorgs Villas',
-      position: 'EXECUTIVE UNDERSECRETARY',
-      email: 'mjvrvillas@addu.edu.ph',
-      img: 'https://samahan-cdn.snry.xyz/4.png'
-    },
-    {
-      name: 'Euneece Olbes',
-      position: 'ADMINISTRATIVE SECRETARY',
-      email: 'eafolbes@addu.edu.ph',
-      img: 'https://samahan-cdn.snry.xyz/7.png'
-    }
-  ]
-
   return (
     <>
       <Grid container direction="row" spacing={3} alignItems="center" justify="center">
@@ -117,18 +62,18 @@ const Page = () => {
             <CardActionArea disabled>
               <CardMedia
                 className={classes.cardMedia}
-                image="https://samahan-cdn.snry.xyz/1.png"
-                title="President"
+                image={boardMembers[0].img}
+                title={boardMembers[0].position}
               />
               <CardContent>
                 <Typography style={{ fontSize: '1.7em' }}>
-                  Renz Allan S. Lacorte
+                  {boardMembers[0].name}
                 </Typography>
                 <Typography style={{ fontSize: '1em' }}>
-                  PRESIDENT
+                  {boardMembers[0].position}
                 </Typography>
                 <Typography style={{ fontSize: '1em' }}>
-                  raslacorte@addu.edu.ph
+                  {boardMembers[0].email}
                 </Typography>
               </CardContent>
             </CardActionArea>
@@ -137,31 +82,35 @@ const Page = () => {
       </Grid>
 
       <Grid container direction="row" spacing={3} alignItems="center" justify="center">
-        { boardMembers.map((member) => {
-          return (
-            <Grid item sm={4} key={member.email}>
-              <Card className={classes.cardRoot} elevation={0} variant="outlined">
-                <CardActionArea disabled>
-                  <CardMedia
-                    className={classes.cardMedia}
-                    image={member.img}
-                    title={member.position}
-                  />
-                  <CardContent>
-                    <Typography style={{ fontSize: '1.7em' }}>
-                      {member.name}
-                    </Typography>
-                    <Typography style={{ fontSize: '1em' }}>
-                      {member.position}
-                    </Typography>
-                    <Typography style={{ fontSize: '1em' }}>
-                      {member.email}
-                    </Typography>
-                  </CardContent>
-                </CardActionArea>
-              </Card>
-            </Grid>
-          );
+        { boardMembers.map((member, index) => {
+          if (index !== 0) {
+            return (
+              <Grid item sm={4} key={member.email}>
+                <Card className={classes.cardRoot} elevation={0} variant="outlined">
+                  <CardActionArea disabled>
+                    <CardMedia
+                      className={classes.cardMedia}
+                      image={member.img}
+                      title={member.position}
+                    />
+                    <CardContent>
+                      <Typography style={{ fontSize: '1.7em' }}>
+                        {member.name}
+                      </Typography>
+                      <Typography style={{ fontSize: '1em' }}>
+                        {member.position}
+                      </Typography>
+                      <Typography style={{ fontSize: '1em' }}>
+                        {member.email}
+                      </Typography>
+                    </CardContent>
+                  </CardActionArea>
+                </Card>
+              </Grid>
+            );
+          } else {
+            return null;
+          }
         })}
       </Grid>
     </>
