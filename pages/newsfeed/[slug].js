@@ -3,6 +3,7 @@ import WP from '../../utils/wordpress';
 import parse from 'html-react-parser';
 import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
+import Head from 'next/head';
 
 const useStyles = makeStyles((theme) => ({
   contentContainer: {
@@ -30,6 +31,15 @@ const page = ({ post, author }) => {
   }, [post]);
   return (
     <div className={classes.contentContainer}>
+      <Head>
+        <title>{post.title.rendered} - SAMAHAN</title>
+        <meta name="description" content={post.excerpt.rendered.replace(/<[^>]+>/g, '')} />
+        <meta name="twitter:card" value="summary" />
+        <meta property="og:title" content={post.title.rendered} />
+        <meta property="og:type" content="article" />
+        <meta property="og:url" content={`https://samahan.snry.xyz/newsfeed/${post.slug}`} />
+        <meta property="og:description" content={post.excerpt.rendered.replace(/<[^>]+>/g, '')} />
+      </Head>
       <div className={classes.spacer}></div>
 
       <Typography variant="h3" component="h4" className={classes.contentHeader} style={{ marginBottom: 20 }}>

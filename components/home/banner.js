@@ -55,7 +55,7 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-const List = () => {
+const List = ({ bannerImage }) => {
   // Get the data of the current list.
   const classes = useStyles();
 
@@ -66,7 +66,7 @@ const List = () => {
           component="img"
           classes={{ media: classes.bannerNewImage }}
           className={classes.bannerImage}
-          image="https://samahan-cdn.snry.xyz/img-corousel-1.jpg"
+          image={bannerImage}
         />
       </div>
       <div className={classes.bannerTextContainer}>

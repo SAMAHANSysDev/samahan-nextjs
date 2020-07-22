@@ -7,6 +7,7 @@ import Help from '../components/home/help';
 import NewsFeed from '../components/home/newsfeed';
 import Projects from '../components/home/projects';
 import SocialMedia from '../components/home/social-media';
+import Head from 'next/head';
 
 const useStyles = makeStyles((theme) => ({
   contentContainer: {
@@ -26,11 +27,22 @@ const List = ({ posts }) => {
   // Get the data of the current list.
   
   const classes = useStyles();
+  const bannerImage = "https://samahan-cdn.snry.xyz/img-corousel-1.jpg";
 
   return (
     <div className={classes.rootContainer}>
-      {/* Insert header here! */}
-      <Banner />
+      <Head>
+        <title>Home - SAMAHAN</title>
+        <meta name="description" content="The Official Student Government of Ateneo de Davao University" />
+        <meta name="twitter:card" value="summary" />
+        <meta property="og:title" content="Samahan ng mga Mag-aaral ng Pamantasan ng Ateneo de Davao" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://samahan.snry.xyz/" />
+        <meta property="og:image" content={bannerImage} />
+        <meta property="og:description" content="The Official Student Government of Ateneo de Davao University" />
+      </Head>
+
+      <Banner bannerImage={bannerImage} />
       <div className={classes.contentContainer}>
         <div className={classes.spacer}></div>
         

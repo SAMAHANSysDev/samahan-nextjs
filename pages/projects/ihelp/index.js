@@ -1,5 +1,6 @@
 import React from "react";
 import { fade, makeStyles } from '@material-ui/core/styles';
+import Head from 'next/head';
 
 import Typography from '@material-ui/core/Typography';
 
@@ -29,6 +30,17 @@ const Page = () => {
 
   return (
     <div className={classes.rootContainer}>
+
+      <Head>
+        <title>iHELP - SAMAHAN</title>
+        <meta name="description" content="Student-initiated efforts to address and respond to emergencies" />
+        <meta name="twitter:card" value="summary" />
+        <meta property="og:title" content="iHELP" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://samahan.snry.xyz/projects/ihelp" />
+        <meta property="og:description" content="Student-initiated efforts to address and respond to emergencies" />
+      </Head>
+
       <div style={{ height: 100 }} />
 
       <Grid container direction="row" spacing={3} alignItems="center" className={classes.contentContainer}>
