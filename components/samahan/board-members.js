@@ -11,7 +11,7 @@ import CardContent from '@material-ui/core/CardContent';
 
 const useStyles = makeStyles((theme) => ({
   contentHeader: {
-    fontFamily: 'Open\ Sans',
+    fontFamily: 'Montserrat',
   },
   
   cardRoot: {

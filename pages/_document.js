@@ -10,8 +10,7 @@ export default class SamahanDocument extends Document {
         <Head>
           {/* PWA primary color */}
           <meta name="theme-color" content={theme.palette.primary.main} />
-          <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,700&display=swap" />
-          <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Open+Sans:wght@800&display=swap" rel="stylesheet" />
+          <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;800&family=Open+Sans:wght@400;600;800&display=swap" rel="stylesheet" />
           <link rel="stylesheet" href="https://unpkg.com/nprogress@0.2.0/nprogress.css" />
           <link rel="icon" type="image/png" href="https://samahan-cdn.snry.xyz/favicon.png"></link>
         </Head>

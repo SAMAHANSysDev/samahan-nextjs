@@ -16,7 +16,7 @@ const useStyles = makeStyles((theme) => ({
     width: '95%'
   },
   contentHeader: {
-    fontFamily: 'Open\ Sans',
+    fontFamily: 'Montserrat',
   },
   rootContainer: {
     width: '100%',
@@ -52,10 +52,10 @@ const Page = () => {
           <Typography variant="h1" component="h2" className={classes.contentHeader} style={{ lineHeight: '0.8em', fontSize: 'calc(30px + 3vw)' }}>
             Student Services
           </Typography><br />
-          <Typography variant="h4" component="h2" style={{ lineHeight: '1.5em', fontSize: 'calc(10px + 1vw)' }}>
+          <Typography variant="h4" component="h2" style={{ lineHeight: '1.5em', fontSize: 'calc(10px + 0.8vw)' }}>
             Student Manual for Services offered by the University
           </Typography>
-          <Typography variant="h4" component="h2" style={{ lineHeight: '1.5em', fontSize: 'calc(10px + 1vw)' }}>
+          <Typography variant="h4" component="h2" style={{ lineHeight: '1.5em', fontSize: 'calc(10px + 0.8vw)' }}>
             samahan.addu.edu.ph
           </Typography>
         </Grid>

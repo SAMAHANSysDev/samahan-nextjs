@@ -9,7 +9,7 @@ import Item from './newsfeed-item';
 
 const useStyles = makeStyles((theme) => ({
   contentHeader: {
-    fontFamily: 'Open\ Sans',
+    fontFamily: 'Montserrat',
   },
   headerWithDivider: {
     display: 'flex',

@@ -9,7 +9,7 @@ import { TwitterTimelineEmbed } from 'react-twitter-embed';
 
 const useStyles = makeStyles((theme) => ({
   contentHeader: {
-    fontFamily: 'Open\ Sans',
+    fontFamily: 'Montserrat',
   },
   headerWithDivider: {
     display: 'flex',

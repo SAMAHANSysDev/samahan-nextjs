@@ -11,7 +11,7 @@ import Grid from '@material-ui/core/Grid';
 
 const useStyles = makeStyles((theme) => ({
   contentHeader: {
-    fontFamily: 'Open\ Sans',
+    fontFamily: 'Montserrat',
   },
 }));
 
@@ -23,7 +23,7 @@ const List = () => {
   return (
     <Grid container direction="row" spacing={6} alignItems="center">
       <Grid item md>
-        <Typography variant="h4" component="h2" style={{ lineHeight: '1.5em', fontSize: 'calc(10px + 1vw)' }}>
+        <Typography variant="h4" component="h2" style={{ lineHeight: '1.5em', fontSize: 'calc(10px + 0.8vw)' }}>
           Need some help? Go to
         </Typography>
         <Typography variant="h1" component="h2" className={classes.contentHeader} style={{ lineHeight: '0.8em', fontSize: 'calc(30px + 4vw)' }}>

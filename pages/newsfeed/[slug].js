@@ -11,7 +11,7 @@ const useStyles = makeStyles((theme) => ({
     margin: 'auto'
   },
   contentHeader: {
-    fontFamily: 'Open\ Sans',
+    fontFamily: 'Montserrat',
   },
   spacer: {
     height: 100

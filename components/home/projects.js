@@ -18,7 +18,7 @@ const useStyles = makeStyles((theme) => ({
     margin: 'auto'
   },
   contentHeader: {
-    fontFamily: 'Open\ Sans',
+    fontFamily: 'Montserrat',
   },
   cardRoot: {
     display: 'flex',

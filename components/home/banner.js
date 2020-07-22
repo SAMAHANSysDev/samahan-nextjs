@@ -27,7 +27,7 @@ const useStyles = makeStyles((theme) => ({
   bannerHeader: {
     textAlign: 'right',
     fontSize: '10vw',
-    fontFamily: 'Open\ Sans',
+    fontFamily: 'Montserrat',
     WebkitTextStrokeWidth: '1px',
     WebkitTextStrokeColor: theme.palette.primary.main,
     margin: 0

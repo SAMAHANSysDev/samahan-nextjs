@@ -22,6 +22,6 @@ export default createMuiTheme({
     button: {
       textTransform: "none"
     },
-    fontFamily: 'Montserrat, Open Sans'
+    fontFamily: 'Open Sans, Montserrat'
   }
 });

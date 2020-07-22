@@ -14,7 +14,7 @@ import Departments from '../../components/samahan/departments';
 
 const useStyles = makeStyles((theme) => ({
   contentHeader: {
-    fontFamily: 'Open\ Sans',
+    fontFamily: 'Montserrat',
   },
   motionLogoContainer: {
     position: 'relative'
