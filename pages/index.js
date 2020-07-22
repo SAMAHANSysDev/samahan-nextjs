@@ -1,5 +1,6 @@
 import React from "react";
 import { makeStyles } from '@material-ui/core/styles';
+import WP from '../utils/wordpress';
 
 import Banner from '../components/home/banner';
 import Help from '../components/home/help';
@@ -21,7 +22,7 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-const List = () => {
+const List = ({ posts }) => {
   // Get the data of the current list.
   
   const classes = useStyles();
@@ -41,7 +42,7 @@ const List = () => {
 
         <div className={classes.spacer}></div>
 
-        <NewsFeed />
+        <NewsFeed posts={posts} />
 
         <div className={classes.spacer}></div>
         
@@ -50,5 +51,10 @@ const List = () => {
     </div>
   );
 };
+
+List.getInitialProps = async (ctx) => {
+  const res = await WP.posts();
+  return { posts: res }
+}
 
 export default List;

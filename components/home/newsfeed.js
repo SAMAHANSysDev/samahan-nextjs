@@ -4,8 +4,6 @@ import { fade, makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 
 import Grid from '@material-ui/core/Grid';
-import CircularProgress from '@material-ui/core/CircularProgress';
-import WP from '../../utils/wordpress';
 
 import Item from './newsfeed-item';
 
@@ -30,21 +28,10 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-const List = () => {
+const List = ({ posts }) => {
   const classes = useStyles();
 
-  const [fetched, setFetched] = React.useState(false);
-  const [posts, setPosts] = React.useState([]);
-
-  React.useEffect(() => {
-    WP.posts().then((res) => {
-      setFetched(true);
-      setPosts(res);
-    })
-  }, []);
-
   return (
-
     <>
       <div className={classes.headerWithDivider}>
         <div className={classes.dividerNewsFeed}></div>
@@ -53,16 +40,12 @@ const List = () => {
         </Typography>
       </div>
 
-      { fetched ? 
-        <Grid container direction="row" spacing={3} alignItems="stretch">
-          {posts.map((post) => {
-            // Render one Item component for each one.
-            return <Item key={post.id} item={post} />;
-          })}
-        </Grid> 
-      :
-        <CircularProgress style={{ margin: 'auto' }} />
-      }
+      <Grid container direction="row" spacing={3} alignItems="stretch">
+        {posts.map((post) => {
+          // Render one Item component for each one.
+          return <Item key={post.id} item={post} />;
+        })}
+      </Grid>
     </>
   );
 };
