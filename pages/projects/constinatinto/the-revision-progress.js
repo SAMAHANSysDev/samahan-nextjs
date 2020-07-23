@@ -68,7 +68,7 @@ const Page = () => {
             <p>That is why in this Constitutional Convention, the aims were to revise and finally ratify the constitution so that all activities undertaken by SAMAHAN can be considered as officially sanctioned by a legal and binding document.</p>
             <div style={{ height: 50 }}></div>
             <Typography variant="h4" component="h2" className={classes.contentHeader}>Plan of Actions</Typography>
-            <img src="https://i2.wp.com/samahan.addu.edu.ph/wp-content/uploads/2020/05/constinatintofixed.png?w=794&ssl=1" style={{ width: '100%' }} />
+            <img src="https://samahan-cdn.snry.xyz/constinatintofixed.png" style={{ width: '100%' }} />
           </Grid>
           <Grid item sm>
             <Typography variant="h4" component="h2" className={classes.contentHeader} style={{ marginBottom: 10 }}>Contact Personnels</Typography>
