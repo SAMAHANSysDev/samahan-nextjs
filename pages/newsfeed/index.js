@@ -77,8 +77,10 @@ const Page = ({ posts }) => {
               </Typography>
               <Button variant="contained" color="secondary"
                 style={{ marginTop: 20 }}
-                onClick={() => window.open('https://issuu.com/addusamahan/docs/samahan_newfeed_june_2020?fbclid=IwAR3k9q6PALD3OcWebsjsBleo_nscPnSM3i0A0RY_81hW31Mht20bRI_Y-Dg', '_blank')}
-              >Click here</Button>
+                onClick={() => window.open('https://issuu.com/addusamahan/docs/samahan_newfeed_june_2020', '_blank')}
+              >
+                Click here
+              </Button>
             </div>
           </Grid>
           <Grid item sm={6} className={classes.pictureContainer}>
@@ -92,7 +94,7 @@ const Page = ({ posts }) => {
   );
 };
 
-export async function getStaticProps(ctx) {
+export async function getServerSideProps(ctx) {
   try {
     const res = await WP.posts();
     if (res) { 

@@ -27,6 +27,7 @@ const useStyles = makeStyles((theme) => ({
   },
   rootContainer: {
     width: '80%',
+    margin: 'auto',
     marginBottom: 80
   },
 }));
