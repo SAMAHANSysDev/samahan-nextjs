@@ -20,7 +20,9 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: 'space-between',
     marginTop: 40,
     minWidth: 275,
-    borderRadius: 0
+    borderRadius: 0,
+    height: '100%',
+    padding: 20
   },
 }));
 
@@ -58,20 +60,22 @@ const Item = ({ item }) => {
   }, [item.title])
 
   return (
-    <Grid item component={Card} xs className={classes.cardRoot} elevation={0} variant="outlined">
-      <CardContent>
-        <Typography gutterBottom variant="h5" component="h2" dangerouslySetInnerHTML={{ __html: renderedTitle }} />
-        {author && (
-          <Typography variant="body2" color="textSecondary" component="p">By <b>{author.name}</b></Typography>
-        )}
-        <Typography variant="body2" color="textSecondary" component="p">on <b>{date.toDateString()}</b></Typography>
-        <Typography variant="body1" color="textSecondary" component="p" dangerouslySetInnerHTML={{ __html: renderedExcerpt }} />
-      </CardContent>
-      <CardActions>
-        <Button variant="contained" color="primary" disableElevation onClick={() => router.push(cleanURL(item.link))}>
-          Read More
-        </Button>
-      </CardActions>
+    <Grid item xs>
+      <Card className={classes.cardRoot} elevation={0} variant="outlined">
+        <CardContent>
+          <Typography gutterBottom variant="h5" component="h2" dangerouslySetInnerHTML={{ __html: renderedTitle }} />
+          {author && (
+            <Typography variant="body2" color="textSecondary" component="p">By <b>{author.name}</b></Typography>
+          )}
+          <Typography variant="body2" color="textSecondary" component="p">on <b>{date.toDateString()}</b></Typography>
+          <Typography variant="body1" color="textSecondary" component="p" dangerouslySetInnerHTML={{ __html: renderedExcerpt }} />
+        </CardContent>
+        <CardActions>
+          <Button variant="contained" color="primary" disableElevation onClick={() => router.push(cleanURL(item.link))}>
+            Read More
+          </Button>
+        </CardActions>
+      </Card>
     </Grid>
   );
 };
