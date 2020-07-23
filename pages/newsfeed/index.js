@@ -30,10 +30,7 @@ const useStyles = makeStyles((theme) => ({
     marginBottom: 0
   },
   checkOutContainer: {
-    marginLeft: '20vw',
-    [theme.breakpoints.up('sm')]: {
-      marginLeft: 100
-    },
+    marginLeft: '20vw'
   },
   pictureContainer: {
     display: 'none',
@@ -85,7 +82,9 @@ const Page = ({ posts }) => {
             </div>
           </Grid>
           <Grid item sm={6} className={classes.pictureContainer}>
-            <img src="https://samahan-cdn.snry.xyz/newsfeed.png" style={{ width: '50%' }} />
+            <center>
+              <img src="https://samahan-cdn.snry.xyz/newsfeed.png" style={{ width: '50%' }} />
+            </center>
           </Grid>
         </Grid>
       </div>
