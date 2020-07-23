@@ -8,8 +8,10 @@ const useStyles = makeStyles((theme) => ({
     margin: 'auto'
   },
   calendarContainer: {
+    display: 'flex',
     width: '80%',
     margin: 'auto',
+    justifyContent: 'center'
   },
   rootContainer: {
     width: '100%',
