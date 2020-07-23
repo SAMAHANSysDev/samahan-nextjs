@@ -5,7 +5,9 @@ import Typography from '@material-ui/core/Typography';
 
 import Grid from '@material-ui/core/Grid';
 
-import { TwitterTimelineEmbed } from 'react-twitter-embed';
+import { useRouter } from 'next/router';
+
+import Button from '@material-ui/core/Button';
 
 const useStyles = makeStyles((theme) => ({
   contentContainer: {
@@ -25,6 +27,7 @@ const Page = () => {
   // Get the data of the current list.
   
   const classes = useStyles();
+  const router = useRouter();
 
   return (
     <div className={classes.rootContainer}>
@@ -56,6 +59,8 @@ const Page = () => {
             <Typography variant="h4" component="h2" className={classes.contentHeader}>What is the Constitution?</Typography>
             <p>In general, the constitution is considered as the highest law of the land. The constitution describes the basic principles of the state which revolves around the separation of powers, checks and balances, people’s participation, political disposition, etc. The constitution also includes the structures and processes of the government wherein it identifies the rudimentary national positions, branches of government, hierarchy of power, etc. It also states and identifies the processes of budget dissemination, law-making, bureaucracy, etc. Lastly, the constitution expresses the fundamental rights of the constituents which cannot be changed by a simple legislative act.</p>
             <p>In the context of SAMAHAN, the SAMAHAN constitution is the foundation of the rights and welfare of the students. It states the basic principles of the student government in representing the student body of Ateneo de Davao University. It also includes the scope of SAMAHAN itself, from its systems and processes, student government structure, and limitation of powers. The SAMAHAN Constitution protects the autonomy of students through emphasizing its capability of self-governance.</p>
+            <p>To check the revision progress, </p>
+            <Button variant="contained" color="primary" onClick={() => router.push('/projects/constinatinto/the-revision-progress')}>Click here</Button>
             <div style={{ height: 50 }}></div>
             <Typography variant="h4" component="h2" className={classes.contentHeader}>Functions of the Constitution</Typography>
             <ul>
