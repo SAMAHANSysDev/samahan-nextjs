@@ -7,7 +7,6 @@ const useStyles = makeStyles((theme) => ({
   root: {
     backgroundColor: theme.palette.primary.main,
     padding: 20,
-    marginTop: 80,
     width: '100%'
   },
   text: {

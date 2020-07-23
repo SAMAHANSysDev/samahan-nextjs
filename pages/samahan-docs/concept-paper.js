@@ -19,7 +19,11 @@ const useStyles = makeStyles((theme) => ({
   },
   contentHeader: {
     fontFamily: 'Montserrat',
-  }
+  },
+  rootContainer: {
+    width: '100%',
+    marginBottom: 80
+  },
 }));
 
 const Page = () => {

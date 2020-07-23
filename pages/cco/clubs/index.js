@@ -30,8 +30,8 @@ const useStyles = makeStyles((theme) => ({
   },
   rootContainer: {
     width: '100%',
-    margin: 0
-  }
+    marginBottom: 80
+  },
 }));
 
 const Page = () => {
@@ -42,7 +42,7 @@ const Page = () => {
   return (
     <div className={classes.rootContainer}>
       <div style={{ height: 100 }} />
-      
+
       <CCOBanner />
       
       <div style={{ height: 100 }} />

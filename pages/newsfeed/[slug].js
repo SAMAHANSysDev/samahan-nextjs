@@ -18,8 +18,8 @@ const useStyles = makeStyles((theme) => ({
   },
   rootContainer: {
     width: '100%',
-    margin: 0
-  }
+    marginBottom: 80
+  },
 }));
 
 const page = ({ post, author }) => {
