@@ -1,6 +1,5 @@
 import React from "react";
 import { fade, makeStyles } from '@material-ui/core/styles';
-import Head from 'next/head';
 
 import Typography from '@material-ui/core/Typography';
 
@@ -29,16 +28,6 @@ const Page = () => {
 
   return (
     <div className={classes.rootContainer}>
-
-      <Head>
-        <title>#ConstiNatinTo - SAMAHAN</title>
-        <meta name="description" content="SAMAHAN Constitutional Reform for AY 2020-2021" />
-        <meta name="twitter:card" value="summary" />
-        <meta property="og:title" content="#ConstiNatinTo" />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://samahan.snry.xyz/projects/constinatinto" />
-        <meta property="og:description" content="SAMAHAN Constitutional Reform for AY 2020-2021" />
-      </Head>
 
       <div style={{ height: 100 }} />
 

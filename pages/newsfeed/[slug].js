@@ -32,7 +32,7 @@ const page = ({ post, author }) => {
   return (
     <div className={classes.contentContainer}>
       <Head>
-        <title>{post.title.rendered} - SAMAHAN</title>
+        <title>{post.title.rendered} - SAMAHAN Newsfeed</title>
         <meta name="description" content={post.excerpt.rendered.replace(/<[^>]+>/g, '')} />
         <meta name="twitter:card" value="summary" />
         <meta property="og:title" content={post.title.rendered} />
@@ -40,6 +40,7 @@ const page = ({ post, author }) => {
         <meta property="og:url" content={`https://samahan.snry.xyz/newsfeed/${post.slug}`} />
         <meta property="og:description" content={post.excerpt.rendered.replace(/<[^>]+>/g, '')} />
       </Head>
+      
       <div className={classes.spacer}></div>
 
       <Typography variant="h3" component="h4" className={classes.contentHeader} style={{ marginBottom: 20 }}>

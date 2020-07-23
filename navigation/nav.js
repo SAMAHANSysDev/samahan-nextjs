@@ -1,5 +1,7 @@
 import React from "react";
+
 import { useRouter } from 'next/router';
+
 import Button from '@material-ui/core/Button';
 import Tab from '@material-ui/core/Tab';
 import Tabs from '@material-ui/core/Tabs';
@@ -65,7 +67,7 @@ const Nav = () => {
 
   React.useEffect(() => {
     setRoute(baseUrlMenu(router.pathname));
-  }, [router.pathname])
+  }, [router.pathname]);
 
   const handleChange = (event, newValue) => {
     router.push(newValue);

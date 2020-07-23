@@ -1,13 +1,13 @@
 import React from "react";
 import { makeStyles } from '@material-ui/core/styles';
 import WP from '../utils/wordpress';
+import Head from 'next/head';
 
 import Banner from '../components/home/banner';
 import Help from '../components/home/help';
 import NewsFeed from '../components/home/newsfeed';
 import Projects from '../components/home/projects';
 import SocialMedia from '../components/home/social-media';
-import Head from 'next/head';
 
 const useStyles = makeStyles((theme) => ({
   contentContainer: {
@@ -32,14 +32,7 @@ const List = ({ posts }) => {
   return (
     <div className={classes.rootContainer}>
       <Head>
-        <title>Home - SAMAHAN</title>
-        <meta name="description" content="The Official Student Government of Ateneo de Davao University" />
-        <meta name="twitter:card" value="summary" />
-        <meta property="og:title" content="Samahan ng mga Mag-aaral ng Pamantasan ng Ateneo de Davao" />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://samahan.snry.xyz/" />
         <meta property="og:image" content={bannerImage} />
-        <meta property="og:description" content="The Official Student Government of Ateneo de Davao University" />
       </Head>
 
       <Banner bannerImage={bannerImage} />
@@ -64,17 +57,16 @@ const List = ({ posts }) => {
   );
 };
 
-List.getInitialProps = async (ctx) => {
+export async function getStaticProps(ctx) {
   try {
     const res = await WP.posts();
     if (res) { 
-      return { posts: res };
+      return { props: { posts: res } };
     } else {
-      return { posts: [] };
+      return { props: { posts: [] } };
     }
   } catch (err) {
-    console.log(err);
-    return { posts: [] };
+    return { props: { posts: [] } };
   }
 }
 

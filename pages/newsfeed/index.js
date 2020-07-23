@@ -1,7 +1,6 @@
 import React from "react";
 import { fade, makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
-import Head from 'next/head';
 import WP from '../../utils/wordpress';
 import Item from '../../components/home/newsfeed-item';
 
@@ -23,15 +22,6 @@ const Page = ({ posts }) => {
 
   return (
     <div className={classes.rootContainer}>
-      <Head>
-        <title>Newsfeed - SAMAHAN</title>
-        <meta name="description" content="News and Stories of and for the Student Body" />
-        <meta name="twitter:card" value="summary" />
-        <meta property="og:title" content="Newsfeed" />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://samahan.snry.xyz/newsfeed" />
-        <meta property="og:description" content="News and Stories of and for the Student Body" />
-      </Head>
       {/* Insert header here! */}
       <div className={classes.contentContainer}>
         <Grid container direction="row" spacing={3} alignItems="stretch">
@@ -45,17 +35,16 @@ const Page = ({ posts }) => {
   );
 };
 
-Page.getInitialProps = async (ctx) => {
+export async function getStaticProps(ctx) {
   try {
     const res = await WP.posts();
     if (res) { 
-      return { posts: res };
+      return { props: { posts: res } };
     } else {
-      return { posts: [] };
+      return { props: { posts: [] } };
     }
   } catch (err) {
-    console.log(err);
-    return { posts: [] };
+    return { props: { posts: [] } };
   }
 }
 

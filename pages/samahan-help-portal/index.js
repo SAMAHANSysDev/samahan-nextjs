@@ -10,7 +10,6 @@ import RedirectButtons from '../../components/samahan-help-portal/redirect-butto
 
 import { TwitterTimelineEmbed } from 'react-twitter-embed';
 
-import Head from 'next/head';
 
 const useStyles = makeStyles((theme) => ({
   contentContainer: {
@@ -33,15 +32,6 @@ const Page = () => {
 
   return (
     <div className={classes.rootContainer}>
-      <Head>
-        <title>Help Portal - SAMAHAN</title>
-        <meta name="description" content="Concerns, Questions & Queries" />
-        <meta name="twitter:card" value="summary" />
-        <meta property="og:title" content="Help Portal" />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://samahan.snry.xyz/samahan-help-portal" />
-        <meta property="og:description" content="Concerns, Questions & Queries" />
-      </Head>
 
       <div style={{ height: 100 }} />
 

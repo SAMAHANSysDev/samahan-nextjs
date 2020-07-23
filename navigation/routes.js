@@ -1,19 +1,27 @@
 export default [
   {
     name: "Home",
-    href: "/"
+    href: "/",
+    title: "Home",
+    desc: "The Official Student Government of Ateneo de Davao University",
   },
   {
     name: "Help Portal",
-    href: "/samahan-help-portal"
+    href: "/samahan-help-portal",
+    title: "Help Portal",
+    desc: "Concerns, Questions & Queries"
   },
   {
     name: "SAMAHAN",
-    href: "/samahan"
+    href: "/samahan",
+    title: "About SAMAHAN",
+    desc: "Samahan ng mga Mag-aaral ng Pamantasan ng Ateneo de Davao"
   },
   {
     name: "Calendar",
-    href: "/calendar"
+    href: "/calendar",
+    title: "Calendar",
+    desc: "Comprehensive Timeline of Student Activities"
   },
   {
     name: "Projects",
@@ -21,21 +29,29 @@ export default [
     submenu: [
       {
         name: 'Student Services',
-        href: '/projects/student-services-manual'
+        href: '/projects/student-services-manual',
+        title: "Student Services Manual",
+        desc: "Student Manual for Services offered by the University"
       },
       {
         name: 'iHELP',
-        href: '/projects/ihelp'
+        href: '/projects/ihelp',
+        title: "iHELP",
+        desc: "Student-initiated efforts to address and respond to emergencies"
       },
       {
         name: '#ConstiNatinTo',
-        href: '/projects/constinatinto'
+        href: '/projects/constinatinto',
+        title: "#ConstiNatinTo",
+        desc: "SAMAHAN Constitutional Reform for AY 2020-2021"
       }
     ]
   },
   {
     name: "Newsfeed",
-    href: "/newsfeed"
+    href: "/newsfeed",
+    title: "Newsfeed",
+    desc: "News and Stories of and for the Student Body"
   },
   {
     name: "CCO",
@@ -43,16 +59,22 @@ export default [
     submenu: [
       {
         name: 'Clubs',
-        href: '/cco/clubs'
+        href: '/cco/clubs',
+        title: "CCO Clubs",
+        desc: "Clubs and Organizations of the Ateneo de Davao University"
       },
       {
         name: 'Officers',
-        href: '/cco/officers'
+        href: '/cco/officers',
+        title: "CCO Officers",
+        desc: "Clubs and Organizations of the Ateneo de Davao University"
       }
     ]
   },
   {
     name: "Docs",
-    href: "/samahan-docs"
+    href: "/samahan-docs",
+    title: "SAMAHAN Docs",
+    desc: "Official Document Source and Free Downloadables"
   },
 ];
