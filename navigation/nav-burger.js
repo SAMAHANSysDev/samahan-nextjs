@@ -52,29 +52,31 @@ export default function NestedList({ onChosen }) {
       className={classes.root}
     >
       {routes.map((menu) => {
-        return 'submenu' in menu ? (
-          <React.Fragment key={`${menu.name}`}>
-            <ListItem key={`${menu.name}_item`} button onClick={() => handleClick(menu.name)}>
+        if (!menu.hidden) {
+          return 'submenu' in menu ? (
+            <React.Fragment key={`${menu.name}`}>
+              <ListItem key={`${menu.name}_item`} button onClick={() => handleClick(menu.name)}>
+                <ListItemText primary={menu.name} />
+                {open === menu.name ? <ExpandLess /> : <ExpandMore />}
+              </ListItem>
+              <Collapse key={`${menu.name}_collapse`} in={open === menu.name} timeout="auto" unmountOnExit>
+                <List component="div" disablePadding>
+                  {menu.submenu.map((subMenu) => {
+                    return (
+                      <ListItem key={`${subMenu.name}_collapse`} button className={classes.nested} onClick={() => handleLink(subMenu.href)} >
+                        <ListItemText primary={subMenu.name} />
+                      </ListItem>
+                    )
+                  })}
+                </List>
+              </Collapse>
+            </React.Fragment>
+          ) : (
+            <ListItem key={`${menu.name}_item`} button onClick={() => handleLink(menu.href)} >
               <ListItemText primary={menu.name} />
-              {open === menu.name ? <ExpandLess /> : <ExpandMore />}
             </ListItem>
-            <Collapse key={`${menu.name}_collapse`} in={open === menu.name} timeout="auto" unmountOnExit>
-              <List component="div" disablePadding>
-                {menu.submenu.map((subMenu) => {
-                  return (
-                    <ListItem key={`${subMenu.name}_collapse`} button className={classes.nested} onClick={() => handleLink(subMenu.href)} >
-                      <ListItemText primary={subMenu.name} />
-                    </ListItem>
-                  )
-                })}
-              </List>
-            </Collapse>
-          </React.Fragment>
-        ) : (
-          <ListItem key={`${menu.name}_item`} button onClick={() => handleLink(menu.href)} >
-            <ListItemText primary={menu.name} />
-          </ListItem>
-        )
+          )
+        }
       })}
     </List>
   );

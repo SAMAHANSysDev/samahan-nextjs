@@ -74,7 +74,28 @@ export default [
   {
     name: "Docs",
     href: "/samahan-docs",
-    title: "SAMAHAN Docs",
+    title: "Reservation Docs",
     desc: "Official Document Source and Free Downloadables"
+  },
+  {
+    name: "Requests Docs",
+    href: "/samahan-docs/requests",
+    title: "Requests Docs",
+    desc: "Official Document Source and Free Downloadables",
+    hidden: true
+  },
+  {
+    name: "Concept Paper Docs",
+    href: "/samahan-docs/concept-paper",
+    title: "Concept Paper Docs",
+    desc: "Official Document Source and Free Downloadables",
+    hidden: true
+  },
+  {
+    name: "The Revision Progress",
+    href: "/projects/constinatinto/the-revision-progress",
+    title: "The Revision Progress",
+    desc: "SAMAHAN Constitutional Reform for AY 2020-2021",
+    hidden: true
   },
 ];

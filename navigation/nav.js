@@ -123,20 +123,22 @@ const Nav = () => {
         scrollButtons="auto"
       >
         {routes.map((menu) => {
-          return (
-            [
-              'submenu' in menu ? 
-                <ButtonInTabs key={menu.name} value={menu.href} className={menu.href === route ? classes.dropdownTabsWhite : classes.dropdownTabs} menu={menu} >{menu.name} <ArrowDropDownIcon /></ButtonInTabs>
-              :
-                <Tab 
-                  key={menu.name}
-                  label={menu.name}
-                  value={menu.href}
-                  classes={{ root: classes.tab, wrapper: classes.wrapperTab }}
-                  icon={'submenu' in menu ? <ArrowDropDownIcon /> : null }
-                />
-            ]
-          );
+          if (!menu.hidden) {
+            return (
+              [
+                'submenu' in menu ? 
+                  <ButtonInTabs key={menu.name} value={menu.href} className={menu.href === route ? classes.dropdownTabsWhite : classes.dropdownTabs} menu={menu} >{menu.name} <ArrowDropDownIcon /></ButtonInTabs>
+                :
+                  <Tab 
+                    key={menu.name}
+                    label={menu.name}
+                    value={menu.href}
+                    classes={{ root: classes.tab, wrapper: classes.wrapperTab }}
+                    icon={'submenu' in menu ? <ArrowDropDownIcon /> : null }
+                  />
+              ]
+            );
+          }
         })}
       </Tabs>
   </>
