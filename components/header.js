@@ -138,7 +138,7 @@ function SearchAppBar() {
               <SearchIcon />
             </div>
             <InputBase
-              placeholder="Search"
+              placeholder="Newsfeed"
               classes={{
                 root: classes.inputRoot,
                 input: classes.inputInput,
