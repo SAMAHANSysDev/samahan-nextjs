@@ -32,10 +32,7 @@ const useStyles = makeStyles((theme) => ({
     margin: 'auto'
   },
   secondaryLogo: {
-    display: 'none',
-    [theme.breakpoints.up('sm')]: {
-      display: 'block',
-    },
+    display: 'block',
   },
   menuButton: {
     marginRight: theme.spacing(2),
@@ -133,7 +130,7 @@ function SearchAppBar() {
             <img className={classes.samahanLogo} src="https://samahan-cdn.snry.xyz/Samahan-Top-Bar-Logo.png" />
           </div>
           <Nav />
-          <div className={classes.search}>
+          {/*<div className={classes.search}>
             <div className={classes.searchIcon}>
               <SearchIcon />
             </div>
@@ -153,7 +150,7 @@ function SearchAppBar() {
             aria-label="open drawer"
           >
             <SearchIcon />
-          </IconButton>
+          </IconButton>*/}
           <div className={classes.secondaryLogo}>
             <img className={classes.motionLogo} src="https://samahan-cdn.snry.xyz/More-in-Motion.png" />
           </div>
