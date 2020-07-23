@@ -51,7 +51,6 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: 'space-between',
     padding: '20px 40px 30px',
     width: '80%',
-    height: '100%',
     maxHeight: 500,
     overflow: 'scroll',
     outline: 'none'
