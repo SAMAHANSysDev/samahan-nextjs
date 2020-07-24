@@ -1,5 +1,5 @@
 import React from "react";
-import { fade, makeStyles } from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/core/styles';
 import { useRouter } from 'next/router';
 
 import CardMedia from '@material-ui/core/CardMedia';

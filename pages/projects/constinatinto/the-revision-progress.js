@@ -1,13 +1,9 @@
 import React from "react";
-import { fade, makeStyles } from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/core/styles';
 
 import Typography from '@material-ui/core/Typography';
 
 import Grid from '@material-ui/core/Grid';
-
-import { TwitterTimelineEmbed } from 'react-twitter-embed';
-
-import Button from '@material-ui/core/Button';
 
 const useStyles = makeStyles((theme) => ({
   contentContainer: {

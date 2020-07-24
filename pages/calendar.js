@@ -1,5 +1,5 @@
 import React from "react";
-import { fade, makeStyles } from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/core/styles';
 import gcal from 'utils/google';
 
 import Timeline from '@material-ui/lab/Timeline';
