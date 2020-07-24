@@ -22,8 +22,7 @@ import clubs from '../../data/cco/clubs';
 
 const useStyles = makeStyles((theme) => ({
   contentHeader: {
-    fontFamily: 'Montserrat',
-    fontSize: 'calc(30px + 1vw)'
+    fontFamily: 'Montserrat'
   },
   cardRoot: {
     display: 'flex',
@@ -82,7 +81,7 @@ const Page = () => {
                   />
                   <Divider />
                   <CardContent>
-                    <Typography style={{ fontSize: '1.2em', textAlign: 'center' }}>
+                    <Typography variant="body1" style={{ textAlign: 'center' }}>
                       <b>{club.shortName}</b>
                     </Typography>
                   </CardContent>
@@ -107,7 +106,7 @@ const Page = () => {
           <Card className={classes.modalPaper} elevation={0}>
             { currentClub ?
               <CardContent>
-                <Typography variant="h4" style={{ marginBottom: 10, fontSize: 'calc(10px + 0.8vw)' }}>{currentClub.name}</Typography>
+                <Typography variant="h4" style={{ marginBottom: 10 }}>{currentClub.name}</Typography>
                 <div style={{ height: 50 }} />
                 <Typography>
                   {currentClub.desc}

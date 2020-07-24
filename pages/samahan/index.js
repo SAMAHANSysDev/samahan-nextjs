@@ -43,10 +43,10 @@ const Page = () => {
       <div style={{ height: 100 }} />
       <Grid container direction="row" spacing={3} alignItems="center">
         <Grid item sm={9} component={Paper} elevation={0}>
-          <Typography variant="h3" component="h4" className={classes.contentHeader} style={{ marginBottom: 20 }}>
+          <Typography variant="h1" component="h4" className={classes.contentHeader} style={{ marginBottom: 20 }}>
             SAMAHAN
           </Typography>
-          <Typography style={{ marginBottom: 10, fontSize: '1.3em' }}>
+          <Typography variant="body1" style={{ marginBottom: 10 }}>
           The Samahan ng mga Mag-aaral ng Pamantasan ng Ateneo de
           Davao, or SAMAHAN, is the official Student Government of the
           Higher Education Unit of the Ateneo de Davao University. It is
@@ -54,7 +54,7 @@ const Page = () => {
           promote and protect the rights, welfare, aspirations, and
           interests of the student body.
           </Typography>
-          <Typography style={{ marginBottom: 10, fontSize: '1.3em' }}>
+          <Typography variant="body1" style={{ marginBottom: 10 }}>
           SAMAHAN promotes various advocacies that pertain to social
           justice, climate action, equal rights, and many more that promote
           the welfare of individuals inside and outside of the university. The
@@ -78,7 +78,7 @@ const Page = () => {
           <Typography variant="h3" component="h4" className={classes.contentHeader} style={{ marginBottom: 20 }}>
             SAMAHAN: More in Motion
           </Typography>
-          <Typography style={{ marginBottom: 10, fontSize: '1.3em' }}>
+          <Typography variant="body1" style={{ marginBottom: 10 }}>
           The central point of being in motion is that the SAMAHAN is
           dynamic, flexible, and mobile. All these point out that it is in
           constant progress. The motion does not only revolve around

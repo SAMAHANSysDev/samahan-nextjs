@@ -50,31 +50,31 @@ const Page = () => {
           <Grid item sm={4}>
             {/* Templates */}
             <Typography variant="h4" className={classes.contentHeader}>Templates</Typography>
-            <Button variant="contained" color="primary" startIcon={<SaveIcon />}
+            <Button variant="outlined" color="primary" startIcon={<SaveIcon />}
               disableElevation fullWidth style={{ marginTop: 20 }}
               onClick={() => window.open('http://samahan.addu.edu.ph/wp-content/uploads/2020/04/Reservations-Martin-Hall.docx', '_blank')}
             >
               Martin Hall
             </Button>
-            <Button variant="contained" color="primary" startIcon={<SaveIcon />}
+            <Button variant="outlined" color="primary" startIcon={<SaveIcon />}
               disableElevation fullWidth style={{ marginTop: 20 }}
               onClick={() => window.open('http://samahan.addu.edu.ph/wp-content/uploads/2020/04/Reservations-Finster-Auditorium.docx', '_blank')}
             >
               Finster Auditorium
             </Button>
-            <Button variant="contained" color="primary" startIcon={<SaveIcon />}
+            <Button variant="outlined" color="primary" startIcon={<SaveIcon />}
               disableElevation fullWidth style={{ marginTop: 20 }}
               onClick={() => window.open('http://samahan.addu.edu.ph/wp-content/uploads/2020/04/Reservations-Arrupe-Hall.docx', '_blank')}
             >
               Arrupe Hall
             </Button>
-            <Button variant="contained" color="primary" startIcon={<SaveIcon />}
+            <Button variant="outlined" color="primary" startIcon={<SaveIcon />}
               disableElevation fullWidth style={{ marginTop: 20 }}
               onClick={() => window.open('http://samahan.addu.edu.ph/wp-content/uploads/2020/04/Reservations-Rodriguez-Hall.docx', '_blank')}
             >
               Rodriguez Hall
             </Button>
-            <Button variant="contained" color="primary" startIcon={<SaveIcon />}
+            <Button variant="outlined" color="primary" startIcon={<SaveIcon />}
               disableElevation fullWidth style={{ marginTop: 20 }}
               onClick={() => window.open('http://samahan.addu.edu.ph/wp-content/uploads/2020/04/Reservations-Training-Room-8th-Floor-CCFC.docx', '_blank')}
             >

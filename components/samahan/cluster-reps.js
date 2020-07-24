@@ -43,7 +43,7 @@ const Page = () => {
 
   return (
     <>
-      <Typography variant="h3" component="h4" className={classes.contentHeader} style={{ fontSize: 'calc(20px + 1.5vw)' }}>
+      <Typography variant="h3" component="h4" className={classes.contentHeader}>
         Cluster Representatives
       </Typography>
 
@@ -59,13 +59,13 @@ const Page = () => {
                     title={member.position}
                   />
                   <CardContent>
-                    <Typography style={{ fontSize: '1.7em' }}>
+                    <Typography variant="h5">
                       {member.name}
                     </Typography>
-                    <Typography style={{ fontSize: '1em' }}>
+                    <Typography variant="subtitle2">
                       {member.position}
                     </Typography>
-                    <Typography style={{ fontSize: '1em' }}>
+                    <Typography variant="subtitle2">
                       {member.email}
                     </Typography>
                   </CardContent>

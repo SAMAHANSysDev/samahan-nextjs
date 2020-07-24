@@ -51,7 +51,7 @@ const Page = () => {
               <div className={classes.dividerBoardMembers} />
             </Grid>
             <Grid item sm>
-              <Typography variant="h3" component="h4" className={classes.contentHeader} style={{ fontSize: 'calc(20px + 1.5vw)' }}>
+              <Typography variant="h3" component="h4" className={classes.contentHeader}>
                 Central Board Members
               </Typography>
             </Grid>
@@ -66,13 +66,13 @@ const Page = () => {
                 title={boardMembers[0].position}
               />
               <CardContent>
-                <Typography style={{ fontSize: '1.7em' }}>
+                <Typography variant="h5">
                   {boardMembers[0].name}
                 </Typography>
-                <Typography style={{ fontSize: '1em' }}>
+                <Typography variant="subtitle2">
                   {boardMembers[0].position}
                 </Typography>
-                <Typography style={{ fontSize: '1em' }}>
+                <Typography variant="subtitle2">
                   {boardMembers[0].email}
                 </Typography>
               </CardContent>
@@ -94,13 +94,13 @@ const Page = () => {
                       title={member.position}
                     />
                     <CardContent>
-                      <Typography style={{ fontSize: '1.7em' }}>
+                      <Typography variant="h5">
                         {member.name}
                       </Typography>
-                      <Typography style={{ fontSize: '1em' }}>
+                      <Typography variant="subtitle2">
                         {member.position}
                       </Typography>
-                      <Typography style={{ fontSize: '1em' }}>
+                      <Typography variant="subtitle2">
                         {member.email}
                       </Typography>
                     </CardContent>

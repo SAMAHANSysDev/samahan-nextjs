@@ -68,7 +68,9 @@ const page = ({ post, author }) => {
               by {author.name} on {new Date(post.date).toDateString()}
             </Typography>
             
-            {content}
+            <Typography variant="body1">
+              {content}
+            </Typography>
           </Grid>
           <Grid item sm={3}>
             <Typography variant="h6" component="h4" className={classes.contentHeader}>

@@ -23,13 +23,13 @@ const List = () => {
   return (
     <Grid container direction="row" spacing={6} alignItems="center">
       <Grid item md>
-        <Typography variant="h4" component="h2" style={{ lineHeight: '1.5em', fontSize: 'calc(10px + 0.8vw)' }}>
+        <Typography variant="h5" component="h2" style={{ lineHeight: '1.5em' }}>
           Need some help? Go to
         </Typography>
-        <Typography variant="h1" component="h2" className={classes.contentHeader} style={{ lineHeight: '0.8em', fontSize: 'calc(30px + 4vw)' }}>
+        <Typography variant="h1" component="h2" className={classes.contentHeader} style={{ lineHeight: '0.8em' }}>
           SAMAHAN
         </Typography>
-        <Typography variant="h1" component="h2" className={classes.contentHeader} style={{ lineHeight: '0.8em', fontSize: 'calc(30px + 4vw)' }}>
+        <Typography variant="h1" component="h2" className={classes.contentHeader} style={{ lineHeight: '0.8em' }}>
           HELP PORTAL
         </Typography><br />
         <Button variant="contained" color="primary" disableElevation onClick={() => router.push('/samahan-help-portal')}>

@@ -48,10 +48,10 @@ const Page = ({ posts }) => {
     <div className={classes.rootContainer}>
       <div style={{ height: 100 }} />
       <div className={classes.contentContainer}>
-        <Typography variant="h1" component="h2" className={classes.contentHeader} style={{ lineHeight: '0.8em', fontSize: 'calc(30px + 2vw)' }}>
+        <Typography variant="h2" component="h2" className={classes.contentHeader} style={{ lineHeight: '0.8em' }}>
           SAMAHAN NEWSFEED
         </Typography>
-        <Typography variant="h4" component="h2" style={{ lineHeight: '1.5em', fontSize: 'calc(10px + 0.8vw)' }}>
+        <Typography variant="subtitle1" component="h2" style={{ lineHeight: '1.5em' }}>
           News and Stories of and for the Student Body
         </Typography>
       </div>
@@ -69,10 +69,10 @@ const Page = ({ posts }) => {
         <Grid container direction="row" alignItems="center">
           <Grid item sm={6}>
             <div className={classes.checkOutContainer}>
-              <Typography variant="h1" className={classes.contentHeader} style={{ lineHeight: '0.8em', fontSize: 'calc(20px + 2vw)' }}>
+              <Typography variant="h2" className={classes.contentHeader} style={{ lineHeight: '0.8em'}}>
                 Check our
               </Typography>
-              <Typography variant="h1" className={classes.contentHeader} style={{ lineHeight: '0.8em', fontSize: 'calc(20px + 2vw)' }}>
+              <Typography variant="h2" className={classes.contentHeader} style={{ lineHeight: '0.8em' }}>
                 latest release
               </Typography>
               <Button variant="contained" color="secondary"
@@ -94,7 +94,7 @@ const Page = ({ posts }) => {
   );
 };
 
-export async function getServerSideProps(ctx) {
+export async function getStaticProps(ctx) {
   try {
     const res = await WP.posts();
     if (res) { 

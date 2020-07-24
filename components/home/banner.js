@@ -70,16 +70,16 @@ const List = ({ bannerImage }) => {
         />
       </div>
       <div className={classes.bannerTextContainer}>
-        <Typography variant="h6" className={classes.bannerText} style={{ lineHeight: '0.9em' }}>
+        <Typography variant="h4" className={classes.bannerText} style={{ lineHeight: '0.9em' }}>
           Welcome to
         </Typography>
         <Typography variant="h1" component="h2" className={classes.bannerHeader} style={{ lineHeight: '0.9em' }}>
           SAMAHAN
         </Typography>
-        <Typography variant="h6" className={classes.bannerText} style={{ lineHeight: '0.9em' }}>
+        <Typography variant="h4" className={classes.bannerText} style={{ lineHeight: '0.9em' }}>
           The Official Student Government of
         </Typography>
-        <Typography variant="h6" className={classes.bannerText} style={{ lineHeight: '0.9em' }}>
+        <Typography variant="h4" className={classes.bannerText} style={{ lineHeight: '0.9em' }}>
           Ateneo de Davao University
         </Typography>
       </div>

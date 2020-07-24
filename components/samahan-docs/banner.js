@@ -41,16 +41,16 @@ const Page = () => {
         <DescriptionIcon className={classes.motionLogo} />
       </Grid>
       <Grid item sm={8} component={Paper} elevation={0}>
-        <Typography variant="h1" component="h2" className={classes.contentHeader} style={{ lineHeight: '0.8em', fontSize: 'calc(20px + 4vw)' }}>
+        <Typography variant="h1" component="h2" className={classes.contentHeader} style={{ lineHeight: '0.8em' }}>
           SAMAHAN
         </Typography>
-        <Typography variant="h1" component="h2" className={classes.contentHeader} style={{ lineHeight: '0.8em', fontSize: 'calc(20px + 4vw)' }}>
+        <Typography variant="h1" component="h2" className={classes.contentHeader} style={{ lineHeight: '0.8em' }}>
           DOCUMENTS
         </Typography><br />
-        <Typography variant="h4" component="h2" style={{ lineHeight: '1.5em', fontSize: 'calc(10px + 0.8vw)' }}>
+        <Typography variant="subtitle1" component="h2" style={{ lineHeight: '1.5em' }}>
           Official Document Source and Free Downloadables
         </Typography>
-        <Typography variant="h4" component="h2" style={{ lineHeight: '1.5em', fontSize: 'calc(10px + 0.8vw)' }}>
+        <Typography variant="subtitle1" component="h2" style={{ lineHeight: '1.5em' }}>
           samahan.addu.edu.ph
         </Typography>
       </Grid>

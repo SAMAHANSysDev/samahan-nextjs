@@ -80,7 +80,7 @@ const Page = () => {
                   />
                   <Divider />
                   <CardContent>
-                    <Typography style={{ fontSize: '1.2em', textAlign: 'center' }}>
+                    <Typography variant="body1" style={{ textAlign: 'center' }}>
                       <b>{department.name}</b>
                     </Typography>
                   </CardContent>
@@ -105,7 +105,7 @@ const Page = () => {
           <Card className={classes.modalPaper} elevation={0}>
             { currentDepartment ?
               <CardContent>
-                <Typography variant="h4" style={{ marginBottom: 10, fontSize: 'calc(10px + 0.8vw)' }}>{currentDepartment.name}</Typography>
+                <Typography variant="h4" style={{ marginBottom: 10 }}>{currentDepartment.name}</Typography>
                 { currentDepartment.pos1.name ?
                   <>
                     <Typography>

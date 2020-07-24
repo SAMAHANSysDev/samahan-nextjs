@@ -47,13 +47,13 @@ const Page = () => {
           <Grid item sm={4}>
             {/* Templates */}
             <Typography variant="h4" className={classes.contentHeader}>Templates</Typography>
-            <Button variant="contained" color="primary" startIcon={<SaveIcon />}
+            <Button variant="outlined" color="primary" startIcon={<SaveIcon />}
               disableElevation fullWidth style={{ marginTop: 20 }}
               onClick={() => window.open('http://samahan.addu.edu.ph/wp-content/uploads/2020/04/Concept-Paper.docx', '_blank')}
             >
               Concept Paper
             </Button>
-            <Button variant="contained" color="primary" startIcon={<SaveIcon />}
+            <Button variant="outlined" color="primary" startIcon={<SaveIcon />}
               disableElevation fullWidth style={{ marginTop: 20 }}
               onClick={() => {}}
               disabled

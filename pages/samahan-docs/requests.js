@@ -47,55 +47,55 @@ const Page = () => {
           <Grid item sm={4}>
             {/* Templates */}
             <Typography variant="h4" className={classes.contentHeader}>Templates</Typography>
-            <Button variant="contained" color="primary" startIcon={<SaveIcon />}
+            <Button variant="outlined" color="primary" startIcon={<SaveIcon />}
               disableElevation fullWidth style={{ marginTop: 20 }}
               onClick={() => window.open('http://samahan.addu.edu.ph/wp-content/uploads/2020/04/Request-for-Equipment-.docx', '_blank')}
             >
               Request for Equipment
             </Button>
-            <Button variant="contained" color="primary" startIcon={<SaveIcon />}
+            <Button variant="outlined" color="primary" startIcon={<SaveIcon />}
               disableElevation fullWidth style={{ marginTop: 20 }}
               onClick={() => window.open('http://samahan.addu.edu.ph/wp-content/uploads/2020/04/Request-for-Entry.docx', '_blank')}
             >
               Request for Entry of Outsiders
             </Button>
-            <Button variant="contained" color="primary" startIcon={<SaveIcon />}
+            <Button variant="outlined" color="primary" startIcon={<SaveIcon />}
               disableElevation fullWidth style={{ marginTop: 20 }}
               onClick={() => window.open('http://samahan.addu.edu.ph/wp-content/uploads/2020/04/Request-for-LED.docx', '_blank')}
             >
               Request for LED
             </Button>
-            <Button variant="contained" color="primary" startIcon={<SaveIcon />}
+            <Button variant="outlined" color="primary" startIcon={<SaveIcon />}
               disableElevation fullWidth style={{ marginTop: 20 }}
               onClick={() => window.open('http://samahan.addu.edu.ph/wp-content/uploads/2020/04/Request-for-LFD.docx', '_blank')}
             >
               Request for LFD
             </Button>
-            <Button variant="contained" color="primary" startIcon={<SaveIcon />}
+            <Button variant="outlined" color="primary" startIcon={<SaveIcon />}
               disableElevation fullWidth style={{ marginTop: 20 }}
               onClick={() => window.open('http://samahan.addu.edu.ph/wp-content/uploads/2020/04/Request-for-Stilts.docx', '_blank')}
             >
               Request for Stilts
             </Button>
-            <Button variant="contained" color="primary" startIcon={<SaveIcon />}
+            <Button variant="outlined" color="primary" startIcon={<SaveIcon />}
               disableElevation fullWidth style={{ marginTop: 20 }}
               onClick={() => window.open('http://samahan.addu.edu.ph/wp-content/uploads/2020/04/Requests-for-Parents-Consents.docx', '_blank')}
             >
               Request for Parent's Consents
             </Button>
-            <Button variant="contained" color="primary" startIcon={<SaveIcon />}
+            <Button variant="outlined" color="primary" startIcon={<SaveIcon />}
               disableElevation fullWidth style={{ marginTop: 20 }}
               onClick={() => window.open('http://samahan.addu.edu.ph/wp-content/uploads/2020/04/Request-for-Ingress.docx', '_blank')}
             >
               Request for Ingress
             </Button>
-            <Button variant="contained" color="primary" startIcon={<SaveIcon />}
+            <Button variant="outlined" color="primary" startIcon={<SaveIcon />}
               disableElevation fullWidth style={{ marginTop: 20 }}
               onClick={() => window.open('http://samahan.addu.edu.ph/wp-content/uploads/2020/04/Request-for-Overtime.docx', '_blank')}
             >
               Request for Overtime
             </Button>
-            <Button variant="contained" color="primary" startIcon={<SaveIcon />}
+            <Button variant="outlined" color="primary" startIcon={<SaveIcon />}
               disableElevation fullWidth style={{ marginTop: 20 }}
               onClick={() => window.open('http://samahan.addu.edu.ph/wp-content/uploads/2020/04/Request-for-Pink-Slips.docx', '_blank')}
             >

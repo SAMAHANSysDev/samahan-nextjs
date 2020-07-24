@@ -37,16 +37,16 @@ const Page = () => {
 
       <Grid container direction="row" spacing={3} alignItems="center" className={classes.contentContainer}>
         <Grid item sm>
-          <Typography variant="h1" component="h2" className={classes.contentHeader} style={{ lineHeight: '0.8em', fontSize: 'calc(30px + 4vw)' }}>
+          <Typography variant="h1" component="h2" className={classes.contentHeader} style={{ lineHeight: '0.8em' }}>
             SAMAHAN
           </Typography>
-          <Typography variant="h1" component="h2" className={classes.contentHeader} style={{ lineHeight: '0.8em', fontSize: 'calc(30px + 4vw)' }}>
+          <Typography variant="h1" component="h2" className={classes.contentHeader} style={{ lineHeight: '0.8em' }}>
             HELP PORTAL
           </Typography><br />
-          <Typography variant="h4" component="h2" style={{ lineHeight: '1.5em', fontSize: 'calc(10px + 0.8vw)' }}>
+          <Typography variant="subtitle1" component="h2" style={{ lineHeight: '1.5em' }}>
             Concerns, Questions & Queries
           </Typography>
-          <Typography variant="h4" component="h2" style={{ lineHeight: '1.5em', fontSize: 'calc(10px + 0.8vw)' }}>
+          <Typography variant="subtitle1" component="h2" style={{ lineHeight: '1.5em' }}>
             samahan.addu.edu.ph
           </Typography>
         </Grid>

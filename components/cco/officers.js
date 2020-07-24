@@ -23,7 +23,6 @@ import officers from '../../data/cco/officers';
 const useStyles = makeStyles((theme) => ({
   contentHeader: {
     fontFamily: 'Montserrat',
-    fontSize: 'calc(30px + 1vw)'
   },
   cardRoot: {
     display: 'flex',
@@ -79,13 +78,13 @@ const Page = () => {
                     title={officer.position}
                   />
                   <CardContent>
-                    <Typography style={{ fontSize: '1.7em' }}>
+                    <Typography variant="h5">
                       {officer.name}
                     </Typography>
-                    <Typography style={{ fontSize: '1em' }}>
+                    <Typography variant="subtitle2">
                       {officer.position}
                     </Typography>
-                    <Typography style={{ fontSize: '1em' }}>
+                    <Typography variant="subtitle2">
                       {officer.email}
                     </Typography>
                   </CardContent>

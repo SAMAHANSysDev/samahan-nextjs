@@ -43,7 +43,7 @@ const Page = () => {
           <CardActionArea disabled>
             <CardContent>
               <SearchOutlinedIcon style={{ fontSize: 'calc(40px + 4vw)' }} /><br />
-              <Typography variant="h1" component="h2" style={{ lineHeight: '1.5em', fontSize: 'calc(20px + 1vw)' }}>
+              <Typography variant="h4" component="h2" style={{ lineHeight: '1.5em' }}>
                 FAQs
               </Typography>
             </CardContent>
@@ -55,7 +55,7 @@ const Page = () => {
           <CardActionArea onClick={() => window.open('http://tiny.cc/Finance20', '_blank')}>
             <CardContent>
               <AttachMoneyOutlinedIcon style={{ fontSize: 'calc(40px + 4vw)' }} /><br />
-              <Typography variant="h1" component="h2" style={{ lineHeight: '1.5em', fontSize: 'calc(20px + 1vw)' }}>
+              <Typography variant="h4" component="h2" style={{ lineHeight: '1.5em' }}>
                 Finance
               </Typography>
             </CardContent>
@@ -67,7 +67,7 @@ const Page = () => {
           <CardActionArea onClick={() => window.open('http://tiny.cc/MIS20', '_blank')}>
             <CardContent>
               <InfoOutlinedIcon style={{ fontSize: 'calc(40px + 4vw)' }} /><br />
-              <Typography variant="h1" component="h2" style={{ lineHeight: '1.5em', fontSize: 'calc(20px + 1vw)' }}>
+              <Typography variant="h4" component="h2" style={{ lineHeight: '1.5em' }}>
                 M.I.S.
               </Typography>
             </CardContent>
@@ -79,7 +79,7 @@ const Page = () => {
           <CardActionArea onClick={() => window.open('http://tiny.cc/Admissions20', '_blank')}>
             <CardContent>
               <AssignmentIndOutlinedIcon style={{ fontSize: 'calc(40px + 4vw)' }} /><br />
-              <Typography variant="h1" component="h2" style={{ lineHeight: '1.5em', fontSize: 'calc(20px + 1vw)' }}>
+              <Typography variant="h4" component="h2" style={{ lineHeight: '1.5em' }}>
                 Admissions
               </Typography>
             </CardContent>

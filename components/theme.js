@@ -1,6 +1,6 @@
-import { createMuiTheme } from '@material-ui/core/styles';
+import { createMuiTheme, responsiveFontSizes } from '@material-ui/core/styles';
 
-export default createMuiTheme({
+export default responsiveFontSizes(createMuiTheme({
   palette: {
     primary: {
       main: "#14489f",
@@ -8,6 +8,9 @@ export default createMuiTheme({
     secondary: {
       main: "#fff",
     },
+    background: {
+      default: "#fff"
+    }
   },
   breakpoints: {
     values: {
@@ -23,5 +26,6 @@ export default createMuiTheme({
       textTransform: "none"
     },
     fontFamily: 'Open Sans, Montserrat'
-  }
-});
+  },
+  spacing: 10
+}), { factor: 4 });
