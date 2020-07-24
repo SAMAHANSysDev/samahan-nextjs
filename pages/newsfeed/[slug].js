@@ -29,7 +29,6 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const page = ({ post, author }) => {
-  const [content, setContent] = React.useState(null);
   const [recentNews, setRecentNews] = React.useState([]);
   const classes = useStyles();
   const router = useRouter();
@@ -40,10 +39,6 @@ const page = ({ post, author }) => {
       console.log(res);
     })
   }, [])
-
-  React.useEffect(() => {
-    setContent(parse(post.content.rendered));
-  }, [post]);
   return (
     <div className={classes.contentContainer}>
       <Head>
@@ -68,8 +63,8 @@ const page = ({ post, author }) => {
               by {author.name} on {new Date(post.date).toDateString()}
             </Typography>
             
-            <Typography variant="body1">
-              {content}
+            <Typography variant="body1" component="div">
+              {parse(post.content.rendered)}
             </Typography>
           </Grid>
           <Grid item sm={3}>
@@ -93,10 +88,10 @@ const page = ({ post, author }) => {
   )
 }
 
-page.getInitialProps = async (ctx) => {
+export const getServerSideProps = async (ctx) => {
   const res = await WP.posts().slug(ctx.query.slug);
   const author = await WP.users().id(res[0].author);
-  return { post: res[0], author: author }
+  return { props: { post: res[0], author: author }}
 }
 
 export default page;

@@ -57,7 +57,7 @@ const List = ({ posts }) => {
   );
 };
 
-export async function getStaticProps(ctx) {
+export async function getServerSideProps(ctx) {
   try {
     const res = await WP.posts();
     if (res) { 

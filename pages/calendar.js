@@ -140,7 +140,7 @@ const Page = ({ events: rawEvents }) => {
   );
 };
 
-export async function getStaticProps(ctx) {
+export async function getServerSideProps(ctx) {
   try {
     const events = (await gcal.events.list({
       calendarId: process.env.CALENDAR_ID,
