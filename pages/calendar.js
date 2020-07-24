@@ -1,11 +1,6 @@
 import React from "react";
 import { fade, makeStyles } from '@material-ui/core/styles';
-import Calendar from 'react-calendar';
 import gcal from '../utils/google';
-
-import AppBar from '@material-ui/core/AppBar';
-import Tabs from '@material-ui/core/Tabs';
-import Tab from '@material-ui/core/Tab';
 
 import Timeline from '@material-ui/lab/Timeline';
 import TimelineItem from '@material-ui/lab/TimelineItem';
@@ -18,6 +13,8 @@ import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 
 import Banner from '../components/calendar/banner';
+
+import { formatDistanceToNow, format, differenceInSeconds } from 'date-fns';
 
 const useStyles = makeStyles((theme) => ({
   contentContainer: {
@@ -52,30 +49,30 @@ const Page = ({ events: rawEvents }) => {
   // Get the data of the current list.
   const classes = useStyles();
   const [events, setEvents] = React.useState([]);
-  const [daysAway, setDaysAway] = React.useState(0);
   const [nowString, setNowString] = React.useState('');
+  const [currentTime, setCurrentTime] = React.useState(new Date());
 
   React.useEffect(() => {
     setEvents(rawEvents)
   }, []);
 
   React.useEffect(() => {
+    window.setInterval(() => {
+      setCurrentTime(new Date());
+    }, 1000);
+  }, []);
+
+  React.useEffect(() => {
     if (events.length > 0) {
-      setDaysAway(Math.round(((new Date(events[0].start.dateTime)).getTime() - (new Date()).getTime()) / (1000 * 3600 * 24)));
+      if (differenceInSeconds(new Date(events[0].start.dateTime), new Date()) > 0) {
+        setNowString(`You are ${formatDistanceToNow(new Date(events[0].start.dateTime))} away from the next event!`);
+      } else {
+        setNowString(`${events[0].summary} is happening right now!`);
+      }
     } else {
       setNowString(`There are no upcoming events!`);
     }
-  }, [events]);
-
-  React.useEffect(() => {
-    if (daysAway > 1) {
-      setNowString(`You are ${daysAway} days away from the next event!`);
-    } else if (daysAway === 1) {
-      setNowString(`You are ${daysAway} day away from the next event!`);
-    } else {
-      setNowString(`The next event is today!`);
-    }
-  }, [daysAway]);
+  }, [events, currentTime]);
 
   return (
     <div className={classes.rootContainer}>
@@ -92,7 +89,7 @@ const Page = ({ events: rawEvents }) => {
                   This is you, right now.
                 </Typography>
                 <Typography variant="body2" color="secondary">
-                  {(new Date()).toDateString()}
+                  {format(currentTime, 'MMM d, yyyy (h:mm a)')}
                 </Typography>
               </TimelineOppositeContent>
               <TimelineSeparator>
@@ -110,10 +107,10 @@ const Page = ({ events: rawEvents }) => {
               <TimelineItem key={event.id}>
                 <TimelineOppositeContent>
                   <Typography variant="body2" color="secondary">
-                    {(new Date(event.start.dateTime)).toDateString()}
+                    Start: {format(new Date(event.start.dateTime), 'MMM d, yyyy (h:mm a)')}
                   </Typography>
                   <Typography variant="body2" color="secondary">
-                    {(new Date(event.start.dateTime)).toTimeString()}
+                    End: {format(new Date(event.end.dateTime), 'MMM d, yyyy (h:mm a)')}
                   </Typography>
                   <Typography variant="body2" color="secondary">
                     {event.location}
