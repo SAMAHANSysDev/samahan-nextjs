@@ -59,7 +59,7 @@ const List = ({ posts }) => {
 
 export async function getServerSideProps(ctx) {
   try {
-    const res = await WP.posts();
+    const res = await WP.posts().perPage(3).page(1);
     if (res) { 
       return { props: { posts: res } };
     } else {
