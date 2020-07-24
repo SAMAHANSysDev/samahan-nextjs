@@ -14,7 +14,7 @@ import Fade from '@material-ui/core/Fade';
 import CardActions from "@material-ui/core/CardActions";
 import Button from '@material-ui/core/Button';
 
-import advocacies from '../../data/samahan/advocacies';
+import advocacies from 'data/samahan/advocacies';
 
 const useStyles = makeStyles((theme) => ({
   contentHeader: {

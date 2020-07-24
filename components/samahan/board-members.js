@@ -9,7 +9,7 @@ import CardActionArea from '@material-ui/core/CardActionArea';
 import CardMedia from '@material-ui/core/CardMedia';
 import CardContent from '@material-ui/core/CardContent';
 
-import boardMembers from '../../data/samahan/board-members';
+import boardMembers from 'data/samahan/board-members';
 
 const useStyles = makeStyles((theme) => ({
   contentHeader: {

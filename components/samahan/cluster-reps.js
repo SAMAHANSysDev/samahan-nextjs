@@ -9,7 +9,7 @@ import CardActionArea from '@material-ui/core/CardActionArea';
 import CardMedia from '@material-ui/core/CardMedia';
 import CardContent from '@material-ui/core/CardContent';
 
-import clusterRepresentatives from '../../data/samahan/cluster-reps';
+import clusterRepresentatives from 'data/samahan/cluster-reps';
 
 const useStyles = makeStyles((theme) => ({
   contentHeader: {

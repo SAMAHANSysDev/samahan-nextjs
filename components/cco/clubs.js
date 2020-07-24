@@ -18,7 +18,7 @@ import CardActions from "@material-ui/core/CardActions";
 import Button from '@material-ui/core/Button';
 import Paper from '@material-ui/core/Paper';
 
-import clubs from '../../data/cco/clubs';
+import clubs from 'data/cco/clubs';
 
 const useStyles = makeStyles((theme) => ({
   contentHeader: {

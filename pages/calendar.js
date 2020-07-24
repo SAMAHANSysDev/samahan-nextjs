@@ -1,6 +1,6 @@
 import React from "react";
 import { fade, makeStyles } from '@material-ui/core/styles';
-import gcal from '../utils/google';
+import gcal from 'utils/google';
 
 import Timeline from '@material-ui/lab/Timeline';
 import TimelineItem from '@material-ui/lab/TimelineItem';
@@ -12,7 +12,7 @@ import TimelineDot from '@material-ui/lab/TimelineDot';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 
-import Banner from '../components/calendar/banner';
+import Banner from 'components/calendar/banner';
 
 import { formatDistanceToNow, format, differenceInSeconds } from 'date-fns';
 

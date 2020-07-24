@@ -1,13 +1,13 @@
 import React from "react";
 import { makeStyles } from '@material-ui/core/styles';
-import WP from '../utils/wordpress';
+import WP from 'utils/wordpress';
 import Head from 'next/head';
 
-import Banner from '../components/home/banner';
-import Help from '../components/home/help';
-import NewsFeed from '../components/home/newsfeed';
-import Projects from '../components/home/projects';
-import SocialMedia from '../components/home/social-media';
+import Banner from 'components/home/banner';
+import Help from 'components/home/help';
+import NewsFeed from 'components/home/newsfeed';
+import Projects from 'components/home/projects';
+import SocialMedia from 'components/home/social-media';
 
 const useStyles = makeStyles((theme) => ({
   contentContainer: {

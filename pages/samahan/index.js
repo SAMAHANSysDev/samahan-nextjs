@@ -6,10 +6,10 @@ import Typography from '@material-ui/core/Typography';
 import Paper from '@material-ui/core/Paper';
 import Hidden from '@material-ui/core/Hidden';
 
-import Advocasix from '../../components/samahan/advocasix';
-import BoardMembers from '../../components/samahan/board-members';
-import ClusterReps from '../../components/samahan/cluster-reps';
-import Departments from '../../components/samahan/departments';
+import Advocasix from 'components/samahan/advocasix';
+import BoardMembers from 'components/samahan/board-members';
+import ClusterReps from 'components/samahan/cluster-reps';
+import Departments from 'components/samahan/departments';
 
 const useStyles = makeStyles((theme) => ({
   contentHeader: {

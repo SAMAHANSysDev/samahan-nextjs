@@ -1,7 +1,7 @@
 import React from "react";
 import { fade, makeStyles } from '@material-ui/core/styles';
-import ClubsList from '../../../components/cco/clubs';
-import CCOBanner from '../../../components/cco/banner';
+import ClubsList from 'components/cco/clubs';
+import CCOBanner from 'components/cco/banner';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import Paper from '@material-ui/core/Paper';

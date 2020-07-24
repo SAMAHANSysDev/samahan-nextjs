@@ -5,8 +5,8 @@ import Typography from '@material-ui/core/Typography';
 
 import Grid from '@material-ui/core/Grid';
 
-import FAQs from '../../components/samahan-help-portal/faqs';
-import RedirectButtons from '../../components/samahan-help-portal/redirect-buttons';
+import FAQs from 'components/samahan-help-portal/faqs';
+import RedirectButtons from 'components/samahan-help-portal/redirect-buttons';
 
 import { TwitterTimelineEmbed } from 'react-twitter-embed';
 

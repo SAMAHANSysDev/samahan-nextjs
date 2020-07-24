@@ -5,12 +5,12 @@ import { ThemeProvider } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Router, { useRouter } from 'next/router';
 import NProgress from 'nprogress';
-import theme from '../components/theme';
-import Header from '../components/header';
-import Footer from '../components/footer';
+import theme from 'components/theme';
+import Header from 'components/header';
+import Footer from 'components/footer';
 import 'react-calendar/dist/Calendar.css';
 
-import routes from '../navigation/routes';
+import routes from 'navigation/routes';
 
 
 NProgress.configure({

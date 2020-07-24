@@ -1,6 +1,6 @@
 import React from "react";
-import Nav from "../navigation/nav";
-import NavBurger from "../navigation/nav-burger";
+import Nav from "navigation/nav";
+import NavBurger from "navigation/nav-burger";
 
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';

@@ -3,10 +3,10 @@ import { fade, makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
-import Banner from '../../components/samahan-docs/banner';
+import Banner from 'components/samahan-docs/banner';
 import SaveIcon from '@material-ui/icons/Save';
-import NavButtons from '../../components/samahan-docs/nav-buttons';
-import Instructions from '../../components/samahan-docs/concept-paper-ins';
+import NavButtons from 'components/samahan-docs/nav-buttons';
+import Instructions from 'components/samahan-docs/concept-paper-ins';
 
 const useStyles = makeStyles((theme) => ({
   headerContainer: {

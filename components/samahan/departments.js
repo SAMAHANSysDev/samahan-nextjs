@@ -17,7 +17,7 @@ import Divider from '@material-ui/core/Divider';
 import CardActions from "@material-ui/core/CardActions";
 import Button from '@material-ui/core/Button';
 
-import departments from '../../data/samahan/departments';
+import departments from 'data/samahan/departments';
 
 const useStyles = makeStyles((theme) => ({
   contentHeader: {

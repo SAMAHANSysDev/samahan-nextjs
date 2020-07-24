@@ -1,5 +1,5 @@
 import React from 'react';
-import WP from '../../utils/wordpress';
+import WP from 'utils/wordpress';
 import parse from 'html-react-parser';
 import { makeStyles } from '@material-ui/core/styles';
 import { useRouter } from 'next/router';
