@@ -1,6 +1,7 @@
 # SAMAHAN Website (Frontend)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/import/git?s=https%3A%2F%2Fgithub.com%2FSAMAHANSysDev%2Fsamahan-nextjs&env=GOOGLE_AUTH,CALENDAR_ID)
 
-This is the official repository for the currently deployed SAMAHAN website. This project uses Next.js as framework and Material UI as UI library. This is built with the Wordpress REST API as backend in mind.
+This is the official repository for the currently deployed SAMAHAN website. This project uses Next.js as framework and Material UI as UI library. This is built with the Wordpress REST API as backend in mind. The master branch is automatically deployed as a production build.
 
 ## Libraries/Frameworks used
 
