@@ -1,3 +1,15 @@
+/**
+ * 
+ * Next.js uses the _app component to initialize pages.
+ * Overriding this component allows you to do amazing things like:
+ *  - Persisting layout between page changes (header/footer)
+ *  - Keeping state when navigating pages
+ *  - Custom error handling
+ *  - Injecting additional data into pages
+ *  - Adding global CSS
+ * 
+ */
+
 import React from 'react';
 import PropTypes from 'prop-types';
 import Head from 'next/head';

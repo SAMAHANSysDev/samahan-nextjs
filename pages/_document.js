@@ -1,3 +1,10 @@
+/**
+ * 
+ * The _document component is commonly used to augment your application's <html> and <body> tags. 
+ * This is necessary because Next.js pages skip the definition of the surrounding document's markup.
+ * 
+ */
+
 import React from 'react';
 import Document, { Html, Head, Main, NextScript } from 'next/document';
 import { ServerStyleSheets } from '@material-ui/core/styles';
