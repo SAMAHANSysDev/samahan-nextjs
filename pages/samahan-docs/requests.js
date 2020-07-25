@@ -3,11 +3,10 @@ import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
-import Banner from 'components/samahan-docs/banner';
 import SaveIcon from '@material-ui/icons/Save';
 
 import dynamic from 'next/dynamic';
-
+const Banner = dynamic(() => import('components/samahan-docs/banner'));
 const NavButtons = dynamic(() => import('components/samahan-docs/nav-buttons'));
 const Instructions = dynamic(() => import('components/samahan-docs/requests-ins'));
 

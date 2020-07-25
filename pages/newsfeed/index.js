@@ -3,7 +3,10 @@ import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import WP from 'utils/wordpress';
-import Item from 'components/home/newsfeed-item';
+
+import dynamic from 'next/dynamic';
+const Item = dynamic(() => import('components/home/newsfeed-item'));
+
 import Button from '@material-ui/core/Button';
 
 import { cdnURL } from 'utils/constants';

@@ -13,7 +13,7 @@ import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 
 import dynamic from 'next/dynamic';
-const Banner = dynamic(() => import('components/calendar/Banner'));
+const Banner = dynamic(() => import('components/calendar/banner'));
 
 import { formatDistanceToNow, format, differenceInSeconds } from 'date-fns';
 

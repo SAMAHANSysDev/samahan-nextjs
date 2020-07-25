@@ -5,7 +5,9 @@ import Typography from '@material-ui/core/Typography';
 
 import Grid from '@material-ui/core/Grid';
 
-import ServicesList from 'components/projects/student-services-manual/services-list';
+import dynamic from 'next/dynamic';
+
+const ServicesList = dynamic(() => import('components/projects/student-services-manual/services-list'));
 
 import { TwitterTimelineEmbed } from 'react-twitter-embed';
 

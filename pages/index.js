@@ -4,7 +4,7 @@ import WP from 'utils/wordpress';
 import Head from 'next/head';
 import dynamic from 'next/dynamic';
 
-const Banner = dynamic(() => import('components/home/Banner'));
+const Banner = dynamic(() => import('components/home/banner'));
 const Help = dynamic(() => import('components/home/help'));
 const NewsFeed = dynamic(() => import('components/home/newsfeed'));
 const Projects = dynamic(() => import('components/home/projects'));
