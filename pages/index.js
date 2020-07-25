@@ -2,12 +2,13 @@ import React from "react";
 import { makeStyles } from '@material-ui/core/styles';
 import WP from 'utils/wordpress';
 import Head from 'next/head';
+import dynamic from 'next/dynamic';
 
-import Banner from 'components/home/banner';
-import Help from 'components/home/help';
-import NewsFeed from 'components/home/newsfeed';
-import Projects from 'components/home/projects';
-import SocialMedia from 'components/home/social-media';
+const Banner = dynamic(() => import('components/home/Banner'));
+const Help = dynamic(() => import('components/home/help'));
+const NewsFeed = dynamic(() => import('components/home/newsfeed'));
+const Projects = dynamic(() => import('components/home/projects'));
+const SocialMedia = dynamic(() => import('components/home/social-media'));
 
 import { cdnURL } from 'utils/constants';
 

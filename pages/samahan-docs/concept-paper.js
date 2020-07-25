@@ -5,8 +5,11 @@ import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import Banner from 'components/samahan-docs/banner';
 import SaveIcon from '@material-ui/icons/Save';
-import NavButtons from 'components/samahan-docs/nav-buttons';
-import Instructions from 'components/samahan-docs/concept-paper-ins';
+
+import dynamic from 'next/dynamic';
+
+const NavButtons = dynamic(() => import('components/samahan-docs/nav-buttons'));
+const Instructions = dynamic(() => import('components/samahan-docs/concept-paper-ins'));
 
 import { backendURL } from 'utils/constants';
 

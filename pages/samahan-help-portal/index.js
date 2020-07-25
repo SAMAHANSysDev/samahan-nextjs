@@ -5,8 +5,10 @@ import Typography from '@material-ui/core/Typography';
 
 import Grid from '@material-ui/core/Grid';
 
-import FAQs from 'components/samahan-help-portal/faqs';
-import RedirectButtons from 'components/samahan-help-portal/redirect-buttons';
+import dynamic from 'next/dynamic';
+
+const FAQs = dynamic(() => import('components/samahan-help-portal/faqs'));
+const RedirectButtons = dynamic(() => import('components/samahan-help-portal/redirect-buttons'));
 
 import { TwitterTimelineEmbed } from 'react-twitter-embed';
 

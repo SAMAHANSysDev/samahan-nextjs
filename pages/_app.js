@@ -6,8 +6,11 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import Router, { useRouter } from 'next/router';
 import NProgress from 'nprogress';
 import theme from 'components/theme';
-import Header from 'components/header';
-import Footer from 'components/footer';
+
+import dynamic from 'next/dynamic';
+const Header = dynamic(() => import('components/header'));
+const Footer = dynamic(() => import('components/footer'));
+
 import 'react-calendar/dist/Calendar.css';
 
 import routes from 'navigation/routes';

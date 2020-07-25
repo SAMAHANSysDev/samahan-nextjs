@@ -12,7 +12,8 @@ import TimelineDot from '@material-ui/lab/TimelineDot';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 
-import Banner from 'components/calendar/banner';
+import dynamic from 'next/dynamic';
+const Banner = dynamic(() => import('components/calendar/Banner'));
 
 import { formatDistanceToNow, format, differenceInSeconds } from 'date-fns';
 

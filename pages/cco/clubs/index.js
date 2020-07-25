@@ -1,10 +1,9 @@
 import React from "react";
 import { makeStyles } from '@material-ui/core/styles';
-import ClubsList from 'components/cco/clubs';
-import CCOBanner from 'components/cco/banner';
-import Grid from '@material-ui/core/Grid';
-import Typography from '@material-ui/core/Typography';
-import Paper from '@material-ui/core/Paper';
+
+import dynamic from 'next/dynamic';
+const ClubsList = dynamic(() => import('components/cco/clubs'));
+const CCOBanner = dynamic(() => import('components/cco/banner'));
 
 const useStyles = makeStyles((theme) => ({
   headerContainer: {

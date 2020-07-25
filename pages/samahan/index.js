@@ -6,10 +6,12 @@ import Typography from '@material-ui/core/Typography';
 import Paper from '@material-ui/core/Paper';
 import Hidden from '@material-ui/core/Hidden';
 
-import Advocasix from 'components/samahan/advocasix';
-import BoardMembers from 'components/samahan/board-members';
-import ClusterReps from 'components/samahan/cluster-reps';
-import Departments from 'components/samahan/departments';
+import dynamic from 'next/dynamic';
+
+const Advocasix = dynamic(() => import('components/samahan/advocasix'));
+const BoardMembers = dynamic(() => import('components/samahan/board-members'));
+const ClusterReps = dynamic(() => import('components/samahan/cluster-reps'));
+const Departments = dynamic(() => import('components/samahan/departments'));
 
 import { cdnURL } from 'utils/constants';
 

@@ -6,8 +6,11 @@ import Button from '@material-ui/core/Button';
 import Banner from 'components/samahan-docs/banner';
 import SaveIcon from '@material-ui/icons/Save';
 import { useRouter } from 'next/router';
-import NavButtons from 'components/samahan-docs/nav-buttons';
-import Instructions from 'components/samahan-docs/reservations-ins';
+
+import dynamic from 'next/dynamic';
+
+const NavButtons = dynamic(() => import('components/samahan-docs/nav-buttons'));
+const Instructions = dynamic(() => import('components/samahan-docs/reservations-ins'));
 
 import { backendURL } from 'utils/constants';
 
