@@ -103,12 +103,12 @@ export async function getStaticProps(ctx) {
   try {
     const res = await WP.posts();
     if (res) { 
-      return { props: { posts: res }, unstable_revalidate: 1 };
+      return { props: { posts: res }, unstable_revalidate: 10 };
     } else {
-      return { props: { posts: [] }, unstable_revalidate: 1 };
+      return { props: { posts: [] }, unstable_revalidate: 10 };
     }
   } catch (err) {
-    return { props: { posts: [] }, unstable_revalidate: 1 };
+    return { props: { posts: [] }, unstable_revalidate: 10 };
   }
 }
 
