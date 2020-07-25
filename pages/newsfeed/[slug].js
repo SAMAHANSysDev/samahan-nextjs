@@ -12,6 +12,7 @@ import Paper from '@material-ui/core/Paper';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
+import CircularProgress from '@material-ui/core/CircularProgress';
 
 import { frontendURL } from 'utils/constants';
 
@@ -32,9 +33,20 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const page = ({ post, author, recent: recentNews }) => {
+const page = (props) => {
+  const { post, author, recent: recentNews } = props;
   const classes = useStyles();
   const router = useRouter();
+
+  if (router.isFallback) {
+    return (
+      <div className={classes.contentContainer}>
+        <Grid container direction="row" justify="center">
+          <CircularProgress />
+        </Grid>
+      </div>
+    )
+  }
 
   return (
     <div className={classes.contentContainer}>
@@ -90,11 +102,12 @@ const page = ({ post, author, recent: recentNews }) => {
 export const getStaticPaths = async () => {
   const res = await WP.posts();
   let paths = [];
-  await Promise.all(res.map(async (post) => {
+  for (let post of res) {
     paths.push({
       params: { slug: post.slug }
     });
-  }))
+  }
+  console.log(paths);
   return {
     paths,
     fallback: true
@@ -103,6 +116,7 @@ export const getStaticPaths = async () => {
 
 export const getStaticProps = async (ctx) => {
   const res = await WP.posts().slug(ctx.params.slug);
+  console.log(ctx.params.slug);
   const [author, recent] = await Promise.all([
     WP.users().id(res[0].author),
     WP.posts().exclude(res[0].id).perPage(5).page(1)
