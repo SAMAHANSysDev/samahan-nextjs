@@ -107,7 +107,6 @@ export const getStaticPaths = async () => {
       params: { slug: post.slug }
     });
   }
-  console.log(paths);
   return {
     paths,
     fallback: true
@@ -116,7 +115,6 @@ export const getStaticPaths = async () => {
 
 export const getStaticProps = async (ctx) => {
   const res = await WP.posts().slug(ctx.params.slug);
-  console.log(ctx.params.slug);
   const [author, recent] = await Promise.all([
     WP.users().id(res[0].author),
     WP.posts().exclude(res[0].id).perPage(5).page(1)
