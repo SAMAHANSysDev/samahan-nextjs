@@ -49,7 +49,7 @@ const Page = () => {
             <Typography variant="h4" className={classes.contentHeader}>Templates</Typography>
             <Button variant="outlined" color="primary" startIcon={<SaveIcon />}
               disableElevation fullWidth style={{ marginTop: 20 }}
-              onClick={() => window.open('http://samahan.addu.edu.ph/wp-content/uploads/2020/04/Concept-Paper.docx', '_blank')}
+              onClick={() => window.open('https://samahan.addu.edu.ph/wp-content/uploads/2020/04/Concept-Paper.docx', '_blank')}
             >
               Concept Paper
             </Button>
