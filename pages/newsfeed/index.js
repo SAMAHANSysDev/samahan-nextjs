@@ -99,16 +99,16 @@ const Page = ({ posts }) => {
   );
 };
 
-export async function getServerSideProps(ctx) {
+export async function getStaticProps(ctx) {
   try {
     const res = await WP.posts();
     if (res) { 
-      return { props: { posts: res } };
+      return { props: { posts: res }, unstable_revalidate: 1 };
     } else {
-      return { props: { posts: [] } };
+      return { props: { posts: [] }, unstable_revalidate: 1 };
     }
   } catch (err) {
-    return { props: { posts: [] } };
+    return { props: { posts: [] }, unstable_revalidate: 1 };
   }
 }
 

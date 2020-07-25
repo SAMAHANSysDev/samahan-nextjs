@@ -7,7 +7,7 @@ import CardActions from '@material-ui/core/CardActions';
 import { useRouter } from 'next/router';
 import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
-
+import CircularProgress from '@material-ui/core/CircularProgress';
 import Grid from '@material-ui/core/Grid';
 
 import { makeStyles } from '@material-ui/core/styles';
@@ -38,12 +38,14 @@ const Item = ({ item }) => {
   const classes = useStyles();
   const router = useRouter();
 
+  const [loading, setLoading] = React.useState(true);
   const [renderedExcerpt, setRenderedExcerpt] = React.useState('');
   const [renderedTitle, setRenderedTitle] = React.useState('');
 
   React.useEffect(() => {
     WP.users().id(item.author).then((res) => {
       setAuthor(res);
+      setLoading(false);
     });
   }, [])
 
@@ -64,9 +66,11 @@ const Item = ({ item }) => {
       <Card className={classes.cardRoot} elevation={0} variant="outlined">
         <CardContent>
           <Typography gutterBottom variant="h5" component="h2" dangerouslySetInnerHTML={{ __html: renderedTitle }} />
-          {author && (
+          {loading ? (
+            <CircularProgress size="1rem" /> 
+          ) : 
             <Typography variant="body2" color="textSecondary" component="p">By <b>{author.name}</b></Typography>
-          )}
+          }
           <Typography variant="body2" color="textSecondary" component="p">on <b>{date.toDateString()}</b></Typography>
           <Typography variant="body1" color="textSecondary" component="p" dangerouslySetInnerHTML={{ __html: renderedExcerpt }} />
         </CardContent>

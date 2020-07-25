@@ -141,7 +141,7 @@ const Page = ({ events: rawEvents }) => {
   );
 };
 
-export async function getServerSideProps(ctx) {
+export async function getStaticProps(ctx) {
   try {
     const events = (await gcal.events.list({
       calendarId: process.env.CALENDAR_ID,
@@ -150,9 +150,9 @@ export async function getServerSideProps(ctx) {
       timeMin: new Date(),
       maxResults: 10
     })).data.items
-    return { props: { events } };
+    return { props: { events }, unstable_revalidate: 1 };
   } catch (err) {
-    return { props: { events: [] } };
+    return { props: { events: [] }, unstable_revalidate: 1 };
   }
 }
 

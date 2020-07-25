@@ -1,6 +1,5 @@
 import React from "react";
 import { makeStyles } from '@material-ui/core/styles';
-import WP from 'utils/wordpress';
 import Head from 'next/head';
 import dynamic from 'next/dynamic';
 
@@ -26,7 +25,7 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-const List = ({ posts }) => {
+const List = () => {
   // Get the data of the current list.
   
   const classes = useStyles();
@@ -50,7 +49,7 @@ const List = ({ posts }) => {
 
         <div className={classes.spacer}></div>
 
-        <NewsFeed posts={posts} />
+        <NewsFeed />
 
         <div className={classes.spacer}></div>
         
@@ -59,18 +58,5 @@ const List = ({ posts }) => {
     </div>
   );
 };
-
-export async function getServerSideProps(ctx) {
-  try {
-    const res = await WP.posts().perPage(3).page(1);
-    if (res) { 
-      return { props: { posts: res } };
-    } else {
-      return { props: { posts: [] } };
-    }
-  } catch (err) {
-    return { props: { posts: [] } };
-  }
-}
 
 export default List;

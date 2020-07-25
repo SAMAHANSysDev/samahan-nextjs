@@ -87,13 +87,27 @@ const page = ({ post, author, recent: recentNews }) => {
   )
 }
 
-export const getServerSideProps = async (ctx) => {
-  const res = await WP.posts().slug(ctx.query.slug);
+export const getStaticPaths = async () => {
+  const res = await WP.posts();
+  let paths = [];
+  await Promise.all(res.map(async (post) => {
+    paths.push({
+      params: { slug: post.slug }
+    });
+  }))
+  return {
+    paths,
+    fallback: true
+  }
+}
+
+export const getStaticProps = async (ctx) => {
+  const res = await WP.posts().slug(ctx.params.slug);
   const [author, recent] = await Promise.all([
     WP.users().id(res[0].author),
     WP.posts().exclude(res[0].id).perPage(5).page(1)
   ]);
-  return { props: { post: res[0], author, recent }}
+  return { props: { post: res[0], author, recent }, unstable_revalidate: 1 }
 }
 
 export default page;
