@@ -11,6 +11,8 @@ import BoardMembers from 'components/samahan/board-members';
 import ClusterReps from 'components/samahan/cluster-reps';
 import Departments from 'components/samahan/departments';
 
+import { cdnURL } from 'utils/constants';
+
 const useStyles = makeStyles((theme) => ({
   contentHeader: {
     fontFamily: 'Montserrat',
@@ -65,14 +67,14 @@ const Page = () => {
         </Grid>
         <Hidden smDown>
           <Grid item sm>
-            <img src="https://samahan-cdn.snry.xyz/samahanDesc.png" width="100%" />
+            <img src={`${cdnURL}/samahanDesc.png`} width="100%" />
           </Grid>
         </Hidden>
       </Grid>
       <div style={{ height: 100 }} />
       <Grid container direction="row" spacing={3} alignItems="center" className={classes.contentContainer}>
         <Grid item sm className={classes.motionLogoContainer}>
-          <img src="https://samahan-cdn.snry.xyz/samahanMotion.svg" className={classes.motionLogo} />
+          <img src={`${cdnURL}/samahanMotion.svg`} className={classes.motionLogo} />
         </Grid>
         <Grid item sm={9} component={Paper} elevation={0}>
           <Typography variant="h3" component="h4" className={classes.contentHeader} style={{ marginBottom: 20 }}>

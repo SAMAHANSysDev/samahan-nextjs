@@ -8,6 +8,8 @@ import Grid from '@material-ui/core/Grid';
 import { TwitterTimelineEmbed } from 'react-twitter-embed';
 import PhoneIcon from '@material-ui/icons/Phone';
 
+import { cdnURL } from 'utils/constants';
+
 const useStyles = makeStyles((theme) => ({
   contentContainer: {
     margin: 'auto',
@@ -48,7 +50,7 @@ const Page = () => {
           </Typography>
         </Grid>
         <Grid item sm>
-          <img src="https://samahan-cdn.snry.xyz/board-ihelp2-1.png" style={{ width: '100%', height: 'auto' }} />
+          <img src={`${cdnURL}/board-ihelp2-1.png`} style={{ width: '100%', height: 'auto' }} />
         </Grid>
       </Grid>
 

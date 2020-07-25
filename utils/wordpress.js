@@ -1,7 +1,8 @@
 import Wordpress from 'wpapi';
+import { backendURL } from './constants';
 
 const wp = new Wordpress({
-  endpoint: 'https://samahan.addu.edu.ph/wp-json'
+  endpoint: `${backendURL}/wp-json`
 })
 
 export default wp;

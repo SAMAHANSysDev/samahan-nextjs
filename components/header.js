@@ -10,6 +10,8 @@ import { fade, makeStyles } from '@material-ui/core/styles';
 
 import MenuIcon from '@material-ui/icons/Menu';
 
+import { cdnURL } from 'utils/constants';
+
 
 const useStyles = makeStyles((theme) => ({
   samahanLogo: {
@@ -124,7 +126,7 @@ function SearchAppBar() {
             <NavBurger onChosen={() => setDrawer(false)} />
           </Drawer>
           <div className={classes.title}>
-            <img className={classes.samahanLogo} src="https://samahan-cdn.snry.xyz/Samahan-Top-Bar-Logo.png" />
+            <img className={classes.samahanLogo} src={`${cdnURL}/Samahan-Top-Bar-Logo.png`} />
           </div>
           <Nav />
           {/*<div className={classes.search}>
@@ -149,7 +151,7 @@ function SearchAppBar() {
             <SearchIcon />
           </IconButton>*/}
           <div className={classes.secondaryLogo}>
-            <img className={classes.motionLogo} src="https://samahan-cdn.snry.xyz/More-in-Motion.png" />
+            <img className={classes.motionLogo} src={`${cdnURL}/More-in-Motion.png`} />
           </div>
         </Toolbar>
       </AppBar>

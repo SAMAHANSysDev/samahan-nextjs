@@ -13,6 +13,8 @@ import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 
+import { frontendURL } from 'utils/constants';
+
 const useStyles = makeStyles((theme) => ({
   contentContainer: {
     width: '90%',
@@ -42,7 +44,7 @@ const page = ({ post, author, recent: recentNews }) => {
         <meta name="twitter:card" value="summary" />
         <meta property="og:title" content={post.title.rendered} />
         <meta property="og:type" content="article" />
-        <meta property="og:url" content={`https://samahan.snry.xyz/newsfeed/${post.slug}`} />
+        <meta property="og:url" content={`${frontendURL}/newsfeed/${post.slug}`} />
         <meta property="og:description" content={post.excerpt.rendered.replace(/<[^>]+>/g, '')} />
       </Head>
       
@@ -69,7 +71,7 @@ const page = ({ post, author, recent: recentNews }) => {
               </Typography>
               <List style={{ width: '100%' }}>
                 { recentNews.map((recent) => (
-                  <ListItem button onClick={() => {
+                  <ListItem key={recent.id} button onClick={() => {
                     router.push(`/newsfeed/${recent.slug}`)
                   }}>
                     <ListItemText primary={recent.title.rendered} secondary={new Date(recent.date).toDateString()} />

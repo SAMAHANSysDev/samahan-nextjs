@@ -6,6 +6,8 @@ import WP from 'utils/wordpress';
 import Item from 'components/home/newsfeed-item';
 import Button from '@material-ui/core/Button';
 
+import { cdnURL } from 'utils/constants';
+
 const useStyles = makeStyles((theme) => ({
   contentContainer: {
     width: '80%',
@@ -85,7 +87,7 @@ const Page = ({ posts }) => {
           </Grid>
           <Grid item sm={6} className={classes.pictureContainer}>
             <center>
-              <img src="https://samahan-cdn.snry.xyz/newsfeed.png" style={{ width: '50%' }} />
+              <img src={`${cdnURL}/newsfeed.png`} style={{ width: '50%' }} />
             </center>
           </Grid>
         </Grid>

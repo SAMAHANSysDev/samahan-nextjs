@@ -4,6 +4,8 @@ import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import Paper from '@material-ui/core/Paper';
 
+import { cdnURL } from 'utils/constants';
+
 const useStyles = makeStyles((theme) => ({
   headerContainer: {
     width: '80%',
@@ -38,7 +40,7 @@ const Page = () => {
 
   return (
     <Grid container direction="row" spacing={3} alignItems="center" className={classes.headerContainer}>
-      <img src="https://samahan-cdn.snry.xyz/Asset%202.svg" className={classes.motionLogo} />
+      <img src={`${cdnURL}/Asset%202.svg`} className={classes.motionLogo} />
       <Grid item sm className={classes.motionLogoContainer}>
       </Grid>
       <Grid item sm={8} component={Paper} elevation={0}>

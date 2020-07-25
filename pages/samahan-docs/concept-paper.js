@@ -8,6 +8,8 @@ import SaveIcon from '@material-ui/icons/Save';
 import NavButtons from 'components/samahan-docs/nav-buttons';
 import Instructions from 'components/samahan-docs/concept-paper-ins';
 
+import { backendURL } from 'utils/constants';
+
 const useStyles = makeStyles((theme) => ({
   headerContainer: {
     width: '80%',
@@ -49,7 +51,7 @@ const Page = () => {
             <Typography variant="h4" className={classes.contentHeader}>Templates</Typography>
             <Button variant="outlined" color="primary" startIcon={<SaveIcon />}
               disableElevation fullWidth style={{ marginTop: 20 }}
-              onClick={() => window.open('https://samahan.addu.edu.ph/wp-content/uploads/2020/04/Concept-Paper.docx', '_blank')}
+              onClick={() => window.open(`${backendURL}/wp-content/uploads/2020/04/Concept-Paper.docx`, '_blank')}
             >
               Concept Paper
             </Button>

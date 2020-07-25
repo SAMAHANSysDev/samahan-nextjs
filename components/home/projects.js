@@ -12,6 +12,8 @@ import Button from '@material-ui/core/Button';
 
 import Grid from '@material-ui/core/Grid';
 
+import { cdnURL } from 'utils/constants';
+
 const useStyles = makeStyles((theme) => ({
   contentContainer: {
     width: '80%',
@@ -48,7 +50,7 @@ const List = () => {
         <Grid item component={Card} xs className={classes.cardRoot} elevation={0}>
           <CardMedia
             className={classes.cardMedia}
-            image="https://samahan-cdn.snry.xyz/board-ihelp2-1.png"
+            image={`${cdnURL}/board-ihelp2-1.png`}
             title="iHELP"
           />
           <CardContent>
@@ -69,7 +71,7 @@ const List = () => {
         <Grid item component={Card} xs className={classes.cardRoot} elevation={0}>
           <CardMedia
             className={classes.cardMedia}
-            image="https://samahan-cdn.snry.xyz/board-student-services.png"
+            image={`${cdnURL}/board-student-services.png`}
             title="Student Service Manual"
           />
           <CardContent>
@@ -91,7 +93,7 @@ const List = () => {
         <Grid item component={Card} xs className={classes.cardRoot} elevation={0}>
           <CardMedia
             className={classes.cardMedia}
-            image="https://samahan-cdn.snry.xyz/board-consti.png"
+            image={`${cdnURL}/board-consti.png`}
             title="ConstiNatinTo"
           />
           <CardContent>

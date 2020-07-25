@@ -2,6 +2,7 @@ import React from 'react';
 import Document, { Html, Head, Main, NextScript } from 'next/document';
 import { ServerStyleSheets } from '@material-ui/core/styles';
 import theme from 'components/theme';
+import { cdnURL } from 'utils/constants';
 
 export default class SamahanDocument extends Document {
   render() {
@@ -12,7 +13,7 @@ export default class SamahanDocument extends Document {
           <meta name="theme-color" content={theme.palette.primary.main} />
           <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@900&family=Open+Sans:wght@400;600;800&display=swap" rel="stylesheet" />
           <link rel="stylesheet" href="https://unpkg.com/nprogress@0.2.0/nprogress.css" />
-          <link rel="icon" type="image/png" href="https://samahan-cdn.snry.xyz/favicon.png"></link>
+          <link rel="icon" type="image/png" href={`${cdnURL}/favicon.png`}></link>
         </Head>
         <body>
           <Main />

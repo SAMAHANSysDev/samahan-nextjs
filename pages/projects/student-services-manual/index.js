@@ -9,6 +9,8 @@ import ServicesList from 'components/projects/student-services-manual/services-l
 
 import { TwitterTimelineEmbed } from 'react-twitter-embed';
 
+import { cdnURL } from 'utils/constants';
+
 const useStyles = makeStyles((theme) => ({
   contentContainer: {
     margin: 'auto',
@@ -49,7 +51,7 @@ const Page = () => {
           </Typography>
         </Grid>
         <Grid item sm>
-          <img src="https://samahan-cdn.snry.xyz/board-student-services.png" style={{ width: '100%', height: 'auto' }} />
+          <img src={`${cdnURL}/board-student-services.png`} style={{ width: '100%', height: 'auto' }} />
         </Grid>
       </Grid>
 

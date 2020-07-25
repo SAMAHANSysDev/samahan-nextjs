@@ -9,6 +9,8 @@ import Button from '@material-ui/core/Button';
 
 import Grid from '@material-ui/core/Grid';
 
+import { cdnURL } from 'utils/constants';
+
 const useStyles = makeStyles((theme) => ({
   contentHeader: {
     fontFamily: 'Montserrat',
@@ -38,7 +40,7 @@ const List = () => {
       </Grid>
       <Grid item md>
         <center>
-          <img src="https://samahan-cdn.snry.xyz/EX9n9N3UYAAOt62.jpg" style={{ width: '100%' }} />
+          <img src={`${cdnURL}/EX9n9N3UYAAOt62.jpg`} style={{ width: '100%' }} />
         </center>
       </Grid>
     </Grid>

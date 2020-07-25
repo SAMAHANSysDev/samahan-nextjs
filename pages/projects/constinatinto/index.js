@@ -9,6 +9,8 @@ import { useRouter } from 'next/router';
 
 import Button from '@material-ui/core/Button';
 
+import { cdnURL } from 'utils/constants';
+
 const useStyles = makeStyles((theme) => ({
   contentContainer: {
     margin: 'auto',
@@ -47,7 +49,7 @@ const Page = () => {
           </Typography>
         </Grid>
         <Grid item md>
-          <img src="https://samahan-cdn.snry.xyz/board-consti.png" style={{ width: '100%', height: 'auto' }} />
+          <img src={`${cdnURL}/board-consti.png`} style={{ width: '100%', height: 'auto' }} />
         </Grid>
       </Grid>
 

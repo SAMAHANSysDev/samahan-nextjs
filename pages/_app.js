@@ -11,6 +11,7 @@ import Footer from 'components/footer';
 import 'react-calendar/dist/Calendar.css';
 
 import routes from 'navigation/routes';
+import { frontendURL } from 'utils/constants';
 
 
 NProgress.configure({
@@ -69,7 +70,7 @@ export default function SamahanFrontend(props) {
             <meta name="twitter:card" value="summary" />
             <meta property="og:title" content={routeObject.title} />
             <meta property="og:type" content="website" />
-            <meta property="og:url" content={`https://samahan.snry.xyz${routeObject.href}`} />
+            <meta property="og:url" content={`${frontendURL}${routeObject.href}`} />
             <meta property="og:description" content={routeObject.desc} />
           </>
           : <title>SAMAHAN</title> }

@@ -5,6 +5,8 @@ import Typography from '@material-ui/core/Typography';
 
 import Grid from '@material-ui/core/Grid';
 
+import { cdnURL } from 'utils/constants';
+
 const useStyles = makeStyles((theme) => ({
   contentContainer: {
     margin: 'auto',
@@ -42,7 +44,7 @@ const Page = () => {
           </Typography>
         </Grid>
         <Grid item sm>
-          <img src="https://samahan-cdn.snry.xyz/board-consti.png" style={{ width: '100%', height: 'auto' }} />
+          <img src={`${cdnURL}/board-consti.png`} style={{ width: '100%', height: 'auto' }} />
         </Grid>
       </Grid>
 
@@ -64,7 +66,7 @@ const Page = () => {
             <Typography variant="body1" component="p" style={{ marginTop: '10px', marginBottom: '10px' }}>That is why in this Constitutional Convention, the aims were to revise and finally ratify the constitution so that all activities undertaken by SAMAHAN can be considered as officially sanctioned by a legal and binding document.</Typography>
             <div style={{ height: 50 }}></div>
             <Typography variant="h4" component="h2" className={classes.contentHeader}>Plan of Actions</Typography>
-            <img src="https://samahan-cdn.snry.xyz/constinatintofixed.png" style={{ width: '100%' }} />
+            <img src={`${cdnURL}/constinatintofixed.png`} style={{ width: '100%' }} />
           </Grid>
           <Grid item sm>
             <Typography variant="h4" component="h2" className={classes.contentHeader} style={{ marginBottom: 10 }}>Contact Personnels</Typography>

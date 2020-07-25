@@ -1,7 +1,9 @@
+import { cdnURL } from 'utils/constants';
+
 export default [
   {
     name: 'Department of Student Rights and Welfare',
-    img: 'https://samahan-cdn.snry.xyz/STRAW.png',
+    img: `${cdnURL}/STRAW.png`,
     pos1: {
       title: 'Director',
       name: 'Jyp Phyllis Galan',
@@ -16,7 +18,7 @@ export default [
   },
   {
     name: 'Office of the Buklod Ambassador',
-    img: 'https://samahan-cdn.snry.xyz/OBA.png',
+    img: `${cdnURL}/OBA.png`,
     pos1: {
       title: 'Buklod Ambassador',
       name: 'Trixy Marie Macaraeg',
@@ -31,7 +33,7 @@ export default [
   },
   {
     name: 'Ecoteneo Student Unit',
-    img: 'https://samahan-cdn.snry.xyz/ECOTEN2.png',
+    img: `${cdnURL}/ECOTEN2.png`,
     pos1: {
       title: 'Director',
       name: 'Nur-aine Jaizzah Isla',
@@ -46,7 +48,7 @@ export default [
   },
   {
     name: 'Department of Campaigns and Advocacies',
-    img: 'https://samahan-cdn.snry.xyz/SDCA.png',
+    img: `${cdnURL}/SDCA.png`,
     pos1: {
       title: 'Director',
       name: 'Vincent Campos',
@@ -61,7 +63,7 @@ export default [
   },
   {
     name: 'Department of Systems Development',
-    img: 'https://samahan-cdn.snry.xyz/SYSDEV.png',
+    img: `${cdnURL}/SYSDEV.png`,
     pos1: {
       title: 'Director',
       name: 'Gabriel Paderna',
@@ -76,7 +78,7 @@ export default [
   },
   {
     name: 'Department of Research and Development',
-    img: 'https://samahan-cdn.snry.xyz/RD.png',
+    img: `${cdnURL}/RD.png`,
     pos1: {
       title: 'Director',
       name: '',
@@ -91,7 +93,7 @@ export default [
   },
   {
     name: 'Department of Communications',
-    img: 'https://samahan-cdn.snry.xyz/COMMS.png',
+    img: `${cdnURL}/COMMS.png`,
     pos1: {
       title: 'Director',
       name: 'Janine Dela Cruz',
@@ -106,7 +108,7 @@ export default [
   },
   {
     name: 'Ateneo SAMAHAN Productions',
-    img: 'https://samahan-cdn.snry.xyz/MAIN.png',
+    img: `${cdnURL}/MAIN.png`,
     pos1: {
       title: 'Director',
       name: 'Jacqueline Laurente',
@@ -121,7 +123,7 @@ export default [
   },
   {
     name: 'SAMAHAN Creative Team',
-    img: 'https://samahan-cdn.snry.xyz/SCT.png',
+    img: `${cdnURL}/SCT.png`,
     pos1: {
       title: 'Director',
       name: 'Kenth Cervantes',
@@ -136,7 +138,7 @@ export default [
   },
   {
     name: 'Department of Logistics',
-    img: 'https://samahan-cdn.snry.xyz/SAMAHAN-Logistics.png',
+    img: `${cdnURL}/SAMAHAN-Logistics.png`,
     pos1: {
       title: 'Director',
       name: 'Jeffson Occidental',
@@ -151,7 +153,7 @@ export default [
   },
   {
     name: 'Department of Sponsorships and Support',
-    img: 'https://samahan-cdn.snry.xyz/SAMAHAN-SAS.png',
+    img: `${cdnURL}/SAMAHAN-SAS.png`,
     pos1: {
       title: 'Director',
       name: 'Genesis Angelo Villacorta',
@@ -166,7 +168,7 @@ export default [
   },
   {
     name: 'Department of Internal Audit',
-    img: 'https://samahan-cdn.snry.xyz/SAMAHAN-DIA.png',
+    img: `${cdnURL}/SAMAHAN-DIA.png`,
     pos1: {
       title: 'Director',
       name: 'Harris C. Tuyongan',

@@ -9,6 +9,8 @@ import NewsFeed from 'components/home/newsfeed';
 import Projects from 'components/home/projects';
 import SocialMedia from 'components/home/social-media';
 
+import { cdnURL } from 'utils/constants';
+
 const useStyles = makeStyles((theme) => ({
   contentContainer: {
     width: '80%',
@@ -27,7 +29,7 @@ const List = ({ posts }) => {
   // Get the data of the current list.
   
   const classes = useStyles();
-  const bannerImage = "https://samahan-cdn.snry.xyz/img-corousel-1.jpg";
+  const bannerImage = `${cdnURL}/img-corousel-1.jpg`;
 
   return (
     <div className={classes.rootContainer}>

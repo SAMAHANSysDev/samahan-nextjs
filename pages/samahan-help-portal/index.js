@@ -10,6 +10,8 @@ import RedirectButtons from 'components/samahan-help-portal/redirect-buttons';
 
 import { TwitterTimelineEmbed } from 'react-twitter-embed';
 
+import { cdnURL } from 'utils/constants';
+
 
 const useStyles = makeStyles((theme) => ({
   contentContainer: {
@@ -51,7 +53,7 @@ const Page = () => {
           </Typography>
         </Grid>
         <Grid item sm>
-          <img src="https://samahan-cdn.snry.xyz/Concerns-Flowchart-White.png" style={{ width: '100%', height: 'auto' }} />
+          <img src={`${cdnURL}/Concerns-Flowchart-White.png`} style={{ width: '100%', height: 'auto' }} />
         </Grid>
       </Grid>
 
