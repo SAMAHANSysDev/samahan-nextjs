@@ -30,8 +30,6 @@ const useStyles = makeStyles((theme) => ({
   bannerHeader: {
     textAlign: 'right',
     fontSize: '7.5vw',
-    WebkitTextStrokeWidth: '1px',
-    WebkitTextStrokeColor: theme.palette.primary.main,
     margin: 0
   },
   bannerImageContainer: {
@@ -42,7 +40,7 @@ const useStyles = makeStyles((theme) => ({
     }
   },
   bannerImage: {
-    maxHeight: '75vh',
+    maxHeight: '70vh',
     width: '65vw',
     background: theme.palette.primary.main,
     opacity: 0.4,
