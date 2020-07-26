@@ -77,7 +77,7 @@ const Page = () => {
           <img src={`${cdnURL}/samahanMotion.svg`} className={classes.motionLogo} />
         </Grid>
         <Grid item sm={9} component={Paper} elevation={0}>
-          <Typography variant="h1" component="h4" style={{ marginBottom: 20 }}>
+          <Typography variant="h3" component="h4" style={{ marginBottom: 20 }}>
             More in Motion
           </Typography>
           <Typography variant="body1" style={{ marginBottom: 10 }}>

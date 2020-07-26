@@ -26,10 +26,10 @@ const List = () => {
         <Typography variant="h5" style={{ lineHeight: '1.5em', fontFamily: 'Open Sans', fontWeight: 300 }}>
           Need some help? Go to
         </Typography>
-        <Typography variant="h1" style={{ lineHeight: '0.8em' }}>
+        <Typography variant="h1" style={{ lineHeight: '0.8em', fontWeight: 700 }}>
           SAMAHAN
         </Typography>
-        <Typography variant="h1" style={{ lineHeight: '0.8em' }}>
+        <Typography variant="h1" style={{ lineHeight: '0.8em', fontWeight: 700 }}>
           HELP PORTAL
         </Typography><br />
         <Button variant="contained" color="primary" disableElevation onClick={() => router.push('/samahan-help-portal')}>
