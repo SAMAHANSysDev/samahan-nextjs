@@ -7,10 +7,6 @@ import Grid from '@material-ui/core/Grid';
 
 import Item from './newsfeed-item';
 
-import CircularProgress from '@material-ui/core/CircularProgress';
-
-import WP from 'utils/wordpress';
-
 const useStyles = makeStyles((theme) => ({
   contentHeader: {
     fontFamily: 'Montserrat',
@@ -32,18 +28,12 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-const List = () => {
+const List = ({ posts, users }) => {
   const classes = useStyles();
 
-  const [posts, setPosts] = React.useState([]);
-  const [loading, setLoading] = React.useState(true);
-
-  React.useEffect(() => {
-    WP.posts().perPage(3).page(1).then((res) => {
-      setLoading(false);
-      setPosts(res);
-    })
-  }, [])
+  const getAuthor = (id) => {
+    return users.find((user) => user.id === id);
+  }
 
   return (
     <>
@@ -53,18 +43,12 @@ const List = () => {
           Newsfeed
         </Typography>
       </div>
-      { loading ?
-        <Grid container direction="row" justify="center">
-          <CircularProgress /> 
-        </Grid>
-        :
-        <Grid container direction="row" spacing={3} alignItems="stretch">
-          {posts.map((post) => {
-            // Render one Item component for each one.
-            return <Item key={post.id} item={post} />;
-          })}
-        </Grid>
-      }
+      <Grid container direction="row" spacing={3} alignItems="stretch">
+        {posts.map((post) => {
+          // Render one Item component for each one.
+          return <Item key={post.id} item={post} author={getAuthor(post.author)} />;
+        })}
+      </Grid>
     </>
   );
 };

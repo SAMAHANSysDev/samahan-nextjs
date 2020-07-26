@@ -71,6 +71,7 @@ const page = (props) => {
             <Typography variant="subtitle2">
               by {author.name} on {new Date(post.date).toDateString()}
             </Typography>
+            { post.jetpack_featured_media_url ? <img src={post.jetpack_featured_media_url} style={{ width: '100%', marginTop: 40, marginBottom: 20 }} /> : null }
             
             <Typography variant="body1" component="div">
               {parse(post.content.rendered)}

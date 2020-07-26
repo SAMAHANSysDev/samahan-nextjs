@@ -2,6 +2,7 @@ import React from "react";
 import { makeStyles } from '@material-ui/core/styles';
 import Head from 'next/head';
 import dynamic from 'next/dynamic';
+import WP from 'utils/wordpress';
 
 const Banner = dynamic(() => import('components/home/banner'));
 const Help = dynamic(() => import('components/home/help'));
@@ -25,7 +26,7 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-const List = () => {
+const List = ({ posts, users }) => {
   // Get the data of the current list.
   
   const classes = useStyles();
@@ -49,7 +50,7 @@ const List = () => {
 
         <div className={classes.spacer}></div>
 
-        <NewsFeed />
+        <NewsFeed posts={posts} users={users} />
 
         <div className={classes.spacer}></div>
         
@@ -58,5 +59,21 @@ const List = () => {
     </div>
   );
 };
+
+export async function getStaticProps(ctx) {
+  try {
+    const [res, users] = await Promise.all([
+      WP.posts(),
+      WP.users()
+    ]);
+    if (res) { 
+      return { props: { posts: res, users }, unstable_revalidate: 10 };
+    } else {
+      return { props: { posts: [], users }, unstable_revalidate: 10 };
+    }
+  } catch (err) {
+    return { props: { posts: [], users: [] }, unstable_revalidate: 10 };
+  }
+}
 
 export default List;
