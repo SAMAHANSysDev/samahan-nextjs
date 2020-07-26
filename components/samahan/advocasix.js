@@ -17,9 +17,7 @@ import Button from '@material-ui/core/Button';
 import advocacies from 'data/samahan/advocacies';
 
 const useStyles = makeStyles((theme) => ({
-  contentHeader: {
-    fontFamily: 'Montserrat',
-  },
+  
   adduBlue: {
     color: theme.palette.primary.main
   },
@@ -66,7 +64,7 @@ const Page = () => {
 
   return (
     <>
-      <Typography variant="h3" component="h4" className={classes.contentHeader} style={{ marginBottom: 20 }}>
+      <Typography variant="h3" component="h4" style={{ marginBottom: 20 }}>
         ADVOCA<font className={classes.adduBlue}>SIX</font>
       </Typography>
 
@@ -129,7 +127,7 @@ const Page = () => {
           <Card className={classes.modalPaper} elevation={0}>
             { advocasix !== null ?
               <CardContent>
-                <Typography variant="h3" component="h4" className={classes.contentHeader} style={{ marginBottom: 20 }}>
+                <Typography variant="h3" component="h4" style={{ marginBottom: 20 }}>
                   {advocacies[advocasix].name}
                 </Typography>
                 {advocacies[advocasix].desc.map((info) => {

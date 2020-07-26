@@ -16,9 +16,7 @@ const useStyles = makeStyles((theme) => ({
     margin: 'auto',
     width: '95%'
   },
-  contentHeader: {
-    fontFamily: 'Montserrat',
-  },
+  
   rootContainer: {
     width: '100%',
     marginBottom: 80
@@ -38,7 +36,7 @@ const Page = () => {
 
       <Grid container direction="row" spacing={3} alignItems="center" className={classes.contentContainer}>
         <Grid item md={7}>
-          <Typography variant="h1" component="h2" className={classes.contentHeader} style={{ lineHeight: '0.8em' }}>
+          <Typography variant="h1" component="h2" style={{ lineHeight: '0.8em' }}>
             #ConstiNatinTo
           </Typography><br />
           <Typography variant="subtitle1" component="h2" style={{ lineHeight: '1.5em' }}>
@@ -58,13 +56,13 @@ const Page = () => {
       <div style={{ margin: 'auto', width: '90%' }}>
         <Grid container direction="row" spacing={6} className={classes.contentContainer}>
           <Grid item sm={8}>
-            <Typography variant="h4" component="h2" className={classes.contentHeader}>What is the Constitution?</Typography>
+            <Typography variant="h4" component="h2">What is the Constitution?</Typography>
             <Typography variant="body1" component="p" style={{ marginTop: '10px', marginBottom: '10px' }}>In general, the constitution is considered as the highest law of the land. The constitution describes the basic principles of the state which revolves around the separation of powers, checks and balances, people’s participation, political disposition, etc. The constitution also includes the structures and processes of the government wherein it identifies the rudimentary national positions, branches of government, hierarchy of power, etc. It also states and identifies the processes of budget dissemination, law-making, bureaucracy, etc. Lastly, the constitution expresses the fundamental rights of the constituents which cannot be changed by a simple legislative act.</Typography>
             <Typography variant="body1" component="p" style={{ marginTop: '10px', marginBottom: '10px' }}>In the context of SAMAHAN, the SAMAHAN constitution is the foundation of the rights and welfare of the students. It states the basic principles of the student government in representing the student body of Ateneo de Davao University. It also includes the scope of SAMAHAN itself, from its systems and processes, student government structure, and limitation of powers. The SAMAHAN Constitution protects the autonomy of students through emphasizing its capability of self-governance.</Typography>
             <Typography variant="body1" component="p" style={{ marginTop: '10px', marginBottom: '10px' }}>To check the revision progress, </Typography>
             <Button variant="contained" color="primary" onClick={() => router.push('/projects/constinatinto/the-revision-progress')}>Click here</Button>
             <div style={{ height: 50 }}></div>
-            <Typography variant="h4" component="h2" className={classes.contentHeader}>Functions of the Constitution</Typography>
+            <Typography variant="h4" component="h2">Functions of the Constitution</Typography>
             <Typography variant="body1">
               <ul>
                 <li>The SAMAHAN constitution legitimizes the student government of the university. It enables the SAMAHAN to function as a student government.</li>
@@ -78,7 +76,7 @@ const Page = () => {
             </Typography>
           </Grid>
           <Grid item sm>
-            <Typography variant="h4" component="h2" className={classes.contentHeader} style={{ marginBottom: 10 }}>Contact Personnels</Typography>
+            <Typography variant="h4" component="h2" style={{ marginBottom: 10 }}>Contact Personnels</Typography>
             <Grid container direction="row">
               <Grid item sm style={{ minWidth: '150px' }}>
                 <Typography variant="h6">Jyp Phyllis Galan</Typography>

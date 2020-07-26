@@ -16,9 +16,7 @@ const Departments = dynamic(() => import('components/samahan/departments'));
 import { cdnURL } from 'utils/constants';
 
 const useStyles = makeStyles((theme) => ({
-  contentHeader: {
-    fontFamily: 'Montserrat',
-  },
+  
   motionLogoContainer: {
     position: 'relative'
   },
@@ -47,7 +45,7 @@ const Page = () => {
       <div style={{ height: 100 }} />
       <Grid container direction="row" spacing={3} alignItems="center">
         <Grid item sm={9} component={Paper} elevation={0}>
-          <Typography variant="h1" component="h4" className={classes.contentHeader} style={{ marginBottom: 20 }}>
+          <Typography variant="h1" component="h4" style={{ marginBottom: 20 }}>
             SAMAHAN
           </Typography>
           <Typography variant="body1" style={{ marginBottom: 10 }}>
@@ -79,8 +77,8 @@ const Page = () => {
           <img src={`${cdnURL}/samahanMotion.svg`} className={classes.motionLogo} />
         </Grid>
         <Grid item sm={9} component={Paper} elevation={0}>
-          <Typography variant="h3" component="h4" className={classes.contentHeader} style={{ marginBottom: 20 }}>
-            SAMAHAN: More in Motion
+          <Typography variant="h1" component="h4" style={{ marginBottom: 20 }}>
+            More in Motion
           </Typography>
           <Typography variant="body1" style={{ marginBottom: 10 }}>
           The central point of being in motion is that the SAMAHAN is

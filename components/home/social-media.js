@@ -8,9 +8,7 @@ import Grid from '@material-ui/core/Grid';
 import { TwitterTimelineEmbed } from 'react-twitter-embed';
 
 const useStyles = makeStyles((theme) => ({
-  contentHeader: {
-    fontFamily: 'Montserrat',
-  },
+  
   headerWithDivider: {
     display: 'flex',
     alignItems: 'center'
@@ -30,7 +28,7 @@ const List = () => {
   return (
     <>
       <div className={classes.headerWithDivider}>
-        <Typography variant="h3" className={classes.contentHeader}>
+        <Typography variant="h3">
           Social Media
         </Typography>
         <div className={classes.dividerSocialMedia}></div>

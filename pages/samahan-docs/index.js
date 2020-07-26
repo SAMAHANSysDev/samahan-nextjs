@@ -22,9 +22,7 @@ const useStyles = makeStyles((theme) => ({
     width: '90%',
     margin: 'auto'
   },
-  contentHeader: {
-    fontFamily: 'Montserrat',
-  },
+  
   rootContainer: {
     width: '100%',
     marginBottom: 80
@@ -53,7 +51,7 @@ const Page = () => {
         <Grid container direction="row" spacing={6} className={classes.contentContainer}>
           <Grid item sm={4}>
             {/* Templates */}
-            <Typography variant="h4" className={classes.contentHeader}>Templates</Typography>
+            <Typography variant="h4">Templates</Typography>
             <Button variant="outlined" color="primary" startIcon={<SaveIcon />}
               disableElevation fullWidth style={{ marginTop: 20 }}
               onClick={() => window.open(`${backendURL}/wp-content/uploads/2020/04/Reservations-Martin-Hall.docx`, '_blank')}
@@ -87,7 +85,7 @@ const Page = () => {
           </Grid>
           <Grid item sm={8}>
             {/* Instructions */}
-            <Typography variant="h4" className={classes.contentHeader}>Instructions</Typography>
+            <Typography variant="h4">Instructions</Typography>
             <div style={{ height: 20 }}></div>
             <Instructions />
           </Grid>

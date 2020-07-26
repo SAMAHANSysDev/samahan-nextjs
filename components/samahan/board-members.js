@@ -12,9 +12,7 @@ import CardContent from '@material-ui/core/CardContent';
 import boardMembers from 'data/samahan/board-members';
 
 const useStyles = makeStyles((theme) => ({
-  contentHeader: {
-    fontFamily: 'Montserrat',
-  },
+  
   
   cardRoot: {
     display: 'flex',
@@ -51,7 +49,7 @@ const Page = () => {
               <div className={classes.dividerBoardMembers} />
             </Grid>
             <Grid item sm>
-              <Typography variant="h3" component="h4" className={classes.contentHeader}>
+              <Typography variant="h3" component="h4">
                 Central Board Members
               </Typography>
             </Grid>

@@ -3,18 +3,19 @@ import { makeStyles } from '@material-ui/core/styles';
 
 import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
+import Grid from '@material-ui/core/Grid';
 
 const useStyles = makeStyles((theme) => ({
   bannerContainer: {
     height: '90vh',
     width: '100%',
     backgroundColor: theme.palette.primary.main,
+    paddingLeft: 50,
+    paddingRight: 50
   },
   bannerTextContainer: {
     position: 'relative',
     float: 'right',
-    marginTop: 'calc(100px + 1em)',
-    marginRight: 'calc(60px - 2em)',
     fontWeight: 20,
     color: theme.palette.secondary.main,
     zIndex: 3
@@ -22,28 +23,26 @@ const useStyles = makeStyles((theme) => ({
   bannerText: {
     textAlign: 'right',
     zIndex: 3,
-    margin: 0
+    margin: 0,
+    fontFamily: 'Open Sans',
+    fontWeight: 300
   },
   bannerHeader: {
     textAlign: 'right',
-    fontSize: '10vw',
-    fontFamily: 'Montserrat',
+    fontSize: '7.5vw',
     WebkitTextStrokeWidth: '1px',
     WebkitTextStrokeColor: theme.palette.primary.main,
     margin: 0
   },
   bannerImageContainer: {
-    position: 'absolute',
-    left: 'calc(20px + 2em)',
-    top: 'calc(100px + 2em)',
     zIndex: 1,
     display: 'none',
     [theme.breakpoints.up('md')]: {
-      display: 'block',
+      display: 'block'
     }
   },
   bannerImage: {
-    width: '110vh',
+    width: '65vw',
     background: theme.palette.primary.main,
     opacity: 0.4,
     mixBlendMode: 'screen'
@@ -61,28 +60,32 @@ const List = ({ bannerImage }) => {
 
   return (
     <div className={classes.bannerContainer}>
-      <div className={classes.bannerImageContainer}>
-        <CardMedia
-          component="img"
-          classes={{ media: classes.bannerNewImage }}
-          className={classes.bannerImage}
-          image={bannerImage}
-        />
-      </div>
-      <div className={classes.bannerTextContainer}>
-        <Typography variant="h4" className={classes.bannerText} style={{ lineHeight: '0.9em' }}>
-          Welcome to
-        </Typography>
-        <Typography variant="h1" component="h2" className={classes.bannerHeader} style={{ lineHeight: '0.9em' }}>
-          SAMAHAN
-        </Typography>
-        <Typography variant="h4" className={classes.bannerText} style={{ lineHeight: '0.9em' }}>
-          The Official Student Government of
-        </Typography>
-        <Typography variant="h4" className={classes.bannerText} style={{ lineHeight: '0.9em' }}>
-          Ateneo de Davao University
-        </Typography>
-      </div>
+      <Grid container direction="row" alignItems="center" style={{ height: '80%' }}>
+        <Grid item sm={6} className={classes.bannerImageContainer}>
+          <CardMedia
+            component="img"
+            classes={{ media: classes.bannerNewImage }}
+            className={classes.bannerImage}
+            image={bannerImage}
+          />
+        </Grid>
+        <Grid item xs={12} md={6}>
+          <div className={classes.bannerTextContainer}>
+            <Typography variant="h5" className={classes.bannerText} style={{ lineHeight: '0.9em' }}>
+              Welcome to
+            </Typography>
+            <Typography variant="h1" component="h2" className={classes.bannerHeader} style={{ lineHeight: '0.9em' }}>
+              SAMAHAN
+            </Typography>
+            <Typography variant="h5" className={classes.bannerText} style={{ lineHeight: '0.9em' }}>
+              The Official Student Government of
+            </Typography>
+            <Typography variant="h5" className={classes.bannerText} style={{ lineHeight: '0.9em' }}>
+              Ateneo de Davao University
+            </Typography>
+          </div>
+        </Grid>
+      </Grid>
     </div>
   );
 };

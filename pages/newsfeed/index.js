@@ -16,9 +16,7 @@ const useStyles = makeStyles((theme) => ({
     width: '80%',
     margin: 'auto'
   },
-  contentHeader: {
-    fontFamily: 'Montserrat',
-  },
+  
   rootContainer: {
     width: '100%',
     margin: 0
@@ -57,7 +55,7 @@ const Page = ({ posts, users }) => {
     <div className={classes.rootContainer}>
       <div style={{ height: 100 }} />
       <div className={classes.contentContainer}>
-        <Typography variant="h2" component="h2" className={classes.contentHeader} style={{ lineHeight: '0.8em' }}>
+        <Typography variant="h2" component="h2" style={{ lineHeight: '0.8em' }}>
           SAMAHAN NEWSFEED
         </Typography>
         <Typography variant="subtitle1" component="h2" style={{ lineHeight: '1.5em' }}>
@@ -78,10 +76,10 @@ const Page = ({ posts, users }) => {
         <Grid container direction="row" alignItems="center">
           <Grid item sm={6}>
             <div className={classes.checkOutContainer}>
-              <Typography variant="h2" className={classes.contentHeader} style={{ lineHeight: '0.8em'}}>
+              <Typography variant="h2" style={{ lineHeight: '0.8em'}}>
                 Check our
               </Typography>
-              <Typography variant="h2" className={classes.contentHeader} style={{ lineHeight: '0.8em' }}>
+              <Typography variant="h2" style={{ lineHeight: '0.8em' }}>
                 latest release
               </Typography>
               <Button variant="contained" color="secondary"

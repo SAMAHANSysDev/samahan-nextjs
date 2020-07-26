@@ -21,9 +21,7 @@ const useStyles = makeStyles((theme) => ({
     width: '90%',
     margin: 'auto'
   },
-  contentHeader: {
-    fontFamily: 'Montserrat',
-  },
+  
   spacer: {
     height: 100
   },
@@ -64,7 +62,7 @@ const page = (props) => {
 
       <Grid container direction="row" spacing={6} className={classes.contentContainer}>
           <Grid item sm={8}>
-            <Typography variant="h3" component="h4" className={classes.contentHeader} style={{ marginBottom: 20 }}>
+            <Typography variant="h3" component="h4" style={{ marginBottom: 20 }}>
               {post.title.rendered}
             </Typography>
 
@@ -79,7 +77,7 @@ const page = (props) => {
           </Grid>
           <Grid item sm={4} style={{ minWidth: '300px' }}>
             <Paper variant="outlined" style={{ padding: 20 }}>
-              <Typography variant="h6" component="h4" className={classes.contentHeader}>
+              <Typography variant="h6" component="h4">
                 Recent News
               </Typography>
               <List style={{ width: '100%' }}>

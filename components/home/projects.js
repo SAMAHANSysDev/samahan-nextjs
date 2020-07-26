@@ -19,9 +19,7 @@ const useStyles = makeStyles((theme) => ({
     width: '80%',
     margin: 'auto'
   },
-  contentHeader: {
-    fontFamily: 'Montserrat',
-  },
+  
   cardRoot: {
     display: 'flex',
     flexDirection: 'column',
@@ -42,7 +40,7 @@ const List = () => {
 
   return (
     <>
-      <Typography variant="h3" className={classes.contentHeader}>
+      <Typography variant="h3">
         Projects and Initiatives
       </Typography>
 

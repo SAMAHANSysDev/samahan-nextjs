@@ -8,9 +8,7 @@ import Grid from '@material-ui/core/Grid';
 import Item from './newsfeed-item';
 
 const useStyles = makeStyles((theme) => ({
-  contentHeader: {
-    fontFamily: 'Montserrat',
-  },
+  
   headerWithDivider: {
     display: 'flex',
     alignItems: 'center'
@@ -39,7 +37,7 @@ const List = ({ posts, users }) => {
     <>
       <div className={classes.headerWithDivider}>
         <div className={classes.dividerNewsFeed}></div>
-        <Typography variant="h3" className={classes.contentHeader}>
+        <Typography variant="h3">
           Newsfeed
         </Typography>
       </div>

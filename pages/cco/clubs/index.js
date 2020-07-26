@@ -14,9 +14,7 @@ const useStyles = makeStyles((theme) => ({
     width: '90%',
     margin: 'auto'
   },
-  contentHeader: {
-    fontFamily: 'Montserrat',
-  },
+  
   motionLogoContainer: {
     position: 'relative'
   },

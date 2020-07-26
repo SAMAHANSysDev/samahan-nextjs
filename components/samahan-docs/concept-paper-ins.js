@@ -12,6 +12,7 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
 const useStyles = makeStyles((theme) => ({
   heading: {
+    fontWeight: 'bold'
   },
   accordions: {
     maxWidth: '80vw'

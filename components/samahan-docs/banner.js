@@ -14,9 +14,7 @@ const useStyles = makeStyles((theme) => ({
     width: '90%',
     margin: 'auto'
   },
-  contentHeader: {
-    fontFamily: 'Montserrat',
-  },
+  
   motionLogoContainer: {
     display: 'none',
     [theme.breakpoints.up('sm')]: {
@@ -41,10 +39,10 @@ const Page = () => {
         <DescriptionIcon className={classes.motionLogo} />
       </Grid>
       <Grid item sm={8} component={Paper} elevation={0}>
-        <Typography variant="h1" component="h2" className={classes.contentHeader} style={{ lineHeight: '0.8em' }}>
+        <Typography variant="h1" component="h2" style={{ lineHeight: '0.8em' }}>
           SAMAHAN
         </Typography>
-        <Typography variant="h1" component="h2" className={classes.contentHeader} style={{ lineHeight: '0.8em' }}>
+        <Typography variant="h1" component="h2" style={{ lineHeight: '0.8em' }}>
           DOCUMENTS
         </Typography><br />
         <Typography variant="subtitle1" component="h2" style={{ lineHeight: '1.5em' }}>

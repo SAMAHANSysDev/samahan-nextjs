@@ -12,9 +12,7 @@ import Grid from '@material-ui/core/Grid';
 import { cdnURL } from 'utils/constants';
 
 const useStyles = makeStyles((theme) => ({
-  contentHeader: {
-    fontFamily: 'Montserrat',
-  },
+
 }));
 
 const List = () => {
@@ -25,13 +23,13 @@ const List = () => {
   return (
     <Grid container direction="row" spacing={6} alignItems="center">
       <Grid item md>
-        <Typography variant="h5" component="h2" style={{ lineHeight: '1.5em' }}>
+        <Typography variant="h5" style={{ lineHeight: '1.5em', fontFamily: 'Open Sans', fontWeight: 300 }}>
           Need some help? Go to
         </Typography>
-        <Typography variant="h1" component="h2" className={classes.contentHeader} style={{ lineHeight: '0.8em' }}>
+        <Typography variant="h1" style={{ lineHeight: '0.8em' }}>
           SAMAHAN
         </Typography>
-        <Typography variant="h1" component="h2" className={classes.contentHeader} style={{ lineHeight: '0.8em' }}>
+        <Typography variant="h1" style={{ lineHeight: '0.8em' }}>
           HELP PORTAL
         </Typography><br />
         <Button variant="contained" color="primary" disableElevation onClick={() => router.push('/samahan-help-portal')}>

@@ -12,9 +12,7 @@ import CardContent from '@material-ui/core/CardContent';
 import clusterRepresentatives from 'data/samahan/cluster-reps';
 
 const useStyles = makeStyles((theme) => ({
-  contentHeader: {
-    fontFamily: 'Montserrat',
-  },
+  
   cardRoot: {
     display: 'flex',
     flexDirection: 'column',
@@ -43,7 +41,7 @@ const Page = () => {
 
   return (
     <>
-      <Typography variant="h3" component="h4" className={classes.contentHeader}>
+      <Typography variant="h3" component="h4">
         Cluster Representatives
       </Typography>
 

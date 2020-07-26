@@ -64,7 +64,7 @@ const Page = () => {
 
   return (
     <Paper elevation={0} style={{ padding: 60 }}>
-      <Typography variant="h3" component="h4" className={classes.contentHeader}>
+      <Typography variant="h3" component="h4">
         Clubs & Organizations
       </Typography>
 

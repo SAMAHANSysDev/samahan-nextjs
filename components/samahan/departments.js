@@ -20,9 +20,7 @@ import Button from '@material-ui/core/Button';
 import departments from 'data/samahan/departments';
 
 const useStyles = makeStyles((theme) => ({
-  contentHeader: {
-    fontFamily: 'Montserrat',
-  },
+  
   cardRoot: {
     display: 'flex',
     flexDirection: 'column',
@@ -63,7 +61,7 @@ const Page = () => {
 
   return (
     <>
-      <Typography variant="h3" component="h4" className={classes.contentHeader}>
+      <Typography variant="h3" component="h4">
         Departments
       </Typography>
 

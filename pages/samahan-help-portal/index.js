@@ -11,18 +11,16 @@ const FAQs = dynamic(() => import('components/samahan-help-portal/faqs'));
 const RedirectButtons = dynamic(() => import('components/samahan-help-portal/redirect-buttons'));
 
 import { TwitterTimelineEmbed } from 'react-twitter-embed';
+import { Carousel } from 'react-responsive-carousel';
 
 import { cdnURL } from 'utils/constants';
-
 
 const useStyles = makeStyles((theme) => ({
   contentContainer: {
     margin: 'auto',
     width: '95%'
   },
-  contentHeader: {
-    fontFamily: 'Montserrat',
-  },
+  
   rootContainer: {
     width: '100%',
     marginBottom: 80
@@ -40,11 +38,11 @@ const Page = () => {
       <div style={{ height: 100 }} />
 
       <Grid container direction="row" spacing={3} alignItems="center" className={classes.contentContainer}>
-        <Grid item sm>
-          <Typography variant="h1" component="h2" className={classes.contentHeader} style={{ lineHeight: '0.8em' }}>
+        <Grid item xs={12} md={6}>
+          <Typography variant="h1" component="h2" style={{ lineHeight: '0.8em' }}>
             SAMAHAN
           </Typography>
-          <Typography variant="h1" component="h2" className={classes.contentHeader} style={{ lineHeight: '0.8em' }}>
+          <Typography variant="h1" component="h2" style={{ lineHeight: '0.8em' }}>
             HELP PORTAL
           </Typography><br />
           <Typography variant="subtitle1" component="h2" style={{ lineHeight: '1.5em' }}>
@@ -69,6 +67,21 @@ const Page = () => {
         <Grid container direction="row" spacing={6} className={classes.contentContainer}>
           <FAQs />
           <Grid item sm>
+            <Carousel autoPlay={false} showThumbs={false} showArrows={true}>
+              <div>
+                <img src={`${cdnURL}/Enroll-in-3-Steps-1.png`} />
+              </div>
+              <div>
+                <img src={`${cdnURL}/Enroll-in-3-Steps-2.png`} />
+              </div>
+              <div>
+                <img src={`${cdnURL}/Enroll-in-3-Steps-3.png`} />
+              </div>
+              <div>
+                <img src={`${cdnURL}/Enroll-in-3-Steps-4.png`} />
+              </div>
+            </Carousel>
+            <div style={{ height: 20 }} />
             <TwitterTimelineEmbed
               sourceType="profile"
               screenName="addusamahan"

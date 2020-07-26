@@ -18,9 +18,7 @@ const useStyles = makeStyles((theme) => ({
     margin: 'auto',
     width: '95%'
   },
-  contentHeader: {
-    fontFamily: 'Montserrat',
-  },
+  
   rootContainer: {
     width: '100%',
     marginBottom: 80
@@ -39,10 +37,10 @@ const Page = () => {
 
       <Grid container direction="row" spacing={3} alignItems="center" className={classes.contentContainer}>
         <Grid item sm>
-          <Typography variant="h1" component="h2" className={classes.contentHeader} style={{ lineHeight: '0.8em' }}>
+          <Typography variant="h1" component="h2" style={{ lineHeight: '0.8em' }}>
             SAMAHAN
           </Typography>
-          <Typography variant="h1" component="h2" className={classes.contentHeader} style={{ lineHeight: '0.8em' }}>
+          <Typography variant="h1" component="h2" style={{ lineHeight: '0.8em' }}>
             Student Services
           </Typography><br />
           <Typography variant="subtitle1" component="h2" style={{ lineHeight: '1.5em' }}>

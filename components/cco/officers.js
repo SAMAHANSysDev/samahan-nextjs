@@ -21,9 +21,7 @@ import Paper from '@material-ui/core/Paper';
 import officers from 'data/cco/officers';
 
 const useStyles = makeStyles((theme) => ({
-  contentHeader: {
-    fontFamily: 'Montserrat',
-  },
+  
   cardRoot: {
     display: 'flex',
     flexDirection: 'column',
@@ -62,7 +60,7 @@ const Page = () => {
 
   return (
     <Paper elevation={0} style={{ padding: 60 }}>
-      <Typography variant="h3" component="h4" className={classes.contentHeader}>
+      <Typography variant="h3" component="h4">
         CCO Officers
       </Typography>
 

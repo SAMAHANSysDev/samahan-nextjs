@@ -15,9 +15,7 @@ const useStyles = makeStyles((theme) => ({
     margin: 'auto',
     width: '95%'
   },
-  contentHeader: {
-    fontFamily: 'Montserrat',
-  },
+  
   rootContainer: {
     width: '100%',
     marginBottom: 80
@@ -36,10 +34,10 @@ const Page = () => {
 
       <Grid container direction="row" spacing={3} alignItems="center" className={classes.contentContainer}>
         <Grid item sm>
-          <Typography variant="h1" component="h2" className={classes.contentHeader} style={{ lineHeight: '0.8em' }}>
+          <Typography variant="h1" component="h2" style={{ lineHeight: '0.8em' }}>
             iHELP
           </Typography>
-          <Typography variant="h1" component="h2" className={classes.contentHeader} style={{ lineHeight: '0.8em' }}>
+          <Typography variant="h1" component="h2" style={{ lineHeight: '0.8em' }}>
             SAMAHAN
           </Typography><br />
           <Typography variant="subtitle1" component="h2" style={{ lineHeight: '1.5em' }}>
@@ -59,7 +57,7 @@ const Page = () => {
       <div style={{ margin: 'auto', width: '90%' }}>
         <Grid container direction="row" spacing={6} className={classes.contentContainer}>
           <Grid item sm={8}>
-            <Typography variant="h4" component="h2" className={classes.contentHeader}>What is iHELP?</Typography>
+            <Typography variant="h4" component="h2">What is iHELP?</Typography>
             <Typography variant="body1" component="p" style={{ marginTop: '10px', marginBottom: '10px' }}>For the past academic year, we, as a university community, have endured more calamities than is deemed necessary. From natural calamities to pandemics, we recognize that, even in the most difficult times, we continue to extend our help and support for each other. However, this does not erase the difficulties that come with each calamity we have to face. There have been issues on the timeliness of aid provided, monitoring of students in need, on answering concerns, etc. </Typography>
             <Typography variant="body1" component="p" style={{ marginTop: '10px', marginBottom: '10px' }}>iHelp is a flagship program of the SAMAHAN, under the Department of Campaigns and Advocacies, for the academic year 2020-21 that is targeted to addressing these issues. Through maximizing our digital platforms, it <b>aims to establish a defined system in order to check and monitor Ateneans during calamities</b>. Thus, by creating a more efficient checking system, we will be able to <b>streamline the efforts of the university</b>, along with its partners, in order to provide help when and where it is most crucial. </Typography>
             <Typography variant="body1" component="p" style={{ marginTop: '10px', marginBottom: '10px' }}>To achieve this, we will <b>create an online database for all students enrolled in Ateneo de Davao University</b>. This will allow us to track students who are most at risk or most affected by calamities. In turn, this would aid to consolidate the information needed by the university in order assist these students. Consequently, <b>all SAMAHAN-initiate donation drives will be under iHelp</b> in order to lessen logistical confusion. </Typography>
@@ -68,7 +66,7 @@ const Page = () => {
             <Typography variant="body1" component="p" style={{ marginTop: '10px', marginBottom: '10px' }}>At the core, while we can never be fully prepared for calamities, this will create an opportunity for us to respond more efficiently. As Ateneans, we continue to find ways and innovate on how we can better respond to the call of those who need us most. <b>iHelpSAMAHAN is only the beginning</b>.</Typography>
           </Grid>
           <Grid item sm>
-            <Typography variant="h4" component="h2" className={classes.contentHeader} style={{ marginBottom: 10 }}>Key Personnels</Typography>
+            <Typography variant="h4" component="h2" style={{ marginBottom: 10 }}>Key Personnels</Typography>
             <Grid container direction="row">
               <Grid item sm={6} style={{ display: 'flex', alignItems: 'center', minWidth: 150 }}>
                 <PhoneIcon /> <Typography style={{ marginLeft: 10 }}>09982310294</Typography>

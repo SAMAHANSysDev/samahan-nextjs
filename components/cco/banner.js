@@ -15,9 +15,7 @@ const useStyles = makeStyles((theme) => ({
     width: '90%',
     margin: 'auto'
   },
-  contentHeader: {
-    fontFamily: 'Montserrat',
-  },
+  
   motionLogoContainer: {
     display: 'none',
     [theme.breakpoints.up('sm')]: {
@@ -44,10 +42,10 @@ const Page = () => {
       <Grid item sm className={classes.motionLogoContainer}>
       </Grid>
       <Grid item sm={8} component={Paper} elevation={0}>
-        <Typography variant="h1" component="h2" className={classes.contentHeader} style={{ lineHeight: '0.8em' }}>
+        <Typography variant="h1" component="h2" style={{ lineHeight: '0.8em' }}>
           CAMPUS CLUBS
         </Typography>
-        <Typography variant="h1" component="h2" className={classes.contentHeader} style={{ lineHeight: '0.8em' }}>
+        <Typography variant="h1" component="h2" style={{ lineHeight: '0.8em' }}>
           ORGANIZATION
         </Typography><br />
         <Typography variant="subtitle1" component="h2" style={{ lineHeight: '1.5em' }}>

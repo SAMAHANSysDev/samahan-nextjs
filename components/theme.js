@@ -25,7 +25,33 @@ export default responsiveFontSizes(createMuiTheme({
     button: {
       textTransform: "none"
     },
-    fontFamily: 'Open Sans, Montserrat'
+    h1: {
+      fontSize: '5rem',
+      fontFamily: 'Montserrat',
+      fontWeight: 900
+    },
+    h2: {
+      fontFamily: 'Montserrat',
+      fontWeight: 900
+    },
+    h3: {
+      fontFamily: 'Montserrat',
+      fontWeight: 700
+    },
+    h4: {
+      fontFamily: 'Montserrat',
+      fontWeight: 700
+    },
+    h5: {
+      fontFamily: 'Montserrat',
+      fontWeight: 600
+    },
+    h6: {
+      fontFamily: 'Montserrat',
+      fontWeight: 500
+    },
+    fontFamily: 'Open Sans',
+    fontWeight: 400
   },
   spacing: 10
 }), { factor: 4 });

@@ -28,6 +28,10 @@ const useStyles = makeStyles((theme) => ({
     minWidth: 200,
     color: theme.palette.primary.main,
     borderColor: theme.palette.primary.main
+  },
+  cardText: {
+    fontFamily: 'Open Sans',
+    fontWeight: 300
   }
 }));
 
@@ -43,7 +47,7 @@ const Page = () => {
           <CardActionArea disabled>
             <CardContent>
               <SearchOutlinedIcon style={{ fontSize: 'calc(40px + 4vw)' }} /><br />
-              <Typography variant="h4" component="h2" style={{ lineHeight: '1.5em' }}>
+              <Typography variant="h4" component="h2" className={classes.cardText} style={{ lineHeight: '1.5em' }}>
                 FAQs
               </Typography>
             </CardContent>
@@ -55,7 +59,7 @@ const Page = () => {
           <CardActionArea onClick={() => window.open('http://tiny.cc/Finance20', '_blank')}>
             <CardContent>
               <AttachMoneyOutlinedIcon style={{ fontSize: 'calc(40px + 4vw)' }} /><br />
-              <Typography variant="h4" component="h2" style={{ lineHeight: '1.5em' }}>
+              <Typography variant="h4" component="h2" className={classes.cardText} style={{ lineHeight: '1.5em' }}>
                 Finance
               </Typography>
             </CardContent>
@@ -67,7 +71,7 @@ const Page = () => {
           <CardActionArea onClick={() => window.open('http://tiny.cc/MIS20', '_blank')}>
             <CardContent>
               <InfoOutlinedIcon style={{ fontSize: 'calc(40px + 4vw)' }} /><br />
-              <Typography variant="h4" component="h2" style={{ lineHeight: '1.5em' }}>
+              <Typography variant="h4" component="h2" className={classes.cardText} style={{ lineHeight: '1.5em' }}>
                 M.I.S.
               </Typography>
             </CardContent>
@@ -79,7 +83,7 @@ const Page = () => {
           <CardActionArea onClick={() => window.open('http://tiny.cc/Admissions20', '_blank')}>
             <CardContent>
               <AssignmentIndOutlinedIcon style={{ fontSize: 'calc(40px + 4vw)' }} /><br />
-              <Typography variant="h4" component="h2" style={{ lineHeight: '1.5em' }}>
+              <Typography variant="h4" component="h2" className={classes.cardText} style={{ lineHeight: '1.5em' }}>
                 Admissions
               </Typography>
             </CardContent>
