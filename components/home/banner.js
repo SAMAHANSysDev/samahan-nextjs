@@ -42,6 +42,7 @@ const useStyles = makeStyles((theme) => ({
     }
   },
   bannerImage: {
+    maxHeight: '75vh',
     width: '65vw',
     background: theme.palette.primary.main,
     opacity: 0.4,
@@ -60,7 +61,7 @@ const List = ({ bannerImage }) => {
 
   return (
     <div className={classes.bannerContainer}>
-      <Grid container direction="row" alignItems="center" style={{ height: '80%' }}>
+      <Grid container direction="row" alignItems="center" style={{ height: '80%', paddingTop: 20 }}>
         <Grid item sm={6} className={classes.bannerImageContainer}>
           <CardMedia
             component="img"
