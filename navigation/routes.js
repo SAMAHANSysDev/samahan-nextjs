@@ -9,7 +9,7 @@ export default [
   {
     name: "Home",
     href: "/",
-    title: "Home",
+    title: "SAMAHAN ng mga Mag-aaral ng Pamantasan ng Ateneo de Davao",
     desc: "The Official Student Government of Ateneo de Davao University",
   },
   {
