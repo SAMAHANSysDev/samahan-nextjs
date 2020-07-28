@@ -52,6 +52,8 @@ export async function getServerSideProps({ res }) {
   res.setHeader('Content-Type', 'text/xml');
   res.write(createSitemap(posts));
   res.end();
+
+  return { props: {} };
 }
 
 export default Sitemap;
