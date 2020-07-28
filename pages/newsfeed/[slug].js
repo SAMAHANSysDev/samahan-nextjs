@@ -66,11 +66,13 @@ const page = (props) => {
         <meta name="twitter:card" value="summary" />
         <meta property="og:title" content={post.title.rendered} />
         <meta property="og:type" content="article" />
-        {post.jetpack_featured_media_url ? 
+        {post.jetpack_featured_media_url ? <>
           <meta property="og:image" content={post.jetpack_featured_media_url} /> 
-        : 
+          <meta name="twitter:image" content={post.jetpack_featured_media_url} />
+        </> : <>
           <meta property="og:image" content={`${cdnURL}/samahan-seo-default.png`} />
-        }
+          <meta name="twitter:image" content={`${cdnURL}/samahan-seo-twitter-default.png`} />
+        </>}
         <meta property="og:url" content={`${frontendURL}/newsfeed/${post.slug}`} />
         <meta property="og:description" content={post.excerpt.rendered.replace(/<[^>]+>/g, '')} />
       </Head>
