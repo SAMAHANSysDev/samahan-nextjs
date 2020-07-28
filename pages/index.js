@@ -68,12 +68,12 @@ export async function getStaticProps(ctx) {
       WP.users()
     ]);
     if (res) { 
-      return { props: { posts: res, users }, unstable_revalidate: 10 };
+      return { props: { posts: res, users }, revalidate: 10 };
     } else {
-      return { props: { posts: [], users }, unstable_revalidate: 10 };
+      return { props: { posts: [], users }, revalidate: 10 };
     }
   } catch (err) {
-    return { props: { posts: [], users: [] }, unstable_revalidate: 10 };
+    return { props: { posts: [], users: [] }, revalidate: 10 };
   }
 }
 

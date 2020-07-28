@@ -134,9 +134,9 @@ export const getStaticProps = async (ctx) => {
       WP.users().id(res[0].author),
       WP.posts().exclude(res[0].id).perPage(5).page(1)
     ]);
-    return { props: { post: res[0], author, recent }, unstable_revalidate: 10 };
+    return { props: { post: res[0], author, recent }, revalidate: 10 };
   }
-  return { props: { post: null, author: null, recent: [] }, unstable_revalidate: 10 };
+  return { props: { post: null, author: null, recent: [] }, revalidate: 10 };
 }
 
 export default page;

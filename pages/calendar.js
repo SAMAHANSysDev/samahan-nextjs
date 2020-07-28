@@ -150,9 +150,9 @@ export async function getStaticProps(ctx) {
       timeMin: new Date(),
       maxResults: 10
     })).data.items
-    return { props: { events }, unstable_revalidate: 10 };
+    return { props: { events }, revalidate: 10 };
   } catch (err) {
-    return { props: { events: [] }, unstable_revalidate: 10 };
+    return { props: { events: [] }, revalidate: 10 };
   }
 }
 
