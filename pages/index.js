@@ -36,6 +36,7 @@ const List = ({ posts, users }) => {
     <div className={classes.rootContainer}>
       <Head>
         <meta property="og:image" content={bannerImage} />
+        <meta name="twitter:image" content={bannerImage} />
       </Head>
 
       <Banner bannerImage={bannerImage} />

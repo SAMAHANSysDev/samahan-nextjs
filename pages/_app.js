@@ -27,7 +27,7 @@ import 'react-calendar/dist/Calendar.css';
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 
 import routes from 'navigation/routes';
-import { frontendURL } from 'utils/constants';
+import { frontendURL, cdnURL } from 'utils/constants';
 
 
 NProgress.configure({
@@ -92,8 +92,10 @@ export default function SamahanFrontend(props) {
             <title>{routeObject.title} - SAMAHAN</title>
             <meta name="description" content={routeObject.desc} />
             <meta name="twitter:card" value="summary" />
+            <meta name="twitter:image" content={`${cdnURL}/samahan-seo-twitter-default.png`} />
             <meta property="og:title" content={routeObject.title} />
             <meta property="og:type" content="website" />
+            <meta property="og:image" content={`${cdnURL}/samahan-seo-default.png`} />
             <meta property="og:url" content={`${frontendURL}${routeObject.href}`} />
             <meta property="og:description" content={routeObject.desc} />
           </>

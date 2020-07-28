@@ -5,7 +5,7 @@
  * 
  */
 
-export default [
+module.exports = [
   {
     name: "Home",
     href: "/",

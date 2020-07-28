@@ -14,7 +14,7 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import CircularProgress from '@material-ui/core/CircularProgress';
 
-import { frontendURL } from 'utils/constants';
+import { frontendURL, cdnURL } from 'utils/constants';
 
 const useStyles = makeStyles((theme) => ({
   contentContainer: {
@@ -54,6 +54,11 @@ const page = (props) => {
         <meta name="twitter:card" value="summary" />
         <meta property="og:title" content={post.title.rendered} />
         <meta property="og:type" content="article" />
+        {post.jetpack_featured_media_url ? 
+          <meta property="og:image" content={post.jetpack_featured_media_url} /> 
+        : 
+          <meta property="og:image" content={`${cdnURL}/samahan-seo-default.png`} />
+        }
         <meta property="og:url" content={`${frontendURL}/newsfeed/${post.slug}`} />
         <meta property="og:description" content={post.excerpt.rendered.replace(/<[^>]+>/g, '')} />
       </Head>
@@ -99,7 +104,12 @@ const page = (props) => {
 }
 
 export const getStaticPaths = async () => {
-  const res = await WP.posts();
+  let res = []
+  try {
+    res = await WP.posts();
+  } catch (err) {
+    res = []
+  }
   let paths = [];
   for (let post of res) {
     paths.push({
@@ -113,12 +123,20 @@ export const getStaticPaths = async () => {
 }
 
 export const getStaticProps = async (ctx) => {
-  const res = await WP.posts().slug(ctx.params.slug);
-  const [author, recent] = await Promise.all([
-    WP.users().id(res[0].author),
-    WP.posts().exclude(res[0].id).perPage(5).page(1)
-  ]);
-  return { props: { post: res[0], author, recent }, unstable_revalidate: 10 }
+  let res = []
+  try {
+    res = await WP.posts().slug(ctx.params.slug);
+  } catch (err) {
+    res = []
+  }
+  if (res.length > 0) {
+    const [author, recent] = await Promise.all([
+      WP.users().id(res[0].author),
+      WP.posts().exclude(res[0].id).perPage(5).page(1)
+    ]);
+    return { props: { post: res[0], author, recent }, unstable_revalidate: 10 };
+  }
+  return { props: { post: null, author: null, recent: [] }, unstable_revalidate: 10 };
 }
 
 export default page;

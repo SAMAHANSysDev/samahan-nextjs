@@ -1,0 +1,2 @@
+User-agent: *
+Sitemap: https://samahan.addu.edu.ph/sitemap.xml

@@ -103,7 +103,7 @@ The project follows a modularized folder structure on top of the provided struct
   - nav-burger.js - mobile navigation menu
   - routes.js - list of routes
 - The '**pages**' folder contains the pages of the project.
-- The '**utils**' folder contains external APIs and the constants, such as the backend Wordpress URL, for the project.
+- The '**utils**' folder contains external APIs, constants and generators, such as the backend Wordpress URL, for the project.
 
 ## Contributing
 Only pull requests from SAMAHAN System Development members are welcome. For major changes, please open an issue first to discuss what you would like to change.

@@ -1,8 +1,8 @@
-import { google } from 'googleapis';
+const { google } = require('googleapis');
 
 const gcal = google.calendar({
   version: 'v3',
   auth: process.env.GOOGLE_AUTH,
 })
 
-export default gcal;
+module.exports = gcal;

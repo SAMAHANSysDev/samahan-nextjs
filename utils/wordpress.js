@@ -1,8 +1,8 @@
-import Wordpress from 'wpapi';
-import { backendURL } from './constants';
+const Wordpress = require('wpapi');
+const { backendURL } = require('./constants');
 
 const wp = new Wordpress({
   endpoint: `${backendURL}/wp-json`
 })
 
-export default wp;
+module.exports = wp;

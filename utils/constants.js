@@ -1,5 +1,5 @@
-const frontendURL = 'https://samahan.vercel.app';
-const backendURL = 'https://samahan.addu.edu.ph';
+const frontendURL = 'https://samahan.addu.edu.ph';
+const backendURL = 'https://samahan-api.addu.edu.ph';
 const cdnURL = 'https://samahan-cdn.imfast.io';
 
-export { frontendURL, backendURL, cdnURL };
+module.exports = { frontendURL, backendURL, cdnURL };
