@@ -5,6 +5,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import { useRouter } from 'next/router';
 import Typography from '@material-ui/core/Typography';
 import Head from 'next/head';
+import DefaultErrorPage from 'next/error';
 import Grid from '@material-ui/core/Grid';
 
 import Paper from '@material-ui/core/Paper';
@@ -40,9 +41,20 @@ const page = (props) => {
     return (
       <div className={classes.contentContainer}>
         <Grid container direction="row" justify="center">
-          <CircularProgress />
+          <CircularProgress style={{ marginTop: 100, marginBottom: 100 }} />
         </Grid>
       </div>
+    )
+  }
+
+  if(!post) {
+    return (
+      <>
+        <Head>
+          <meta name="robots" content="noindex" />
+        </Head>
+        <DefaultErrorPage statusCode={404} />
+      </>
     )
   }
 
