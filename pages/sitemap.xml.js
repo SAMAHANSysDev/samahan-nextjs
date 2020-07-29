@@ -32,7 +32,7 @@ const createSitemap = (posts) => `<?xml version="1.0" encoding="UTF-8"?>
     .map(({ slug }) => {
       return `
         <url>
-          <loc>${`${frontendURL}/${slug}`}</loc>
+          <loc>${`${frontendURL}/newsfeed/${slug}`}</loc>
         </url>
       `;
     })
