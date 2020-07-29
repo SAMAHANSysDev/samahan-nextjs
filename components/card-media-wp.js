@@ -1,5 +1,7 @@
 import React from "react";
 import CardMedia from '@material-ui/core/CardMedia';
+import Grid from '@material-ui/core/Card';
+import LinearProgress from '@material-ui/core/LinearProgress';
 import WP from 'utils/wordpress';
 import useSWR from 'swr';
 
@@ -30,7 +32,13 @@ const Page = ({ className, imageId, title }) => {
     );
   }
 
-  return null;
+  return (
+    <Grid container direction="row" alignItems="center" justify="center" className={className}>
+      <Grid item>
+        <LinearProgress />
+      </Grid>
+    </Grid>
+  );
 };
 
 export default Page;
