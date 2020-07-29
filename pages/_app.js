@@ -23,7 +23,6 @@ import dynamic from 'next/dynamic';
 const Header = dynamic(() => import('components/header'));
 const Footer = dynamic(() => import('components/footer'));
 
-import 'react-calendar/dist/Calendar.css';
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 
 import routes from 'navigation/routes';

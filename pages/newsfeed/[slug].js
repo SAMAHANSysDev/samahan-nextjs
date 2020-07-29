@@ -1,6 +1,5 @@
 import React from 'react';
 import WP from 'utils/wordpress';
-import parse from 'html-react-parser';
 import { makeStyles } from '@material-ui/core/styles';
 import { useRouter } from 'next/router';
 import Typography from '@material-ui/core/Typography';
@@ -16,6 +15,7 @@ import ListItemText from '@material-ui/core/ListItemText';
 import CircularProgress from '@material-ui/core/CircularProgress';
 
 import { frontendURL, cdnURL } from 'utils/constants';
+import WPGBlocks from 'react-gutenberg';
 
 const useStyles = makeStyles((theme) => ({
   contentContainer: {
@@ -91,7 +91,7 @@ const page = (props) => {
             { post.jetpack_featured_media_url ? <img src={post.jetpack_featured_media_url} style={{ width: '100%', marginTop: 40, marginBottom: 20 }} /> : null }
             
             <Typography variant="body1" component="div">
-              {parse(post.content.rendered)}
+              <WPGBlocks blocks={post.blocks} />
             </Typography>
           </Grid>
           <Grid item sm={4} style={{ minWidth: '300px' }}>
