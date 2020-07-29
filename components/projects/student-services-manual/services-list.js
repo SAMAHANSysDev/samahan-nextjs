@@ -28,7 +28,7 @@ const Page = ({ list }) => {
     <Grid item sm={9}>
       <div className={classes.accordions}>
         { list.map((service) => (
-          <Accordion variant="outlined" elevation={0}>
+          <Accordion variant="outlined" key={service.id} elevation={0}>
             <AccordionSummary
               expandIcon={<ExpandMoreIcon />}
               aria-controls="panel1a-content"

@@ -16,6 +16,8 @@ import { Carousel } from 'react-responsive-carousel';
 
 import { cdnURL } from 'utils/constants';
 
+import sort from 'fast-sort';
+
 const useStyles = makeStyles((theme) => ({
   contentContainer: {
     margin: 'auto',
@@ -98,6 +100,8 @@ const Page = ({ faqs }) => {
 export async function getStaticProps(ctx) {
   try {
     const res = await WP.helpPortal().perPage(30);
+    sort(res).asc(x => x.acf.question);
+    
     if (res) { 
       return { props: { faqs: res }, revalidate: 10 };
     } else {

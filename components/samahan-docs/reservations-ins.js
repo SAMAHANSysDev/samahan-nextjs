@@ -31,7 +31,7 @@ const Page = ({ docs }) => {
   return (
     <div className={classes.accordions}>
       { docs.map((doc) => (
-        <Accordion variant="outlined" elevation={0}>
+        <Accordion key={doc.id} variant="outlined" elevation={0}>
           <AccordionSummary
             expandIcon={<ExpandMoreIcon />}
           >

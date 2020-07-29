@@ -54,7 +54,7 @@ const Page = ({ docs }) => {
             <Typography variant="h4">Templates</Typography>
             { docs.map((doc) => (
               doc.acf.file ?
-                <Button variant="outlined" color="primary" startIcon={<SaveIcon />}
+                <Button key={doc.id} variant="outlined" color="primary" startIcon={<SaveIcon />}
                   disableElevation fullWidth style={{ marginTop: 20 }}
                   onClick={() => window.open(`${doc.acf.file}`, '_blank')}
                 >
