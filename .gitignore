@@ -3,3 +3,4 @@ package-lock.json
 .next/
 .env.local
 .env
+.DS_Store
