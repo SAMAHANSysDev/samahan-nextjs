@@ -5,7 +5,10 @@ import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import SaveIcon from '@material-ui/icons/Save';
 
+import WP from 'utils/wordpress';
 import dynamic from 'next/dynamic';
+import sort from 'fast-sort';
+
 const Banner = dynamic(() => import('components/samahan-docs/banner'));
 const NavButtons = dynamic(() => import('components/samahan-docs/nav-buttons'));
 const Instructions = dynamic(() => import('components/samahan-docs/concept-paper-ins'));
@@ -28,7 +31,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Page = () => {
+const Page = ({ docs }) => {
   // Get the data of the current list.
   
   const classes = useStyles();
@@ -49,30 +52,40 @@ const Page = () => {
           <Grid item sm={4}>
             {/* Templates */}
             <Typography variant="h4">Templates</Typography>
-            <Button variant="outlined" color="primary" startIcon={<SaveIcon />}
-              disableElevation fullWidth style={{ marginTop: 20 }}
-              onClick={() => window.open(`${backendURL}/wp-content/uploads/2020/04/Concept-Paper.docx`, '_blank')}
-            >
-              Concept Paper
-            </Button>
-            <Button variant="outlined" color="primary" startIcon={<SaveIcon />}
-              disableElevation fullWidth style={{ marginTop: 20 }}
-              onClick={() => {}}
-              disabled
-            >
-              Financial Report
-            </Button>
+            { docs.map((doc) => (
+              doc.acf.file ?
+                <Button variant="outlined" color="primary" startIcon={<SaveIcon />}
+                  disableElevation fullWidth style={{ marginTop: 20 }}
+                  onClick={() => window.open(`${doc.acf.file}`, '_blank')}
+                >
+                  {doc.acf.file_title}
+                </Button>
+              : null
+            ))}
           </Grid>
           <Grid item sm={8}>
             {/* Instructions */}
             <Typography variant="h4">Instructions</Typography>
             <div style={{ height: 20 }}></div>
-            <Instructions />
+            <Instructions docs={docs} />
           </Grid>
         </Grid>
       </div>
     </div>
   );
 };
+
+export async function getStaticProps(ctx) {
+  try {
+    let docs = await WP.conceptDocs().perPage(100);
+
+    sort(docs).asc(x => x.acf.title);
+
+    return { props: { docs }, revalidate: 10 };
+  } catch (err) {
+    console.log(err)
+    return { props: { docs: [] }, revalidate: 10 };
+  }
+}
 
 export default Page;

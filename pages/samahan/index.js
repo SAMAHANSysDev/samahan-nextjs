@@ -6,7 +6,9 @@ import Typography from '@material-ui/core/Typography';
 import Paper from '@material-ui/core/Paper';
 import Hidden from '@material-ui/core/Hidden';
 
+import WP from 'utils/wordpress';
 import dynamic from 'next/dynamic';
+import sort from 'fast-sort';
 
 const Advocasix = dynamic(() => import('components/samahan/advocasix'));
 const BoardMembers = dynamic(() => import('components/samahan/board-members'));
@@ -34,7 +36,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Page = () => {
+const Page = ({ centralBoard, clusterReps, departments }) => {
   // Get the data of the current list.
 
   const classes = useStyles();
@@ -104,18 +106,37 @@ const Page = () => {
 
       <div style={{ height: 100 }} />
 
-      <BoardMembers />
+      <BoardMembers members={centralBoard} />
 
       <div style={{ height: 100 }} />
 
-      <ClusterReps />
+      <ClusterReps reps={clusterReps} />
 
       <div style={{ height: 100 }} />
 
-      <Departments />
+      <Departments depts={departments} />
 
     </div>
   );
 };
+
+export async function getStaticProps(ctx) {
+  try {
+    let [centralBoard, clusterReps, departments] = await Promise.all([
+      WP.centralBoard().perPage(100),
+      WP.clusterReps().perPage(100),
+      WP.departments().perPage(100)
+    ]);
+
+    sort(centralBoard).asc(x => parseInt(x.acf.order));
+    sort(clusterReps).asc(x => x.acf.position);
+    sort(departments).asc(x => x.acf.name);
+
+    return { props: { centralBoard, clusterReps, departments }, revalidate: 10 };
+  } catch (err) {
+    console.log(err)
+    return { props: { centralBoard: [], clusterReps: [], departments: [] }, revalidate: 10 };
+  }
+}
 
 export default Page;

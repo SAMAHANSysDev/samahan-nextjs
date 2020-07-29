@@ -5,7 +5,10 @@ import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import SaveIcon from '@material-ui/icons/Save';
 
+import WP from 'utils/wordpress';
 import dynamic from 'next/dynamic';
+import sort from 'fast-sort';
+
 const Banner = dynamic(() => import('components/samahan-docs/banner'));
 const NavButtons = dynamic(() => import('components/samahan-docs/nav-buttons'));
 const Instructions = dynamic(() => import('components/samahan-docs/requests-ins'));
@@ -28,7 +31,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Page = () => {
+const Page = ({ docs }) => {
   // Get the data of the current list.
   
   const classes = useStyles();
@@ -49,71 +52,40 @@ const Page = () => {
           <Grid item sm={4}>
             {/* Templates */}
             <Typography variant="h4">Templates</Typography>
-            <Button variant="outlined" color="primary" startIcon={<SaveIcon />}
-              disableElevation fullWidth style={{ marginTop: 20 }}
-              onClick={() => window.open(`${backendURL}/wp-content/uploads/2020/04/Request-for-Equipment-.docx`, '_blank')}
-            >
-              Request for Equipment
-            </Button>
-            <Button variant="outlined" color="primary" startIcon={<SaveIcon />}
-              disableElevation fullWidth style={{ marginTop: 20 }}
-              onClick={() => window.open(`${backendURL}/wp-content/uploads/2020/04/Request-for-Entry.docx`, '_blank')}
-            >
-              Request for Entry of Outsiders
-            </Button>
-            <Button variant="outlined" color="primary" startIcon={<SaveIcon />}
-              disableElevation fullWidth style={{ marginTop: 20 }}
-              onClick={() => window.open(`${backendURL}/wp-content/uploads/2020/04/Request-for-LED.docx`, '_blank')}
-            >
-              Request for LED
-            </Button>
-            <Button variant="outlined" color="primary" startIcon={<SaveIcon />}
-              disableElevation fullWidth style={{ marginTop: 20 }}
-              onClick={() => window.open(`${backendURL}/wp-content/uploads/2020/04/Request-for-LFD.docx`, '_blank')}
-            >
-              Request for LFD
-            </Button>
-            <Button variant="outlined" color="primary" startIcon={<SaveIcon />}
-              disableElevation fullWidth style={{ marginTop: 20 }}
-              onClick={() => window.open(`${backendURL}/wp-content/uploads/2020/04/Request-for-Stilts.docx`, '_blank')}
-            >
-              Request for Stilts
-            </Button>
-            <Button variant="outlined" color="primary" startIcon={<SaveIcon />}
-              disableElevation fullWidth style={{ marginTop: 20 }}
-              onClick={() => window.open(`${backendURL}/wp-content/uploads/2020/04/Requests-for-Parents-Consents.docx`, '_blank')}
-            >
-              Request for Parent's Consents
-            </Button>
-            <Button variant="outlined" color="primary" startIcon={<SaveIcon />}
-              disableElevation fullWidth style={{ marginTop: 20 }}
-              onClick={() => window.open(`${backendURL}/wp-content/uploads/2020/04/Request-for-Ingress.docx`, '_blank')}
-            >
-              Request for Ingress
-            </Button>
-            <Button variant="outlined" color="primary" startIcon={<SaveIcon />}
-              disableElevation fullWidth style={{ marginTop: 20 }}
-              onClick={() => window.open(`${backendURL}/wp-content/uploads/2020/04/Request-for-Overtime.docx`, '_blank')}
-            >
-              Request for Overtime
-            </Button>
-            <Button variant="outlined" color="primary" startIcon={<SaveIcon />}
-              disableElevation fullWidth style={{ marginTop: 20 }}
-              onClick={() => window.open(`${backendURL}/wp-content/uploads/2020/04/Request-for-Pink-Slips.docx`, '_blank')}
-            >
-              Request for Pink Slips
-            </Button>
+            { docs.map((doc) => (
+              doc.acf.file ?
+                <Button variant="outlined" color="primary" startIcon={<SaveIcon />}
+                  disableElevation fullWidth style={{ marginTop: 20 }}
+                  onClick={() => window.open(`${doc.acf.file}`, '_blank')}
+                >
+                  {doc.acf.file_title}
+                </Button>
+              : null
+            ))}
           </Grid>
           <Grid item sm={8}>
             {/* Instructions */}
             <Typography variant="h4">Instructions</Typography>
             <div style={{ height: 20 }}></div>
-            <Instructions />
+            <Instructions docs={docs} />
           </Grid>
         </Grid>
       </div>
     </div>
   );
 };
+
+export async function getStaticProps(ctx) {
+  try {
+    let docs = await WP.requestDocs().perPage(100);
+
+    sort(docs).asc(x => x.acf.title);
+
+    return { props: { docs }, revalidate: 10 };
+  } catch (err) {
+    console.log(err)
+    return { props: { docs: [] }, revalidate: 10 };
+  }
+}
 
 export default Page;

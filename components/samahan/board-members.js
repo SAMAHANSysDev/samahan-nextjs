@@ -6,10 +6,8 @@ import Typography from '@material-ui/core/Typography';
 
 import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
-import CardMedia from '@material-ui/core/CardMedia';
+import CardMediaWP from 'components/card-media-wp';
 import CardContent from '@material-ui/core/CardContent';
-
-import boardMembers from 'data/samahan/board-members';
 
 const useStyles = makeStyles((theme) => ({
   
@@ -35,7 +33,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Page = () => {
+const Page = ({ members: boardMembers }) => {
   // Get the data of the current list.
   
   const classes = useStyles();
@@ -58,20 +56,20 @@ const Page = () => {
         <Grid item sm>
           <Card className={classes.cardRoot} elevation={0} variant="outlined">
             <CardActionArea disabled>
-              <CardMedia
+              <CardMediaWP
                 className={classes.cardMedia}
-                image={boardMembers[0].img}
+                imageId={boardMembers[0].featured_media}
                 title={boardMembers[0].position}
               />
               <CardContent>
                 <Typography variant="h5">
-                  {boardMembers[0].name}
+                  {boardMembers[0].acf.name}
                 </Typography>
                 <Typography variant="subtitle2">
-                  {boardMembers[0].position}
+                  {boardMembers[0].acf.position}
                 </Typography>
                 <Typography variant="subtitle2">
-                  {boardMembers[0].email}
+                  {boardMembers[0].acf.email}
                 </Typography>
               </CardContent>
             </CardActionArea>
@@ -83,23 +81,23 @@ const Page = () => {
         { boardMembers.map((member, index) => {
           if (index !== 0) {
             return (
-              <Grid item sm={4} key={member.email}>
+              <Grid item sm={4} key={member.acf.email}>
                 <Card className={classes.cardRoot} elevation={0} variant="outlined">
                   <CardActionArea disabled>
-                    <CardMedia
+                    <CardMediaWP
                       className={classes.cardMedia}
-                      image={member.img}
-                      title={member.position}
+                      imageId={member.featured_media}
+                      title={member.acf.position}
                     />
                     <CardContent>
                       <Typography variant="h5">
-                        {member.name}
+                        {member.acf.name}
                       </Typography>
                       <Typography variant="subtitle2">
-                        {member.position}
+                        {member.acf.position}
                       </Typography>
                       <Typography variant="subtitle2">
-                        {member.email}
+                        {member.acf.email}
                       </Typography>
                     </CardContent>
                   </CardActionArea>

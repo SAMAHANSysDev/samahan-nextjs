@@ -6,19 +6,9 @@ import Typography from '@material-ui/core/Typography';
 
 import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
-import CardMedia from '@material-ui/core/CardMedia';
+import CardMediaWP from 'components/card-media-wp';
 import CardContent from '@material-ui/core/CardContent';
-import Modal from '@material-ui/core/Modal';
-import Backdrop from '@material-ui/core/Backdrop';
-import Fade from '@material-ui/core/Fade';
-
-import Divider from '@material-ui/core/Divider';
-
-import CardActions from "@material-ui/core/CardActions";
-import Button from '@material-ui/core/Button';
 import Paper from '@material-ui/core/Paper';
-
-import officers from 'data/cco/officers';
 
 const useStyles = makeStyles((theme) => ({
   
@@ -53,7 +43,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Page = () => {
+const Page = ({ list: officers }) => {
   // Get the data of the current list.
   
   const classes = useStyles();
@@ -67,23 +57,23 @@ const Page = () => {
       <Grid container direction="row" spacing={3} alignItems="center" justify="center">
         { officers.map((officer) => {
           return (
-            <Grid item sm={4} key={officer.email}>
+            <Grid item sm={4} key={officer.acf.email}>
               <Card className={classes.cardRoot} elevation={0} variant="outlined">
                 <CardActionArea disabled>
-                  <CardMedia
+                  <CardMediaWP
                     className={classes.cardMedia}
-                    image={officer.img}
-                    title={officer.position}
+                    imageId={officer.featured_media}
+                    title={officer.acf.position}
                   />
                   <CardContent>
                     <Typography variant="h5">
-                      {officer.name}
+                      {officer.acf.name}
                     </Typography>
                     <Typography variant="subtitle2">
-                      {officer.position}
+                      {officer.acf.position}
                     </Typography>
                     <Typography variant="subtitle2">
-                      {officer.email}
+                      {officer.acf.email}
                     </Typography>
                   </CardContent>
                 </CardActionArea>

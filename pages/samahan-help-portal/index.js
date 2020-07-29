@@ -5,6 +5,7 @@ import Typography from '@material-ui/core/Typography';
 
 import Grid from '@material-ui/core/Grid';
 
+import WP from 'utils/wordpress';
 import dynamic from 'next/dynamic';
 
 const FAQs = dynamic(() => import('components/samahan-help-portal/faqs'));
@@ -27,7 +28,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Page = () => {
+const Page = ({ faqs }) => {
   // Get the data of the current list.
   
   const classes = useStyles();
@@ -65,7 +66,7 @@ const Page = () => {
         <div style={{ height: 100 }}></div>
 
         <Grid container direction="row" spacing={6} className={classes.contentContainer}>
-          <FAQs />
+          <FAQs faqs={faqs} />
           <Grid item sm>
             <Carousel autoPlay={false} showThumbs={false} showArrows={true}>
               <div>
@@ -93,5 +94,19 @@ const Page = () => {
     </div>
   );
 };
+
+export async function getStaticProps(ctx) {
+  try {
+    const res = await WP.helpPortal().perPage(30);
+    if (res) { 
+      return { props: { faqs: res }, revalidate: 10 };
+    } else {
+      return { props: { faqs: [] }, revalidate: 10 };
+    }
+  } catch (err) {
+    console.log(err)
+    return { props: { faqs: [] }, revalidate: 10 };
+  }
+}
 
 export default Page;

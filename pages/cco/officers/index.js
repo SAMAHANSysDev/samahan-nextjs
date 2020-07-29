@@ -2,6 +2,8 @@ import React from "react";
 import { makeStyles } from '@material-ui/core/styles';
 
 import dynamic from 'next/dynamic';
+import WP from 'utils/wordpress';
+import sort from 'fast-sort';
 
 const OfficersList = dynamic(() => import('components/cco/officers'));
 const CCOBanner = dynamic(() => import('components/cco/banner'));
@@ -32,7 +34,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Page = () => {
+const Page = ({ officers }) => {
   // Get the data of the current list.
   
   const classes = useStyles();
@@ -46,10 +48,22 @@ const Page = () => {
       <div style={{ height: 100 }} />
       
       <div className={classes.contentContainer}>
-        <OfficersList />
+        <OfficersList list={officers} />
       </div>
     </div>
   );
 };
+
+export async function getStaticProps(ctx) {
+  try {
+    let officers = await WP.ccoOfficers().perPage(100);
+    sort(officers).asc(x => parseInt(x.acf.order));
+
+    return { props: { officers }, revalidate: 10 };
+  } catch (err) {
+    console.log(err)
+    return { props: { officers: [] }, revalidate: 10 };
+  }
+}
 
 export default Page;

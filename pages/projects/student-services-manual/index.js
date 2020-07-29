@@ -6,11 +6,12 @@ import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
 
 import dynamic from 'next/dynamic';
+import sort from 'fast-sort';
 
 const ServicesList = dynamic(() => import('components/projects/student-services-manual/services-list'));
 
 import { TwitterTimelineEmbed } from 'react-twitter-embed';
-
+import WP from 'utils/wordpress';
 import { cdnURL } from 'utils/constants';
 
 const useStyles = makeStyles((theme) => ({
@@ -25,7 +26,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Page = () => {
+const Page = ({ studentServices }) => {
   // Get the data of the current list.
   
   const classes = useStyles();
@@ -59,7 +60,7 @@ const Page = () => {
 
       <div style={{ margin: 'auto', width: '90%' }}>
         <Grid container direction="row" spacing={6} className={classes.contentContainer}>
-          <ServicesList />
+          <ServicesList list={studentServices} />
           <Grid item sm>
             <TwitterTimelineEmbed
               sourceType="profile"
@@ -72,5 +73,17 @@ const Page = () => {
     </div>
   );
 };
+
+export async function getStaticProps(ctx) {
+  try {
+    let studentServices = await WP.studentServices().perPage(100);
+    sort(studentServices).asc(x => x.acf.name);
+    
+    return { props: { studentServices }, revalidate: 10 };
+  } catch (err) {
+    console.log(err)
+    return { props: { studentServices: [] }, revalidate: 10 };
+  }
+}
 
 export default Page;

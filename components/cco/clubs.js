@@ -6,7 +6,7 @@ import Typography from '@material-ui/core/Typography';
 
 import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
-import CardMedia from '@material-ui/core/CardMedia';
+import CardMediaWP from 'components/card-media-wp';
 import CardContent from '@material-ui/core/CardContent';
 import Modal from '@material-ui/core/Modal';
 import Backdrop from '@material-ui/core/Backdrop';
@@ -17,8 +17,6 @@ import Divider from '@material-ui/core/Divider';
 import CardActions from "@material-ui/core/CardActions";
 import Button from '@material-ui/core/Button';
 import Paper from '@material-ui/core/Paper';
-
-import clubs from 'data/cco/clubs';
 
 const useStyles = makeStyles((theme) => ({
   contentHeader: {
@@ -55,7 +53,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Page = () => {
+const Page = ({ list: clubs }) => {
   // Get the data of the current list.
   
   const classes = useStyles();
@@ -71,18 +69,18 @@ const Page = () => {
       <Grid container direction="row" spacing={3} alignItems="center" justify="center">
         { clubs.map((club) => {
           return (
-            <Grid item sm={4} key={club.name}>
+            <Grid item sm={4} key={club.acf.name}>
               <Card className={classes.cardRoot} elevation={0} variant="outlined">
                 <CardActionArea onClick={() => setCurrentClub(club)}>
-                  <CardMedia
+                  <CardMediaWP
                     className={classes.cardMedia}
-                    image={club.img}
-                    title={club.name}
+                    imageId={club.featured_media}
+                    title={club.acf.name}
                   />
                   <Divider />
                   <CardContent>
                     <Typography variant="body1" style={{ textAlign: 'center' }}>
-                      <b>{club.shortName}</b>
+                      <b>{club.acf.short_name}</b>
                     </Typography>
                   </CardContent>
                 </CardActionArea>
@@ -106,11 +104,9 @@ const Page = () => {
           <Card className={classes.modalPaper} elevation={0}>
             { currentClub ?
               <CardContent>
-                <Typography variant="h4" style={{ marginBottom: 10 }}>{currentClub.name}</Typography>
+                <Typography variant="h4" style={{ marginBottom: 10 }}>{currentClub.acf.name}</Typography>
                 <div style={{ height: 50 }} />
-                <Typography>
-                  {currentClub.desc}
-                </Typography>
+                <Typography dangerouslySetInnerHTML={{ __html: currentClub.acf.description }} />
               </CardContent> : null
             }
             <CardActions>

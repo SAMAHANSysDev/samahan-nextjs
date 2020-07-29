@@ -6,7 +6,7 @@ import Typography from '@material-ui/core/Typography';
 
 import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
-import CardMedia from '@material-ui/core/CardMedia';
+import CardMediaWP from 'components/card-media-wp';
 import CardContent from '@material-ui/core/CardContent';
 import Modal from '@material-ui/core/Modal';
 import Backdrop from '@material-ui/core/Backdrop';
@@ -16,8 +16,6 @@ import Divider from '@material-ui/core/Divider';
 
 import CardActions from "@material-ui/core/CardActions";
 import Button from '@material-ui/core/Button';
-
-import departments from 'data/samahan/departments';
 
 const useStyles = makeStyles((theme) => ({
   
@@ -52,7 +50,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Page = () => {
+const Page = ({ depts: departments }) => {
   // Get the data of the current list.
   
   const classes = useStyles();
@@ -68,18 +66,18 @@ const Page = () => {
       <Grid container direction="row" spacing={3} alignItems="center" justify="center">
         { departments.map((department) => {
           return (
-            <Grid item sm={4} key={department.name}>
+            <Grid item sm={4} key={department.acf.name}>
               <Card className={classes.cardRoot} elevation={0} variant="outlined">
                 <CardActionArea onClick={() => setCurrentDepartment(department)}>
-                  <CardMedia
+                  <CardMediaWP
                     className={classes.cardMedia}
-                    image={department.img}
-                    title={department.name}
+                    imageId={department.featured_media}
+                    title={department.acf.name}
                   />
                   <Divider />
                   <CardContent>
                     <Typography variant="body1" style={{ textAlign: 'center' }}>
-                      <b>{department.name}</b>
+                      <b>{department.acf.name}</b>
                     </Typography>
                   </CardContent>
                 </CardActionArea>
@@ -103,31 +101,29 @@ const Page = () => {
           <Card className={classes.modalPaper} elevation={0}>
             { currentDepartment ?
               <CardContent>
-                <Typography variant="h4" style={{ marginBottom: 10 }}>{currentDepartment.name}</Typography>
-                { currentDepartment.pos1.name ?
+                <Typography variant="h4" style={{ marginBottom: 10 }}>{currentDepartment.acf.name}</Typography>
+                { currentDepartment.acf.first_title_name ?
                   <>
                     <Typography>
-                      <b>{currentDepartment.pos1.title}: </b> {currentDepartment.pos1.name}
+                      <b>{currentDepartment.acf.first_title}: </b> {currentDepartment.acf.first_title_name}
                     </Typography>
                     <Typography>
-                      {currentDepartment.pos1.email}
+                      {currentDepartment.acf.first_title_email}
                     </Typography>
                   </> : null
                 }
-                { currentDepartment.pos2.name ?
+                { currentDepartment.acf.second_title_name ?
                   <>
                     <Typography>
-                      <b>{currentDepartment.pos2.title}: </b> {currentDepartment.pos2.name}
+                      <b>{currentDepartment.acf.second_title}: </b> {currentDepartment.acf.second_title_name}
                     </Typography>
                     <Typography>
-                      {currentDepartment.pos2.email}
+                      {currentDepartment.acf.second_title_email}
                     </Typography>
                   </> : null
                 }
                 <div style={{ height: 50 }} />
-                <Typography>
-                  {currentDepartment.desc}
-                </Typography>
+                <Typography dangerouslySetInnerHTML={{ __html: currentDepartment.acf.description }} />
               </CardContent> : null
             }
             <CardActions>

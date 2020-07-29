@@ -25,43 +25,25 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-const Page = () => {
+const Page = ({ docs }) => {
   // Get the data of the current list.
   
   const classes = useStyles();
 
   return (
     <div className={classes.accordions}>
-      <Accordion variant="outlined" elevation={0}>
-        <AccordionSummary
-          expandIcon={<ExpandMoreIcon />}
-        >
-          <Typography variant="body1" className={classes.heading}>Concept Paper Approval</Typography>
-        </AccordionSummary>
-        <AccordionDetails>
-          <Typography variant="body1" component="div" className={classes.wordWrap}>
-            <ol>
-              <li>Prepare the concept paper containing the Rationale, Schedule of Activities, Budgetary and other information.</li>
-              <li>Complete the signatories from the person who prepared the document, the president, and moderator of the club.</li>
-            </ol>
-          </Typography>
-        </AccordionDetails>
-      </Accordion>
-      <Accordion variant="outlined" elevation={0}>
-        <AccordionSummary
-          expandIcon={<ExpandMoreIcon />}
-        >
-          <Typography variant="body1" className={classes.heading}>Financial Report</Typography>
-        </AccordionSummary>
-        <AccordionDetails>
-          <Typography variant="body1" component="div" className={classes.wordWrap}>
-            <ol>
-              <li>The Auditor or Treasurer must submit a budget proposal to the offices involved containing specific data related for their finances in the beginning of the semester on or before the deadline set.</li>
-              <li>A liquidation report must also be submitted at the end of the semester with the official receipts.</li>
-            </ol>
-          </Typography>
-        </AccordionDetails>
-      </Accordion>
+      { docs.map((doc) => (
+        <Accordion variant="outlined" elevation={0}>
+          <AccordionSummary
+            expandIcon={<ExpandMoreIcon />}
+          >
+            <Typography variant="body1" className={classes.heading}>{doc.acf.title}</Typography>
+          </AccordionSummary>
+          <AccordionDetails>
+            <Typography variant="body1" component="div" className={classes.wordWrap} dangerouslySetInnerHTML={{ __html: doc.acf.instructions }} />
+          </AccordionDetails>
+        </Accordion>
+      ))}
     </div>
   );
 };

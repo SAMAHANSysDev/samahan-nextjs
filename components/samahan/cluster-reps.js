@@ -6,10 +6,8 @@ import Typography from '@material-ui/core/Typography';
 
 import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
-import CardMedia from '@material-ui/core/CardMedia';
+import CardMediaWP from 'components/card-media-wp';
 import CardContent from '@material-ui/core/CardContent';
-
-import clusterRepresentatives from 'data/samahan/cluster-reps';
 
 const useStyles = makeStyles((theme) => ({
   
@@ -34,7 +32,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Page = () => {
+const Page = ({ reps: clusterRepresentatives }) => {
   // Get the data of the current list.
   
   const classes = useStyles();
@@ -48,23 +46,23 @@ const Page = () => {
       <Grid container direction="row" spacing={3} alignItems="center" justify="center">
         { clusterRepresentatives.map((member) => {
           return (
-            <Grid item sm={4} key={member.email}>
+            <Grid item sm={4} key={member.acf.email}>
               <Card className={classes.cardRoot} elevation={0} variant="outlined">
                 <CardActionArea disabled>
-                  <CardMedia
+                  <CardMediaWP
                     className={classes.cardMedia}
-                    image={member.img}
-                    title={member.position}
+                    imageId={member.featured_media}
+                    title={member.acf.position}
                   />
                   <CardContent>
                     <Typography variant="h5">
-                      {member.name}
+                      {member.acf.name}
                     </Typography>
                     <Typography variant="subtitle2">
-                      {member.position}
+                      {member.acf.position}
                     </Typography>
                     <Typography variant="subtitle2">
-                      {member.email}
+                      {member.acf.email}
                     </Typography>
                   </CardContent>
                 </CardActionArea>
