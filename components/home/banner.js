@@ -5,13 +5,19 @@ import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
 
+import { cdnURL } from 'utils/constants';
+
 const useStyles = makeStyles((theme) => ({
   bannerContainer: {
     height: '90vh',
     width: '100%',
     backgroundColor: theme.palette.primary.main,
     paddingLeft: 50,
-    paddingRight: 50
+    paddingRight: 50,
+    backgroundImage: `url("${cdnURL}/samahan-fiesta-banner.png")`,
+    backgroundRepeat: 'no-repeat',
+    backgroundSize: 'contain',
+    backgroundPosition: 'left bottom'
   },
   bannerTextContainer: {
     position: 'relative',
@@ -33,6 +39,7 @@ const useStyles = makeStyles((theme) => ({
     margin: 0
   },
   bannerImageContainer: {
+    position: 'relative',
     zIndex: 1,
     display: 'none',
     [theme.breakpoints.up('md')]: {
@@ -40,17 +47,12 @@ const useStyles = makeStyles((theme) => ({
     }
   },
   bannerImage: {
-    maxHeight: '70vh',
     width: '65vw',
-    background: theme.palette.primary.main,
-    opacity: 0.4,
-    mixBlendMode: 'screen'
+    position: 'absolute',
+    width: '85vw',
+    left: '-3vw',
+    bottom: '-30.6vw'
   },
-  bannerNewImage: {
-    mixBlendMode: 'screen',
-    WebkitFilter: "grayscale(100%) sepia(100%) hue-rotate(170deg) saturate(4) contrast(200%)",
-    filter: "grayscale(100%) sepia(100%) hue-rotate(170deg) saturate(4) contrast(200%)",
-  }
 }));
 
 const List = ({ bannerImage }) => {
@@ -61,12 +63,6 @@ const List = ({ bannerImage }) => {
     <div className={classes.bannerContainer}>
       <Grid container direction="row" alignItems="center" style={{ height: '80%', paddingTop: 20 }}>
         <Grid item sm={6} className={classes.bannerImageContainer}>
-          <CardMedia
-            component="img"
-            classes={{ media: classes.bannerNewImage }}
-            className={classes.bannerImage}
-            image={bannerImage}
-          />
         </Grid>
         <Grid item xs={12} md={6}>
           <div className={classes.bannerTextContainer}>

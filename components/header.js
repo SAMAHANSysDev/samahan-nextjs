@@ -20,7 +20,7 @@ const useStyles = makeStyles((theme) => ({
     marginBottom: '10px'
   },
   motionLogo: {
-    width: 'calc(80px + 1vw)',
+    width: 'calc(120px + 1vw)',
     marginTop: '10px',
     marginBottom: '10px'
   },
@@ -151,7 +151,7 @@ function SearchAppBar() {
             <SearchIcon />
           </IconButton>*/}
           <div className={classes.secondaryLogo}>
-            <img className={classes.motionLogo} src={`${cdnURL}/More-in-Motion.png`} />
+            <img className={classes.motionLogo} src={`${cdnURL}/72nd%20Ateneo%20Fiesta%20White.png`} />
           </div>
         </Toolbar>
       </AppBar>
