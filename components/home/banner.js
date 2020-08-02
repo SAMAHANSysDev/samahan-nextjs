@@ -9,7 +9,7 @@ import { cdnURL } from 'utils/constants';
 
 const useStyles = makeStyles((theme) => ({
   bannerContainer: {
-    height: '90vh',
+    height: '91vh',
     width: '100%',
     backgroundColor: theme.palette.primary.main,
     paddingLeft: 50,
@@ -17,7 +17,8 @@ const useStyles = makeStyles((theme) => ({
     backgroundImage: `url("${cdnURL}/samahan-fiesta-banner.png")`,
     backgroundRepeat: 'no-repeat',
     backgroundSize: 'contain',
-    backgroundPosition: 'left bottom'
+    backgroundPosition: 'left bottom',
+    borderBottom: '20px solid #e61b4a',
   },
   bannerTextContainer: {
     position: 'relative',
