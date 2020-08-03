@@ -23,6 +23,20 @@ export default class SamahanDocument extends Document {
           <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;900&family=Open+Sans:wght@300;400&display=swap" rel="stylesheet" />
           <link rel="stylesheet" href="https://unpkg.com/nprogress@0.2.0/nprogress.css" />
           <link rel="icon" type="image/png" href={`${cdnURL}/favicon.png`}></link>
+          <script
+            async
+            src="https://www.googletagmanager.com/gtag/js?id=UA-174261643-1"
+          />
+          <script
+            dangerouslySetInnerHTML={{
+              __html: `
+                    window.dataLayer = window.dataLayer || [];
+                    function gtag(){dataLayer.push(arguments);}
+                    gtag('js', new Date());
+                    gtag('config', 'UA-174261643-1);
+                `,
+            }}
+          />
         </Head>
         <body>
           <Main />
