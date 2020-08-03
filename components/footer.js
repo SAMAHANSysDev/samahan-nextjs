@@ -1,6 +1,7 @@
 import React from "react";
 
 import Typography from '@material-ui/core/Typography';
+import Link from '@material-ui/core/Link';
 import { makeStyles } from '@material-ui/core/styles';
 
 import { cdnURL } from 'utils/constants';
@@ -38,6 +39,9 @@ function SearchAppBar() {
       <img src={`${cdnURL}/samahan-fiesta-footer.png`} className={classes.footerImage} />
       <Typography variant="body2" color="textSecondary" component="p" className={classes.text}>
         Copyright {(new Date()).getFullYear()} SAMAHAN Central Board | Developed by SAMAHAN Creative Team and SAMAHAN System Development
+      </Typography>
+      <Typography variant="caption" color="textSecondary" component="p" className={classes.text}>
+        Web Design by <Link href="https://twitter.com/sonroyaalmerol" color="inherit">Son Roy Almerol</Link> and <Link href="https://twitter.com/jeyowthreeshwa" color="inherit">Joeshua Dequiña</Link>
       </Typography>
     </div>
   );
