@@ -23,6 +23,7 @@ const useStyles = makeStyles((theme) => ({
     margin: 'auto'
   },
   rootCalContainer: {
+    position: 'relative',
     width: '100%',
     backgroundColor: theme.palette.primary.main,
     paddingTop: 30,
@@ -38,6 +39,14 @@ const useStyles = makeStyles((theme) => ({
   rootContainer: {
     width: '100%',
     marginBottom: 0,
+  },
+  footerMarginColor: {
+    position: 'absolute',
+    backgroundColor: theme.palette.primary.main,
+    height: 200,
+    width: '100%',
+    bottom: -200,
+    left: 0
   },
   paper: {
     padding: '6px 16px',
@@ -136,6 +145,7 @@ const Page = ({ events: rawEvents }) => {
             }
           </Timeline>
         </div>
+        <div className={classes.footerMarginColor} />
       </div>
     </div>
   );

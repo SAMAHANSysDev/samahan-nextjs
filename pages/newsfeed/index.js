@@ -22,6 +22,7 @@ const useStyles = makeStyles((theme) => ({
     margin: 0
   },
   footerContainer: {
+    position: 'relative',
     width: '100%',
     paddingTop: 100,
     paddingBottom: 100,
@@ -40,6 +41,14 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.up('sm')]: {
       display: 'block',
     },
+  },
+  footerMarginColor: {
+    position: 'absolute',
+    backgroundColor: theme.palette.primary.main,
+    height: 200,
+    width: '100%',
+    bottom: -200,
+    left: 0
   }
 }));
 
@@ -96,6 +105,7 @@ const Page = ({ posts, users }) => {
             </center>
           </Grid>
         </Grid>
+        <div className={classes.footerMarginColor} />
       </div>
     </div>
   );

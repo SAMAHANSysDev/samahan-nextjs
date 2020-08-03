@@ -54,6 +54,51 @@ const useStyles = makeStyles((theme) => ({
     left: '-3vw',
     bottom: '-30.6vw'
   },
+  balloon: {
+    backgroundImage: `url("${cdnURL}/hot-air-balloon.png")`,
+    backgroundRepeat: 'no-repeat',
+    width: '35vw',
+    height: '35vw',
+    backgroundSize: 'contain',
+    position: 'relative',
+    bottom: 0,
+    animation: '$move_y 10s linear forwards, $oscil1 4s infinite',
+    left: '10%',
+  },
+  '@keyframes move_y': {
+    from: {
+      bottom: '-10%'
+    },
+    to: {
+      bottom: `calc(100% - 200px)`
+    }
+  },
+  '@keyframes oscil1': {
+    from: {
+      translate: '0 0',
+      transform: 'rotate(0deg)',
+      animationTimingFunction: 'cubic-bezier(0.1, 0.3, 0.3, 1)'
+    },
+    '25%': {
+      translate: '10px 0',
+      transform: 'rotate(10deg)',
+      animationTimingFunction: 'cubic-bezier(0.7, 0.0, 0.9, 0.7)'
+    },
+    '50%': {
+      translate: '0 0',
+      transform: 'rotate(0deg)',
+      animationTimingFunction: 'cubic-bezier(0.1, 0.3, 0.3, 1)'
+    },
+    '75%': {
+      translate: '-10px 0',
+      transform: 'rotate(-10deg)',
+      animationTimingFunction: 'cubic-bezier(0.7, 0.0, 0.9, 0.7)'
+    },
+    to: {
+      translate: '0 0',
+      transform: 'rotate(0deg)',
+    }
+  }
 }));
 
 const List = ({ bannerImage }) => {
@@ -82,6 +127,7 @@ const List = ({ bannerImage }) => {
           </div>
         </Grid>
       </Grid>
+      <div className={classes.balloon}></div>
     </div>
   );
 };
