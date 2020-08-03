@@ -27,6 +27,7 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 
 import routes from 'navigation/routes';
 import { frontendURL, cdnURL } from 'utils/constants';
+import * as gtag from 'utils/gtag';
 
 
 NProgress.configure({
@@ -37,7 +38,8 @@ Router.onRouteChangeStart = () => {
   NProgress.start();
 };
 
-Router.onRouteChangeComplete = () => {
+Router.onRouteChangeComplete = (url) => {
+  gtag.pageview(url);
   NProgress.done();
 };
 
