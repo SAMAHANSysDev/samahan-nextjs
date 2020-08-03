@@ -10,12 +10,31 @@ import Document, { Html, Head, Main, NextScript } from 'next/document';
 import { ServerStyleSheets } from '@material-ui/core/styles';
 import theme from 'components/theme';
 import { cdnURL, backendURL } from 'utils/constants';
+import { GA_TRACKING_ID } from 'utils/gtag';
 
 export default class SamahanDocument extends Document {
   render() {
     return (
       <Html lang="en">
         <Head>
+          {/* Global Site Tag (gtag.js) - Google Analytics */}
+          <script
+            async
+            src={`https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`}
+          />
+          <script
+            dangerouslySetInnerHTML={{
+              __html: `
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+                gtag('config', '${GA_TRACKING_ID}', {
+                  page_path: window.location.pathname,
+                });
+              `,
+            }}
+          />
+
           {/* PWA primary color */}
           <meta name="theme-color" content={theme.palette.primary.main} />
           <link rel="preconnect" href={cdnURL} />
@@ -23,20 +42,6 @@ export default class SamahanDocument extends Document {
           <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;900&family=Open+Sans:wght@300;400&display=swap" rel="stylesheet" />
           <link rel="stylesheet" href="https://unpkg.com/nprogress@0.2.0/nprogress.css" />
           <link rel="icon" type="image/png" href={`${cdnURL}/favicon.png`}></link>
-          <script
-            async
-            src="https://www.googletagmanager.com/gtag/js?id=UA-174261643-1"
-          />
-          <script
-            dangerouslySetInnerHTML={{
-              __html: `
-                    window.dataLayer = window.dataLayer || [];
-                    function gtag(){dataLayer.push(arguments);}
-                    gtag('js', new Date());
-                    gtag('config', 'UA-174261643-1);
-                `,
-            }}
-          />
         </Head>
         <body>
           <Main />
