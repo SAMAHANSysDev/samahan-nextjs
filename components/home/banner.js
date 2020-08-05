@@ -1,9 +1,11 @@
 import React from "react";
 import { makeStyles } from '@material-ui/core/styles';
 
-import CardMedia from '@material-ui/core/CardMedia';
+import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
+
+import { useRouter } from 'next/router';
 
 import { cdnURL } from 'utils/constants';
 
@@ -104,6 +106,7 @@ const useStyles = makeStyles((theme) => ({
 const List = ({ bannerImage }) => {
   // Get the data of the current list.
   const classes = useStyles();
+  const router = useRouter();
 
   return (
     <div className={classes.bannerContainer}>
@@ -124,6 +127,9 @@ const List = ({ bannerImage }) => {
             <Typography variant="h5" className={classes.bannerText} style={{ lineHeight: '0.9em' }}>
               Ateneo de Davao University
             </Typography>
+            <Button variant="contained" color="primary" style={{ float: 'right', backgroundColor: '#e61b4a', color: '#fff', marginTop: 20 }} disableElevation onClick={() => router.push('/fiesta')}>
+              #72ndAteneoFiesta #TayôTáyo2020
+            </Button>
           </div>
         </Grid>
       </Grid>

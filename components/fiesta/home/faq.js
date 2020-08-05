@@ -12,7 +12,19 @@ const useStyles = makeStyles((theme) => ({
     height: 30
   },
   tayoLogo: {
-    width: '100%'
+    width: '100%',
+  },
+  desktopLogo: {
+    display: 'none',
+    [theme.breakpoints.up('md')]: {
+      display: 'block',
+    }
+  },
+  mobileLogo: {
+    display: 'block',
+    [theme.breakpoints.up('md')]: {
+      display: 'none',
+    }
   },
   faqsContainer: {
     position: 'relative',
@@ -179,6 +191,9 @@ const Page = () => {
         <Typography variant="h2" component="h2">72nd Ateneo Fiesta FAQs</Typography>
         <div className={classes.spacer} />
         <Grid container direction="row" spacing={3} alignItems="center">
+          <Grid item xs={12} md={5} className={classes.mobileLogo}>
+            <img src={`${cdnURL}/fiesta_faq_logo_2.png`} className={classes.tayoLogo} />
+          </Grid>
           <Grid item xs={12} md={7}>
             <Typography variant="h4" component="h3">When is the online fiesta?</Typography>
             <Typography variant="body1" component="p">The fiesta will begin on August 12 and will end on August 14.</Typography>
@@ -196,7 +211,7 @@ const Page = () => {
             <Typography variant="body1" component="p">There will be publication materials released soon with the official events and schedule for each day. </Typography>
             <div className={classes.spacer} />
           </Grid>
-          <Grid item xs={12} md={5}>
+          <Grid item xs={12} md={5} className={classes.desktopLogo}>
             <img src={`${cdnURL}/fiesta_faq_logo_2.png`} className={classes.tayoLogo} />
           </Grid>
         </Grid>

@@ -27,7 +27,7 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: 1,
     justifyContent: "center",
     display: 'none',
-    [theme.breakpoints.up('md')]: {
+    [theme.breakpoints.up('md2')]: {
       display: 'block',
     }
   },

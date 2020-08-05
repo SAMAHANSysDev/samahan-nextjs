@@ -18,8 +18,8 @@ const useStyles = makeStyles((theme) => ({
     height: '30vw',
     paddingLeft: '37%',
     paddingRight: '37%',
-    paddingTop: '7%',
-    paddingBottom: '7%',
+    paddingTop: '12%',
+    paddingBottom: '12%',
     textAlign: 'center'
   },
 }));
@@ -30,15 +30,18 @@ const Page = () => {
   const classes = useStyles();
 
   return (
-    <>
-      <div className={classes.raffleContainer}>
-        <Typography variant="h2" style={{ fontSize: '3.5vw' }}>Online Raffle Mechanics</Typography>
-        <div style={{ height: '2vw' }} />
-        <Button variant="contained" color="primary" style={{ fontSize: '1.5vw' }} disableElevation onClick={() => router.push('/fiesta')}>
-          Read More
-        </Button>
+    <div style={{ marginTop: '4vw' }}>
+      <div style={{ width: '100%', whiteSpace: 'nowrap', color: '#01253C', overflow: 'hidden' }}>
+        <Typography variant="h2">NTER TO WIN! ENTER TO WIN! ENTER TO WIN! ENTER TO WIN! ENTER TO WIN! ENTER TO WIN! ENTER TO WIN! ENTER TO WIN! ENTER TO WIN! ENTER TO WIN! ENTER TO WIN! </Typography>
       </div>
-    </>
+      <div className={classes.raffleContainer}>
+        <Typography variant="h2" style={{ fontSize: '3.5vw', lineHeight: '90%' }}>Online Raffle Mechanics</Typography>
+        <div style={{ height: '2vw' }} />
+      </div>
+      <div style={{ width: '100%', whiteSpace: 'nowrap', color: '#01253C', overflow: 'hidden' }}>
+        <Typography variant="h2">TO WIN! ENTER TO WIN! ENTER TO WIN! ENTER TO WIN! ENTER TO WIN! ENTER TO WIN! ENTER TO WIN! ENTER TO WIN! ENTER TO WIN! ENTER TO WIN! ENTER TO WIN! </Typography>
+      </div>
+    </div>
   );
 };
 

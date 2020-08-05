@@ -132,7 +132,7 @@ const Page = () => {
         <div className={classes.schedSun} />
         <div className={classes.schedCloud} />
         <Grid container direction="row" spacing={3} alignItems="center">
-          <Grid item xs={6} md={4}>
+          <Grid item xs={7} md={4}>
             <Typography variant="h2">Schedule of Events</Typography>
             <div className={classes.spacer} />
             <Button variant="contained" color="primary" disableElevation onClick={() => router.push('/calendar')}>

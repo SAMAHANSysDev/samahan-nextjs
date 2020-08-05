@@ -36,7 +36,7 @@ const useStyles = makeStyles((theme) => ({
   menuButton: {
     marginRight: theme.spacing(2),
     display: 'block',
-    [theme.breakpoints.up('md')]: {
+    [theme.breakpoints.up('md2')]: {
       display: 'none',
     },
   },
@@ -64,7 +64,7 @@ const useStyles = makeStyles((theme) => ({
       width: 'auto',
       display: 'block',
     },
-    [theme.breakpoints.up('md')]: {
+    [theme.breakpoints.up('md2')]: {
       flexGrow: 0,
       marginLeft: theme.spacing(1),
       width: 'auto',

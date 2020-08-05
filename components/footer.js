@@ -14,7 +14,7 @@ const useStyles = makeStyles((theme) => ({
     paddingTop: '16vw',
     width: '100%',
     borderTop: '20px solid #e61b4a',
-    marginTop: 200
+    marginTop: '15vw'
   },
   text: {
     color: theme.palette.secondary.main,
@@ -28,7 +28,7 @@ const useStyles = makeStyles((theme) => ({
     right: 0,
     marginLeft: 'auto',
     marginRight: 'auto',
-    top: '-11vw',
+    top: '-13vw',
     backgroundImage: `url(${cdnURL}/samahan-fiesta-footer.png)`,
     backgroundPosition: 'center',
     backgroundSize: 'contain',

@@ -111,4 +111,18 @@ module.exports = [
     desc: "SAMAHAN Constitutional Reform for AY 2020-2021",
     hidden: true
   },
+  {
+    name: "What is Tayô, Táyo?",
+    href: "/fiesta/about",
+    title: "What is Tayô, Táyo?",
+    desc: "The 72nd Ateneo Fiesta: Tayô, Táyo",
+    hidden: true
+  },
+  {
+    name: "Online Raffle",
+    href: "/fiesta/raffle",
+    title: "Online Raffle",
+    desc: "The 72nd Ateneo Fiesta: Tayô, Táyo",
+    hidden: true
+  },
 ];

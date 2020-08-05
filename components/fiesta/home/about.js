@@ -43,7 +43,7 @@ const Page = () => {
             <div className={classes.spacer} />
             <Typography variant="body1" component="p">The brand, "Tayô, Táyo! Igniting the Marian Spirit: Our Binding Force of Hope, Resilience, and Togetherness despite Distance and Uncertainty," expresses a call for us to stand firm together in spite of the hardships the world is currently experiencing. The SAMAHAN, ...</Typography>
             <div className={classes.spacer} />
-            <Button variant="contained" color="primary" disableElevation onClick={() => router.push('/fiesta')}>
+            <Button variant="contained" color="primary" disableElevation onClick={() => router.push('/fiesta/about')}>
               Read More
             </Button>
           </Grid>
