@@ -134,7 +134,11 @@ const Page = ({ events: rawEvents }) => {
                 <TimelineContent>
                   <Paper elevation={0} className={classes.paper}>
                     <Typography variant="h6" component="h1" dangerouslySetInnerHTML={{ __html: event.summary.replace(/(<([^>]+)>)/gi, "") }} />
-                    <Typography variant="body1" dangerouslySetInnerHTML={{ __html: event.description.replace(/(<([^>]+)>)/gi, "") }}></Typography>
+                    {
+                      event.description ?
+                        <Typography variant="body1" dangerouslySetInnerHTML={{ __html: event.description.replace(/(<([^>]+)>)/gi, "") }} />
+                      : null
+                    }
                   </Paper>
                 </TimelineContent>
               </TimelineItem>
