@@ -45,9 +45,9 @@ const useStyles = makeStyles((theme) => ({
   footerMarginColor: {
     position: 'absolute',
     backgroundColor: theme.palette.primary.main,
-    height: 200,
+    height: 300,
     width: '100%',
-    bottom: -200,
+    bottom: -300,
     left: 0
   }
 }));
