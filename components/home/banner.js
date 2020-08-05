@@ -55,15 +55,15 @@ const useStyles = makeStyles((theme) => ({
     bottom: '-30.6vw'
   },
   balloon: {
-    backgroundImage: `url("${cdnURL}/hot-air-balloon.png")`,
+    backgroundImage: `url("${cdnURL}/hot-air-balloon-1.png")`,
     backgroundRepeat: 'no-repeat',
-    width: '35vw',
-    height: '35vw',
+    width: '15vw',
+    height: '21vw',
     backgroundSize: 'contain',
     position: 'relative',
     bottom: 0,
     animation: '$move_y 10s linear forwards, $oscil1 4s infinite',
-    left: '10%',
+    left: '20%',
   },
   '@keyframes move_y': {
     from: {

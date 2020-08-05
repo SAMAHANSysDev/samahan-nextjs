@@ -13,6 +13,12 @@ module.exports = [
     desc: "The Official Student Government of Ateneo de Davao University",
   },
   {
+    name: "Tayô, Táyo",
+    href: "/fiesta",
+    title: "Tayô, Táyo",
+    desc: "The 72nd Ateneo Fiesta: Tayô, Táyo"
+  },
+  {
     name: "Help Portal",
     href: "/samahan-help-portal",
     title: "Help Portal",
