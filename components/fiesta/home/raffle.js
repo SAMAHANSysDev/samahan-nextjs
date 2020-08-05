@@ -18,8 +18,8 @@ const useStyles = makeStyles((theme) => ({
     height: '30vw',
     paddingLeft: '37%',
     paddingRight: '37%',
-    paddingTop: '8%',
-    paddingBottom: '8%',
+    paddingTop: '9%',
+    paddingBottom: '9%',
     textAlign: 'center'
   },
 }));

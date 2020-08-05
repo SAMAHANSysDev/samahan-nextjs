@@ -24,7 +24,8 @@ const useStyles = makeStyles((theme) => ({
     display: 'block',
     [theme.breakpoints.up('md')]: {
       display: 'none',
-    }
+    },
+    marginBottom: 100
   },
   faqsContainer: {
     position: 'relative',
@@ -188,12 +189,12 @@ const Page = () => {
         <div className={classes.faqsCloud2} />
         <div className={classes.faqBalloon} />
         <div className={classes.faqRocket} />
+        <div className={classes.mobileLogo}>
+          <img src={`${cdnURL}/fiesta_faq_logo_2.png`} className={classes.tayoLogo} />
+        </div>
         <Typography variant="h2" component="h2">72nd Ateneo Fiesta FAQs</Typography>
         <div className={classes.spacer} />
         <Grid container direction="row" spacing={3} alignItems="center">
-          <Grid item xs={12} md={5} className={classes.mobileLogo}>
-            <img src={`${cdnURL}/fiesta_faq_logo_2.png`} className={classes.tayoLogo} />
-          </Grid>
           <Grid item xs={12} md={7}>
             <Typography variant="h4" component="h3">When is the online fiesta?</Typography>
             <Typography variant="body1" component="p">The fiesta will begin on August 12 and will end on August 14.</Typography>
