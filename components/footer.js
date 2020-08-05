@@ -23,11 +23,16 @@ const useStyles = makeStyles((theme) => ({
   footerImage: {
     position: 'absolute',
     width: '90vw',
+    height: 'calc(40px + 25vw)',
     left: 0,
     right: 0,
     marginLeft: 'auto',
     marginRight: 'auto',
-    top: '-11vw'
+    top: '-11vw',
+    backgroundImage: `url(${cdnURL}/samahan-fiesta-footer.png)`,
+    backgroundPosition: 'center',
+    backgroundSize: 'contain',
+    backgroundRepeat: 'no-repeat'
   }
 }));
 
@@ -36,7 +41,7 @@ function SearchAppBar() {
 
   return (
     <div className={classes.root}>
-      <img src={`${cdnURL}/samahan-fiesta-footer.png`} className={classes.footerImage} />
+      <div className={classes.footerImage} />
       <Typography variant="body2" color="textSecondary" component="p" className={classes.text}>
         Copyright {(new Date()).getFullYear()} SAMAHAN Central Board | Developed by SAMAHAN Creative Team and SAMAHAN System Development
       </Typography>
