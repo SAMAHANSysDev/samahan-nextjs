@@ -46,7 +46,7 @@ function SearchAppBar() {
         Copyright {(new Date()).getFullYear()} SAMAHAN Central Board | Developed by SAMAHAN Creative Team and SAMAHAN System Development
       </Typography>
       <Typography variant="caption" color="textSecondary" component="p" className={classes.text}>
-        Web Design by <Link href="https://twitter.com/sonroyaalmerol" color="inherit">Son Roy Almerol</Link> and <Link href="https://twitter.com/jeyowthreeshwa" color="inherit">Joeshua Dequiña</Link>
+        Web Design by <Link href="https://twitter.com/sonroyaalmerol" color="inherit" target="_blank" rel="noopener">Son Roy Almerol</Link> and <Link href="https://twitter.com/jeyowthreeshwa" color="inherit" target="_blank" rel="noopener">Joeshua Dequiña</Link>
       </Typography>
     </div>
   );

@@ -127,8 +127,12 @@ const List = ({ bannerImage }) => {
             <Typography variant="h5" className={classes.bannerText} style={{ lineHeight: '0.9em' }}>
               Ateneo de Davao University
             </Typography>
-            <Button variant="contained" color="primary" style={{ float: 'right', backgroundColor: '#e61b4a', color: '#fff', marginTop: 20 }} disableElevation onClick={() => router.push('/fiesta')}>
+            <Button variant="contained" color="primary" style={{ float: 'right', backgroundColor: '#e61b4a', color: '#fff', marginTop: 30 }} disableElevation onClick={() => router.push('/fiesta')}>
               #72ndAteneoFiesta #TayôTáyo2020
+            </Button>
+            <br style={{ clear: 'both' }} />
+            <Button variant="contained" color="primary" style={{ float: 'right', backgroundColor: '#e61b4a', color: '#fff', marginTop: 10 }} disableElevation onClick={() => router.push('/himig-bughaw')}>
+              Himig Bughaw: Concert for a Cause
             </Button>
           </div>
         </Grid>

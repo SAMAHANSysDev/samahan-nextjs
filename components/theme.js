@@ -17,7 +17,7 @@ export default responsiveFontSizes(createMuiTheme({
       xs: 0,
       sm: 600,
       md: 1000,
-      md2: 1200,
+      md2: 1255,
       lg: 1280,
       xl: 1920,
     },
