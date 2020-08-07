@@ -6,6 +6,7 @@ import Paper from '@material-ui/core/Paper';
 
 import { cdnURL } from 'utils/constants';
 
+
 const useStyles = makeStyles((theme) => ({
   headerContainer: {
     width: '80%',
