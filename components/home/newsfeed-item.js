@@ -51,11 +51,13 @@ const Item = ({ item, author }) => {
   }, [item.title])
 
   return (
-    <Grid item xs>
+    <Grid item xs={12} md={4}>
       <Card className={classes.cardRoot} elevation={0} variant="outlined">
         <CardContent>
           <Typography gutterBottom variant="h5" component="h2" dangerouslySetInnerHTML={{ __html: renderedTitle }} />
-          <Typography variant="body2" color="textSecondary" component="p">By <b>{author.name}</b></Typography>
+          { author ? 
+            <Typography variant="body2" color="textSecondary" component="p">By <b>{author.name}</b></Typography>
+          : null }
           <Typography variant="body2" color="textSecondary" component="p">on <b>{date.toDateString()}</b></Typography>
           <Typography variant="body1" color="textSecondary" component="p" dangerouslySetInnerHTML={{ __html: renderedExcerpt }} />
         </CardContent>
