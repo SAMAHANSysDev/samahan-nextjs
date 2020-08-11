@@ -114,8 +114,8 @@ const Page = ({ posts, users }) => {
 export async function getStaticProps(ctx) {
   try {
     const [res, users] = await Promise.all([
-      WP.posts(),
-      WP.users()
+      WP.posts().perPage(100),
+      WP.users().perPage(100)
     ]);
     if (res) { 
       return { props: { posts: res, users }, revalidate: 10 };
