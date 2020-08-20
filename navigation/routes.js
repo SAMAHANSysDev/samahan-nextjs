@@ -19,12 +19,6 @@ module.exports = [
     desc: "The 72nd Ateneo Fiesta: Tayô, Táyo"
   },
   {
-    name: "Himig Bughaw",
-    href: "/himig-bughaw",
-    title: "Himig Bughaw",
-    desc: "Himig Bughaw: Concert for a Cause"
-  },
-  {
     name: "Help Portal",
     href: "/samahan-help-portal",
     title: "Help Portal",

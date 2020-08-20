@@ -131,9 +131,6 @@ const List = ({ bannerImage }) => {
               #72ndAteneoFiesta #TayôTáyo2020
             </Button>
             <br style={{ clear: 'both' }} />
-            <Button variant="contained" color="primary" style={{ float: 'right', backgroundColor: '#e61b4a', color: '#fff', marginTop: 10 }} disableElevation onClick={() => router.push('/himig-bughaw')}>
-              Himig Bughaw: Concert for a Cause
-            </Button>
           </div>
         </Grid>
       </Grid>
