@@ -167,6 +167,9 @@ const Page = () => {
               <p>After years reform attempts, it is about time that the student body shall come together to pave the way to the genesis of a new SAMAHAN Constitution. A constitution that is responsive to the current setting of Ateneo, a constitution that could withstand the changing of times, and a constitution that puts premium significance to wider student representation and autonomy. </p>
               <p>Let us all unite and take part of this change. This is our <b>constitution – CONSTI NATIN TO! Bagong Consti, Bagong SAMAHAN.</b></p>
             </Typography>
+            <br/>
+            <Button onClick={() => { window.open(`${cdnURL}/2020%20SAMAHAN%20Constitution%20Final%20Draft.pdf`, '_blank'); }} color="primary" variant="contained">SAMAHAN 2020 Constitution Final Draft</Button><br/><br/>
+            <Button onClick={() => { window.open(`${cdnURL}/What%E2%80%99s%20new%20in%20the%202020%20SAMAHAN%20Constitution_.pdf`, '_blank'); }} color="primary" variant="contained">What's new in the SAMAHAN Constitution?</Button>
           </Grid>
           <Grid item md={5} xs={12}>
             <iframe className={classes.avp} src="https://www.youtube.com/embed/Fq8qcSEBeV8?controls=1&loop=1&autoplay=1" frameborder="0" allow="accelerometer; autoplay; modestbranding; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
