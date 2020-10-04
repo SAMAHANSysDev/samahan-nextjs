@@ -35,6 +35,10 @@ import CardActionArea from '@material-ui/core/CardActionArea';
 import CardMedia from '@material-ui/core/CardMedia';
 
 import { GoogleLogin } from 'react-google-login';
+import firebase from 'utils/firebase';
+
+const db = firebase.firestore();
+const votesRef = db.collection('votes');
 
 const useStyles = makeStyles((theme) => ({
   contentContainer: {
@@ -139,14 +143,141 @@ const Page = () => {
   const [slide, setSlide] = React.useState(null);
 
   const [accessToken, setAccessToken] = React.useState(null);
+  const [uid, setUid] = React.useState('');
   const [firstName, setFirstName] = React.useState('');
   const [lastName, setLastName] = React.useState('');
   const [email, setEmail] = React.useState('');
   const [cluster, setCluster] = React.useState('');
   const [yearLevel, setYearLevel] = React.useState('');
 
+  const [accCounts, setAccCounts] = React.useState({
+    first: 0,
+    second: 0,
+    third: 0,
+    fourth: 0
+  })
+
+  const [bmCounts, setBmCounts] = React.useState({
+    first: 0,
+    second: 0,
+    third: 0,
+    fourth: 0
+  })
+
+  const [csCounts, setCsCounts] = React.useState({
+    first: 0,
+    second: 0,
+    third: 0,
+    fourth: 0
+  })
+
+  const [humletCounts, setHumletCounts] = React.useState({
+    first: 0,
+    second: 0,
+    third: 0,
+    fourth: 0
+  })
+
+  const [nsmCounts, setNsmCounts] = React.useState({
+    first: 0,
+    second: 0,
+    third: 0,
+    fourth: 0
+  })
+
+  const [seaCounts, setSeaCounts] = React.useState({
+    first: 0,
+    second: 0,
+    third: 0,
+    fourth: 0
+  })
+
+  const [soeCounts, setSoeCounts] = React.useState({
+    first: 0,
+    second: 0,
+    third: 0,
+    fourth: 0
+  })
+
+  const [sonCounts, setSonCounts] = React.useState({
+    first: 0,
+    second: 0,
+    third: 0,
+    fourth: 0
+  })
+
+  const [ssCounts, setSsCounts] = React.useState({
+    first: 0,
+    second: 0,
+    third: 0,
+    fourth: 0
+  })
+
+  const [loggedIn, setLoggedIn] = React.useState(false);
+
   const [vote, setVote] = React.useState(null);
   const [confirm, setConfirm] = React.useState(false);
+
+  const [receipt, setReceipt] = React.useState(null);
+  const [receiptChecked, setReceiptChecker] = React.useState(false);
+
+  const getCount = () => {
+    let clusters = ['acc', 'bm', 'cs', 'humlet', 'nsm', 'sea', 'soe', 'son', 'ss'];
+
+    clusters.forEach((cluster) => {
+      db.collection('statistics').doc('cluster_count').collection(cluster).doc('count')
+      .onSnapshot((snapshot) => {
+        let data = snapshot.data();
+        switch (cluster) {
+          case 'acc':
+            setAccCounts(data);
+            break;
+          case 'bm':
+            setBmCounts(data);
+            break;
+          case 'cs':
+            setCsCounts(data);
+            break;
+          case 'humlet':
+            setHumletCounts(data);
+            break;
+          case 'nsm':
+            setNsmCounts(data);
+            break;
+          case 'sea':
+            setSeaCounts(data);
+            break;
+          case 'soe':
+            setSoeCounts(data);
+            break;
+          case 'son':
+            setSonCounts(data);
+            break;
+          case 'ss':
+            setSsCounts(data);
+            break;
+        }
+      })
+    })
+  }
+
+  firebase.auth().onAuthStateChanged((user) => {
+    if (user) {
+      // User is signed in.
+      setUid(user.uid);
+      setLoggedIn(true);
+
+      votesRef.doc(user.uid).onSnapshot((snapshot) => {
+        if (snapshot.exists) {
+          setReceipt(snapshot.data().vote);
+        }
+        setReceiptChecker(true);
+      })
+    } else {
+      // User is signed out.
+      setLoggedIn(false);
+    }
+  });
 
   const theme = useTheme();
   const fullScreen = useMediaQuery(theme.breakpoints.down('sm'));
@@ -173,11 +304,73 @@ const Page = () => {
   };
 
   const responseGoogle = (response) => {
-    setAccessToken(response.getAuthResponse().access_token);
+    setAccessToken(response.getAuthResponse().id_token);
+    var credential = firebase.auth.GoogleAuthProvider.credential(response.getAuthResponse().id_token);
     setFirstName(response.getBasicProfile().getGivenName());
     setLastName(response.getBasicProfile().getFamilyName());
     setEmail(response.getBasicProfile().getEmail());
+
+    firebase.auth().signInWithCredential(credential).catch(function(error) {
+      // Handle Errors here.
+      var errorCode = error.code;
+      var errorMessage = error.message;
+      // The email of the user's account used.
+      var email = error.email;
+      // The firebase.auth.AuthCredential type that was used.
+      var credential = error.credential;
+      // ...
+      console.log(errorCode, errorMessage, email);
+      setAccessToken(null);
+      setFirstName('');
+      setLastName('');
+    });
   }
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    votesRef.doc(uid).set({
+      owner: uid,
+      firstName,
+      lastName,
+      email,
+      cluster,
+      yearLevel,
+      vote: vote === 'yes' ? true : false
+    })
+
+    switch (yearLevel) {
+      case '1':
+        db.collection('statistics').doc('cluster_count').collection(cluster).doc('count').update({
+          first: firebase.firestore.FieldValue.increment(1)
+        });
+        break;
+      case '2':
+        db.collection('statistics').doc('cluster_count').collection(cluster).doc('count').update({
+          second: firebase.firestore.FieldValue.increment(1)
+        });
+        break;
+      case '3':
+        db.collection('statistics').doc('cluster_count').collection(cluster).doc('count').update({
+          third: firebase.firestore.FieldValue.increment(1)
+        });
+        break;
+      case '4':
+        db.collection('statistics').doc('cluster_count').collection(cluster).doc('count').update({
+          fourth: firebase.firestore.FieldValue.increment(1)
+        });
+        break;
+      case '5':
+        db.collection('statistics').doc('cluster_count').collection(cluster).doc('count').update({
+          fifth: firebase.firestore.FieldValue.increment(1)
+        });
+        break;
+    }
+  }
+
+  React.useEffect(() => {
+    getCount();
+  }, [])
 
   return (
     <div className={classes.rootContainer}>
@@ -348,8 +541,8 @@ const Page = () => {
             <CardContent style={{ padding: 40 }}>
               <Typography variant="h4">Plebiscite</Typography>
               <div style={{ height: 30 }} />
-              { accessToken ?
-                <form autoComplete="off" onSubmit={(event) => { event.preventDefault() }}>
+              { accessToken && loggedIn && receiptChecked && receipt === null ?
+                <form autoComplete="off" onSubmit={handleSubmit}>
                   <TextField label="First Name" variant="outlined" fullWidth style={{ marginBottom: 20 }} value={firstName} onChange={(e) => setFirstName(e.target.value)} disabled required />
                   <TextField label="Last Name" variant="outlined" fullWidth style={{ marginBottom: 20 }} value={lastName} onChange={(e) => setLastName(e.target.value)} disabled required />
                   <TextField label="Email" variant="outlined" fullWidth style={{ marginBottom: 20 }} value={email} onChange={(e) => setEmail(e.target.value)} disabled required />
@@ -363,15 +556,15 @@ const Page = () => {
                       required
                     >
                       <option aria-label="None" value="" />
-                      <option value="ACC">ACC</option>
-                      <option value="BM">BM</option>
-                      <option value="CS">CS</option>
-                      <option value="HUMLET">HUMLET</option>
-                      <option value="NSM">NSM</option>
-                      <option value="SEA">SEA</option>
-                      <option value="SOE">SOE</option>
-                      <option value="SON">SON</option>
-                      <option value="SS">SS</option>
+                      <option value="acc">ACC</option>
+                      <option value="bm">BM</option>
+                      <option value="cs">CS</option>
+                      <option value="humlet">HUMLET</option>
+                      <option value="nsm">NSM</option>
+                      <option value="sea">SEA</option>
+                      <option value="soe">SOE</option>
+                      <option value="son">SON</option>
+                      <option value="ss">SS</option>
                     </Select>
                   </FormControl>
                   <FormControl variant="outlined" fullWidth style={{ marginBottom: 20 }}>
@@ -419,16 +612,32 @@ const Page = () => {
                   <Button color="primary" variant="contained" disabled={!confirm} type="submit">Submit Vote</Button>
                 </form>
               : 
-                <>
-                  <GoogleLogin
-                    clientId="92766825240-07sjnkc89irqulu0nmsfsd259rfdch4l.apps.googleusercontent.com"
-                    buttonText="Login with AdDU Email"
-                    onSuccess={responseGoogle}
-                    onFailure={responseGoogle}
-                    cookiePolicy={'single_host_origin'}
-                    hostedDomain="addu.edu.ph"
-                  />
-                </>
+                accessToken && loggedIn && receiptChecked && receipt !== null ?
+                  <>
+                    <TextField label="First Name" variant="outlined" fullWidth style={{ marginBottom: 20 }} value={firstName} onChange={(e) => setFirstName(e.target.value)} disabled required />
+                    <TextField label="Last Name" variant="outlined" fullWidth style={{ marginBottom: 20 }} value={lastName} onChange={(e) => setLastName(e.target.value)} disabled required />
+                    <TextField label="Email" variant="outlined" fullWidth style={{ marginBottom: 20 }} value={email} onChange={(e) => setEmail(e.target.value)} disabled required />
+                    <div style={{ height: 20 }} />
+                    <Typography variant="h5">
+                      {
+                        receipt ?
+                          'You approved the newly proposed 2020 SAMAHAN Constitution.'
+                        :
+                          'You did not approve the newly proposed 2020 SAMAHAN Constitution.'
+                      }
+                    </Typography>
+                  </>
+                :
+                  <>
+                    <GoogleLogin
+                      clientId="92766825240-07sjnkc89irqulu0nmsfsd259rfdch4l.apps.googleusercontent.com"
+                      buttonText="Login with AdDU Email"
+                      onSuccess={responseGoogle}
+                      onFailure={responseGoogle}
+                      cookiePolicy={'single_host_origin'}
+                      hostedDomain="addu.edu.ph"
+                    />
+                  </>
               }
             </CardContent>
           </Card>
