@@ -349,7 +349,7 @@ const Page = () => {
               <Typography variant="h4">Plebiscite</Typography>
               <div style={{ height: 30 }} />
               { accessToken ?
-                <form noValidate autoComplete="off">
+                <form autoComplete="off" onSubmit={(event) => { event.preventDefault() }}>
                   <TextField label="First Name" variant="outlined" fullWidth style={{ marginBottom: 20 }} value={firstName} onChange={(e) => setFirstName(e.target.value)} disabled required />
                   <TextField label="Last Name" variant="outlined" fullWidth style={{ marginBottom: 20 }} value={lastName} onChange={(e) => setLastName(e.target.value)} disabled required />
                   <TextField label="Email" variant="outlined" fullWidth style={{ marginBottom: 20 }} value={email} onChange={(e) => setEmail(e.target.value)} disabled required />
@@ -416,7 +416,7 @@ const Page = () => {
                     labelPlacement="end"
                   />
                   <div style={{ height: 30 }} />
-                  <Button onClick={() => {  }} color="primary" variant="contained" disabled={!confirm} type="submit">Submit Vote</Button>
+                  <Button color="primary" variant="contained" disabled={!confirm} type="submit">Submit Vote</Button>
                 </form>
               : 
                 <>
