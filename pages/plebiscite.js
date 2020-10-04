@@ -369,7 +369,7 @@ const Page = () => {
   }
 
   React.useEffect(() => {
-    getCount();
+    // getCount();
   }, [])
 
   return (
