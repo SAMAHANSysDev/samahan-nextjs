@@ -13,6 +13,12 @@ module.exports = [
     desc: "The Official Student Government of Ateneo de Davao University",
   },
   {
+    name: 'Plebiscite',
+    href: '/plebiscite',
+    title: "Plebiscite",
+    desc: "SAMAHAN Constitutional Reform Plebiscite"
+  },
+  {
     name: "Help Portal",
     href: "/samahan-help-portal",
     title: "Help Portal",
@@ -46,12 +52,12 @@ module.exports = [
         title: "iHELP",
         desc: "Student-initiated efforts to address and respond to emergencies"
       },
-      {
+      /*{
         name: '#ConstiNatinTo',
         href: '/projects/constinatinto',
         title: "#ConstiNatinTo",
         desc: "SAMAHAN Constitutional Reform for AY 2020-2021"
-      }
+      }//*/
     ]
   },
   {

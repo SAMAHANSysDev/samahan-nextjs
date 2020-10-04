@@ -23,6 +23,7 @@
     "nprogress": "^0.2.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "react-google-login": "^5.1.21",
     "react-gutenberg": "^0.5.2",
     "react-responsive-carousel": "^3.2.9",
     "react-twitter-embed": "^3.0.3",
