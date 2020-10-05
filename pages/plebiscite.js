@@ -37,6 +37,9 @@ import CardMedia from '@material-ui/core/CardMedia';
 import { GoogleLogin } from 'react-google-login';
 import firebase from 'utils/firebase';
 
+import ResultsTable from 'components/plebiscite/results';
+import { NaturePeopleOutlined } from "@material-ui/icons";
+
 const db = firebase.firestore();
 const votesRef = db.collection('votes');
 
@@ -150,69 +153,6 @@ const Page = () => {
   const [cluster, setCluster] = React.useState('');
   const [yearLevel, setYearLevel] = React.useState('');
 
-  const [accCounts, setAccCounts] = React.useState({
-    first: 0,
-    second: 0,
-    third: 0,
-    fourth: 0
-  })
-
-  const [bmCounts, setBmCounts] = React.useState({
-    first: 0,
-    second: 0,
-    third: 0,
-    fourth: 0
-  })
-
-  const [csCounts, setCsCounts] = React.useState({
-    first: 0,
-    second: 0,
-    third: 0,
-    fourth: 0
-  })
-
-  const [humletCounts, setHumletCounts] = React.useState({
-    first: 0,
-    second: 0,
-    third: 0,
-    fourth: 0
-  })
-
-  const [nsmCounts, setNsmCounts] = React.useState({
-    first: 0,
-    second: 0,
-    third: 0,
-    fourth: 0
-  })
-
-  const [seaCounts, setSeaCounts] = React.useState({
-    first: 0,
-    second: 0,
-    third: 0,
-    fourth: 0
-  })
-
-  const [soeCounts, setSoeCounts] = React.useState({
-    first: 0,
-    second: 0,
-    third: 0,
-    fourth: 0
-  })
-
-  const [sonCounts, setSonCounts] = React.useState({
-    first: 0,
-    second: 0,
-    third: 0,
-    fourth: 0
-  })
-
-  const [ssCounts, setSsCounts] = React.useState({
-    first: 0,
-    second: 0,
-    third: 0,
-    fourth: 0
-  })
-
   const [loggedIn, setLoggedIn] = React.useState(false);
 
   const [vote, setVote] = React.useState(null);
@@ -221,53 +161,15 @@ const Page = () => {
   const [receipt, setReceipt] = React.useState(null);
   const [receiptChecked, setReceiptChecker] = React.useState(false);
 
-  const getCount = () => {
-    let clusters = ['acc', 'bm', 'cs', 'humlet', 'nsm', 'sea', 'soe', 'son', 'ss'];
-
-    clusters.forEach((cluster) => {
-      db.collection('statistics').doc('cluster_count').collection(cluster).doc('count')
-      .onSnapshot((snapshot) => {
-        let data = snapshot.data();
-        switch (cluster) {
-          case 'acc':
-            setAccCounts(data);
-            break;
-          case 'bm':
-            setBmCounts(data);
-            break;
-          case 'cs':
-            setCsCounts(data);
-            break;
-          case 'humlet':
-            setHumletCounts(data);
-            break;
-          case 'nsm':
-            setNsmCounts(data);
-            break;
-          case 'sea':
-            setSeaCounts(data);
-            break;
-          case 'soe':
-            setSoeCounts(data);
-            break;
-          case 'son':
-            setSonCounts(data);
-            break;
-          case 'ss':
-            setSsCounts(data);
-            break;
-        }
-      })
-    })
-  }
 
   firebase.auth().onAuthStateChanged((user) => {
+    let dc = () => {}
     if (user) {
       // User is signed in.
       setUid(user.uid);
       setLoggedIn(true);
 
-      votesRef.doc(user.uid).onSnapshot((snapshot) => {
+      dc = votesRef.doc(user.uid).onSnapshot((snapshot) => {
         if (snapshot.exists) {
           setReceipt(snapshot.data().vote);
         }
@@ -275,6 +177,7 @@ const Page = () => {
       })
     } else {
       // User is signed out.
+      dc();
       setLoggedIn(false);
     }
   });
@@ -296,6 +199,10 @@ const Page = () => {
         break;
       case 3:
         setSlide(ratifySlides);
+        break;
+      case 4:
+        setSlide('results');
+        break;
     }
   };
 
@@ -369,7 +276,13 @@ const Page = () => {
   }
 
   React.useEffect(() => {
-    // getCount();
+    firebase.auth().signOut();
+    
+    return () => {
+      if (loggedIn) {
+        firebase.auth().signOut();
+      }
+    }
   }, [])
 
   return (
@@ -626,6 +539,8 @@ const Page = () => {
                           'You did not approve the newly proposed 2020 SAMAHAN Constitution.'
                       }
                     </Typography>
+                    <br /><br />
+                    <Button color="primary" variant="contained" onClick={() => handleClickOpen(4)}>Voter Turnout per Cluster</Button>
                   </>
                 :
                   <>
@@ -637,6 +552,8 @@ const Page = () => {
                       cookiePolicy={'single_host_origin'}
                       hostedDomain="addu.edu.ph"
                     />
+                    <br /><br />
+                    <Button color="primary" variant="contained" onClick={() => handleClickOpen(4)}>Voter Turnout per Cluster</Button>
                   </>
               }
             </CardContent>
@@ -654,7 +571,11 @@ const Page = () => {
         aria-labelledby="responsive-dialog-title"
       >
         <DialogContent>
-          {slide}
+          { slide === 'results' ? 
+            <ResultsTable />
+          :
+            slide
+          }
         </DialogContent>
         <DialogActions>
           <Button onClick={handleClose} color="primary" autoFocus>
