@@ -540,7 +540,7 @@ const Page = () => {
                       }
                     </Typography>
                     <br /><br />
-                    <Button color="primary" variant="contained" onClick={() => handleClickOpen(4)}>Voter Turnout per Cluster</Button>
+                    <Button color="primary" variant="contained" onClick={() => handleClickOpen(4)}>Voter Turnout</Button>
                   </>
                 :
                   <>
@@ -553,7 +553,7 @@ const Page = () => {
                       hostedDomain="addu.edu.ph"
                     />
                     <br /><br />
-                    <Button color="primary" variant="contained" onClick={() => handleClickOpen(4)}>Voter Turnout per Cluster</Button>
+                    <Button color="primary" variant="contained" onClick={() => handleClickOpen(4)}>Voter Turnout</Button>
                   </>
               }
             </CardContent>
