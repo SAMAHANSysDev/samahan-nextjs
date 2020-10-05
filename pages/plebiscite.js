@@ -277,7 +277,7 @@ const Page = () => {
 
   React.useEffect(() => {
     firebase.auth().signOut();
-    
+
     return () => {
       if (loggedIn) {
         firebase.auth().signOut();
@@ -331,7 +331,7 @@ const Page = () => {
       <div style={{ height: 100 }}></div>
 
       <div style={{ backgroundColor: '#6195D1', padding: 0 }}>
-        <div style={{ backgroundImage: `url(${cdnURL}/consti-logo.png)`, backgroundBlendMode: 'darken', backgroundSize: 'cover', backgroundPosition: 'center' }}>
+        <div style={{ backgroundImage: `url(${cdnURL}/consti-logo.png)`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
           <div style={{ height: 50 }}></div>
           <Grid container>
             <Grid item xs={12} md={6} style={{ padding: 20 }}>
@@ -343,10 +343,10 @@ const Page = () => {
                   <div style={{ height: 300 }} />
                 </Grid>
                 <Grid item xs>
-                  <Typography variant="h3" color="secondary" style={{ fontSize: '1.5em' }}>
+                  <Typography variant="h3" color="secondary" style={{ fontSize: '1.5em', textShadow: '2px 2px 8px #000000' }}>
                     What is a
                   </Typography>
-                  <Typography variant="h2" color="secondary" style={{ fontSize: '3em' }}>
+                  <Typography variant="h2" color="secondary" style={{ fontSize: '3em', textShadow: '2px 2px 8px #000000' }}>
                     Constitution?
                   </Typography>
                   <Button onClick={() => handleClickOpen(0)} color="primary" variant="contained" style={{ marginTop: 20 }}>Learn More</Button><br/><br/>
@@ -356,10 +356,10 @@ const Page = () => {
             <Grid item xs={12} md={6} style={{ padding: 20 }}>
               <Grid container alignItems="center" justify="center" style={{ backgroundImage: `url(${cdnURL}/functions-person.png)`, backgroundSize: 'contain', backgroundPosition: 'right bottom', backgroundRepeat: 'no-repeat', minHeight: 300 }}>
                 <Grid item xs>
-                  <Typography variant="h3" color="secondary" style={{ fontSize: '1.5em' }}>
+                  <Typography variant="h3" color="secondary" style={{ fontSize: '1.5em', textShadow: '2px 2px 8px #000000' }}>
                     Functions of a
                   </Typography>
-                  <Typography variant="h2" color="secondary" style={{ fontSize: '3em' }}>
+                  <Typography variant="h2" color="secondary" style={{ fontSize: '3em', textShadow: '2px 2px 8px #000000' }}>
                     Constitution
                   </Typography>
                   <Button onClick={() => handleClickOpen(1)} color="primary" variant="contained" style={{ marginTop: 20 }}>Learn More</Button><br/><br/>
@@ -375,10 +375,10 @@ const Page = () => {
                   <div style={{ height: 300 }} />
                 </Grid>
                 <Grid item xs>
-                  <Typography variant="h3" color="secondary" style={{ fontSize: '1.5em' }}>
+                  <Typography variant="h3" color="secondary" style={{ fontSize: '1.5em', textShadow: '2px 2px 8px #000000' }}>
                     Why
                   </Typography>
-                  <Typography variant="h2" color="secondary" style={{ fontSize: '3em' }}>
+                  <Typography variant="h2" color="secondary" style={{ fontSize: '3em', textShadow: '2px 2px 8px #000000' }}>
                     Revise?
                   </Typography>
                   <Button onClick={() => handleClickOpen(2)} color="primary" variant="contained" style={{ marginTop: 20 }}>Learn More</Button><br/><br/>
@@ -388,10 +388,10 @@ const Page = () => {
             <Grid item xs={12} md={6} style={{ paddingTop: 20, paddingLeft: 20, paddingRight: 20, paddingBottom: 0 }}>
               <Grid container alignItems="center" justify="center" style={{ backgroundImage: `url(${cdnURL}/ratify-person.png)`, backgroundSize: 'contain', backgroundPosition: 'right bottom', backgroundRepeat: 'no-repeat', minHeight: 300 }}>
                 <Grid item xs>
-                  <Typography variant="h3" color="secondary" style={{ fontSize: '1.5em' }}>
+                  <Typography variant="h3" color="secondary" style={{ fontSize: '1.5em', textShadow: '2px 2px 8px #000000' }}>
                     Why
                   </Typography>
-                  <Typography variant="h2" color="secondary" style={{ fontSize: '3em' }}>
+                  <Typography variant="h2" color="secondary" style={{ fontSize: '3em', textShadow: '2px 2px 8px #000000' }}>
                     Ratify?
                   </Typography>
                   <Button onClick={() => handleClickOpen(3)} color="primary" variant="contained" style={{ marginTop: 20 }}>Learn More</Button><br/><br/>
