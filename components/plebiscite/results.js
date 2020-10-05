@@ -149,10 +149,22 @@ const resultsTable = () => {
 
   return (
     <TableContainer component={Paper}>
-      <Table style={{ width: '100%' }}>
+      <Table stickyHeader style={{ width: '100%' }}>
+        <caption><b>Total Voters: {
+          accCounts.first + accCounts.second + accCounts.third + accCounts.fourth + accCounts.fifth +
+          bmCounts.first + bmCounts.second + bmCounts.third + bmCounts.fourth + bmCounts.fifth +
+          csCounts.first + csCounts.second + csCounts.third + csCounts.fourth + csCounts.fifth +
+          humletCounts.first + humletCounts.second + humletCounts.third + humletCounts.fourth + humletCounts.fifth +
+          nsmCounts.first + nsmCounts.second + nsmCounts.third + nsmCounts.fourth + nsmCounts.fifth +
+          seaCounts.first + seaCounts.second + seaCounts.third + seaCounts.fourth + seaCounts.fifth +
+          sonCounts.first + sonCounts.second + sonCounts.third + sonCounts.fourth + sonCounts.fifth +
+          soeCounts.first + soeCounts.second + soeCounts.third + soeCounts.fourth + soeCounts.fifth +
+          ssCounts.first + ssCounts.second + ssCounts.third + ssCounts.fourth + ssCounts.fifth
+        }</b></caption>
         <TableHead>
           <TableRow>
             <TableCell></TableCell>
+            <TableCell align="right">Total</TableCell>
             <TableCell align="right">1st Year</TableCell>
             <TableCell align="right">2nd Year</TableCell>
             <TableCell align="right">3rd Year</TableCell>
@@ -165,6 +177,7 @@ const resultsTable = () => {
             <TableCell component="th" scope="row">
               ACC
             </TableCell>
+            <TableCell align="right">{accCounts.first + accCounts.second + accCounts.third + accCounts.fourth + accCounts.fifth}</TableCell>
             <TableCell align="right">{accCounts.first}</TableCell>
             <TableCell align="right">{accCounts.second}</TableCell>
             <TableCell align="right">{accCounts.third}</TableCell>
@@ -175,6 +188,7 @@ const resultsTable = () => {
             <TableCell component="th" scope="row">
               BM
             </TableCell>
+            <TableCell align="right">{bmCounts.first + bmCounts.second + bmCounts.third + bmCounts.fourth + bmCounts.fifth}</TableCell>
             <TableCell align="right">{bmCounts.first}</TableCell>
             <TableCell align="right">{bmCounts.second}</TableCell>
             <TableCell align="right">{bmCounts.third}</TableCell>
@@ -185,6 +199,7 @@ const resultsTable = () => {
             <TableCell component="th" scope="row">
               CS
             </TableCell>
+            <TableCell align="right">{csCounts.first + csCounts.second + csCounts.third + csCounts.fourth + csCounts.fifth}</TableCell>
             <TableCell align="right">{csCounts.first}</TableCell>
             <TableCell align="right">{csCounts.second}</TableCell>
             <TableCell align="right">{csCounts.third}</TableCell>
@@ -195,6 +210,7 @@ const resultsTable = () => {
             <TableCell component="th" scope="row">
               HUMLET
             </TableCell>
+            <TableCell align="right">{humletCounts.first + humletCounts.second + humletCounts.third + humletCounts.fourth + humletCounts.fifth}</TableCell>
             <TableCell align="right">{humletCounts.first}</TableCell>
             <TableCell align="right">{humletCounts.second}</TableCell>
             <TableCell align="right">{humletCounts.third}</TableCell>
@@ -205,6 +221,7 @@ const resultsTable = () => {
             <TableCell component="th" scope="row">
               NSM
             </TableCell>
+            <TableCell align="right">{nsmCounts.first + nsmCounts.second + nsmCounts.third + nsmCounts.fourth + nsmCounts.fifth}</TableCell>
             <TableCell align="right">{nsmCounts.first}</TableCell>
             <TableCell align="right">{nsmCounts.second}</TableCell>
             <TableCell align="right">{nsmCounts.third}</TableCell>
@@ -215,6 +232,7 @@ const resultsTable = () => {
             <TableCell component="th" scope="row">
               SEA
             </TableCell>
+            <TableCell align="right">{seaCounts.first + seaCounts.second + seaCounts.third + seaCounts.fourth + seaCounts.fifth}</TableCell>
             <TableCell align="right">{seaCounts.first}</TableCell>
             <TableCell align="right">{seaCounts.second}</TableCell>
             <TableCell align="right">{seaCounts.third}</TableCell>
@@ -225,6 +243,7 @@ const resultsTable = () => {
             <TableCell component="th" scope="row">
               SON
             </TableCell>
+            <TableCell align="right">{sonCounts.first + sonCounts.second + sonCounts.third + sonCounts.fourth + sonCounts.fifth}</TableCell>
             <TableCell align="right">{sonCounts.first}</TableCell>
             <TableCell align="right">{sonCounts.second}</TableCell>
             <TableCell align="right">{sonCounts.third}</TableCell>
@@ -235,6 +254,7 @@ const resultsTable = () => {
             <TableCell component="th" scope="row">
               SOE
             </TableCell>
+            <TableCell align="right">{soeCounts.first + soeCounts.second + soeCounts.third + soeCounts.fourth + soeCounts.fifth}</TableCell>
             <TableCell align="right">{soeCounts.first}</TableCell>
             <TableCell align="right">{soeCounts.second}</TableCell>
             <TableCell align="right">{soeCounts.third}</TableCell>
@@ -245,6 +265,7 @@ const resultsTable = () => {
             <TableCell component="th" scope="row">
               SS
             </TableCell>
+            <TableCell align="right">{ssCounts.first + ssCounts.second + ssCounts.third + ssCounts.fourth + ssCounts.fifth}</TableCell>
             <TableCell align="right">{ssCounts.first}</TableCell>
             <TableCell align="right">{ssCounts.second}</TableCell>
             <TableCell align="right">{ssCounts.third}</TableCell>
