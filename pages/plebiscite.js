@@ -498,18 +498,11 @@ const Page = () => {
                     </Select>
                   </FormControl>
                   <div style={{ height: 30 }} />
-                  <Typography variant="h5">Do you approve the proposed SAMAHAN Constitution?</Typography>
-                  <div style={{ height: 30 }} />
-
+                  
                   <Button onClick={() => { window.open(`${cdnURL}/2020%20SAMAHAN%20Constitution%20Final%20Draft.pdf`, '_blank'); }} color="primary" variant="contained">Read Proposed SAMAHAN 2020 Constitution</Button><br/><br/>
 
-                  <FormControl component="fieldset" required>
-                    <RadioGroup name="vote" value={vote} onChange={(e) => setVote(e.target.value)}>
-                      <FormControlLabel value="yes" control={<Radio color="primary" />} label="I approve the newly proposed 2020 SAMAHAN Constitution" />
-                      <FormControlLabel value="no" control={<Radio color="primary" />} label="I don't approve the newly proposed 2020 SAMAHAN Constitution" />
-                    </RadioGroup>
-                  </FormControl>
                   <div style={{ height: 15 }} />
+
                   <FormControlLabel
                     control={
                       <Checkbox
@@ -521,8 +514,22 @@ const Page = () => {
                     label="I have read and understood the newly proposed 2020 SAMAHAN Constitution"
                     labelPlacement="end"
                   />
+                  
                   <div style={{ height: 30 }} />
-                  <Button color="primary" variant="contained" disabled={!confirm} type="submit">Submit Vote</Button>
+                  
+                  <Typography variant="h5">Do you approve the proposed SAMAHAN Constitution?</Typography>
+
+                  <div style={{ height: 15 }} />
+                  <FormControl component="fieldset" required>
+                    <RadioGroup name="vote" value={vote} onChange={(e) => setVote(e.target.value)}>
+                      <FormControlLabel value="yes" control={<Radio color="primary" disabled={!confirm} />} label="I approve the newly proposed 2020 SAMAHAN Constitution" />
+                      <FormControlLabel value="no" control={<Radio color="primary" disabled={!confirm} />} label="I don't approve the newly proposed 2020 SAMAHAN Constitution" />
+                    </RadioGroup>
+                  </FormControl>
+
+                  <div style={{ height: 30 }} />
+
+                  <Button color="primary" variant="contained" disabled={vote !== 'yes' && vote !== 'no'} type="submit">Submit Vote</Button>
                 </form>
               : 
                 accessToken && loggedIn && receiptChecked && receipt !== null ?
