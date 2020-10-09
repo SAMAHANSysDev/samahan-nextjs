@@ -243,7 +243,8 @@ const Page = () => {
       email,
       cluster,
       yearLevel,
-      vote: vote === 'yes' ? true : false
+      vote: vote === 'yes' ? true : false,
+      timestamp: new Date()
     })
 
     switch (yearLevel) {
