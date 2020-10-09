@@ -244,7 +244,7 @@ const Page = () => {
       cluster,
       yearLevel,
       vote: vote === 'yes' ? true : false,
-      timestamp: new Date()
+      timestamp: firebase.firestore.FieldValue.serverTimestamp()
     })
 
     switch (yearLevel) {
