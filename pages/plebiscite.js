@@ -305,7 +305,8 @@ const Page = () => {
           <div style={{ height: 'calc(280px - 9vw)' }} />
         </Hidden>
       </div>
-      <div style={{ backgroundImage: 'linear-gradient(180deg, #3b37ff, transparent, transparent, transparent, transparent)' }}>
+      <div style={{ backgroundImage: 'linear-gradient(180deg, #3b37ff, transparent, transparent, transparent, transparent, transparent)' }}>
+        <div style={{ height: 200 }} />
         <Grid container direction="row" spacing={6} className={classes.contentContainer} alignItems="center">
           <Grid item xs={12} md={6}>
             <Card variant="outlined">
@@ -429,8 +430,7 @@ const Page = () => {
           </Grid>
         </Grid>
       </div>
-
-      <div style={{ height: 50 }}></div>
+      
       <Grid container direction="row" spacing={3} alignItems="center" className={classes.contentContainer}>
         <Grid item md={6} xs={12}>
           <Typography variant="h2">
