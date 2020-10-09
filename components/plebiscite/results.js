@@ -148,7 +148,7 @@ const resultsTable = () => {
   }, [])
 
   return (
-    <TableContainer component={Paper}>
+    <TableContainer component={Paper} elevation={0}>
       <Table stickyHeader style={{ width: '100%' }}>
         <caption><b>Total Voters: {
           accCounts.first + accCounts.second + accCounts.third + accCounts.fourth + accCounts.fifth +
