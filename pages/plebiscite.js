@@ -313,113 +313,124 @@ const Page = () => {
               <CardContent style={{ padding: 40 }}>
                 <Typography variant="h4">Plebiscite</Typography>
                 <div style={{ height: 30 }} />
-                { accessToken && loggedIn && receiptChecked && receipt === null ?
-                  <form autoComplete="off" onSubmit={handleSubmit}>
-                    <TextField label="First Name" variant="outlined" fullWidth style={{ marginBottom: 20 }} value={firstName} onChange={(e) => setFirstName(e.target.value)} disabled required />
-                    <TextField label="Last Name" variant="outlined" fullWidth style={{ marginBottom: 20 }} value={lastName} onChange={(e) => setLastName(e.target.value)} disabled required />
-                    <TextField label="Email" variant="outlined" fullWidth style={{ marginBottom: 20 }} value={email} onChange={(e) => setEmail(e.target.value)} disabled required />
-                    <FormControl variant="outlined" fullWidth style={{ marginBottom: 20 }}>
-                      <InputLabel htmlFor="outlined-age-native-simple">Cluster</InputLabel>
-                      <Select
-                        value={cluster}
-                        onChange={(e) => setCluster(e.target.value)}
-                        native
-                        label="Cluster"
-                        required
-                      >
-                        <option aria-label="None" value="" />
-                        <option value="acc">ACC</option>
-                        <option value="bm">BM</option>
-                        <option value="cs">CS</option>
-                        <option value="humlet">HUMLET</option>
-                        <option value="nsm">NSM</option>
-                        <option value="sea">SEA</option>
-                        <option value="soe">SOE</option>
-                        <option value="son">SON</option>
-                        <option value="ss">SS</option>
-                      </Select>
-                    </FormControl>
-                    <FormControl variant="outlined" fullWidth style={{ marginBottom: 20 }}>
-                      <InputLabel htmlFor="outlined-age-native-simple">Year Level</InputLabel>
-                      <Select
-                        native
-                        label="Year Level"
-                        value={yearLevel}
-                        onChange={(e) => setYearLevel(e.target.value)}
-                        required
-                      >
-                        <option aria-label="None" value="" />
-                        <option value={1}>1st Year</option>
-                        <option value={2}>2nd Year</option>
-                        <option value={3}>3rd Year</option>
-                        <option value={4}>4th Year</option>
-                        <option value={5}>5th Year</option>
-                      </Select>
-                    </FormControl>
-                    <div style={{ height: 30 }} />
-                    
-                    <Button onClick={() => { window.open(`${cdnURL}/2020%20SAMAHAN%20Constitution%20Final%20Draft.pdf`, '_blank'); }} color="primary" variant="contained">Read Proposed SAMAHAN 2020 Constitution</Button><br/><br/>
-
-                    <div style={{ height: 15 }} />
-
-                    <FormControlLabel
-                      control={
-                        <Checkbox
-                          checked={confirm}
-                          onChange={(e) => setConfirm(e.target.checked)}
-                          color="primary" 
-                        />
-                      }
-                      label="I have read and understood the newly proposed 2020 SAMAHAN Constitution"
-                      labelPlacement="end"
-                    />
-                    
-                    <div style={{ height: 30 }} />
-                    
-                    <Typography variant="h5">Do you approve the proposed SAMAHAN Constitution?</Typography>
-
-                    <div style={{ height: 15 }} />
-                    <FormControl component="fieldset" required>
-                      <RadioGroup name="vote" value={vote} onChange={(e) => setVote(e.target.value)}>
-                        <FormControlLabel value="yes" control={<Radio color="primary" disabled={!confirm} />} label="I approve the newly proposed 2020 SAMAHAN Constitution" />
-                        <FormControlLabel value="no" control={<Radio color="primary" disabled={!confirm} />} label="I don't approve the newly proposed 2020 SAMAHAN Constitution" />
-                      </RadioGroup>
-                    </FormControl>
-
-                    <div style={{ height: 30 }} />
-
-                    <Button color="primary" variant="contained" disabled={vote !== 'yes' && vote !== 'no'} type="submit">Submit Vote</Button>
-                  </form>
-                : 
-                  accessToken && loggedIn && receiptChecked && receipt !== null ?
+                {
+                  new Date() >= new Date(2020, 9, 12, 8, 0, 0, 0) ? 
                     <>
-                      <TextField label="First Name" variant="outlined" fullWidth style={{ marginBottom: 20 }} value={firstName} onChange={(e) => setFirstName(e.target.value)} disabled required />
-                      <TextField label="Last Name" variant="outlined" fullWidth style={{ marginBottom: 20 }} value={lastName} onChange={(e) => setLastName(e.target.value)} disabled required />
-                      <TextField label="Email" variant="outlined" fullWidth style={{ marginBottom: 20 }} value={email} onChange={(e) => setEmail(e.target.value)} disabled required />
-                      <div style={{ height: 20 }} />
-                      <Typography variant="h5">
-                        {
-                          receipt ?
-                            'You approved the newly proposed 2020 SAMAHAN Constitution.'
-                          :
-                            'You did not approve the newly proposed 2020 SAMAHAN Constitution.'
-                        }
-                      </Typography>
-                      <br /><br />
-                      <Button color="primary" variant="contained" onClick={() => handleClickOpen(4)}>Voter Turnout</Button>
+                      { accessToken && loggedIn && receiptChecked && receipt === null ?
+                        <form autoComplete="off" onSubmit={handleSubmit}>
+                          <TextField label="First Name" variant="outlined" fullWidth style={{ marginBottom: 20 }} value={firstName} onChange={(e) => setFirstName(e.target.value)} disabled required />
+                          <TextField label="Last Name" variant="outlined" fullWidth style={{ marginBottom: 20 }} value={lastName} onChange={(e) => setLastName(e.target.value)} disabled required />
+                          <TextField label="Email" variant="outlined" fullWidth style={{ marginBottom: 20 }} value={email} onChange={(e) => setEmail(e.target.value)} disabled required />
+                          <FormControl variant="outlined" fullWidth style={{ marginBottom: 20 }}>
+                            <InputLabel htmlFor="outlined-age-native-simple">Cluster</InputLabel>
+                            <Select
+                              value={cluster}
+                              onChange={(e) => setCluster(e.target.value)}
+                              native
+                              label="Cluster"
+                              required
+                            >
+                              <option aria-label="None" value="" />
+                              <option value="acc">ACC</option>
+                              <option value="bm">BM</option>
+                              <option value="cs">CS</option>
+                              <option value="humlet">HUMLET</option>
+                              <option value="nsm">NSM</option>
+                              <option value="sea">SEA</option>
+                              <option value="soe">SOE</option>
+                              <option value="son">SON</option>
+                              <option value="ss">SS</option>
+                            </Select>
+                          </FormControl>
+                          <FormControl variant="outlined" fullWidth style={{ marginBottom: 20 }}>
+                            <InputLabel htmlFor="outlined-age-native-simple">Year Level</InputLabel>
+                            <Select
+                              native
+                              label="Year Level"
+                              value={yearLevel}
+                              onChange={(e) => setYearLevel(e.target.value)}
+                              required
+                            >
+                              <option aria-label="None" value="" />
+                              <option value={1}>1st Year</option>
+                              <option value={2}>2nd Year</option>
+                              <option value={3}>3rd Year</option>
+                              <option value={4}>4th Year</option>
+                              <option value={5}>5th Year</option>
+                            </Select>
+                          </FormControl>
+                          <div style={{ height: 30 }} />
+                          
+                          <Button onClick={() => { window.open(`${cdnURL}/2020%20SAMAHAN%20Constitution%20Final%20Draft.pdf`, '_blank'); }} color="primary" variant="contained">Read Proposed SAMAHAN 2020 Constitution</Button><br/><br/>
+
+                          <div style={{ height: 15 }} />
+
+                          <FormControlLabel
+                            control={
+                              <Checkbox
+                                checked={confirm}
+                                onChange={(e) => setConfirm(e.target.checked)}
+                                color="primary" 
+                              />
+                            }
+                            label="I have read and understood the newly proposed 2020 SAMAHAN Constitution"
+                            labelPlacement="end"
+                          />
+                          
+                          <div style={{ height: 30 }} />
+                          
+                          <Typography variant="h5">Do you approve the proposed SAMAHAN Constitution?</Typography>
+
+                          <div style={{ height: 15 }} />
+                          <FormControl component="fieldset" required>
+                            <RadioGroup name="vote" value={vote} onChange={(e) => setVote(e.target.value)}>
+                              <FormControlLabel value="yes" control={<Radio color="primary" disabled={!confirm} />} label="I approve the newly proposed 2020 SAMAHAN Constitution" />
+                              <FormControlLabel value="no" control={<Radio color="primary" disabled={!confirm} />} label="I don't approve the newly proposed 2020 SAMAHAN Constitution" />
+                            </RadioGroup>
+                          </FormControl>
+
+                          <div style={{ height: 30 }} />
+
+                          <Button color="primary" variant="contained" disabled={vote !== 'yes' && vote !== 'no'} type="submit">Submit Vote</Button>
+                        </form>
+                      : 
+                        accessToken && loggedIn && receiptChecked && receipt !== null ?
+                          <>
+                            <TextField label="First Name" variant="outlined" fullWidth style={{ marginBottom: 20 }} value={firstName} onChange={(e) => setFirstName(e.target.value)} disabled required />
+                            <TextField label="Last Name" variant="outlined" fullWidth style={{ marginBottom: 20 }} value={lastName} onChange={(e) => setLastName(e.target.value)} disabled required />
+                            <TextField label="Email" variant="outlined" fullWidth style={{ marginBottom: 20 }} value={email} onChange={(e) => setEmail(e.target.value)} disabled required />
+                            <div style={{ height: 20 }} />
+                            <Typography variant="h5">
+                              {
+                                receipt ?
+                                  'You approved the newly proposed 2020 SAMAHAN Constitution.'
+                                :
+                                  'You did not approve the newly proposed 2020 SAMAHAN Constitution.'
+                              }
+                            </Typography>
+                            <br /><br />
+                            <Button color="primary" variant="contained" onClick={() => handleClickOpen(4)}>Voter Turnout</Button>
+                          </>
+                        :
+                          <>
+                            <GoogleLogin
+                              clientId="92766825240-07sjnkc89irqulu0nmsfsd259rfdch4l.apps.googleusercontent.com"
+                              buttonText="Login with AdDU Email"
+                              onSuccess={responseGoogle}
+                              onFailure={responseGoogle}
+                              cookiePolicy={'single_host_origin'}
+                              hostedDomain="addu.edu.ph"
+                            />
+                            <br /><br />
+                            <Button color="primary" variant="contained" onClick={() => handleClickOpen(4)}>Voter Turnout</Button>
+                          </>
+                      }
                     </>
                   :
                     <>
-                      <GoogleLogin
-                        clientId="92766825240-07sjnkc89irqulu0nmsfsd259rfdch4l.apps.googleusercontent.com"
-                        buttonText="Login with AdDU Email"
-                        onSuccess={responseGoogle}
-                        onFailure={responseGoogle}
-                        cookiePolicy={'single_host_origin'}
-                        hostedDomain="addu.edu.ph"
-                      />
-                      <br /><br />
-                      <Button color="primary" variant="contained" onClick={() => handleClickOpen(4)}>Voter Turnout</Button>
+                      <Typography variant="h5">
+                        Say #YesToConsti on Monday, Oct 12 (8 AM)
+                      </Typography>
                     </>
                 }
               </CardContent>
