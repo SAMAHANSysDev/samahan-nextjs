@@ -294,7 +294,7 @@ const Page = () => {
         <Grid container direction="row" spacing={3} className={classes.contentContainer}>
           <Grid item md={5} xs={12}>
             <img src={`${cdnURL}/consti-logo-colored.png`} width="100%" style={{ marginTop: 30, marginBottom: 60 }} />
-            <Button onClick={() => { window.open(`${cdnURL}/2020%20SAMAHAN%20Constitution%20Final%20Draft.pdf`, '_blank'); }} color="primary" variant="contained">SAMAHAN 2020 Constitution Final Draft</Button><br/><br/>
+            <Button onClick={() => { window.open(`${cdnURL}/2020%20SAMAHAN%20Constitution.pdf`, '_blank'); }} color="primary" variant="contained">SAMAHAN 2020 Constitution Final Draft</Button><br/><br/>
             <Button onClick={() => { window.open(`${cdnURL}/What%E2%80%99s%20new%20in%20the%202020%20SAMAHAN%20Constitution_.pdf`, '_blank'); }} color="primary" variant="contained">What's new in the SAMAHAN Constitution?</Button>
           </Grid>
           <Grid item md={7} xs={false}>
@@ -361,7 +361,7 @@ const Page = () => {
                           </FormControl>
                           <div style={{ height: 30 }} />
                           
-                          <Button onClick={() => { window.open(`${cdnURL}/2020%20SAMAHAN%20Constitution%20Final%20Draft.pdf`, '_blank'); }} color="primary" variant="contained">Read Proposed SAMAHAN 2020 Constitution</Button><br/><br/>
+                          <Button onClick={() => { window.open(`${cdnURL}/2020%20SAMAHAN%20Constitution.pdf`, '_blank'); }} color="primary" variant="contained">Read Proposed SAMAHAN 2020 Constitution</Button><br/><br/>
 
                           <div style={{ height: 15 }} />
 
