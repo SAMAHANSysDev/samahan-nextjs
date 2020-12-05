@@ -40,8 +40,9 @@ export default class SamahanDocument extends Document {
           <link rel="preconnect" href={cdnURL} />
           <link rel="preconnect" href={backendURL} />
           <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;900&family=Open+Sans:wght@300;400&display=swap" rel="stylesheet" />
+          <link href="https://fonts.googleapis.com/css2?family=Gaegu:wght@300;400;700&display=swap" rel="stylesheet" />
           <link rel="stylesheet" href="https://unpkg.com/nprogress@0.2.0/nprogress.css" />
-          <link rel="icon" type="image/png" href={`${cdnURL}/favicon.png`}></link>
+          <link rel="icon" type="image/png" href={`${cdnURL}/favicon.png`} />
         </Head>
         <body>
           <Main />

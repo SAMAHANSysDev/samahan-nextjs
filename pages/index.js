@@ -4,7 +4,7 @@ import Head from 'next/head';
 import dynamic from 'next/dynamic';
 import WP from 'utils/wordpress';
 
-const Banner = dynamic(() => import('components/home/banner'));
+import Banner from 'components/home/banner';
 const Help = dynamic(() => import('components/home/help'));
 const NewsFeed = dynamic(() => import('components/home/newsfeed'));
 const Projects = dynamic(() => import('components/home/projects'));
@@ -39,7 +39,7 @@ const List = ({ posts, users }) => {
         <meta name="twitter:image" content={bannerImage} />
       </Head>
 
-      <Banner bannerImage={bannerImage} />
+      <Banner />
       <div className={classes.contentContainer}>
         <div className={classes.spacer}></div>
         

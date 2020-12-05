@@ -13,6 +13,26 @@ module.exports = [
     desc: "The Official Student Government of Ateneo de Davao University",
   },
   {
+    name: "Linggo ng Pasko",
+    href: "/pasko",
+    title: "Linggo ng Pasko",
+    desc: "An initiation that aims to help the Amihan sa Dahican Community with its proceeds.",
+    submenu: [
+      {
+        name: "Linggo ng Pasko",
+        href: "/pasko",
+        title: "Linggo ng Pasko",
+        desc: "An initiation that aims to help the Amihan sa Dahican Community with its proceeds.",
+      },
+      {
+        name: 'Partners',
+        href: '/pasko/partners',
+        title: "Linggo ng Pasko Partners",
+        desc: "List of Linggo ng Pasko business partners"
+      },
+    ]
+  },
+  {
     name: "Help Portal",
     href: "/samahan-help-portal",
     title: "Help Portal",
