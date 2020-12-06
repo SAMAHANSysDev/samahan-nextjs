@@ -6,15 +6,10 @@ import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
 
 import dynamic from 'next/dynamic';
-import sort from 'fast-sort';
-
-const ServicesList = dynamic(() => import('components/projects/student-services-manual/services-list'));
-
-import { TwitterTimelineEmbed } from 'react-twitter-embed';
-import WP from 'utils/wordpress';
-import { cdnURL } from 'utils/constants';
 
 import PartnerCard from 'components/pasko/PartnerCard';
+
+import { Parallax, Background } from 'react-parallax';
 
 const Snowfall = dynamic(() => import('react-snowfall'), { ssr: false });
 
@@ -25,8 +20,6 @@ const useStyles = makeStyles((theme) => ({
     color: 'white'
   },
   rootContentContainer: {
-    backgroundColor: '#002D26',
-    backgroundImage: 'url("/assets/bgstars.png")',
   },
   contentContainer: {
     paddingTop: theme.spacing(4),
@@ -41,6 +34,9 @@ const useStyles = makeStyles((theme) => ({
   rootContainer: {
     width: '100%',
     overflowX: 'hidden',
+  },
+  backgroundContainer: {
+    backgroundColor: '#002D26',
   },
 }));
 
@@ -174,49 +170,63 @@ const Page = () => {
 
   return (
     <div className={classes.rootContainer}>
-      { typeof window !== "undefined" ? (
-        <Snowfall />
-      ) : null }
-      <div style={{ backgroundColor: theme.palette.primary.main }}>
-        <Grid container direction="row" spacing={3} alignItems="center" className={classes.bannerContainer}>
-          <Grid item sm>
-            <center>
-              <img src="/assets/christmas-tree-2.gif" width="80%" />
-            </center>
-          </Grid>
-          <Grid item sm>
-            <Typography variant="h2" component="h2" style={{ lineHeight: '0.8em', fontFamily: 'Gaegu', textAlign: 'right', fontWeight: 100, fontSize: '4rem' }}>
-              Linggo ng Pasko 2020
-            </Typography>
-            <Typography variant="h1" component="h2" style={{ lineHeight: '0.8em', fontFamily: 'Gaegu', textAlign: 'right', fontSize: '6rem' }}>
-              Partners
-            </Typography>
-            <div style={{ height: 100 }}></div>
-          </Grid>
-        </Grid>
-      </div>
-      <div className={classes.rootContentContainer}>
-        <div className={classes.contentContainer}>
-          {partners.map((partner) => (
-            <PartnerCard
-              name={partner.name}
-              type={partner.type}
-              logo={`/assets/logos/${partner.logo}`}
-              facebook={partner.facebook ? `https://facebook.com/${partner.facebook}` : ''}
-              twitter={partner.twitter ? `https://twitter.com/${partner.twitter}` : ''}
-              instagram={partner.instagram ? `https://instagram.com/${partner.instagram}` : ''}
-              items={partner.items}
-            >
-              <Typography variant="body1" component="h2">
-                {partner.desc}
+      <Parallax strength={1500}>
+        { typeof window !== "undefined" ? (
+          <Snowfall snowflakeCount={500} />
+        ) : null}
+        <Background className={classes.backgroundContainer}>
+          <img src="/assets/bgstars.png" />
+          <img src="/assets/bgstars.png" />
+          <img src="/assets/bgstars.png" />
+          <img src="/assets/bgstars.png" />
+          <img src="/assets/bgstars.png" />
+          <img src="/assets/bgstars.png" />
+          <img src="/assets/bgstars.png" />
+          <img src="/assets/bgstars.png" />
+          <img src="/assets/bgstars.png" />
+          <img src="/assets/bgstars.png" />
+        </Background>
+        <div style={{ backgroundColor: theme.palette.primary.main }}>
+          <Grid container direction="row" spacing={3} alignItems="center" className={classes.bannerContainer}>
+            <Grid item sm>
+              <center>
+                <img src="/assets/christmas-tree-2.gif" width="80%" />
+              </center>
+            </Grid>
+            <Grid item sm>
+              <Typography variant="h2" component="h2" style={{ lineHeight: '0.8em', fontFamily: 'Gaegu', textAlign: 'right', fontWeight: 100, fontSize: '4rem' }}>
+                Linggo ng Pasko 2020
               </Typography>
-              <Typography variant="body1" component="h2" style={{ marginTop: theme.spacing(1) }}>
-                {partner.spiel}
+              <Typography variant="h1" component="h2" style={{ lineHeight: '0.8em', fontFamily: 'Gaegu', textAlign: 'right', fontSize: '6rem' }}>
+                Partners
               </Typography>
-            </PartnerCard>
-          )) }
+              <div style={{ height: 100 }}></div>
+            </Grid>
+          </Grid>
         </div>
-      </div>
+        <div className={classes.rootContentContainer}>
+          <div className={classes.contentContainer}>
+            {partners.map((partner) => (
+              <PartnerCard
+                name={partner.name}
+                type={partner.type}
+                logo={`/assets/logos/${partner.logo}`}
+                facebook={partner.facebook ? `https://facebook.com/${partner.facebook}` : ''}
+                twitter={partner.twitter ? `https://twitter.com/${partner.twitter}` : ''}
+                instagram={partner.instagram ? `https://instagram.com/${partner.instagram}` : ''}
+                items={partner.items}
+              >
+                <Typography variant="body1" component="h2">
+                  {partner.desc}
+                </Typography>
+                <Typography variant="body1" component="h2" style={{ marginTop: theme.spacing(1) }}>
+                  {partner.spiel}
+                </Typography>
+              </PartnerCard>
+            )) }
+          </div>
+        </div>
+      </Parallax>
     </div>
   );
 };
