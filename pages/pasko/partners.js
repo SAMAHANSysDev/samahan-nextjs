@@ -188,16 +188,16 @@ const Page = () => {
         </Background>
         <div style={{ backgroundColor: theme.palette.primary.main }}>
           <Grid container direction="row" spacing={3} alignItems="center" className={classes.bannerContainer}>
-            <Grid item sm>
+            <Grid item xs={12} sm={6}>
               <center>
                 <img src="/assets/christmas-tree-2.gif" width="80%" />
               </center>
             </Grid>
-            <Grid item sm>
-              <Typography variant="h2" component="h2" style={{ lineHeight: '0.8em', fontFamily: 'Gaegu', textAlign: 'right', fontWeight: 100, fontSize: '4rem' }}>
+            <Grid item xs={12} sm={6}>
+              <Typography variant="h2" component="h2" style={{ lineHeight: '0.8em', fontFamily: 'Gaegu', textAlign: 'right', fontWeight: 100, fontSize: 'clamp(2rem, -0.875rem + 9vw, 4rem)', }}>
                 Linggo ng Pasko 2020
               </Typography>
-              <Typography variant="h1" component="h2" style={{ lineHeight: '0.8em', fontFamily: 'Gaegu', textAlign: 'right', fontSize: '6rem' }}>
+              <Typography variant="h1" component="h2" style={{ lineHeight: '0.8em', fontFamily: 'Gaegu', textAlign: 'right', fontSize: 'clamp(4rem, -0.875rem + 9vw, 6rem)' }}>
                 Partners
               </Typography>
               <div style={{ height: 100 }}></div>
