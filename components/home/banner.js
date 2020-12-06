@@ -1,7 +1,8 @@
 import React from "react";
+import { useRouter } from 'next/router';
 import { makeStyles } from '@material-ui/core/styles';
 import dynamic from 'next/dynamic';
-import CardMedia from '@material-ui/core/CardMedia';
+import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
 const Snowfall = dynamic(() => import('react-snowfall'), { ssr: false });
@@ -51,6 +52,7 @@ const useStyles = makeStyles((theme) => ({
 const List = () => {
   // Get the data of the current list.
   const classes = useStyles();
+  const router = useRouter();
 
   return (
     <div className={classes.bannerContainer}>
@@ -71,6 +73,7 @@ const List = () => {
               Ateneo de Davao University
             </Typography>
           </div>
+          <Button variant="contained" size="large" style={{ float: 'right' }} onClick={() => router.push('/pasko')}>Linggo ng Pasko 2020</Button>
         </Grid>
       </Grid>
       { typeof window !== "undefined" ? (
