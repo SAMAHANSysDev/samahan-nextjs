@@ -27,6 +27,7 @@ const useStyles = makeStyles((theme) => ({
   rootContainer: {
     width: '100%',
     height: 'auto',
+    overflowX: 'hidden',
   },
   bannerContainer: {
     backgroundColor: theme.palette.primary.main,

@@ -40,6 +40,7 @@ const useStyles = makeStyles((theme) => ({
   },
   rootContainer: {
     width: '100%',
+    overflowX: 'hidden',
   },
 }));
 
