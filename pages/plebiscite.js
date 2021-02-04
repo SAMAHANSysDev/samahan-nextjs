@@ -387,7 +387,7 @@ const Page = () => {
                             <CardContent style={{ padding: 40 }}>
                                 <Typography variant="h4">Plebiscite</Typography>
                                 <div style={{ height: 30 }} />
-                                {new Date() <
+                                {new Date() >
                                 new Date(2020, 9, 14, 23, 59, 0, 0) ? (
                                     <>
                                         {accessToken &&
