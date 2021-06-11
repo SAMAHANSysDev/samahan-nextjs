@@ -7,7 +7,7 @@ import WP from 'utils/wordpress';
 import dynamic from 'next/dynamic';
 const Item = dynamic(() => import('components/home/newsfeed-item'));
 
-import Button from '@material-ui/core/Button';
+import Button from 'components/Button';
 
 import { cdnURL } from 'utils/constants';
 

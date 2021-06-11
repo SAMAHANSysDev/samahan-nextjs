@@ -12,7 +12,7 @@ import Modal from '@material-ui/core/Modal';
 import Backdrop from '@material-ui/core/Backdrop';
 import Fade from '@material-ui/core/Fade';
 import CardActions from "@material-ui/core/CardActions";
-import Button from '@material-ui/core/Button';
+import Button from 'components/Button';
 
 import advocacies from 'data/samahan/advocacies';
 

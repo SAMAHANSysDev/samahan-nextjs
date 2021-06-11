@@ -15,7 +15,7 @@ import Fade from '@material-ui/core/Fade';
 import Divider from '@material-ui/core/Divider';
 
 import CardActions from "@material-ui/core/CardActions";
-import Button from '@material-ui/core/Button';
+import Button from 'components/Button';
 import Paper from '@material-ui/core/Paper';
 
 const useStyles = makeStyles((theme) => ({

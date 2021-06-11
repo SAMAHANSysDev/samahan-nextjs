@@ -2,7 +2,7 @@ import React from "react";
 
 import { useRouter } from 'next/router';
 
-import Button from '@material-ui/core/Button';
+import Button from 'components/Button';
 import Tab from '@material-ui/core/Tab';
 import Tabs from '@material-ui/core/Tabs';
 import ArrowDropDownIcon from "@material-ui/icons/ArrowDropDown";

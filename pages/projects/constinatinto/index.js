@@ -9,7 +9,7 @@ import { useRouter } from 'next/router';
 
 import { Carousel } from 'react-responsive-carousel';
 
-import Button from '@material-ui/core/Button';
+import Button from 'components/Button';
 
 import { cdnURL } from 'utils/constants';
 
