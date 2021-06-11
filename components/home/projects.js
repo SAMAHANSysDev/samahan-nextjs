@@ -27,6 +27,7 @@ const useStyles = makeStyles((theme) => ({
     marginTop: 40,
     minWidth: 275,
     borderRadius: 0,
+    backgroundColor: '#F2F3F4'
   },
   cardMedia: {
     height: 350,
