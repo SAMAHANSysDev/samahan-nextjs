@@ -2,7 +2,7 @@ import React from "react";
 
 import { useRouter } from 'next/router';
 
-import Button from 'components/Button';
+import Button from '@material-ui/core/Button';
 import Tab from '@material-ui/core/Tab';
 import Tabs from '@material-ui/core/Tabs';
 import ArrowDropDownIcon from "@material-ui/icons/ArrowDropDown";
@@ -16,7 +16,8 @@ import { fade } from '@material-ui/core/styles/colorManipulator';
 
 const useStyles = makeStyles((theme) => ({
   tab: {
-    minWidth: 30,
+    minWidth: 150,
+    marginLeft: '2rem',
     alignItems: 'center',
   },
   wrapperTab: {
@@ -36,14 +37,16 @@ const useStyles = makeStyles((theme) => ({
   },
   dropdownTabs: {
     color: fade(theme.palette.secondary.main, 0.7),
-    minWidth: 30,
+    minWidth: 150,
     alignItems: 'center',
+    marginLeft: '2rem',
     borderRadius: 0,
   },
   dropdownTabsWhite: {
     color: theme.palette.secondary.main,
-    minWidth: 30,
+    minWidth: 150,
     alignItems: 'center',
+    marginLeft: '2rem',
     borderRadius: 0,
   },
   dropdownMenu: {

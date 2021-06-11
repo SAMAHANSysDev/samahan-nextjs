@@ -16,7 +16,8 @@ module.exports = [
     name: "Help Portal",
     href: "/samahan-help-portal",
     title: "Help Portal",
-    desc: "Concerns, Questions & Queries"
+    desc: "Concerns, Questions & Queries",
+    hidden: true
   },
   {
     name: "SAMAHAN",
@@ -24,14 +25,14 @@ module.exports = [
     title: "About SAMAHAN",
     desc: "Samahan ng mga Mag-aaral ng Pamantasan ng Ateneo de Davao"
   },
-  {
+  /* {
     name: "Calendar",
     href: "/calendar",
     title: "Calendar",
     desc: "Comprehensive Timeline of Student Activities"
-  },
+  }, */
   {
-    name: "Projects",
+    name: "Initiatives",
     href: "/projects",
     submenu: [
       {
@@ -58,9 +59,10 @@ module.exports = [
     name: "Newsfeed",
     href: "/newsfeed",
     title: "Newsfeed",
-    desc: "News and Stories of and for the Student Body"
+    desc: "News and Stories of and for the Student Body",
+    hidden: true
   },
-  {
+  /* {
     name: "CCO",
     href: "/cco",
     submenu: [
@@ -77,12 +79,13 @@ module.exports = [
         desc: "Clubs and Organizations of the Ateneo de Davao University"
       }
     ]
-  },
+  }, */
   {
     name: "Docs",
     href: "/samahan-docs",
     title: "Reservation Docs",
-    desc: "Official Document Source and Free Downloadables"
+    desc: "Official Document Source and Free Downloadables",
+    hidden: true
   },
   {
     name: "Requests Docs",
