@@ -6,7 +6,7 @@ import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
 
 import dynamic from 'next/dynamic';
-import sort from 'fast-sort';
+import { sort } from 'fast-sort';
 
 const ServicesList = dynamic(() => import('components/projects/student-services-manual/services-list'));
 

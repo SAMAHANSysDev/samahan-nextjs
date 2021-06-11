@@ -16,7 +16,7 @@ import { Carousel } from 'react-responsive-carousel';
 
 import { cdnURL } from 'utils/constants';
 
-import sort from 'fast-sort';
+import { sort } from 'fast-sort';
 
 const useStyles = makeStyles((theme) => ({
   contentContainer: {

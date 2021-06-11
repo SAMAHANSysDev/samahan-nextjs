@@ -8,7 +8,7 @@ import { useRouter } from 'next/router';
 
 import WP from 'utils/wordpress';
 import dynamic from 'next/dynamic';
-import sort from 'fast-sort';
+import { sort } from 'fast-sort';
 
 const Banner = dynamic(() => import('components/samahan-docs/banner'));
 const NavButtons = dynamic(() => import('components/samahan-docs/nav-buttons'));

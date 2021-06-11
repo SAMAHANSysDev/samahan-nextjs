@@ -8,7 +8,7 @@ import Hidden from '@material-ui/core/Hidden';
 
 import WP from 'utils/wordpress';
 import dynamic from 'next/dynamic';
-import sort from 'fast-sort';
+import { sort } from 'fast-sort';
 
 const Advocasix = dynamic(() => import('components/samahan/advocasix'));
 const BoardMembers = dynamic(() => import('components/samahan/board-members'));

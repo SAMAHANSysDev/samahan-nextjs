@@ -3,7 +3,7 @@ import { makeStyles } from '@material-ui/core/styles';
 
 import dynamic from 'next/dynamic';
 import WP from 'utils/wordpress';
-import sort from 'fast-sort';
+import { sort } from 'fast-sort';
 
 const OfficersList = dynamic(() => import('components/cco/officers'));
 const CCOBanner = dynamic(() => import('components/cco/banner'));
