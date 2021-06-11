@@ -4,14 +4,21 @@ import { makeStyles } from '@material-ui/core/styles';
 import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
+import IconButton from '@material-ui/core/IconButton';
+
+import FacebookIcon from '@material-ui/icons/Facebook';
+import TwitterIcon from '@material-ui/icons/Twitter';
+import InstagramIcon from '@material-ui/icons/Instagram';
 
 const useStyles = makeStyles((theme) => ({
   bannerContainer: {
     height: '90vh',
     width: '100%',
-    backgroundColor: theme.palette.primary.main,
-    paddingLeft: 50,
-    paddingRight: 50
+    backgroundPosition: 'center bottom',
+    backgroundSize: 'cover',
+    backgroundImage: 'url(https://samahan.stdcdn.com/21-22/landing.png), linear-gradient(to right, #1637BC, #2D8AEA)',
+    paddingLeft: 'clamp(50px, 10vw, 100px)',
+    paddingRight: 'clamp(50px, 10vw, 100px)'
   },
   bannerTextContainer: {
     position: 'relative',
@@ -32,57 +39,46 @@ const useStyles = makeStyles((theme) => ({
     fontSize: '7.5vw',
     margin: 0
   },
-  bannerImageContainer: {
-    zIndex: 1,
-    display: 'none',
-    [theme.breakpoints.up('md')]: {
-      display: 'block'
-    }
-  },
-  bannerImage: {
-    maxHeight: '70vh',
-    width: '65vw',
-    background: theme.palette.primary.main,
-    opacity: 0.4,
-    mixBlendMode: 'screen'
-  },
-  bannerNewImage: {
-    mixBlendMode: 'screen',
-    WebkitFilter: "grayscale(100%) sepia(100%) hue-rotate(170deg) saturate(4) contrast(200%)",
-    filter: "grayscale(100%) sepia(100%) hue-rotate(170deg) saturate(4) contrast(200%)",
-  }
 }));
 
-const List = ({ bannerImage }) => {
+const List = () => {
   // Get the data of the current list.
   const classes = useStyles();
 
   return (
     <div className={classes.bannerContainer}>
-      <Grid container direction="row" alignItems="center" style={{ height: '80%', paddingTop: 20 }}>
-        <Grid item sm={6} className={classes.bannerImageContainer}>
+      <Grid container direction="column" justify="center" style={{ height: '80%', paddingTop: 20 }} spacing={4}>
+        <Grid item>
           <CardMedia
             component="img"
-            classes={{ media: classes.bannerNewImage }}
-            className={classes.bannerImage}
-            image={bannerImage}
+            image="https://samahan.stdcdn.com/21-22/OTF-2_white.png"
+            style={{ width: 'clamp(250px, 60vw, 60%)' }}
           />
         </Grid>
-        <Grid item xs={12} md={6}>
-          <div className={classes.bannerTextContainer}>
-            <Typography variant="h5" className={classes.bannerText} style={{ lineHeight: '0.9em' }}>
-              Welcome to
-            </Typography>
-            <Typography variant="h1" component="h2" className={classes.bannerHeader} style={{ lineHeight: '0.9em' }}>
-              SAMAHAN
-            </Typography>
-            <Typography variant="h5" className={classes.bannerText} style={{ lineHeight: '0.9em' }}>
-              The Official Student Government of
-            </Typography>
-            <Typography variant="h5" className={classes.bannerText} style={{ lineHeight: '0.9em' }}>
-              Ateneo de Davao University
-            </Typography>
-          </div>
+        <Grid item style={{ color: 'white', fontStyle: 'italic' }}>
+          <Typography>The future is ours.</Typography>
+          <Typography>We decide what is next for us.</Typography>
+          <Typography>We no longer wait for the future;</Typography>
+          <Typography>we own the future.</Typography>
+        </Grid>
+        <Grid item style={{ color: 'white' }}>
+          <Grid container spacing={2}>
+            <Grid item>
+              <IconButton color="secondary" onClick={() => window.open('https://www.facebook.com/AdDUSAMAHAN/', '_blank').focus()}>
+                <FacebookIcon />
+              </IconButton>
+            </Grid>
+            <Grid item>
+              <IconButton color="secondary" onClick={() => window.open('https://twitter.com/addusamahan/', '_blank').focus()}>
+                <TwitterIcon />
+              </IconButton>
+            </Grid>
+            <Grid item>
+              <IconButton color="secondary" onClick={() => window.open('https://instagram.com/samahan_ateneo/', '_blank').focus()}>
+                <InstagramIcon />
+              </IconButton>
+            </Grid>
+          </Grid>
         </Grid>
       </Grid>
     </div>

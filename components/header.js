@@ -111,7 +111,7 @@ function SearchAppBar() {
 
   return (
     <div className={classes.root}>
-      <AppBar position="static" color="primary" elevation={0}>
+      <AppBar position="static" style={{ backgroundImage: 'linear-gradient(to right, #1637BC, #2D8AEA)' }} elevation={0}>
         <Toolbar>
           <IconButton
             onClick={toggleDrawer(true)}

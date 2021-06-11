@@ -40,8 +40,8 @@ const List = () => {
 
   return (
     <>
-      <Typography variant="h3">
-        Projects and Initiatives
+      <Typography variant="h4" color="primary" style={{ fontStyle: 'italic' }}>
+        SAMAHAN Initiatives
       </Typography>
 
       <Grid container direction="row" spacing={3} alignItems="stretch">

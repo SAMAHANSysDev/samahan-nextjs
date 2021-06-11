@@ -43,19 +43,18 @@ const List = ({ posts, users }) => {
       <div className={classes.contentContainer}>
         <div className={classes.spacer}></div>
         
-        <Projects />
-
-        <div className={classes.spacer}></div>
-
         <Help />
-
-        <div className={classes.spacer}></div>
-
-        <NewsFeed posts={posts} users={users} />
-
-        <div className={classes.spacer}></div>
         
-        <SocialMedia />
+        <div className={classes.spacer}></div>
+      </div>
+      <div style={{ backgroundColor: '#F2F3F4', paddingLeft: '10%', paddingRight: '10%' }}>
+        <div className={classes.spacer}></div>
+        <Projects />
+        <div className={classes.spacer}></div>
+      </div>
+      <div className={classes.contentContainer}>
+        <div className={classes.spacer}></div>
+        <NewsFeed posts={posts} users={users} />
       </div>
     </div>
   );

@@ -23,23 +23,61 @@ const List = () => {
   return (
     <Grid container direction="row" spacing={6} alignItems="center">
       <Grid item md>
-        <Typography variant="h5" style={{ lineHeight: '1.5em', fontFamily: 'Open Sans', fontWeight: 300 }}>
-          Need some help? Go to
-        </Typography>
-        <Typography variant="h1" style={{ lineHeight: '0.8em', fontWeight: 700 }}>
-          SAMAHAN
-        </Typography>
-        <Typography variant="h1" style={{ lineHeight: '0.8em', fontWeight: 700 }}>
-          HELP PORTAL
-        </Typography><br />
-        <Button variant="contained" color="primary" disableElevation onClick={() => router.push('/samahan-help-portal')}>
-          Learn More
-        </Button>
+        <center>
+          <img
+            src={`${cdnURL}/21-22/Retro Human-1.png`}
+            style={{
+              width: '100%',
+              webkitTransform: 'scaleX(-1)',
+              transform: 'scaleX(-1)',
+            }} 
+          />
+        </center>
       </Grid>
       <Grid item md>
-        <center>
-          <img src={`${cdnURL}/EX9n9N3UYAAOt62.jpg`} style={{ width: '100%' }} />
-        </center>
+        <Typography variant="h1" color="primary" style={{ lineHeight: '0.8em', fontWeight: 700, marginBottom: '4rem' }}>
+          Help Portal
+        </Typography>
+        <Grid container spacing={3}>
+          <Grid item md>
+            <Grid container direction="column" spacing={1}>
+              <Grid item>
+                <Typography variant="h4">
+                  Start-up Kit
+                </Typography>
+              </Grid>
+              <Grid item>
+                <Typography style={{ fontStyle: 'italic' }}>
+                  For Incoming First Year Students
+                </Typography>
+              </Grid>
+              <Grid item style={{ marginTop: '1.5rem' }}>
+                <Button variant="contained" color="primary" disableElevation onClick={() => router.push('/samahan-help-portal')}>
+                  Learn More
+                </Button>
+              </Grid>
+            </Grid>
+          </Grid>
+          <Grid item md>
+            <Grid container direction="column" spacing={1}>
+              <Grid item>
+                <Typography variant="h4">
+                  FAQs
+                </Typography>
+              </Grid>
+              <Grid item>
+                <Typography style={{ fontStyle: 'italic' }}>
+                  Frequently Asked Questions
+                </Typography>
+              </Grid>
+              <Grid item style={{ marginTop: '1.5rem' }}>
+                <Button variant="contained" color="primary" disableElevation onClick={() => router.push('/samahan-help-portal')}>
+                  Learn More
+                </Button>
+              </Grid>
+            </Grid>
+          </Grid>
+        </Grid>
       </Grid>
     </Grid>
   );

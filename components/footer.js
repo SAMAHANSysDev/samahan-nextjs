@@ -6,7 +6,7 @@ import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    backgroundColor: theme.palette.primary.main,
+    backgroundImage: 'linear-gradient(to right, #1637BC, #2D8AEA)',
     padding: 20,
     width: '100%'
   },
