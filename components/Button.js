@@ -9,7 +9,8 @@ const Button = (props) => {
       paddingLeft: '1.8rem',
       paddingRight: '1.8rem',
       paddingTop: '0.5rem',
-      paddingBottom: '0.5rem'
+      paddingBottom: '0.5rem',
+      ...props.style
     }} />
   )
 }

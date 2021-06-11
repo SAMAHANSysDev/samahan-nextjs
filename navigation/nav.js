@@ -126,7 +126,7 @@ const Nav = () => {
         scrollButtons="auto"
       >
         {routes.map((menu) => {
-          if (!menu.hidden) {
+          if (!menu.hidden && !menu.mobileOnly) {
             return (
               [
                 'submenu' in menu ? 

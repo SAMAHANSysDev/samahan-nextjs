@@ -52,7 +52,7 @@ export default function NestedList({ onChosen }) {
       className={classes.root}
     >
       {routes.map((menu) => {
-        if (!menu.hidden) {
+        if (!menu.hidden || menu.mobileOnly) {
           return 'submenu' in menu ? (
             <React.Fragment key={`${menu.name}`}>
               <ListItem key={`${menu.name}_item`} button onClick={() => handleClick(menu.name)}>

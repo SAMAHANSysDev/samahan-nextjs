@@ -1,4 +1,7 @@
 import React from "react";
+
+import { useRouter } from 'next/router';
+
 import Nav from "navigation/nav";
 import NavBurger from "navigation/nav-burger";
 
@@ -9,6 +12,8 @@ import Drawer from '@material-ui/core/Drawer';
 import { fade, makeStyles } from '@material-ui/core/styles';
 
 import MenuIcon from '@material-ui/icons/Menu';
+
+import Button from 'components/Button';
 
 import { cdnURL } from 'utils/constants';
 
@@ -32,6 +37,20 @@ const useStyles = makeStyles((theme) => ({
   },
   secondaryLogo: {
     display: 'block',
+  },
+  helpButton: {
+    display: 'none',
+    [theme.breakpoints.up('md')]: {
+      display: 'block',
+    },
+  },
+  rightSpace: {
+    width: 50,
+    marginRight: theme.spacing(2),
+    display: 'block',
+    [theme.breakpoints.up('md')]: {
+      display: 'none',
+    },
   },
   menuButton: {
     marginRight: theme.spacing(2),
@@ -101,6 +120,7 @@ const useStyles = makeStyles((theme) => ({
 function SearchAppBar() {
   const classes = useStyles();
   const [drawer, setDrawer] = React.useState(false);
+  const router = useRouter();
 
   const toggleDrawer = (open) => (event) => {
     if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
@@ -154,7 +174,13 @@ function SearchAppBar() {
             <img className={classes.motionLogo} src={`${cdnURL}/More-in-Motion.png`} />
           </div>
           */}
-          
+          <Button
+            variant="contained"
+            color="secondary"
+            onClick={() => router.push('/samahan-help-portal')}
+            className={classes.helpButton}
+          >Help Portal</Button>
+          <div className={classes.rightSpace} />
         </Toolbar>
       </AppBar>
     </div>

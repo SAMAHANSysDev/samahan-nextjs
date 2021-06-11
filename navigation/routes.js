@@ -17,7 +17,7 @@ module.exports = [
     href: "/samahan-help-portal",
     title: "Help Portal",
     desc: "Concerns, Questions & Queries",
-    hidden: true
+    mobileOnly: true
   },
   {
     name: "SAMAHAN",
