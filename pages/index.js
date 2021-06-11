@@ -8,14 +8,14 @@ const Banner = dynamic(() => import('components/home/banner'));
 const Help = dynamic(() => import('components/home/help'));
 const NewsFeed = dynamic(() => import('components/home/newsfeed'));
 const Projects = dynamic(() => import('components/home/projects'));
-const SocialMedia = dynamic(() => import('components/home/social-media'));
+const AboutSamahan = dynamic(() => import('components/home/about-samahan'));
 
 import { cdnURL } from 'utils/constants';
 
 const useStyles = makeStyles((theme) => ({
   contentContainer: {
     width: '80%',
-    margin: 'auto'
+    margin: 'auto',
   },
   spacer: {
     height: 100
@@ -44,7 +44,7 @@ const List = ({ posts, users }) => {
         <div className={classes.spacer}></div>
         
         <Help />
-        
+
         <div className={classes.spacer}></div>
       </div>
       <div style={{ backgroundColor: '#F2F3F4', paddingLeft: '10%', paddingRight: '10%' }}>
@@ -52,9 +52,15 @@ const List = ({ posts, users }) => {
         <Projects />
         <div className={classes.spacer}></div>
       </div>
+      <div style={{ backgroundImage: 'linear-gradient(to right, #1637BC, #2D8AEA)', paddingLeft: '10%', paddingRight: '10%' }}>
+        <div className={classes.spacer}></div>
+        <AboutSamahan />
+        <div className={classes.spacer}></div>
+      </div>
       <div className={classes.contentContainer}>
         <div className={classes.spacer}></div>
         <NewsFeed posts={posts} users={users} />
+        <div className={classes.spacer}></div>
       </div>
     </div>
   );

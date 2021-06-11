@@ -12,7 +12,7 @@ import InstagramIcon from '@material-ui/icons/Instagram';
 
 const useStyles = makeStyles((theme) => ({
   bannerContainer: {
-    height: '90vh',
+    height: '100vh',
     width: '100%',
     backgroundPosition: 'center bottom',
     backgroundSize: 'cover',

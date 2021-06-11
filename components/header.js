@@ -149,10 +149,12 @@ function SearchAppBar() {
             aria-label="open drawer"
           >
             <SearchIcon />
-          </IconButton>*/}
+          </IconButton>
           <div className={classes.secondaryLogo}>
             <img className={classes.motionLogo} src={`${cdnURL}/More-in-Motion.png`} />
           </div>
+          */}
+          
         </Toolbar>
       </AppBar>
     </div>

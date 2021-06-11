@@ -93,11 +93,16 @@ export default function CustomizedAccordions() {
           <Typography variant={expanded === 'panel3' ? 'h4' : 'h6'}>3.&nbsp;&nbsp;SAMAHAN Budget Live Tracker</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex,
-            sit amet blandit leo lobortis eget. Lorem ipsum dolor sit amet, consectetur adipiscing
-            elit. Suspendisse malesuada lacus ex, sit amet blandit leo lobortis eget.
-          </Typography>
+          <Grid container direction="column" spacing={2}>
+            <Grid item>
+              <Typography>
+                For many years, it has always been a challenge to keep the students up to date about their money banked in SAMAHAN. The SAMAHAN Live Budget Tracker is a real time budget update, displayed live on the SAMAHAN website. It will project expenses and current standing of the budget.  Along with all the events, this tracker competently used to work more effectively and promote transparency for the Ateneans.
+              </Typography>
+            </Grid>
+            <Grid item>
+              <Button variant="contained" color="primary" disableElevation>Learn More</Button>
+            </Grid>
+          </Grid>
         </AccordionDetails>
       </Accordion>
       <Accordion square expanded={expanded === 'panel4'} onChange={handleChange('panel4')}>
@@ -105,11 +110,16 @@ export default function CustomizedAccordions() {
           <Typography variant={expanded === 'panel4' ? 'h4' : 'h6'}>4.&nbsp;&nbsp;SAMAHAN COVID Tracker</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex,
-            sit amet blandit leo lobortis eget. Lorem ipsum dolor sit amet, consectetur adipiscing
-            elit. Suspendisse malesuada lacus ex, sit amet blandit leo lobortis eget.
-          </Typography>
+          <Grid container direction="column" spacing={2}>
+            <Grid item>
+              <Typography>
+                With the country being in a national public emergency, the SAMAHAN, together with the Department of Campaigns and Advocacies and iHELP SAMAHAN will monitor the progress of the country in dealing with COVID-19. In collaboration with the NSEC and NSMSEC, this platform shall inform the student body with real-time information of government response through the official SAMAHAN Website.
+              </Typography>
+            </Grid>
+            <Grid item>
+              <Button variant="contained" color="primary" disableElevation>Learn More</Button>
+            </Grid>
+          </Grid>
         </AccordionDetails>
       </Accordion>
     </div>
