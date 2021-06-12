@@ -69,8 +69,7 @@ const Page = ({ faqs }) => {
   
   const classes = useStyles();
   const [search, setSearch] = React.useState('');
-
-  console.log(faqs);
+  
   const filteredFaqs = React.useMemo(() => {
     return faqs.filter((faq) => {
       const string = `${faq.acf.question} ${faq.acf.answer}`.toUpperCase();
