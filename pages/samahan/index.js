@@ -1,9 +1,9 @@
 import React from "react";
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles, useTheme } from '@material-ui/core/styles';
 
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
-import Paper from '@material-ui/core/Paper';
+import Button from 'components/Button';
 import Hidden from '@material-ui/core/Hidden';
 
 import WP from 'utils/wordpress';
@@ -18,21 +18,39 @@ const Departments = dynamic(() => import('components/samahan/departments'));
 import { cdnURL } from 'utils/constants';
 
 const useStyles = makeStyles((theme) => ({
-  
-  motionLogoContainer: {
-    position: 'relative'
+  container: {
+    paddingLeft: 'clamp(50px, 10vw, 100px)',
+    paddingRight: 'clamp(50px, 10vw, 100px)',
+    boxSizing: 'border-box'
   },
-  motionLogo: {
-    position: 'absolute',
-    left: -300,
-    top: -300,
-    width: 600,
-    zIndex: -1
+  advocasixContainer: {
+    paddingLeft: 'clamp(50px, 10vw, 100px)',
+    paddingRight: 'clamp(50px, 10vw, 100px)',
+    boxSizing: 'border-box',
+    backgroundColor: '#F2F3F4'
   },
-  rootContainer: {
-    width: '80%',
-    margin: 'auto',
-    marginBottom: 80
+  bannerContainer: {
+    minHeight: '100vh',
+    backgroundPosition: 'right bottom',
+    backgroundRepeat: 'no-repeat',
+    backgroundSize: 'contain',
+    backgroundImage: 'url("https://samahan.stdcdn.com/21-22/samahan landing.svg"), linear-gradient(to right, #1637BC, #2D8AEA)',
+    paddingTop: '100px',
+    paddingBottom: '200px',
+    paddingLeft: 'clamp(50px, 10vw, 100px)',
+    paddingRight: 'clamp(50px, 10vw, 100px)',
+    color: 'white'
+  },
+  lastContainer: {
+    backgroundPosition: 'right bottom',
+    backgroundRepeat: 'no-repeat',
+    backgroundSize: 'contain',
+    backgroundImage: 'linear-gradient(to right, #1637BC, #2D8AEA)',
+    paddingTop: '100px',
+    paddingBottom: '100px',
+    paddingLeft: 'clamp(50px, 10vw, 100px)',
+    paddingRight: 'clamp(50px, 10vw, 100px)',
+    color: 'white'
   },
 }));
 
@@ -40,82 +58,71 @@ const Page = ({ centralBoard, clusterReps, departments }) => {
   // Get the data of the current list.
 
   const classes = useStyles();
+  const theme = useTheme();
 
   return (
-    <div className={classes.rootContainer}>
-
-      <div style={{ height: 100 }} />
-      <Grid container direction="row" spacing={3} alignItems="center">
-        <Grid item sm={9} component={Paper} elevation={0}>
-          <Typography variant="h1" component="h4" style={{ marginBottom: 20 }}>
+    <div>
+      <Grid container direction="row" alignItems="center" className={classes.bannerContainer}>
+        <Grid item md>
+          <Typography variant="h1" style={{ marginBottom: '2rem', fontWeight: 600, letterSpacing: 8 }}>
             SAMAHAN
           </Typography>
-          <Typography variant="body1" style={{ marginBottom: 10 }}>
-          The Samahan ng mga Mag-aaral ng Pamantasan ng Ateneo de
-          Davao, or SAMAHAN, is the official Student Government of the
-          Higher Education Unit of the Ateneo de Davao University. It is
-          an autonomous student government that is mandated to
-          promote and protect the rights, welfare, aspirations, and
-          interests of the student body.
+          <Typography variant="body1" style={{ marginBottom: '2rem' }}>
+            Many challenging events characterized our experiences in the past year. The shift from our conventional university setting to a fully online set-up was further punctuated by the hardships of pioneering the first wave of digital learners. However, true to our Atenean upbringing, we carry on with renewed hope, clearer goals, and the dream of restoring a SAMAHAN with a strengthened resolve to own the future.
           </Typography>
-          <Typography variant="body1" style={{ marginBottom: 10 }}>
-          SAMAHAN promotes various advocacies that pertain to social
-          justice, climate action, equal rights, and many more that promote
-          the welfare of individuals inside and outside of the university. The
-          SAMAHAN aims to fulfill not only our duties, but to also move
-          forward with the student community in transforming into leaders
-          of today for the university, Mindanao, and Philippines.
+          <Typography variant="body1" style={{ marginBottom: '2rem' }}>
+            Our future can only begin with us. To own it, we call upon each Atenean to take hold of our visions and come together in actualizing our collective capacity as one student body. This new journey is shared by student leaders and everyone in the community – our athletes, artists, scholars, and all students alike. In owning our future, we involve everyone to ensure that no Atenean is left behind.
           </Typography>
         </Grid>
-        <Hidden smDown>
-          <Grid item sm>
-            <img src={`${cdnURL}/samahanDesc.png`} width="100%" />
-          </Grid>
-        </Hidden>
+        <Grid item md>
+        </Grid>
       </Grid>
       <div style={{ height: 100 }} />
-      <Grid container direction="row" spacing={3} alignItems="center" className={classes.contentContainer}>
-        <Grid item sm className={classes.motionLogoContainer}>
-          <img src={`${cdnURL}/samahanMotion.svg`} className={classes.motionLogo} />
+      <Grid container direction="row" alignItems="center" justify="center" className={classes.container}>
+        <Grid item md>
+          <img src={`${cdnURL}/21-22/OTF-1.png`} width="80%" style={{ marginBottom: '4rem' }} />
         </Grid>
-        <Grid item sm={9} component={Paper} elevation={0}>
-          <Typography variant="h3" component="h4" style={{ marginBottom: 20 }}>
-            More in Motion
+        <Grid item md={8} style={{ color: theme.palette.primary.main }}>
+          <Typography variant="body1" style={{ marginBottom: '2rem' }}>
+            Finally, as we transition to the new normal, we aim to pursue a future navigated by a community committed to embodying Magis in all its endeavors. Moving forward, the SAMAHAN recognizes that our future is defined by our experiences within the university and beyond it. In recognizing this, it speaks of a commitment to making a difference for the communities which we serve. Thus, we move towards building a studentry that remains socially conscious and is consistently engaged in initiatives for a better Ateneo, a better Mindanao, and a better Philippines. 
           </Typography>
-          <Typography variant="body1" style={{ marginBottom: 10 }}>
-          The central point of being in motion is that the SAMAHAN is
-          dynamic, flexible, and mobile. All these point out that it is in
-          constant progress. The motion does not only revolve around
-          working to fulfill the duties, but it also refers to the joint move-
-          ment of the SAMAHAN, as one student government, to be active
-          pursuers of “more.” The SAMAHAN highlights its collective action
-          as it links its ideals to those of the promising sections of Ateneo
-          – the artists, athletes, scholars, business enthusiasts, digitally
-          inclined students – to build strong relations that yield meaningful
-          outcomes. It gears towards a community of workers, performers,
-          and leaders mobilized through partnerships and empowerment
-          of students who are driven to create impact and inspire more
-          people to do the same.
+          <Typography variant="body1" style={{ marginBottom: '2rem' }}>
+            As one SAMAHAN, we push forward towards a tomorrow we deserve. We will build upon maximizing opportunities in both physical and digital spaces. We remain committed to our mandate of providing genuine service to the community with an intensified dedication to empower Ateneans to remain actively involved in the process of moving forward.
+          </Typography>
+          <Typography variant="body1" style={{ marginBottom: '2rem' }}>
+            As one SAMAHAN, we no longer wait for the future; we own the future.
           </Typography>
         </Grid>
       </Grid>
       <div style={{ height: 100 }} />
-      <div style={{ height: 100 }} />
-
-      <Advocasix />
-
-      <div style={{ height: 100 }} />
-
-      <BoardMembers members={centralBoard} />
-
-      <div style={{ height: 100 }} />
-
-      <ClusterReps reps={clusterReps} />
-
-      <div style={{ height: 100 }} />
-
-      <Departments depts={departments} />
-
+      <div style={{ height: 100, backgroundColor: '#F2F3F4' }} />
+      <div className={classes.advocasixContainer}>
+        <Advocasix />
+      </div>
+      <div style={{ height: 100, backgroundColor: '#F2F3F4' }} />
+      <Grid container direction="row" alignItems="center" justify="center" className={classes.lastContainer}>
+        <Grid item md={4}>
+          <Typography variant="h4" style={{ fontWeight: 600 }}>
+            SAMAHAN
+          </Typography>
+          <Typography variant="h4" style={{ marginBottom: '2rem', fontWeight: 600 }}>
+            Central Board
+          </Typography>
+          <Button variant="contained" disableElevation style={{ marginBottom: '4rem' }}>Learn More</Button>
+          <Typography variant="h4" style={{ fontWeight: 600 }}>
+            SAMAHAN
+          </Typography>
+          <Typography variant="h4" style={{ marginBottom: '2rem', fontWeight: 600 }}>
+            Departments
+          </Typography>
+          <Button variant="contained" disableElevation style={{ marginBottom: '4rem' }}>Learn More</Button>
+        </Grid>
+        <Grid item md={8}>
+          <center>
+            <img src="https://samahan.stdcdn.com/21-22/samahan asset.png" width="80%" />
+          </center>
+        </Grid>
+      </Grid>
     </div>
   );
 };
