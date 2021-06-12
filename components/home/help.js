@@ -21,7 +21,7 @@ const List = () => {
   const classes = useStyles();
 
   return (
-    <Grid container direction="row" spacing={6} alignItems="center">
+    <Grid container direction="row" spacing={6} alignItems="center" justify="center">
       <Grid item md>
         <center>
           <img
@@ -38,7 +38,7 @@ const List = () => {
         <Typography variant="h1" color="primary" style={{ lineHeight: '0.8em', fontWeight: 700, marginBottom: '4rem' }}>
           Help Portal
         </Typography>
-        <Grid container spacing={3}>
+        <Grid container spacing={3} justify="center">
           <Grid item md>
             <Grid container direction="column" spacing={1}>
               <Grid item>

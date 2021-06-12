@@ -100,7 +100,7 @@ const Page = ({ faqs }) => {
 export async function getStaticProps(ctx) {
   try {
     const res = await WP.helpPortal().perPage(30);
-    sort(res).asc(x => x.acf.question);
+    res = sort(res).asc(x => x.acf.question);
     
     if (res) { 
       return { props: { faqs: res }, revalidate: 10 };

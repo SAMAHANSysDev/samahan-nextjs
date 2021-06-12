@@ -22,7 +22,7 @@ const List = () => {
   const theme = useTheme();
 
   return (
-    <Grid container direction="row" spacing={6} alignItems="center">
+    <Grid container direction="row" justify="center" spacing={6} alignItems="center">
       <Grid item md>
         <Typography variant="h3" color="secondary" style={{ lineHeight: '0.8em', fontWeight: 400 }}>
           About

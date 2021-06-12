@@ -57,7 +57,7 @@ const Page = ({ clubs }) => {
 export async function getStaticProps(ctx) {
   try {
     let clubs = await WP.ccoClubs().perPage(100);
-    sort(clubs).asc(x => x.acf.short_name);
+    clubs = sort(clubs).asc(x => x.acf.short_name);
 
     return { props: { clubs }, revalidate: 10 };
   } catch (err) {

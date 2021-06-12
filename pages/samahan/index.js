@@ -1,4 +1,5 @@
 import React from "react";
+import { useRouter } from 'next/router';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 
 import Grid from '@material-ui/core/Grid';
@@ -6,14 +7,9 @@ import Typography from '@material-ui/core/Typography';
 import Button from 'components/Button';
 import Hidden from '@material-ui/core/Hidden';
 
-import WP from 'utils/wordpress';
 import dynamic from 'next/dynamic';
-import { sort } from 'fast-sort';
 
 const Advocasix = dynamic(() => import('components/samahan/advocasix'));
-const BoardMembers = dynamic(() => import('components/samahan/board-members'));
-const ClusterReps = dynamic(() => import('components/samahan/cluster-reps'));
-const Departments = dynamic(() => import('components/samahan/departments'));
 
 import { cdnURL } from 'utils/constants';
 
@@ -54,11 +50,12 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Page = ({ centralBoard, clusterReps, departments }) => {
+const Page = () => {
   // Get the data of the current list.
 
   const classes = useStyles();
   const theme = useTheme();
+  const router = useRouter();
 
   return (
     <div>
@@ -108,14 +105,14 @@ const Page = ({ centralBoard, clusterReps, departments }) => {
           <Typography variant="h4" style={{ marginBottom: '2rem', fontWeight: 600 }}>
             Central Board
           </Typography>
-          <Button variant="contained" disableElevation style={{ marginBottom: '4rem' }}>Learn More</Button>
+          <Button variant="contained" disableElevation style={{ marginBottom: '4rem' }} onClick={() => router.push('/samahan/central-board')}>Learn More</Button>
           <Typography variant="h4" style={{ fontWeight: 600 }}>
             SAMAHAN
           </Typography>
           <Typography variant="h4" style={{ marginBottom: '2rem', fontWeight: 600 }}>
             Departments
           </Typography>
-          <Button variant="contained" disableElevation style={{ marginBottom: '4rem' }}>Learn More</Button>
+          <Button variant="contained" disableElevation style={{ marginBottom: '4rem' }} onClick={() => router.push('/samahan/departments')}>Learn More</Button>
         </Grid>
         <Grid item md={8}>
           <center>
@@ -126,24 +123,5 @@ const Page = ({ centralBoard, clusterReps, departments }) => {
     </div>
   );
 };
-
-export async function getStaticProps(ctx) {
-  try {
-    let [centralBoard, clusterReps, departments] = await Promise.all([
-      WP.centralBoard().perPage(100),
-      WP.clusterReps().perPage(100),
-      WP.departments().perPage(100)
-    ]);
-
-    sort(centralBoard).asc(x => parseInt(x.acf.order));
-    sort(clusterReps).asc(x => x.acf.position);
-    sort(departments).asc(x => x.acf.name);
-
-    return { props: { centralBoard, clusterReps, departments }, revalidate: 10 };
-  } catch (err) {
-    console.log(err)
-    return { props: { centralBoard: [], clusterReps: [], departments: [] }, revalidate: 10 };
-  }
-}
 
 export default Page;

@@ -57,7 +57,7 @@ const Page = ({ officers }) => {
 export async function getStaticProps(ctx) {
   try {
     let officers = await WP.ccoOfficers().perPage(100);
-    sort(officers).asc(x => parseInt(x.acf.order));
+    officers = sort(officers).asc(x => parseInt(x.acf.order));
 
     return { props: { officers }, revalidate: 10 };
   } catch (err) {

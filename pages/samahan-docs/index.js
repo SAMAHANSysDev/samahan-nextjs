@@ -82,7 +82,7 @@ export async function getStaticProps(ctx) {
   try {
     let docs = await WP.reservationDocs().perPage(100);
 
-    sort(docs).asc(x => x.acf.title);
+    docs = sort(docs).asc(x => x.acf.title);
 
     return { props: { docs }, revalidate: 10 };
   } catch (err) {

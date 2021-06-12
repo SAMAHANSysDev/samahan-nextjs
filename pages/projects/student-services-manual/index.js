@@ -77,7 +77,7 @@ const Page = ({ studentServices }) => {
 export async function getStaticProps(ctx) {
   try {
     let studentServices = await WP.studentServices().perPage(100);
-    sort(studentServices).asc(x => x.acf.name);
+    studentServices = sort(studentServices).asc(x => x.acf.name);
     
     return { props: { studentServices }, revalidate: 10 };
   } catch (err) {
