@@ -2,7 +2,9 @@ const Wordpress = require('wpapi');
 const { backendURL } = require('./constants');
 
 const wp = new Wordpress({
-  endpoint: `${backendURL}/wp-json`
+  endpoint: `${backendURL}/wp-json`,
+  username: process.env.NEXT_PUBLIC_WP_USERNAME,
+  password: process.env.NEXT_PUBLIC_WP_PASSWORD
 })
 
 wp.helpPortal = wp.registerRoute('wp/v2', '/help_portal_faqs/(?P<id>\\d+)' );

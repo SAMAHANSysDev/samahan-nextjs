@@ -131,7 +131,7 @@ const page = (props) => {
 export const getStaticPaths = async () => {
   let res = []
   try {
-    res = await WP.posts();
+    res = await WP.posts().perPage(1);
   } catch (err) {
     res = []
   }
