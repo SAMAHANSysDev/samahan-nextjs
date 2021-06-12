@@ -3,8 +3,6 @@ import { makeStyles } from '@material-ui/core/styles';
 
 import Typography from '@material-ui/core/Typography';
 
-import Grid from '@material-ui/core/Grid';
-
 import Accordion from '@material-ui/core/Accordion';
 import AccordionSummary from '@material-ui/core/AccordionSummary';
 import AccordionDetails from '@material-ui/core/AccordionDetails';
@@ -15,7 +13,8 @@ const useStyles = makeStyles((theme) => ({
     fontWeight: 'bold'
   },
   accordions: {
-    maxWidth: '80vw'
+    maxWidth: '80vw',
+    margin: 'auto',
   },
   wordWrap: {
     overflowWrap: 'break-word',
@@ -31,22 +30,20 @@ const Page = ({ faqs }) => {
   const classes = useStyles();
 
   return (
-    <Grid item sm={9}>
-      <div className={classes.accordions}>
-        { faqs.map((faq) => (
-          <Accordion key={faq.id} variant="outlined" elevation={0}>
-            <AccordionSummary
-              expandIcon={<ExpandMoreIcon />}
-            >
-              <Typography variant="body1" className={classes.heading}>{faq.acf.question}</Typography>
-            </AccordionSummary>
-            <AccordionDetails>
-              <Typography variant="body1" component="div" className={classes.wordWrap} dangerouslySetInnerHTML={{ __html: faq.acf.answer }} />
-            </AccordionDetails>
-          </Accordion>
-        ))}
-      </div>
-    </Grid>
+    <div className={classes.accordions}>
+      { faqs.map((faq) => (
+        <Accordion key={faq.id} variant="outlined" elevation={0}>
+          <AccordionSummary
+            expandIcon={<ExpandMoreIcon />}
+          >
+            <Typography variant="body1" className={classes.heading}>{faq.acf.question}</Typography>
+          </AccordionSummary>
+          <AccordionDetails>
+            <Typography variant="body1" component="div" className={classes.wordWrap} dangerouslySetInnerHTML={{ __html: faq.acf.answer }} />
+          </AccordionDetails>
+        </Accordion>
+      ))}
+    </div>
   );
 };
 

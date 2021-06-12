@@ -62,7 +62,7 @@ const Item = ({ item, author }) => {
           <Typography variant="body1" color="textSecondary" component="p" dangerouslySetInnerHTML={{ __html: renderedExcerpt }} />
         </CardContent>
         <CardActions>
-          <Button variant="contained" color="primary" disableElevation onClick={() => router.push(cleanURL(item.link))}>
+          <Button variant="contained" color="primary" disableElevation onClick={() => router.push(`/projects${cleanURL(item.link)}`)}>
             Read More
           </Button>
         </CardActions>

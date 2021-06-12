@@ -25,87 +25,34 @@ module.exports = [
     title: "About SAMAHAN",
     desc: "Samahan ng mga Mag-aaral ng Pamantasan ng Ateneo de Davao"
   },
-  /* {
-    name: "Calendar",
-    href: "/calendar",
-    title: "Calendar",
-    desc: "Comprehensive Timeline of Student Activities"
-  }, */
   {
     name: "Initiatives",
     href: "/projects",
     submenu: [
       {
-        name: 'Student Services',
-        href: '/projects/student-services-manual',
-        title: "Student Services Manual",
-        desc: "Student Manual for Services offered by the University"
+        name: 'SAMAHAN Alert',
+        href: '/projects/alert',
+        title: "SAMAHAN Alert",
+        desc: "We will make sure that all information will be received by all Ateneans. We will continue maximizing text messaging to reach the student body, with the assurance that all our social media accounts will become more active in answering the questions of the student body."
       },
       {
-        name: 'iHELP',
-        href: '/projects/ihelp',
-        title: "iHELP",
-        desc: "Student-initiated efforts to address and respond to emergencies"
+        name: 'COVID Watch',
+        href: '/projects/covid-watch',
+        title: "COVID Watch",
+        desc: "With the country being in a national public emergency, the SAMAHAN, together with the Department of Campaigns and Advocacies and iHELP SAMAHAN will monitor the progress of the country in dealing with COVID-19. In collaboration with the NSEC and NSMSEC, this platform shall inform the student body with real-time information of government response through the official SAMAHAN Website."
       },
       {
-        name: '#ConstiNatinTo',
-        href: '/projects/constinatinto',
-        title: "#ConstiNatinTo",
-        desc: "SAMAHAN Constitutional Reform for AY 2020-2021"
-      }
+        name: 'SAMAHAN Live Budget Tracker',
+        href: '/projects/budget-tracker',
+        title: "SAMAHAN Live Budget Tracker",
+        desc: "For many years, it has always been a challenge to keep the students up to date about their money banked in SAMAHAN. The SAMAHAN Live Budget Tracker is a real time budget update, displayed live on the SAMAHAN website. It will project expenses and current standing of the budget.  Along with all the events, this tracker competently used to work more effectively and promote transparency for the Ateneans. "
+      },
+      {
+        name: "Newsfeed",
+        href: "/projects/newsfeed",
+        title: "Newsfeed",
+        desc: "News and Stories of and for the Student Body",
+      },
     ]
-  },
-  {
-    name: "Newsfeed",
-    href: "/newsfeed",
-    title: "Newsfeed",
-    desc: "News and Stories of and for the Student Body",
-    hidden: true
-  },
-  /* {
-    name: "CCO",
-    href: "/cco",
-    submenu: [
-      {
-        name: 'Clubs',
-        href: '/cco/clubs',
-        title: "CCO Clubs",
-        desc: "Clubs and Organizations of the Ateneo de Davao University"
-      },
-      {
-        name: 'Officers',
-        href: '/cco/officers',
-        title: "CCO Officers",
-        desc: "Clubs and Organizations of the Ateneo de Davao University"
-      }
-    ]
-  }, */
-  {
-    name: "Docs",
-    href: "/samahan-docs",
-    title: "Reservation Docs",
-    desc: "Official Document Source and Free Downloadables",
-    hidden: true
-  },
-  {
-    name: "Requests Docs",
-    href: "/samahan-docs/requests",
-    title: "Requests Docs",
-    desc: "Official Document Source and Free Downloadables",
-    hidden: true
-  },
-  {
-    name: "Concept Paper Docs",
-    href: "/samahan-docs/concept-paper",
-    title: "Concept Paper Docs",
-    desc: "Official Document Source and Free Downloadables",
-    hidden: true
-  },
-  {
-    name: "The Revision Progress",
-    href: "/projects/constinatinto/the-revision-progress",
-    title: "The Revision Progress",
-    desc: "SAMAHAN Constitutional Reform for AY 2020-2021",
-    hidden: true
-  },
+  }
 ];

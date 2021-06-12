@@ -1,4 +1,7 @@
 import React from 'react';
+
+import { useRouter } from 'next/router';
+
 import { withStyles } from '@material-ui/core/styles';
 import MuiAccordion from '@material-ui/core/Accordion';
 import MuiAccordionSummary from '@material-ui/core/AccordionSummary';
@@ -47,6 +50,7 @@ const AccordionDetails = withStyles((theme) => ({
 
 export default function CustomizedAccordions() {
   const [expanded, setExpanded] = React.useState('panel1');
+  const router = useRouter();
 
   const handleChange = (panel) => (event, newExpanded) => {
     setExpanded(newExpanded ? panel : false);
@@ -66,7 +70,7 @@ export default function CustomizedAccordions() {
               </Typography>
             </Grid>
             <Grid item>
-              <Button variant="contained" color="primary" disableElevation>Learn More</Button>
+              <Button variant="contained" color="primary" disableElevation onClick={() => router.push('/projects/alert')}>Learn More</Button>
             </Grid>
           </Grid>
         </AccordionDetails>
@@ -83,7 +87,7 @@ export default function CustomizedAccordions() {
               </Typography>
             </Grid>
             <Grid item>
-              <Button variant="contained" color="primary" disableElevation>Learn More</Button>
+              <Button variant="contained" color="primary" disableElevation disabled>Coming soon!</Button>
             </Grid>
           </Grid>
         </AccordionDetails>
@@ -100,7 +104,7 @@ export default function CustomizedAccordions() {
               </Typography>
             </Grid>
             <Grid item>
-              <Button variant="contained" color="primary" disableElevation>Learn More</Button>
+              <Button variant="contained" color="primary" disableElevation onClick={() => router.push('/projects/budget-tracker')}>Learn More</Button>
             </Grid>
           </Grid>
         </AccordionDetails>
@@ -117,7 +121,7 @@ export default function CustomizedAccordions() {
               </Typography>
             </Grid>
             <Grid item>
-              <Button variant="contained" color="primary" disableElevation>Learn More</Button>
+              <Button variant="contained" color="primary" disableElevation onClick={() => router.push('/projects/covid-watch')}>Learn More</Button>
             </Grid>
           </Grid>
         </AccordionDetails>

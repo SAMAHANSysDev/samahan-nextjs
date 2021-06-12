@@ -73,7 +73,7 @@ const page = (props) => {
           <meta property="og:image" content={`${cdnURL}/samahan-seo-default.png`} />
           <meta name="twitter:image" content={`${cdnURL}/samahan-seo-twitter-default.png`} />
         </>}
-        <meta property="og:url" content={`${frontendURL}/newsfeed/${post.slug}`} />
+        <meta property="og:url" content={`${frontendURL}/projects/newsfeed/${post.slug}`} />
         <meta property="og:description" content={post.excerpt.rendered.replace(/<[^>]+>/g, '')} />
       </Head>
       
@@ -102,7 +102,7 @@ const page = (props) => {
               <List style={{ width: '100%' }}>
                 { recentNews.map((recent) => (
                   <ListItem key={recent.id} button onClick={() => {
-                    router.push(`/newsfeed/${recent.slug}`)
+                    router.push(`/projects/newsfeed/${recent.slug}`)
                   }}>
                     <ListItemText primary={recent.title.rendered} secondary={new Date(recent.date).toDateString()} />
                   </ListItem>

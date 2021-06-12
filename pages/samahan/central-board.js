@@ -50,8 +50,10 @@ const CentralBoard = ({ centralBoard, clusterReps, departmentHeads }) => {
             minHeight: '100vh', 
             backgroundPosition: 'center bottom', 
             backgroundSize: 'cover', 
+            backgroundRepeat: "no-repeat",
             backgroundImage: 'url(https://samahan.stdcdn.com/21-22/landing.png), linear-gradient(to right, #1637BC, #2D8AEA)',
-            padding: theme.spacing(8)
+            paddingTop: theme.spacing(8),
+            paddingBottom: theme.spacing(8)
           }}
         >
           <Grid item>
@@ -98,7 +100,8 @@ const CentralBoard = ({ centralBoard, clusterReps, departmentHeads }) => {
           alignItems="center"
           style={{ 
             minHeight: '100vh', 
-            padding: theme.spacing(8)
+            paddingTop: theme.spacing(8),
+            paddingBottom: theme.spacing(8)
           }}
         >
           <Grid item>
@@ -109,7 +112,6 @@ const CentralBoard = ({ centralBoard, clusterReps, departmentHeads }) => {
               { [...departmentHeads, ...clusterReps].map((member) => (
                 <Grid item md={6} lg={3}>
                   <Card className={classes.cardRoot} style={{ borderColor: theme.palette.primary.main }} elevation={0} variant="outlined">
-                    <CardActionArea disabled>
                     <CardMediaWP
                       className={classes.cardMedia}
                       imageId={member.featured_media}
@@ -126,7 +128,6 @@ const CentralBoard = ({ centralBoard, clusterReps, departmentHeads }) => {
                         {member.acf.email}
                       </Typography>
                     </CardContent>
-                    </CardActionArea>
                   </Card>
                 </Grid>
               )) }

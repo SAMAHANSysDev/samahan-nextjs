@@ -24,7 +24,7 @@ const Header = dynamic(() => import('components/header'));
 const Footer = dynamic(() => import('components/footer'));
 
 import "react-responsive-carousel/lib/styles/carousel.min.css";
-
+import 'utils/index.css';
 import routes from 'navigation/routes';
 import { frontendURL, cdnURL } from 'utils/constants';
 import * as gtag from 'utils/gtag';
