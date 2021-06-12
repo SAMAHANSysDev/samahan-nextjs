@@ -1,5 +1,5 @@
 import React from "react";
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles, useTheme } from '@material-ui/core/styles';
 
 import Typography from '@material-ui/core/Typography';
 
@@ -16,7 +16,7 @@ const useStyles = makeStyles((theme) => ({
   dividerNewsFeed: {
     flexGrow: 1,
     height: 1,
-    backgroundColor: "#000",
+    backgroundColor: theme.palette.primary.main,
     marginRight: 20
   },
   header: {
@@ -28,6 +28,7 @@ const useStyles = makeStyles((theme) => ({
 
 const List = ({ posts, users }) => {
   const classes = useStyles();
+  const theme = useTheme();
 
   const getAuthor = (id) => {
     return users.find((user) => user.id === id);
@@ -37,7 +38,7 @@ const List = ({ posts, users }) => {
     <>
       <div className={classes.headerWithDivider}>
         <div className={classes.dividerNewsFeed}></div>
-        <Typography variant="h3">
+        <Typography variant="h3" style={{ color: theme.palette.primary.main }}>
           Newsfeed
         </Typography>
       </div>

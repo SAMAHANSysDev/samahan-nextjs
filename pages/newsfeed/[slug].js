@@ -1,6 +1,6 @@
 import React from 'react';
 import WP from 'utils/wordpress';
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles, useTheme } from '@material-ui/core/styles';
 import { useRouter } from 'next/router';
 import Typography from '@material-ui/core/Typography';
 import Head from 'next/head';
@@ -19,10 +19,19 @@ import WPGBlocks from 'react-gutenberg';
 
 const useStyles = makeStyles((theme) => ({
   contentContainer: {
-    width: '90%',
+    width: '85%',
     margin: 'auto'
   },
-  
+  bannerContainer: {
+    minHeight: '30vh',
+    backgroundPosition: 'center bottom',
+    backgroundSize: 'cover',
+    backgroundImage: 'url(https://samahan.stdcdn.com/21-22/landing.png), linear-gradient(to right, #1637BC, #2D8AEA)',
+    paddingLeft: 'clamp(50px, 10vw, 100px)',
+    paddingRight: 'clamp(50px, 10vw, 100px)',
+    color: 'white',
+    marginBottom: '2rem'
+  },
   spacer: {
     height: 100
   },
@@ -36,6 +45,7 @@ const page = (props) => {
   const { post, author, recent: recentNews } = props;
   const classes = useStyles();
   const router = useRouter();
+  const theme = useTheme();
 
   if (router.isFallback) {
     return (
@@ -59,7 +69,7 @@ const page = (props) => {
   }
 
   return (
-    <div className={classes.contentContainer}>
+    <div>
       <Head>
         <title>{post.title.rendered} - SAMAHAN Newsfeed</title>
         <meta name="description" content={post.excerpt.rendered.replace(/<[^>]+>/g, '')} />
@@ -73,21 +83,22 @@ const page = (props) => {
           <meta property="og:image" content={`${cdnURL}/samahan-seo-default.png`} />
           <meta name="twitter:image" content={`${cdnURL}/samahan-seo-twitter-default.png`} />
         </>}
-        <meta property="og:url" content={`${frontendURL}/projects/newsfeed/${post.slug}`} />
+        <meta property="og:url" content={`${frontendURL}/newsfeed/${post.slug}`} />
         <meta property="og:description" content={post.excerpt.rendered.replace(/<[^>]+>/g, '')} />
       </Head>
       
-      <div className={classes.spacer}></div>
-
+      <Grid container direction="column" spacing={3} justify="center" className={classes.bannerContainer}>
+        <Grid item>
+          <Typography variant="h4" style={{ lineHeight: '0.8em' }}>
+            {post.title.rendered}
+          </Typography>
+          <Typography variant="h6">
+            by {author.name} on {new Date(post.date).toDateString()}
+          </Typography>
+        </Grid>
+      </Grid>
       <Grid container direction="row" spacing={6} className={classes.contentContainer}>
           <Grid item sm={8}>
-            <Typography variant="h3" component="h4" style={{ marginBottom: 20 }}>
-              {post.title.rendered}
-            </Typography>
-
-            <Typography variant="subtitle2">
-              by {author.name} on {new Date(post.date).toDateString()}
-            </Typography>
             { post.jetpack_featured_media_url ? <img src={post.jetpack_featured_media_url} style={{ width: '100%', marginTop: 40, marginBottom: 20 }} /> : null }
             
             <Typography variant="body1" component="div">
@@ -95,14 +106,14 @@ const page = (props) => {
             </Typography>
           </Grid>
           <Grid item sm={4} style={{ minWidth: '300px' }}>
-            <Paper variant="outlined" style={{ padding: 20 }}>
-              <Typography variant="h6" component="h4">
+            <Paper variant="outlined" style={{ padding: 20, borderRadius: 20, borderColor: theme.palette.primary.main }}>
+              <Typography variant="h6" component="h4" style={{ color: theme.palette.primary.main }}>
                 Recent News
               </Typography>
               <List style={{ width: '100%' }}>
                 { recentNews.map((recent) => (
                   <ListItem key={recent.id} button onClick={() => {
-                    router.push(`/projects/newsfeed/${recent.slug}`)
+                    router.push(`/newsfeed/${recent.slug}`)
                   }}>
                     <ListItemText primary={recent.title.rendered} secondary={new Date(recent.date).toDateString()} />
                   </ListItem>

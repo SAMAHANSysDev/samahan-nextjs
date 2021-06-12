@@ -18,7 +18,8 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: 'space-between',
     marginTop: 40,
     minWidth: 275,
-    borderRadius: 0,
+    borderRadius: 20,
+    borderColor: theme.palette.primary.main,
     height: '100%',
     padding: 20
   },
@@ -62,7 +63,7 @@ const Item = ({ item, author }) => {
           <Typography variant="body1" color="textSecondary" component="p" dangerouslySetInnerHTML={{ __html: renderedExcerpt }} />
         </CardContent>
         <CardActions>
-          <Button variant="contained" color="primary" disableElevation onClick={() => router.push(`/projects${cleanURL(item.link)}`)}>
+          <Button variant="contained" color="primary" disableElevation onClick={() => router.push(`${cleanURL(item.link)}`)}>
             Read More
           </Button>
         </CardActions>

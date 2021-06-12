@@ -25,8 +25,17 @@ const useStyles = makeStyles((theme) => ({
     width: '100%',
     paddingTop: 100,
     paddingBottom: 100,
-    backgroundColor: theme.palette.primary.main,
+    backgroundImage: 'linear-gradient(to right, #1637BC, #2D8AEA)',
     color: theme.palette.secondary.main
+  },
+  bannerContainer: {
+    minHeight: '40vh',
+    backgroundPosition: 'center bottom',
+    backgroundSize: 'cover',
+    backgroundImage: 'url(https://samahan.stdcdn.com/21-22/landing.png), linear-gradient(to right, #1637BC, #2D8AEA)',
+    paddingLeft: 'clamp(50px, 10vw, 100px)',
+    paddingRight: 'clamp(50px, 10vw, 100px)',
+    color: 'white'
   },
   rootContainer: {
     width: '100%',
@@ -53,15 +62,16 @@ const Page = ({ posts, users }) => {
 
   return (
     <div className={classes.rootContainer}>
-      <div style={{ height: 100 }} />
-      <div className={classes.contentContainer}>
-        <Typography variant="h2" component="h2" style={{ lineHeight: '0.8em' }}>
-          SAMAHAN NEWSFEED
-        </Typography>
-        <Typography variant="subtitle1" component="h2" style={{ lineHeight: '1.5em' }}>
-          News and Stories of and for the Student Body
-        </Typography>
-      </div>
+      <Grid container direction="column" spacing={3} alignItems="center" justify="center" className={classes.bannerContainer}>
+        <Grid item style={{ textAlign: 'center' }}>
+          <Typography variant="h2" style={{ lineHeight: '0.8em' }}>
+            SAMAHAN NEWSFEED
+          </Typography>
+          <Typography variant="h4">
+            News and Stories of and for the Student Body
+          </Typography>
+        </Grid>
+      </Grid>
       <div style={{ height: 50 }} />
       {/* Insert header here! */}
       <div className={classes.contentContainer} style={{ marginBottom: 100 }}>
