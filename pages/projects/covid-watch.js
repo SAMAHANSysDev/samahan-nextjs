@@ -3,14 +3,32 @@ import React from 'react';
 import Grid from '@material-ui/core/Grid';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
-import { useTheme } from '@material-ui/core/styles';
+import { useTheme, makeStyles } from '@material-ui/core/styles';
 import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
 
 import { cdnURL } from 'utils/constants';
 
+const useStyles = makeStyles((theme) => ({
+  respContainer: {
+    position: 'relative',
+    overflow: 'hidden',
+    paddingTop: '56.25%',
+    height: '100%'
+  },
+  respIframe: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    width: '100%',
+    height: '100%',
+    border: 0
+  }
+}));
+
 const CovidWatch = () => {
   const theme = useTheme();
+  const classes = useStyles();
 
   return (
     <>
@@ -29,8 +47,8 @@ const CovidWatch = () => {
           paddingRight: 'clamp(50px, 10vw, 100px)'
         }}>
           <Card style={{ height: '100%', borderRadius: 20 }}>
-            <CardContent style={{ height: '100%' }}>
-              <iframe width="100%" height="100%" src="https://public.tableau.com/shared/Y5G4887QT?:showVizHome=no" />
+            <CardContent className={classes.respContainer}>
+              <iframe className={classes.respIframe} src="https://public.tableau.com/shared/Y5G4887QT?:showVizHome=no" />
             </CardContent>
           </Card>
         </Grid>

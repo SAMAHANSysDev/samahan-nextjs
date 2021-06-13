@@ -5,13 +5,15 @@ import { cdnURL } from 'utils/constants';
 
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
-
+import Hidden from '@material-ui/core/Hidden';
 import Card from '@material-ui/core/Card';
 import CardMediaWP from 'components/card-media-wp';
 import CardContent from '@material-ui/core/CardContent';
+import Button from 'components/Button';
 
 import { Slide } from "react-slideshow-image";
 import "react-slideshow-image/dist/styles.css";
+import ImgsViewer from "react-images-viewer";
 
 import WP from 'utils/wordpress';
 import { sort } from 'fast-sort';
@@ -59,6 +61,22 @@ const RecruitmentPubmats = [
 const Departments = ({ departments }) => {
   const classes = useStyles();
   const theme = useTheme();
+
+  const [currImage, setCurrImage] = React.useState(0);
+  const [viewerOpen, setViewerOpen] = React.useState(false);
+
+  const goToNextImage = () => {
+    setCurrImage((prev) => ((prev + 1) % RecruitmentPubmats.length));
+  }
+
+  const goToPrevImage = () => {
+    setCurrImage((prev) => ((prev - 1) % RecruitmentPubmats.length));
+  }
+
+  const closeViewer = () => {
+    setViewerOpen(false);
+    setCurrImage(0);
+  }
   
   return (
     <>
@@ -73,25 +91,43 @@ const Departments = ({ departments }) => {
           boxSizing: 'border-box'
         }}
       >
-        <div className="slide-container">
-          <Slide transitionDuration={500} indicators easing="ease">
-            { RecruitmentPubmats.map((pubmat) => (
-              <div
-                className="each-fade"
-                style={{
-                  backgroundImage: `url(${pubmat})`,
-                  backgroundPosition: "center",
-                  backgroundSize: "contain",
-                  backgroundRepeat: "no-repeat",
-                  width: '90vw',
-                  height: '80vh',
-                  filter: 'drop-shadow(0.35rem 0.35rem 0.4rem rgba(0, 0, 0, 0.5))',
-                  marginBottom: '2rem'
-                }}
-              />
-            )) }
-          </Slide>
-        </div>
+        <Hidden xsDown>
+          <div className="slide-container">
+            <Slide transitionDuration={500} indicators easing="ease">
+              { RecruitmentPubmats.map((pubmat, i) => (
+                <div
+                  className="each-fade"
+                  style={{
+                    backgroundImage: `url(${pubmat})`,
+                    backgroundPosition: "center",
+                    backgroundSize: "contain",
+                    backgroundRepeat: "no-repeat",
+                    width: '80vw',
+                    height: '80vh',
+                    filter: 'drop-shadow(0.35rem 0.35rem 0.4rem rgba(0, 0, 0, 0.5))',
+                    margin: 'auto',
+                    marginBottom: '2rem'
+                  }}
+                />
+              )) }
+            </Slide>
+          </div>
+        </Hidden>
+        <Hidden smUp>
+          <Grid container direction="column" spacing={3} alignItems="center" justify="center" style={{ color: 'white', minHeight: '100vh' }}>
+            <Grid item style={{ textAlign: 'center' }}>
+              <Typography variant="h4" style={{ lineHeight: '0.8em' }}>
+                SAMAHAN
+              </Typography>
+              <Typography variant="h2">
+                Departments
+              </Typography>
+            </Grid>
+            <Grid item>
+              <Button variant="contained" color="secondary" disableElevation onClick={() => setViewerOpen(true)}>View Recruitments</Button>
+            </Grid>
+          </Grid>
+        </Hidden>
       </div>
       <Grid 
         container
@@ -128,6 +164,16 @@ const Departments = ({ departments }) => {
           </Grid>
         </Grid>
       </Grid>
+      <ImgsViewer
+        imgs={[
+          ...RecruitmentPubmats.map((pubmat) => ({ src: pubmat }))
+        ]}
+        currImg={currImage}
+        isOpen={viewerOpen}
+        onClickPrev={goToPrevImage}
+        onClickNext={goToNextImage}
+        onClose={closeViewer}
+      />
     </>
   );
 }

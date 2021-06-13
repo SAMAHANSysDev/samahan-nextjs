@@ -4,8 +4,28 @@ import Grid from '@material-ui/core/Grid';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
+import { makeStyles } from '@material-ui/core/styles';
+
+const useStyles = makeStyles((theme) => ({
+  respContainer: {
+    position: 'relative',
+    overflow: 'hidden',
+    paddingTop: '56.25%',
+    height: '100%'
+  },
+  respIframe: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    width: '100%',
+    height: '100%',
+    border: 0
+  }
+}));
 
 const BudgetTracker = () => {
+  const classes = useStyles();
+
   return (
     <>
       <Grid
@@ -23,8 +43,8 @@ const BudgetTracker = () => {
           paddingRight: 'clamp(50px, 10vw, 100px)'
         }}>
           <Card style={{ height: '100%', borderRadius: 20 }}>
-            <CardContent style={{ height: '100%' }}>
-              <iframe width="100%" height="100%" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vSkswDONSXkYpZSeLdFdjz39soMvtmLWBaeXVkXuQaA9LpVFeK2Z2FEXUgZ4J3XRPxVw-0FTBYjQT1Y/pubhtml?widget=true&amp;headers=false" />
+            <CardContent className={classes.respContainer}>
+              <iframe className={classes.respIframe} src="https://docs.google.com/spreadsheets/d/e/2PACX-1vSkswDONSXkYpZSeLdFdjz39soMvtmLWBaeXVkXuQaA9LpVFeK2Z2FEXUgZ4J3XRPxVw-0FTBYjQT1Y/pubhtml?widget=true&amp;headers=false" />
             </CardContent>
           </Card>
         </Grid>
