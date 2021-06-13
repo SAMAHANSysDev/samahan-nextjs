@@ -145,6 +145,7 @@ const Alert = () => {
                   setName(e.target.value)
                 }}
                 required
+                disabled={loading}
               />
               <div style={{ height: '2rem' }} />
               <CssTextField 
@@ -159,6 +160,7 @@ const Alert = () => {
                   }
                 }}
                 required
+                disabled={loading}
               />
               <div style={{ height: '2rem' }} />
               <CssTextField 
@@ -170,6 +172,7 @@ const Alert = () => {
                   setNetwork(e.target.value)
                 }}
                 required
+                disabled={loading}
               />
               <div style={{ height: '2rem' }} />
               
@@ -178,7 +181,7 @@ const Alert = () => {
                 value="end"
                 control={<WhiteCheckbox onChange={(e) => {
                   setAgreed(e.target.checked)
-                }} value={agreed} />}
+                }} value={agreed} disabled={loading} />}
                 label={
                   <Typography style={{ fontStyle: 'italic' }}>
                     By submitting this form, you have read and understood the Privacy Policy of Smart, and Routee, and provide consent that SAMAHAN , through the aforementioned companies will be enrolling you to the SAMAHAN Alerts.
