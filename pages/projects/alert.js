@@ -1,5 +1,7 @@
 import React from 'react';
 
+import ReCAPTCHA from "react-google-recaptcha";
+
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 
@@ -11,6 +13,8 @@ import {
 import TextField from '@material-ui/core/TextField';
 import Checkbox from '@material-ui/core/Checkbox';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
+import Snackbar from '@material-ui/core/Snackbar';
+import MuiAlert from '@material-ui/lab/Alert';
 import Button from 'components/Button';
 
 const WhiteCheckbox = withStyles({
@@ -22,6 +26,10 @@ const WhiteCheckbox = withStyles({
   },
   checked: {},
 })((props) => <Checkbox color="default" {...props} />);
+
+const NotifAlert = (props) => {
+  return <MuiAlert elevation={6} variant="filled" {...props} />;
+}
 
 const CssTextField = withStyles({
   root: {
@@ -53,6 +61,49 @@ const CssTextField = withStyles({
 })(TextField);
 
 const Alert = () => {
+
+  const [name, setName] = React.useState('');
+  const [number, setNumber] = React.useState('');
+  const [network, setNetwork] = React.useState('');
+  const [agreed, setAgreed] = React.useState(false);
+  const [recaptcha, setRecaptcha] = React.useState(null);
+
+  const [open, setOpen] = React.useState(false);
+  const [error, setError] = React.useState(false);
+  const [message, setMessage] = React.useState('');
+
+  const submit = async () => {
+    const res = await (await fetch('/api/samahan-alert', {
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      method: 'post',
+      body: JSON.stringify({ name, number, network })
+    })).json()
+
+    setOpen(true);
+    if (res?.success) {
+      setName('');
+      setNumber('');
+      setNetwork('');
+
+      setMessage('Successfully submitted contact details for SAMAHAN Alerts!');
+      setError(false);
+    } else {
+      setMessage(res?.error || 'Error occurred. Please try again!');
+      setError(true);
+    }
+  }
+
+  const handleClose = (event, reason) => {
+    if (reason === 'clickaway') {
+      return;
+    }
+
+    setOpen(false);
+  };
+
   return (
     <>
       <Grid container direction="row" justify="center" spacing={6} alignItems="center" style={{
@@ -82,14 +133,49 @@ const Alert = () => {
               <Typography variant="h3" color="secondary" style={{ lineHeight: '0.8em', fontWeight: 700, marginBottom: '4rem' }}>
                 Sign up now!
               </Typography>
-              <CssTextField label="Full Name" variant="outlined" fullWidth disabled />
+              <CssTextField 
+                label="Full Name" 
+                variant="outlined" 
+                fullWidth
+                value={name}
+                onChange={(e) => {
+                  setName(e.target.value)
+                }}
+                required
+              />
               <div style={{ height: '2rem' }} />
-              <CssTextField label="Cellphone Number" variant="outlined" fullWidth disabled />
+              <CssTextField 
+                label="Cellphone Number" 
+                variant="outlined" 
+                fullWidth
+                value={number}
+                onChange={(e) => {
+                  const regexTest = /^[0-9\b]+$/;
+                  if (e.target.value === '' || regexTest.test(e.target.value)) {
+                    setNumber(e.target.value)
+                  }
+                }}
+                required
+              />
               <div style={{ height: '2rem' }} />
+              <CssTextField 
+                label="Mobile Network Operator (Smart, Globe, etc.)" 
+                variant="outlined" 
+                fullWidth 
+                value={network}
+                onChange={(e) => {
+                  setNetwork(e.target.value)
+                }}
+                required
+              />
+              <div style={{ height: '2rem' }} />
+              
 
               <FormControlLabel
                 value="end"
-                control={<WhiteCheckbox disabled />}
+                control={<WhiteCheckbox onChange={(e) => {
+                  setAgreed(e.target.checked)
+                }} value={agreed} />}
                 label={
                   <Typography style={{ fontStyle: 'italic' }}>
                     By submitting this form, you have read and understood the Privacy Policy of Smart, and Routee, and provide consent that SAMAHAN , through the aforementioned companies will be enrolling you to the SAMAHAN Alerts.
@@ -97,15 +183,25 @@ const Alert = () => {
                 }
                 labelPlacement="end"
               />
-
               <div style={{ height: '2rem' }} />
 
-              <Button variant="contained" disableElevation disabled>Coming soon!</Button>
+              <ReCAPTCHA
+                sitekey="6Lfa6y0bAAAAABOrUIBwSLq2xjs2Xv_URU8YahYs"
+                onChange={setRecaptcha}
+              />
+              <div style={{ height: '2rem' }} />
+
+              <Button variant="contained" disableElevation onClick={submit} disabled={!agreed || !network || !name || !number || !recaptcha}>Submit</Button>
 
             </CardContent>
           </Card>
         </Grid>
       </Grid>
+      <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
+        <NotifAlert onClose={handleClose} severity={error ? "error" : "success"}>
+          {message}
+        </NotifAlert>
+      </Snackbar>
     </>
   )
 }

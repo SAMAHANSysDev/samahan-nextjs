@@ -38,7 +38,7 @@ const List = () => {
         <Typography variant="h1" color="primary" style={{ lineHeight: '0.8em', fontWeight: 700, marginBottom: '4rem' }}>
           Help Portal
         </Typography>
-        <Grid container spacing={3} justify="center">
+        <Grid container spacing={3}>
           <Grid item md>
             <Grid container direction="column" spacing={1}>
               <Grid item>
