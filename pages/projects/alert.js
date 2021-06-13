@@ -67,12 +67,14 @@ const Alert = () => {
   const [network, setNetwork] = React.useState('');
   const [agreed, setAgreed] = React.useState(false);
   const [recaptcha, setRecaptcha] = React.useState(null);
+  const [loading, setLoading] = React.useState(false);
 
   const [open, setOpen] = React.useState(false);
   const [error, setError] = React.useState(false);
   const [message, setMessage] = React.useState('');
 
   const submit = async () => {
+    setLoading(true);
     const res = await (await fetch('/api/samahan-alert', {
       headers: {
         'Accept': 'application/json',
@@ -94,6 +96,7 @@ const Alert = () => {
       setMessage(res?.error || 'Error occurred. Please try again!');
       setError(true);
     }
+    setLoading(false);
   }
 
   const handleClose = (event, reason) => {
@@ -191,7 +194,7 @@ const Alert = () => {
               />
               <div style={{ height: '2rem' }} />
 
-              <Button variant="contained" disableElevation onClick={submit} disabled={!agreed || !network || !name || !number || !recaptcha}>Submit</Button>
+              <Button variant="contained" disableElevation onClick={submit} disabled={!agreed || !network || !name || !number || !recaptcha || loading}>Submit</Button>
 
             </CardContent>
           </Card>
