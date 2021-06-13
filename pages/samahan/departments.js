@@ -82,7 +82,7 @@ const Departments = ({ departments }) => {
     <>
       <div 
         style={{ 
-          minHeight: '100vh', 
+          minHeight: '75vh', 
           backgroundPosition: 'center bottom', 
           backgroundSize: 'cover',
           backgroundRepeat: "no-repeat",
@@ -114,7 +114,7 @@ const Departments = ({ departments }) => {
           </div>
         </Hidden>
         <Hidden smUp>
-          <Grid container direction="column" spacing={3} alignItems="center" justify="center" style={{ color: 'white', minHeight: '100vh' }}>
+          <Grid container direction="column" spacing={3} alignItems="center" justify="center" style={{ color: 'white', minHeight: '75vh' }}>
             <Grid item style={{ textAlign: 'center' }}>
               <Typography variant="h4" style={{ lineHeight: '0.8em' }}>
                 SAMAHAN
