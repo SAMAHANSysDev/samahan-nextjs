@@ -148,9 +148,10 @@ export async function getStaticProps(ctx) {
     ]);
 
     const departmentHeads = departments.reduce((accumulator, department) => {
+      console.log(department.acf?.first_display_photo?.id);
       if (department.acf.first_title) {
         accumulator.push({
-          featured_media: department.acf.first_display_photo || null,
+          featured_media: department.acf?.first_display_photo?.id || null,
           acf: {
             name: department.acf.first_title_name,
             position: `${department.acf.name} ${department.acf.first_title}`,
@@ -158,9 +159,9 @@ export async function getStaticProps(ctx) {
           }
         });
       }
-      if (department.acf.second_title_title) {
+      if (department.acf.second_title) {
         accumulator.push({
-          featured_media: department.acf.second_display_photo || null,
+          featured_media: department.acf?.second_display_photo?.id || null,
           acf: {
             name: department.acf.second_title_name,
             position: `${department.acf.name} ${department.acf.second_title}`,
@@ -174,7 +175,7 @@ export async function getStaticProps(ctx) {
     return { props: { 
       centralBoard: sort(centralBoard).asc(x => parseInt(x.acf.order)), 
       clusterReps: sort(clusterReps).asc(x => x.acf.position), 
-      departmentHeads: sort(departmentHeads).asc(x => x.acf.position)
+      departmentHeads
     }, revalidate: 10 };
   } catch (err) {
     console.log(err)
