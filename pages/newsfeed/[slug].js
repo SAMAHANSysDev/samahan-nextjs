@@ -16,6 +16,7 @@ import CircularProgress from '@material-ui/core/CircularProgress';
 
 import { frontendURL, cdnURL } from 'utils/constants';
 import WPGBlocks from 'react-gutenberg';
+import "react-gutenberg/default.css";
 
 const useStyles = makeStyles((theme) => ({
   contentContainer: {
@@ -98,14 +99,14 @@ const page = (props) => {
         </Grid>
       </Grid>
       <Grid container direction="row" spacing={6} className={classes.contentContainer}>
-          <Grid item sm={8}>
+          <Grid item xs={12} sm={8}>
             { post.jetpack_featured_media_url ? <img src={post.jetpack_featured_media_url} style={{ width: '100%', marginTop: 40, marginBottom: 20 }} /> : null }
             
-            <Typography variant="body1" component="div">
+            <Typography variant="body1" component="div" style={{ width: '100%' }}>
               <WPGBlocks blocks={post.blocks} />
             </Typography>
           </Grid>
-          <Grid item sm={4} style={{ minWidth: '300px' }}>
+          <Grid item xs={12} sm={4} style={{ minWidth: '300px' }}>
             <Paper variant="outlined" style={{ padding: 20, borderRadius: 20, borderColor: theme.palette.primary.main }}>
               <Typography variant="h6" component="h4" style={{ color: theme.palette.primary.main }}>
                 Recent News
