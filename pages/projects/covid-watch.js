@@ -39,14 +39,14 @@ const CovidWatch = () => {
         justify="center"
       >
         <Grid item style={{
-          height: '90vh',
+          height: '100vh',
           backgroundPosition: 'center bottom',
           backgroundSize: 'cover',
           backgroundImage: 'url(https://samahan.stdcdn.com/21-22/landing.png), linear-gradient(to right, #1637BC, #2D8AEA)',
           paddingLeft: 'clamp(50px, 10vw, 100px)',
-          paddingRight: 'clamp(50px, 10vw, 100px)'
+          paddingRight: 'clamp(50px, 10vw, 100px)',
         }}>
-          <Card style={{ height: '100%', borderRadius: 20 }}>
+          <Card style={{ height: '100%', maxWidth: 910, borderRadius: 20, margin: 'auto' }}>
             <CardContent className={classes.respContainer}>
               <iframe className={classes.respIframe} src="https://public.tableau.com/shared/Y5G4887QT?:showVizHome=no" />
             </CardContent>

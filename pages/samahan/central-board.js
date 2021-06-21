@@ -191,7 +191,6 @@ export async function getStaticProps(ctx) {
     ]);
 
     const departmentHeads = departments.reduce((accumulator, department) => {
-      console.log(department.acf?.first_display_photo?.id);
       if (department.acf.first_title) {
         accumulator.push({
           featured_media: department.acf?.first_display_photo?.id || null,
