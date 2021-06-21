@@ -65,7 +65,7 @@ const CentralBoard = ({ centralBoard, clusterReps, departmentHeads }) => {
           <Grid item>
             <Grid container justify="center" alignItems="center" spacing={4} style={{ paddingLeft: 'clamp(50px, 10vw, 100px)', paddingRight: 'clamp(50px, 10vw, 100px)' }}>
               { centralBoard.map((member) => (
-                <Grid item md={6} lg={3}>
+                <Grid item sm={6} md={3} lg={3}>
                   <Card className={classes.cardRoot} elevation={0} variant="outlined">
                     <CardActionArea disabled>
                     <CardMediaWP
@@ -105,12 +105,55 @@ const CentralBoard = ({ centralBoard, clusterReps, departmentHeads }) => {
           }}
         >
           <Grid item>
+            <Typography variant="h4" style={{ color: theme.palette.primary.main }}>Cluster Representatives</Typography>
+          </Grid>
+          <Grid item>
+            <Grid container justify="center" alignItems="center" spacing={4} style={{ paddingLeft: 'clamp(50px, 10vw, 100px)', paddingRight: 'clamp(50px, 10vw, 100px)' }}>
+              { clusterReps.map((member) => (
+                <Grid item sm={6} md={3} lg={3}>
+                  <Card className={classes.cardRoot} style={{ borderColor: theme.palette.primary.main }} elevation={0} variant="outlined">
+                    <CardMediaWP
+                      className={classes.cardMedia}
+                      imageId={member.featured_media}
+                      title={member.acf.position}
+                    />
+                    <CardContent style={{ color: theme.palette.primary.main }}>
+                      <Typography variant="h5">
+                        {member.acf.name}
+                      </Typography>
+                      <Typography variant="subtitle2">
+                        {member.acf.position}
+                      </Typography>
+                      <Typography variant="subtitle2">
+                        {member.acf.email}
+                      </Typography>
+                    </CardContent>
+                  </Card>
+                </Grid>
+              )) }
+            </Grid>
+          </Grid>
+        </Grid>
+      </Grid>
+      <Grid item>
+        <Grid 
+          container
+          direction="column"
+          justify="center"
+          alignItems="center"
+          style={{ 
+            minHeight: '100vh', 
+            paddingTop: theme.spacing(8),
+            paddingBottom: theme.spacing(8)
+          }}
+        >
+          <Grid item>
             <Typography variant="h4" style={{ color: theme.palette.primary.main }}>Deputies and Appointees</Typography>
           </Grid>
           <Grid item>
             <Grid container justify="center" alignItems="center" spacing={4} style={{ paddingLeft: 'clamp(50px, 10vw, 100px)', paddingRight: 'clamp(50px, 10vw, 100px)' }}>
-              { [...departmentHeads, ...clusterReps].map((member) => (
-                <Grid item md={6} lg={3}>
+              { departmentHeads.map((member) => (
+                <Grid item sm={6} md={3} lg={3}>
                   <Card className={classes.cardRoot} style={{ borderColor: theme.palette.primary.main }} elevation={0} variant="outlined">
                     <CardMediaWP
                       className={classes.cardMedia}

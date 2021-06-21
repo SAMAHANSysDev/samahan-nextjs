@@ -21,8 +21,7 @@ const useStyles = makeStyles((theme) => ({
     height: 100
   },
   rootContainer: {
-    width: '100%',
-    marginBottom: 80
+    width: '100%'
   }
 }));
 
@@ -57,14 +56,17 @@ const List = ({ posts, users }) => {
         <AboutSamahan />
         <div className={classes.spacer}></div>
       </div>
-      <div className={classes.contentContainer}>
+    </div>
+  );
+};
+
+/*
+<div className={classes.contentContainer}>
         <div className={classes.spacer}></div>
         <NewsFeed posts={posts} users={users} />
         <div className={classes.spacer}></div>
       </div>
-    </div>
-  );
-};
+*/
 
 export async function getStaticProps(ctx) {
   try {

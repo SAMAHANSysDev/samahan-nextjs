@@ -9,6 +9,7 @@ import Hidden from '@material-ui/core/Hidden';
 import Card from '@material-ui/core/Card';
 import CardMediaWP from 'components/card-media-wp';
 import CardContent from '@material-ui/core/CardContent';
+import CardActionArea from '@material-ui/core/CardActionArea';
 import Button from 'components/Button';
 
 import { Slide } from "react-slideshow-image";
@@ -24,12 +25,12 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: 'column',
     justifyContent: 'space-between',
     marginTop: 40,
-    width: 285,
+    width: 150,
     margin: 'auto',
-    borderRadius: 20,
+    borderRadius: 180,
   },
   cardMedia: {
-    height: 285,
+    height: 150,
     width: '100%',
     margin: 'auto'
   },
@@ -40,22 +41,26 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+const recruitmentURLs = [
+  ''
+]
+
 const RecruitmentPubmats = [
   `${cdnURL}/21-22/recruitment/RecWeek-Header.png`,
-  `${cdnURL}/21-22/recruitment/RecWeek-AUTOCOMMS1.png`,
-  `${cdnURL}/21-22/recruitment/RecWeek-AUTOCOMMS2.png`,
-  `${cdnURL}/21-22/recruitment/RecWeek-COMMS.png`,
-  `${cdnURL}/21-22/recruitment/RecWeek-DAA.png`,
   `${cdnURL}/21-22/recruitment/RecWeek-DCA.png`,
-  `${cdnURL}/21-22/recruitment/RecWeek-DDRM.png`,
   `${cdnURL}/21-22/recruitment/RecWeek-ESU.png`,
-  `${cdnURL}/21-22/recruitment/RecWeek-LOGIS.png`,
   `${cdnURL}/21-22/recruitment/RecWeek-OBA.png`,
+  `${cdnURL}/21-22/recruitment/RecWeek-DAA.png`,
+  `${cdnURL}/21-22/recruitment/RecWeek-DDRM.png`,
+  `${cdnURL}/21-22/recruitment/RecWeek-COMMS.png`,
   `${cdnURL}/21-22/recruitment/RecWeek-PROD.png`,
   `${cdnURL}/21-22/recruitment/RecWeek-R_D.png`,
-  `${cdnURL}/21-22/recruitment/RecWeek-S_S.png`,
   `${cdnURL}/21-22/recruitment/RecWeek-SCT.png`,
   `${cdnURL}/21-22/recruitment/RecWeek-SYSDEV.png`,
+  `${cdnURL}/21-22/recruitment/RecWeek-LOGIS.png`,
+  `${cdnURL}/21-22/recruitment/RecWeek-S_S.png`,
+  `${cdnURL}/21-22/recruitment/RecWeek-AUTOCOMMS1.png`,
+  `${cdnURL}/21-22/recruitment/RecWeek-AUTOCOMMS2.png`
 ]
 
 const Departments = ({ departments }) => {
@@ -146,19 +151,27 @@ const Departments = ({ departments }) => {
         <Grid item>
           <Grid container justify="center" alignItems="center" spacing={4}>
             { departments.map((department) => (
-              <Grid item md={6} lg={3}>
-                <Card className={classes.cardRoot} style={{ borderColor: theme.palette.primary.main }} elevation={0} variant="outlined">
-                  <CardMediaWP
-                    className={classes.cardMedia}
-                    imageId={department.featured_media}
-                    title={department.acf.name}
-                  />
-                  <CardContent style={{ color: theme.palette.primary.main }}>
-                    <Typography variant="body1" style={{ textAlign: 'center' }}>
-                      <b>{department.acf.name}</b>
-                    </Typography>
-                  </CardContent>
-                </Card>
+              <Grid item sm={3} md={2} lg={2}>
+                <Grid container direction="column" alignItems="center">
+                  <Grid item>
+                    <Card className={classes.cardRoot} style={{ borderColor: theme.palette.primary.main }} elevation={0} variant="outlined">
+                      <CardActionArea onClick={department.acf?.recruitment_url ? () => window.open(department.acf.recruitment_url, "_blank") : null}>
+                        <CardMediaWP
+                          className={classes.cardMedia}
+                          imageId={department.featured_media}
+                          title={department.acf.name}
+                        />
+                      </CardActionArea>
+                    </Card>
+                  </Grid>
+                  <Grid item>
+                    <CardContent style={{ color: theme.palette.primary.main, maxWidth: 150 }}>
+                      <Typography variant="body1" style={{ textAlign: 'center' }}>
+                        <b>{department.acf.name}</b>
+                      </Typography>
+                    </CardContent>
+                  </Grid>
+                </Grid>
               </Grid>
             )) }
           </Grid>

@@ -9,12 +9,18 @@ import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import {
   withStyles,
+  makeStyles
 } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import Checkbox from '@material-ui/core/Checkbox';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Snackbar from '@material-ui/core/Snackbar';
 import MuiAlert from '@material-ui/lab/Alert';
+import InputLabel from '@material-ui/core/InputLabel';
+import InputBase from '@material-ui/core/InputBase';
+import MenuItem from '@material-ui/core/MenuItem';
+import FormControl from '@material-ui/core/FormControl';
+import Select from '@material-ui/core/Select';
 import Button from 'components/Button';
 
 const WhiteCheckbox = withStyles({
@@ -60,6 +66,38 @@ const CssTextField = withStyles({
   },
 })(TextField);
 
+const useStyles = makeStyles({
+  root: {
+    "& .MuiOutlinedInput-input": {
+      color: "white"
+    },
+    "& .MuiInputLabel-root": {
+      color: "white"
+    },
+    "& .MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline": {
+      borderColor: "white"
+    },
+    "&:hover .MuiOutlinedInput-input": {
+      color: "white"
+    },
+    "&:hover .MuiInputLabel-root": {
+      color: "white"
+    },
+    "&:hover .MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline": {
+      borderColor: "white"
+    },
+    "& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-input": {
+      color: "white"
+    },
+    "& .MuiInputLabel-root.Mui-focused": {
+      color: "white"
+    },
+    "& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline": {
+      borderColor: "white"
+    }
+  }
+});
+
 const Alert = () => {
 
   const [name, setName] = React.useState('');
@@ -72,6 +110,8 @@ const Alert = () => {
   const [open, setOpen] = React.useState(false);
   const [error, setError] = React.useState(false);
   const [message, setMessage] = React.useState('');
+
+  const classes = useStyles();
 
   const submit = async () => {
     setLoading(true);
@@ -163,17 +203,28 @@ const Alert = () => {
                 disabled={loading}
               />
               <div style={{ height: '2rem' }} />
-              <CssTextField 
-                label="Mobile Network Operator (Smart, Globe, etc.)" 
-                variant="outlined" 
-                fullWidth 
-                value={network}
-                onChange={(e) => {
-                  setNetwork(e.target.value)
-                }}
-                required
-                disabled={loading}
-              />
+              <FormControl variant="outlined" fullWidth>
+                <CssTextField
+                  label="Mobile Network Operator" 
+                  variant="outlined" 
+                  fullWidth 
+                  value={network}
+                  onChange={(e) => {
+                    setNetwork(e.target.value)
+                  }}
+                  required
+                  disabled={loading}
+                  select
+                >
+                  <MenuItem value="Smart">Smart</MenuItem>
+                  <MenuItem value="Globe">Globe</MenuItem>
+                  <MenuItem value="DITO">DITO</MenuItem>
+                  <MenuItem value="TNT">Talk 'N Text (TNT)</MenuItem>
+                  <MenuItem value="Sun">Sun Cellular</MenuItem>
+                  <MenuItem value="TM">TM</MenuItem>
+                  <MenuItem value="Gomo">Gomo</MenuItem>
+                </CssTextField>
+              </FormControl>
               <div style={{ height: '2rem' }} />
               
 
