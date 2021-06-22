@@ -102,6 +102,7 @@ const Departments = ({ departments }) => {
               { RecruitmentPubmats.map((pubmat, i) => (
                 <div
                   className="each-fade"
+                  key={`recruitment-pubmat-${i}`}
                   style={{
                     backgroundImage: `url(${pubmat})`,
                     backgroundPosition: "center",
@@ -150,8 +151,8 @@ const Departments = ({ departments }) => {
         </Grid>
         <Grid item>
           <Grid container justify="center" alignItems="center" spacing={4}>
-            { departments.map((department) => (
-              <Grid item sm={3} md={2} lg={2}>
+            { departments.map((department, i) => (
+              <Grid item sm={3} md={2} lg={2} key={`departments-${i}`}>
                 <Grid container direction="column" alignItems="center">
                   <Grid item>
                     <Card className={classes.cardRoot} style={{ borderColor: theme.palette.primary.main }} elevation={0} variant="outlined">
