@@ -146,7 +146,7 @@ const CentralBoard = ({ centralBoard, clusterReps, departmentHeads }) => {
           }}
         >
           <Grid item>
-            <Typography variant="h4" style={{ color: theme.palette.primary.main }}>Deputies and Appointees</Typography>
+            <Typography variant="h4" style={{ color: theme.palette.primary.main }}>Director and Deputies</Typography>
           </Grid>
           <Grid item>
             <Grid container justify="center" alignItems="stretch" spacing={4} style={{ paddingLeft: 'clamp(50px, 10vw, 100px)', paddingRight: 'clamp(50px, 10vw, 100px)' }}>
