@@ -30,7 +30,7 @@ const useStyles = makeStyles((theme) => ({
     color: theme.palette.secondary.main
   },
   bannerContainer: {
-    minHeight: '40vh',
+    minHeight: '20vh',
     backgroundPosition: 'center bottom',
     backgroundSize: 'cover',
     backgroundImage: 'url(https://samahan.stdcdn.com/21-22/landing.png), linear-gradient(to right, #1637BC, #2D8AEA)',
