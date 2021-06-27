@@ -50,10 +50,10 @@ module.exports = [
     ]
   },
   {
-    name: "Executive Orders",
-    href: "/executive-orders",
-    title: "Executive Orders",
-    desc: "List of all executive orders",
+    name: "Archives",
+    href: "/archives",
+    title: "Archives",
+    desc: "List of all SAMAHAN Archives",
   },
   {
     name: "Newsfeed",

@@ -1,11 +1,13 @@
 import React from "react";
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles, useTheme } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import WP from 'utils/wordpress';
 import CardActionArea from "@material-ui/core/CardActionArea";
 
 import dynamic from 'next/dynamic';
+import { format } from 'date-fns';
+
 const Item = dynamic(() => import('components/home/newsfeed-item'));
 
 import Button from 'components/Button';
@@ -30,7 +32,7 @@ const useStyles = makeStyles((theme) => ({
     color: theme.palette.secondary.main
   },
   bannerContainer: {
-    minHeight: '20vh',
+    minHeight: '30vh',
     backgroundPosition: 'center bottom',
     backgroundSize: 'cover',
     backgroundImage: 'url(https://samahan.stdcdn.com/21-22/landing.png), linear-gradient(to right, #1637BC, #2D8AEA)',
@@ -52,22 +54,21 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   link: {
-    textDecoration: 'none',
-    color: theme.palette.primary.main,
-    margin: theme.spacing(2)
+    textDecoration: 'none'
   }
 }));
 
-const Page = ({ orders }) => {
+const Page = ({ archives }) => {
   // Get the data of the current list.
   const classes = useStyles();
+  const theme = useTheme();
 
   return (
     <div className={classes.rootContainer}>
       <Grid container direction="column" spacing={3} alignItems="center" justify="center" className={classes.bannerContainer}>
         <Grid item style={{ textAlign: 'center' }}>
           <Typography variant="h2" style={{ lineHeight: '0.8em' }}>
-            ALL EXECUTIVE ORDERS
+            ARCHIVES
           </Typography>
         </Grid>
       </Grid>
@@ -75,12 +76,20 @@ const Page = ({ orders }) => {
       {/* Insert header here! */}
       <div className={classes.contentContainer} style={{ marginBottom: 100, paddingTop: '4rem', paddingBottom: '4rem' }}>
         <Grid container direction="column" spacing={3} alignItems="stretch">
-          {orders.map((order, i) => {
+          {archives.map((archive, i) => {
             // Render one Item component for each one.
+            console.log(archive);
             return (
-              <Grid item style={{ backgroundColor: i % 2 === 1 ? 'rgb(242, 242, 242)' : 'white', padding: 0 }} key={order.id}>
-                <CardActionArea onClick={() => window.open(order.acf.document_file.url, '_blank')} style={{ borderRadius: 20 }}>
-                  <Typography variant="h5" className={classes.link}>{order.title.rendered}</Typography>
+              <Grid item style={{ backgroundColor: i % 2 === 1 ? 'rgb(242, 242, 242)' : 'white', padding: 0, borderRadius: 20 }} key={archive.id}>
+                <CardActionArea onClick={() => window.open(archive.acf.document_file, '_blank')} style={{ borderRadius: 20 }}>
+                  <Grid container direction="column" style={{ padding: theme.spacing(2) }} spacing={1}>
+                    <Grid item>
+                      <Typography variant="h5" className={classes.link} style={{ color: theme.palette.primary.main }}>{archive.title.rendered}</Typography>
+                    </Grid>
+                    <Grid item>
+                      <Typography className={classes.link}>{format(new Date(archive.date), 'MMMM d, yyyy')}</Typography>
+                    </Grid>
+                  </Grid>
                 </CardActionArea>
               </Grid>
             );
@@ -93,14 +102,14 @@ const Page = ({ orders }) => {
 
 export async function getStaticProps(ctx) {
   try {
-    const res = await WP.executiveOrders().perPage(100);
+    const res = await WP.archives().perPage(100);
     if (res) { 
-      return { props: { orders: res }, revalidate: 10 };
+      return { props: { archives: res }, revalidate: 10 };
     } else {
-      return { props: { orders: [] }, revalidate: 10 };
+      return { props: { archives: [] }, revalidate: 10 };
     }
   } catch (err) {
-    return { props: { orders: [] }, revalidate: 10 };
+    return { props: { archives: [] }, revalidate: 10 };
   }
 }
 
