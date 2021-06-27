@@ -226,8 +226,6 @@ const Alert = () => {
                 </CssTextField>
               </FormControl>
               <div style={{ height: '2rem' }} />
-              
-
               <FormControlLabel
                 value="end"
                 control={<WhiteCheckbox onChange={(e) => {
@@ -235,7 +233,14 @@ const Alert = () => {
                 }} value={agreed} disabled={loading} />}
                 label={
                   <Typography style={{ fontStyle: 'italic' }}>
-                    By submitting this form, you have read and understood the Privacy Policy of Smart, and Routee, and provide consent that SAMAHAN , through the aforementioned companies will be enrolling you to the SAMAHAN Alerts.
+                    By submitting this form, you give your consent to SAMAHAN to enroll you to the SAMAHAN Alert which will be powered by&nbsp;
+                    <Typography component="a" href="https://smart.com.ph/About/newsroom/full-news/2021/06/08/smart-infocast-connects-1.3m-filipinos-in-communities" target="_blank">
+                      Smart
+                    </Typography> 
+                    &nbsp;and&nbsp;
+                    <Typography component="a" href="https://www.routee.net/about/" target="_blank">
+                      Routee
+                    </Typography>. The aforementioned companies are SMS Service Providers which will allow us to send messages through an official channel. 
                   </Typography>
                 }
                 labelPlacement="end"

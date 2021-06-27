@@ -15,5 +15,6 @@ wp.ccoOfficers = wp.registerRoute('wp/v2', '/cco_officers/(?P<id>\\d+)' );
 wp.reservationDocs = wp.registerRoute('wp/v2', '/reservation_docs/(?P<id>\\d+)' );
 wp.requestDocs = wp.registerRoute('wp/v2', '/request_docs/(?P<id>\\d+)' );
 wp.conceptDocs = wp.registerRoute('wp/v2', '/concept_docs/(?P<id>\\d+)' );
+wp.executiveOrders = wp.registerRoute('wp/v2', '/executive_orders/(?P<id>\\d+)' );
 
 module.exports = wp;

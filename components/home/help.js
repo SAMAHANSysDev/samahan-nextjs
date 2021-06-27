@@ -28,7 +28,7 @@ const List = () => {
             src={`${cdnURL}/21-22/Retro Human-1.png`}
             style={{
               width: '100%',
-              webkitTransform: 'scaleX(-1)',
+              WebkitTransform: 'scaleX(-1)',
               transform: 'scaleX(-1)',
             }} 
           />

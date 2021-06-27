@@ -23,7 +23,7 @@ module.exports = [
     name: "SAMAHAN",
     href: "/samahan",
     title: "About SAMAHAN",
-    desc: "Samahan ng mga Mag-aaral ng Pamantasan ng Ateneo de Davao"
+    desc: "Samahan ng mga Mag-aaral ng Pamantasan ng Ateneo de Davao",
   },
   {
     name: "Initiatives",
@@ -50,9 +50,29 @@ module.exports = [
     ]
   },
   {
+    name: "Executive Orders",
+    href: "/executive-orders",
+    title: "Executive Orders",
+    desc: "List of all executive orders",
+  },
+  {
     name: "Newsfeed",
     href: "/newsfeed",
     title: "Newsfeed",
     desc: "News and Stories of and for the Student Body",
+  },
+  {
+    name: 'SAMAHAN Central Board',
+    href: '/samahan/central-board',
+    title: "SAMAHAN Central Board",
+    desc: "Samahan ng mga Mag-aaral ng Pamantasan ng Ateneo de Davao",
+    hidden: true,
+  },
+  {
+    name: 'SAMAHAN Departments',
+    href: '/samahan/departments',
+    title: "SAMAHAN Departments",
+    desc: "Samahan ng mga Mag-aaral ng Pamantasan ng Ateneo de Davao",
+    hidden: true,
   },
 ];
