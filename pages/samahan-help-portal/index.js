@@ -74,6 +74,10 @@ const Page = ({ faqs }) => {
     return faqs.filter((faq) => {
       const string = `${faq.acf.question} ${faq.acf.answer}`.toUpperCase();
       return string.includes(search.toUpperCase());
+    }).sort((a, b) => {
+      if(a.acf.question < b.acf.question) { return -1; }
+      if(a.acf.question > b.acf.question) { return 1; }
+      return 0;
     });
   }, [faqs, search]);
 
