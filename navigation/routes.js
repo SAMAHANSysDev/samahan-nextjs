@@ -49,7 +49,7 @@ module.exports = [
       },
       {
         name: "Archives",
-        href: "/archives",
+        href: "/projects/archives",
         title: "Archives",
         desc: "List of all SAMAHAN Archives",
       },
