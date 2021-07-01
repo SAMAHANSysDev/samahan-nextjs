@@ -78,7 +78,6 @@ const Page = ({ archives }) => {
         <Grid container direction="column" spacing={3} alignItems="stretch">
           {archives.map((archive, i) => {
             // Render one Item component for each one.
-            console.log(archive);
             return (
               <Grid item style={{ backgroundColor: i % 2 === 1 ? 'rgb(242, 242, 242)' : 'white', padding: 0, borderRadius: 20 }} key={archive.id}>
                 <CardActionArea onClick={() => window.open(archive.acf.document_file, '_blank')} style={{ borderRadius: 20 }}>
