@@ -52,7 +52,7 @@ const List = () => {
                 </Typography>
               </Grid>
               <Grid item style={{ marginTop: '1.5rem' }}>
-                <Button variant="contained" color="primary" disableElevation onClick={() => router.push('/samahan-help-portal')}>
+                <Button variant="contained" color="primary" disableElevation onClick={() => window.open('https://samahan-api.addu.edu.ph/wp-content/uploads/2021/07/samahan-guidebook_compressed.pdf', '_blank')}>
                   Learn More
                 </Button>
               </Grid>
