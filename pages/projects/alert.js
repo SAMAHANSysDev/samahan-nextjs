@@ -102,6 +102,7 @@ const Alert = () => {
 
   const [name, setName] = React.useState('');
   const [number, setNumber] = React.useState('');
+  const [cluster, setCluster] = React.useState('');
   const [network, setNetwork] = React.useState('');
   const [agreed, setAgreed] = React.useState(false);
   const [recaptcha, setRecaptcha] = React.useState(null);
@@ -121,7 +122,7 @@ const Alert = () => {
         'Content-Type': 'application/json'
       },
       method: 'post',
-      body: JSON.stringify({ name, number, network })
+      body: JSON.stringify({ name, number, network, cluster })
     })).json()
 
     setOpen(true);
@@ -129,6 +130,7 @@ const Alert = () => {
       setName('');
       setNumber('');
       setNetwork('');
+      setCluster('');
 
       setMessage('Successfully submitted contact details for SAMAHAN Alerts!');
       setError(false);
@@ -187,6 +189,31 @@ const Alert = () => {
                 required
                 disabled={loading}
               />
+              <div style={{ height: '2rem' }} />
+              <FormControl variant="outlined" fullWidth>
+                <CssTextField
+                  label="Cluster" 
+                  variant="outlined" 
+                  fullWidth 
+                  value={cluster}
+                  onChange={(e) => {
+                    setCluster(e.target.value)
+                  }}
+                  required
+                  disabled={loading}
+                  select
+                >
+                  <MenuItem value="ACC">Accountancy</MenuItem>
+                  <MenuItem value="BM">Business and Management</MenuItem>
+                  <MenuItem value="CS">Computer Studies</MenuItem>
+                  <MenuItem value="HUMLET">Humanities and Letters</MenuItem>
+                  <MenuItem value="NSM">Natural Sciences and Mathematics</MenuItem>
+                  <MenuItem value="SOE">Education</MenuItem>
+                  <MenuItem value="SON">Nursing</MenuItem>
+                  <MenuItem value="SEA">Engineering and Architecture</MenuItem>
+                  <MenuItem value="SS">Social Sciences</MenuItem>
+                </CssTextField>
+              </FormControl>
               <div style={{ height: '2rem' }} />
               <CssTextField 
                 label="Cellphone Number" 
@@ -253,7 +280,7 @@ const Alert = () => {
               />
               <div style={{ height: '2rem' }} />
 
-              <Button variant="contained" disableElevation onClick={submit} disabled={!agreed || !network || !name || !number || !recaptcha || loading}>Submit</Button>
+              <Button variant="contained" disableElevation onClick={submit} disabled={!agreed || !network || !name || !number || !cluster || !recaptcha || loading}>Submit</Button>
 
             </CardContent>
           </Card>

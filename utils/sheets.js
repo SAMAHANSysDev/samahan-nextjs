@@ -1,6 +1,6 @@
 import { google } from "googleapis";
 
-export default async function addAlertEntry({ name, number, network }) {
+export default async function addAlertEntry({ name, cluster, number, network }) {
   try {
     const scopes = ["https://www.googleapis.com/auth/spreadsheets"];
     const jwt = new google.auth.JWT(
@@ -17,7 +17,7 @@ export default async function addAlertEntry({ name, number, network }) {
       insertDataOption: 'INSERT_ROWS',
       resource: {
         values: [
-          [name, number, network]
+          [name, cluster, number, network]
         ],
       }
     }).catch((err) => {

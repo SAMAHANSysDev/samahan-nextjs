@@ -3,12 +3,12 @@ import addAlertEntry from 'utils/sheets';
 export default async function handler(req, res) {
   if (req.method === 'POST') {
     try {
-      const { name, number, network } = req.body;
-      if (!name || !number || !network) {
+      const { name, number, network, cluster } = req.body;
+      if (!name || !number || !network || !cluster) {
         res.status(500).send({ error: 'Missing field entry!' });
       }
 
-      res.status(200).json(await addAlertEntry({ name, number, network }));
+      res.status(200).json(await addAlertEntry({ name, number, network, cluster }));
     } catch (err) {
       res.status(500).send({ error: err });
     }
