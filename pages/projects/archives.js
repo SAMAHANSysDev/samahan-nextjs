@@ -69,6 +69,9 @@ const Page = ({ archives }) => {
       <Grid container direction="column" spacing={3} alignItems="center" justify="center" className={classes.bannerContainer}>
         <Grid item style={{ textAlign: 'center' }}>
           <Typography variant="h2" style={{ lineHeight: '0.8em' }}>
+            STUDENT ASSEMBLY
+          </Typography>
+          <Typography variant="h3">
             ARCHIVES
           </Typography>
         </Grid>
