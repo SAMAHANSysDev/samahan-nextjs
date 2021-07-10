@@ -86,7 +86,7 @@ const Page = ({ archives }) => {
                       <Typography variant="h5" className={classes.link} style={{ color: theme.palette.primary.main }}>{archive.title.rendered}</Typography>
                     </Grid>
                     <Grid item>
-                      <Typography className={classes.link}>{format(new Date(archive.date), 'MMMM d, yyyy')}</Typography>
+                      <Typography className={classes.link}>{format(new Date(archive.acf.date), 'MMMM d, yyyy')}</Typography>
                     </Grid>
                   </Grid>
                 </CardActionArea>
