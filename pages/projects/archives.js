@@ -6,7 +6,7 @@ import WP from 'utils/wordpress';
 import CardActionArea from "@material-ui/core/CardActionArea";
 
 import dynamic from 'next/dynamic';
-import { format } from 'date-fns';
+import { format, parse } from 'date-fns';
 
 const Item = dynamic(() => import('components/home/newsfeed-item'));
 
@@ -62,6 +62,7 @@ const Page = ({ archives }) => {
   // Get the data of the current list.
   const classes = useStyles();
   const theme = useTheme();
+  
 
   return (
     <div className={classes.rootContainer}>
@@ -86,7 +87,7 @@ const Page = ({ archives }) => {
                       <Typography variant="h5" className={classes.link} style={{ color: theme.palette.primary.main }}>{archive.title.rendered}</Typography>
                     </Grid>
                     <Grid item>
-                      <Typography className={classes.link}>{format(new Date(archive.acf.date), 'MMMM d, yyyy')}</Typography>
+                      <Typography className={classes.link}>{format(parse(archive.acf.date, 'dd/MM/yyyy', new Date()), 'MMMM d, yyyy')}</Typography>
                     </Grid>
                   </Grid>
                 </CardActionArea>
