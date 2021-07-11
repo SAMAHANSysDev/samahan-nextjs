@@ -48,9 +48,9 @@ module.exports = [
         desc: "For many years, it has always been a challenge to keep the students up to date about their money banked in SAMAHAN. The SAMAHAN Live Budget Tracker is a real time budget update, displayed live on the SAMAHAN website. It will project expenses and current standing of the budget.  Along with all the events, this tracker competently used to work more effectively and promote transparency for the Ateneans. "
       },
       {
-        name: "Student Assemble Archives",
+        name: "Student Assembly Archives",
         href: "/projects/archives",
-        title: "Student Assemble Archives",
+        title: "Student Assembly Archives",
         desc: "List of all Student Assemble Archives",
       },
     ]
