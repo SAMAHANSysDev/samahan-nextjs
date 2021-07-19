@@ -82,6 +82,7 @@ const Page = ({ posts, users }) => {
           })}
         </Grid>
       </div>
+      {/*
       <div className={classes.footerContainer}>
         <Grid container direction="row" alignItems="center">
           <Grid item sm={6}>
@@ -107,6 +108,7 @@ const Page = ({ posts, users }) => {
           </Grid>
         </Grid>
       </div>
+      */}
     </div>
   );
 };
