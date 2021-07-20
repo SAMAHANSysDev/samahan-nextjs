@@ -4,6 +4,7 @@ import Typography from '@material-ui/core/Typography';
 
 import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
+import CardMedia from '@material-ui/core/CardMedia';
 import { useRouter } from 'next/router';
 import CardContent from '@material-ui/core/CardContent';
 import Button from 'components/Button';
@@ -21,8 +22,10 @@ const useStyles = makeStyles((theme) => ({
     borderRadius: 20,
     borderColor: theme.palette.primary.main,
     height: '100%',
-    padding: 20
   },
+  media: {
+    height: 200
+  }
 }));
 
 const cleanURL = (url) => {
@@ -30,7 +33,7 @@ const cleanURL = (url) => {
 }
 
 
-const Item = ({ item, author }) => {
+const Item = ({ item }) => {
   const date = new Date(item.date);
 
   const classes = useStyles();
@@ -38,6 +41,20 @@ const Item = ({ item, author }) => {
 
   const [renderedExcerpt, setRenderedExcerpt] = React.useState('');
   const [renderedTitle, setRenderedTitle] = React.useState('');
+
+  const coauthors = () => {
+    return item.coauthors.reduce((accumulator, coauthor, i) => {
+      let toReturn = '';
+      if (item.coauthors.length - 2 === i) {
+        toReturn = `${accumulator}${coauthor.display_name} and `
+      } else if (item.coauthors.length - 1 !== i) {
+        toReturn = `${accumulator}${coauthor.display_name}, `
+      } else {
+        toReturn = `${accumulator}${coauthor.display_name}`
+      }
+      return toReturn
+    }, '');
+  };
 
   React.useEffect(() => {
     if ('rendered' in item.excerpt) {
@@ -53,16 +70,27 @@ const Item = ({ item, author }) => {
 
   return (
     <Grid item xs={12} md={4}>
-      <Card className={classes.cardRoot} elevation={0} variant="outlined">
-        <CardContent>
+      <Card className={classes.cardRoot} elevation={0} variant="outlined" style={{
+        backgroundImage: `url(${item.featured_image_src})`,
+        backgroundPosition: 'center center',
+        backgroundSize: 'cover'
+      }}>
+        <CardContent style={{ 
+          backgroundImage: item.featured_image_src ? 'linear-gradient(rgba(0,0,0,1), rgba(0,0,0.8), rgba(0,0,0,0))' : '', 
+          color: item.featured_image_src ? 'white' : '', 
+          padding: 40 
+        }}>
           <Typography gutterBottom variant="h5" component="h2" dangerouslySetInnerHTML={{ __html: renderedTitle }} />
-          { author ? 
-            <Typography variant="body2" color="textSecondary" component="p">By <b>{author.name}</b></Typography>
+          { item.coauthors ? 
+            <Typography variant="body2" component="p">By <b>{coauthors()}</b></Typography>
           : null }
-          <Typography variant="body2" color="textSecondary" component="p">on <b>{date.toDateString()}</b></Typography>
-          <Typography variant="body1" color="textSecondary" component="p" dangerouslySetInnerHTML={{ __html: renderedExcerpt }} />
+          <Typography variant="body2" component="p">on <b>{date.toDateString()}</b></Typography>
+          <Typography variant="body1" component="p" dangerouslySetInnerHTML={{ __html: renderedExcerpt }} />
         </CardContent>
-        <CardActions>
+        <CardActions style={{ 
+          backgroundImage: item.featured_image_src ? 'linear-gradient(rgba(0,0,0,0), rgba(0,0,0,1))' : '', 
+          padding: 40 
+        }}>
           <Button variant="contained" color="primary" disableElevation onClick={() => router.push(`${cleanURL(item.link)}`)}>
             Read More
           </Button>

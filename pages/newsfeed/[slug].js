@@ -43,7 +43,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const page = (props) => {
-  const { post, author, recent: recentNews } = props;
+  const { post, recent: recentNews } = props;
   const classes = useStyles();
   const router = useRouter();
   const theme = useTheme();
@@ -69,6 +69,20 @@ const page = (props) => {
     )
   }
 
+  const coauthors = () => {
+    return post.coauthors.reduce((accumulator, coauthor, i) => {
+      let toReturn = '';
+      if (post.coauthors.length - 2 === i) {
+        toReturn = `${accumulator}${coauthor.display_name} and `
+      } else if (post.coauthors.length - 1 !== i) {
+        toReturn = `${accumulator}${coauthor.display_name}, `
+      } else {
+        toReturn = `${accumulator}${coauthor.display_name}`
+      }
+      return toReturn
+    }, '');
+  };
+
   return (
     <div>
       <Head>
@@ -77,9 +91,9 @@ const page = (props) => {
         <meta name="twitter:card" value="summary" />
         <meta property="og:title" content={post.title.rendered} />
         <meta property="og:type" content="article" />
-        {post.jetpack_featured_media_url ? <>
-          <meta property="og:image" content={post.jetpack_featured_media_url} /> 
-          <meta name="twitter:image" content={post.jetpack_featured_media_url} />
+        {post.featured_image_src ? <>
+          <meta property="og:image" content={post.featured_image_src} /> 
+          <meta name="twitter:image" content={post.featured_image_src} />
         </> : <>
           <meta property="og:image" content={`${cdnURL}/samahan-seo-default.png`} />
           <meta name="twitter:image" content={`${cdnURL}/samahan-seo-twitter-default.png`} />
@@ -94,13 +108,27 @@ const page = (props) => {
             {post.title.rendered}
           </Typography>
           <Typography variant="h6">
-            by {author.name} on {new Date(post.date).toDateString()}
+            by {coauthors()} on {new Date(post.date).toDateString()}
           </Typography>
         </Grid>
       </Grid>
       <Grid container direction="row" spacing={6} className={classes.contentContainer}>
           <Grid item xs={12} sm={8}>
-            { post.jetpack_featured_media_url ? <img src={post.jetpack_featured_media_url} style={{ width: '100%', marginTop: 40, marginBottom: 20 }} /> : null }
+            { post.featured_image_src ? (
+              <Paper variant="outlined" style={{ 
+                borderRadius: 20, 
+                marginBottom: 20, 
+                borderColor: theme.palette.primary.main,
+                overflow: 'hidden'
+              }}>
+                <img src={post.featured_image_src} style={{ width: '100%' }} />
+                { post.featured_image_caption ? (
+                  <Typography variant="body2" style={{ margin: 10, fontStyle: 'italic' }}>
+                    {post.featured_image_caption}
+                  </Typography>
+                ) : null }
+              </Paper>
+            ) : null }
             
             <Typography variant="body1" component="div" style={{ width: '100%', lineHeight: '2rem' }} dangerouslySetInnerHTML={{ __html: post.content.rendered }} />
           </Grid>
@@ -154,13 +182,12 @@ export const getStaticProps = async (ctx) => {
     res = []
   }
   if (res.length > 0) {
-    const [author, recent] = await Promise.all([
-      WP.users().id(res[0].author),
+    const [recent] = await Promise.all([
       WP.posts().exclude(res[0].id).perPage(5).page(1)
     ]);
-    return { props: { post: res[0], author, recent }, revalidate: 10 };
+    return { props: { post: res[0], recent }, revalidate: 10 };
   }
-  return { props: { post: null, author: null, recent: [] }, revalidate: 10 };
+  return { props: { post: null, recent: [] }, revalidate: 10 };
 }
 
 export default page;

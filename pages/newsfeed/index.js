@@ -52,13 +52,9 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-const Page = ({ posts, users }) => {
+const Page = ({ posts }) => {
   // Get the data of the current list.
   const classes = useStyles();
-
-  const getAuthor = (id) => {
-    return users.find((user) => user.id === id);
-  }
 
   return (
     <div className={classes.rootContainer}>
@@ -78,7 +74,7 @@ const Page = ({ posts, users }) => {
         <Grid container direction="row" spacing={3} alignItems="stretch">
           {posts.map((post) => {
             // Render one Item component for each one.
-            return <Item key={post.id} item={post} author={getAuthor(post.author)} />;
+            return <Item key={post.id} item={post} />;
           })}
         </Grid>
       </div>
@@ -115,17 +111,16 @@ const Page = ({ posts, users }) => {
 
 export async function getStaticProps(ctx) {
   try {
-    const [res, users] = await Promise.all([
+    const [res] = await Promise.all([
       WP.posts().perPage(100),
-      WP.users().perPage(100)
     ]);
     if (res) { 
-      return { props: { posts: res, users }, revalidate: 10 };
+      return { props: { posts: res }, revalidate: 10 };
     } else {
-      return { props: { posts: [], users }, revalidate: 10 };
+      return { props: { posts: [] }, revalidate: 10 };
     }
   } catch (err) {
-    return { props: { posts: [], users: [] }, revalidate: 10 };
+    return { props: { posts: [] }, revalidate: 10 };
   }
 }
 
