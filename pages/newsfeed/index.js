@@ -123,7 +123,7 @@ const Page = ({ posts }) => {
 export async function getStaticProps(ctx) {
   try {
     const [res] = await Promise.all([
-      WP.posts().perPage(100),
+      WP.posts().categories(39).perPage(100),
     ]);
     if (res) { 
       return { props: { posts: res }, revalidate: 10 };
