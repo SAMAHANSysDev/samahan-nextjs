@@ -110,7 +110,7 @@ const Page = ({ posts }) => {
       <div className={classes.contentContainer} style={{ marginBottom: 50}}>
         <Grid container direction="column" spacing={3} alignItems="center" justify="center" >
           <Grid item style={{ textAlign: 'center' }}>
-          <Button variant="contained" color="primary" disableElevation onClick={() => {router.push('/newsfeed/archives')}}>
+          <Button variant="contained" color="primary" disableElevation>
             Archived Posts
           </Button>
           </Grid>
