@@ -88,7 +88,7 @@ const page = (props) => {
       <Head>
         <title>{post.title.rendered} - SAMAHAN Newsfeed</title>
         <meta name="description" content={post.excerpt.rendered.replace(/<[^>]+>/g, '')} />
-        <meta name="twitter:card" value="summary" />
+        <meta name="twitter:card" value="summary_large_image" />
         <meta property="og:title" content={post.title.rendered} />
         <meta property="og:type" content="article" />
         {post.featured_image_src ? <>
