@@ -71,14 +71,24 @@ const Item = ({ item }) => {
   return (
     <Grid item xs={12} md={4}>
       <Card className={classes.cardRoot} elevation={0} variant="outlined" style={{
-        backgroundImage: `url(${item.featured_image_src})`,
-        backgroundPosition: 'center center',
-        backgroundSize: 'cover'
+        position: 'relative'
       }}>
-        <CardContent style={{ 
+        <div style={{
+          position: 'absolute',
+          width: '100%',
+          height: '100%',
+          backgroundImage: `url(${item.featured_image_src})`,
+          backgroundPosition: 'center center',
+          backgroundSize: 'cover',
+          zIndex: 0,
+          filter: 'blur(5px)',
+          WebkitFilter: 'blur(5px)'
+        }} />
+        <CardContent style={{
           backgroundImage: item.featured_image_src ? 'linear-gradient(rgba(0,0,0,1), rgba(0,0,0.8), rgba(0,0,0,0))' : '', 
           color: item.featured_image_src ? 'white' : '', 
-          padding: 40 
+          padding: 40,
+          zIndex: 1
         }}>
           <Typography gutterBottom variant="h5" component="h2" dangerouslySetInnerHTML={{ __html: renderedTitle }} />
           { item.coauthors ? 
@@ -87,7 +97,8 @@ const Item = ({ item }) => {
           <Typography variant="body2" component="p">on <b>{date.toDateString()}</b></Typography>
           <Typography variant="body1" component="p" dangerouslySetInnerHTML={{ __html: renderedExcerpt }} />
         </CardContent>
-        <CardActions style={{ 
+        <CardActions style={{
+          zIndex: 1,
           backgroundImage: item.featured_image_src ? 'linear-gradient(rgba(0,0,0,0), rgba(0,0,0,1))' : '', 
           padding: 40 
         }}>
