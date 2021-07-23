@@ -63,7 +63,7 @@ const Page = ({ posts }) => {
       <Grid container direction="column" spacing={3} alignItems="center" justify="center" className={classes.bannerContainer}>
         <Grid item style={{ textAlign: 'center' }}>
           <Typography variant="h2" style={{ lineHeight: '0.8em' }}>
-            SAMAHAN NEWSFEED
+            SAMAHAN NEWSFEED ARCHIVE
           </Typography>
           <Typography variant="h4">
             News and Stories of and for the Student Body
@@ -110,8 +110,8 @@ const Page = ({ posts }) => {
       <div className={classes.contentContainer} style={{ marginBottom: 50}}>
         <Grid container direction="column" spacing={3} alignItems="center" justify="center" >
           <Grid item style={{ textAlign: 'center' }}>
-          <Button variant="contained" color="primary" disableElevation onClick={() => {router.push('/newsfeed/archives')}}>
-            Archived Posts
+          <Button variant="contained" color="primary" disableElevation onClick={() => {router.push('/newsfeed')}}> 
+            Back to Newsfeed
           </Button>
           </Grid>
         </Grid>
@@ -123,7 +123,7 @@ const Page = ({ posts }) => {
 export async function getStaticProps(ctx) {
   try {
     const [res] = await Promise.all([
-      WP.posts().categories(39).perPage(100),
+      WP.posts().categories(209).perPage(100),
     ]);
     if (res) { 
       return { props: { posts: res }, revalidate: 10 };

@@ -9,6 +9,9 @@ import { useRouter } from 'next/router';
 import CardContent from '@material-ui/core/CardContent';
 import Button from 'components/Button';
 import Grid from '@material-ui/core/Grid';
+import { useSpring } from 'react-spring';
+import { Transition, animated } from 'react-spring'
+import { useState } from 'react';
 
 import { makeStyles } from '@material-ui/core/styles';
 
@@ -34,6 +37,16 @@ const cleanURL = (url) => {
 
 
 const Item = ({ item }) => {
+  
+
+  const [hovered, isHovered] = useState(false);
+  const hoverProps = useSpring({
+    from: {filter: 'blur(5px)',  WebkitFilter: 'blur(5px)'},
+    to: {
+      filter: hovered ? 'blur(0px)' : 'blur(5px)',  
+      WebkitFilter: hovered ? 'blur(0px)' : 'blur(5px)'
+    }
+  })
   const date = new Date(item.date);
 
   const classes = useStyles();
@@ -73,7 +86,7 @@ const Item = ({ item }) => {
       <Card className={classes.cardRoot} elevation={0} variant="outlined" style={{
         position: 'relative'
       }}>
-        <div style={{
+        <animated.div style={{
           position: 'absolute',
           width: '100%',
           height: '100%',
@@ -81,15 +94,18 @@ const Item = ({ item }) => {
           backgroundPosition: 'center center',
           backgroundSize: 'cover',
           zIndex: 0,
-          filter: 'blur(5px)',
-          WebkitFilter: 'blur(5px)'
-        }} />
+          ...hoverProps
+        }}
+        onMouseOver={() => isHovered(!hovered)}
+        onMouseOut={() => isHovered(!hovered)}
+        />
         <CardContent style={{
           backgroundImage: item.featured_image_src ? 'linear-gradient(rgba(0,0,0,1), rgba(0,0,0.8), rgba(0,0,0,0))' : '', 
           color: item.featured_image_src ? 'white' : '', 
           padding: 40,
           zIndex: 1
-        }}>
+        }} onMouseOver={() => isHovered(!hovered)}
+        onMouseOut={() => isHovered(!hovered)}>
           <Typography gutterBottom variant="h5" component="h2" dangerouslySetInnerHTML={{ __html: renderedTitle }} />
           { item.coauthors ? 
             <Typography variant="body2" component="p">By <b>{coauthors()}</b></Typography>
@@ -101,7 +117,9 @@ const Item = ({ item }) => {
           zIndex: 1,
           backgroundImage: item.featured_image_src ? 'linear-gradient(rgba(0,0,0,0), rgba(0,0,0,1))' : '', 
           padding: 40 
-        }}>
+        }}
+        onMouseOver={() => isHovered(!hovered)}
+        onMouseOut={() => isHovered(!hovered)}>
           <Button variant="contained" color="primary" disableElevation onClick={() => router.push(`${cleanURL(item.link)}`)}>
             Read More
           </Button>
