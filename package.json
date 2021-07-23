@@ -28,6 +28,7 @@
         "react-images-viewer": "^1.6.7",
         "react-responsive-carousel": "^3.2.18",
         "react-slideshow-image": "^3.4.6",
+        "react-spring": "^9.2.4",
         "react-twitter-embed": "^3.0.3",
         "swr": "^0.5.6",
         "wpapi": "^1.2.2"
